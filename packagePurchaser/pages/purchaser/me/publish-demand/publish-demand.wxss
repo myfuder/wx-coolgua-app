@@ -1,0 +1,171 @@
+/**index.wxss**/
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;/*清除浮动*/
+  visibility:hidden;
+}
+.clearfix{zoom:1;/*为IE6，7的兼容性设置*/}
+page {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  position: relative;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+.con-main {
+  width: 100%;
+  box-sizing: border-box;
+}
+.con-main .top-info{
+  background:#fff;
+  padding: 0 30rpx;
+}
+.con-main .form-info {
+  display: flex;
+  padding:30rpx 0rpx;
+  border-bottom:1px solid #f5f5f5;
+}
+.con-main .form-info .form-title{
+  color: #666666;
+  font-size:28rpx;
+  float:left;
+}
+.con-main .form-item{
+  padding:30rpx 0rpx;
+  border-bottom:1px solid #f5f5f5;
+}
+.form-item .form-title {
+  color: #666666;
+  font-size:28rpx;
+  float:left;
+}
+.form-item .form-name{
+  color: #333333;
+  font-size:28rpx;
+  float:right;
+}
+/* 品类样式 */
+.con-item {
+  margin-top: 30rpx;
+}
+
+.con-item:first-child {
+  margin-top: 0;
+}
+
+.con-item .search-par,
+.con-item .child-item {
+  display: flex;
+  align-items: center;
+}
+
+.con-item image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.con-item .con-title {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 28rpx;
+  margin-left: 23rpx;
+}
+
+.con-item .search-child {
+  margin-top: 8rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-child .child-item {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+}
+
+/* 品类样式-完 */
+/* 表单提交 */
+.form-list .form-info {
+  flex-direction: column;
+}
+.form-info .form-img {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 20rpx;
+}
+.type-area {
+  margin-top: 30rpx;
+}
+.form-list .textarea {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 34rpx;
+  box-sizing: border-box;
+  color:#333333;
+  height:60rpx;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.form-list .input {
+  font-size: 28rpx;
+  line-height: 34rpx;
+  float:right;
+  text-align:right;
+  color:#333333;
+}
+.form-list .input-placeholder {
+  color: #CCC;
+}
+.form-list .upload-button {
+  width: 85%;
+  height: 80rpx;
+  border: 1px solid #23c295;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:32rpx;
+  color:#23c295;
+  line-height: 34rpx;
+  margin: 20rpx auto 0;
+}
+/* 表单提交-完 */
+/*按钮*/
+.buttons-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60rpx 30rpx;
+}
+.buttons-area .button {
+  width:46%;
+  height: 80rpx;
+  lin-height: 80rpx;
+  text-align:center;
+  border-radius:50rpx;
+  margin: 0;
+  display:inline-block;
+}
+.buttons-area .submit-button {
+  background:#23c395;
+}
+.submit-button text {
+  color: #fff;
+  font-size:36rpx;
+  line-height: 80rpx;
+}
+.buttons-area .return{
+  background:#fff;
+  margin-right:6%;
+}
+.return text {
+  color: #333333;
+  font-size:36rpx;
+  line-height: 80rpx;
+}

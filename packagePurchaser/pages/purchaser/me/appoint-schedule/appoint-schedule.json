@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "coutTimeButton": "../../../../../components/coutTimeButton/coutTimeButton",
+    "huiyi-item": "/components/huiyi-item/huiyi-item",
+    "countDown":"./countDown/index"
+  }
+}

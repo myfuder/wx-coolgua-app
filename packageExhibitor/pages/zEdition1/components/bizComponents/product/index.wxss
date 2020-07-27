@@ -1,0 +1,41 @@
+/* packageExhibitor/pages/zEdition1/components/bizComponents/product/index.wxss */
+@import '../personConnect/index.wxss'
+
+.body>image{
+  width: 150rpx;
+  height: 150rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(225,225,225,1);
+  border-radius:10rpx;
+  margin-right: 29rpx;
+}
+.body>view{
+  display: flex;
+  flex-direction: column;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.footer>text{
+  width:160rpx;
+  height:60rpx;
+  line-height: 58rpx;
+  box-sizing: border-box;
+  border:1px solid rgba(255,45,48,1);
+  border-radius:4rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,45,48,1);
+  text-align: center;
+}
+.footer>text:first-of-type{
+  color: #FF2D30;
+  margin-right: 50rpx;
+}
+.footer>text:last-of-type{
+  color: white;
+  background-color: #FF2D30;
+}

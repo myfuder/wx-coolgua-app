@@ -1,0 +1,91 @@
+.top_title{
+	font-size: 32rpx;
+	color: #333;
+	text-align: center;
+	font-weight: 600;
+}
+.rule{
+	padding:30rpx;
+}
+.rule view:first-child{
+	flex: 1;
+}
+.rule view:last-child{
+	flex: 3.3;
+}
+
+/* 底部列表项 */
+.choose_items{
+	display: flex;
+	background: #fff;
+	justify-content:space-between;
+	align-items: center;
+	padding: 40rpx 30rpx 40rpx 20rpx;
+	border-bottom: 1rpx solid rgba(228,231,237,1);
+	margin-bottom: 20rpx;
+	border-radius:20rpx;
+}
+.items_l{
+	flex: 1;
+	margin-right: 20rpx;
+}
+.items_l view{
+	width:29rpx;
+	height: 29rpx;
+	border-radius: 4rpx;
+	display: block;
+	margin: 15rpx auto 0;
+
+}
+.items_l .items_l_b{
+	border: 1rpx solid #eee;
+}
+.items_l .items_l_w image{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.items_r{
+	flex: 10;
+}
+.items_title{
+	font-size:28rpx;
+	font-family:Microsoft YaHei;
+	font-weight:600;
+	color:rgba(51,51,51,1);
+}
+.items_record{
+	font-size:24rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin: 10rpx 0 0;
+}
+checkbox:checked{
+	background-color: #F77400;
+}
+/* 底部按钮 */
+.items_btns{
+	background: #fff;
+	padding:15rpx;
+	display: flex;
+	justify-content: center;
+	font-size:32rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(255,45,48,1);
+	
+}
+.items_btns view{
+	width:320rpx;
+	height:80rpx;
+	margin: 0 25rpx;
+	border:1rpx solid rgba(255,45,48,1);
+	border-radius:40rpx;
+	line-height: 80rpx;
+	text-align: center;
+}
+.items_btns .btnR{
+	color: #fff;
+	background:rgba(255,0,0,1);
+}

@@ -1,0 +1,227 @@
+/**app.wxss**/
+@import './dist/style/weui.wxss';
+@import "common.wxss";
+page{
+  height:100%;
+}
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    font-size: 34rpx;
+    color: #333;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    /*清除浮动*/
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+    /*为IE6，7的兼容性设置*/
+}
+
+.tab-bar .menu-item {
+    width: 25%;
+    text-align: center;
+}
+
+.tab-bar .menu-itemTab {
+    width: 25%;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.tab-bar .menu-item1 {
+    width: 24%;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.tab-bar .menu-item view {
+    font-size: 22rpx;
+    margin-top: 7rpx;
+}
+
+.tab-bar .menu-itemTab view {
+    font-size: 22rpx;
+    margin-top: 7rpx;
+}
+.tab-container{
+  height:calc(100% - 100rpx);
+  overflow: auto;
+}
+.img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.tab-bar {
+    position: fixed;
+    width: 100%;
+    height: 90rpx;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    padding-top: 10rpx;
+}
+
+.navigator-hover {
+    background-color: #fff;
+    opacity: 1;
+}
+
+.button {
+    margin: 130px;
+}
+
+.tab-container {
+    padding-bottom: 96rpx;
+}
+
+/* 弹窗 */
+.wx-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10000;
+    overflow-y: hidden;
+}
+
+.popup-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10rpx;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: #fff;
+}
+
+.popup-container .button {
+    background-color: #fff;
+    display: inline-block;
+    margin: 0;
+    border: none;
+    text-align: center;
+}
+
+.popup-container .button-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45rpx;
+}
+
+.popup-container .button-area .button {
+    width: 249rpx;
+    height: 69rpx;
+    border-radius: 2px;
+    border: 1px solid #FF2D30;
+    font-size: 28rpx;
+    line-height: 34rpx;
+    color: #FF2D30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40rpx;
+    border-radius: 30px;
+}
+
+.popup-container .button-area .button:last-child {
+    margin-right: 0;
+}
+
+.popup-container .button-area .submit-button {
+    color: rgba(255, 255, 255, 1);
+    background: linear-gradient(0deg, rgba(255, 45, 46, 1) 0%, rgba(253, 71, 108, 1) 100%);
+}
+
+/* 弹窗样式-完 */
+.input-placeholder {
+    color: #999999;
+}
+
+.picker-select-text {
+    color: #333 !important;
+}
+
+
+/* 暂无更多数据 */
+.msg_null {
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 150rpx;
+}
+
+.page-wrap {
+    display: flex;
+    flex-direction: row;
+    padding: 30rpx 118rpx;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-wrap>text:first-of-type,
+.page-wrap>text:last-of-type {
+    display: block;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: 1px solid rgba(216, 218, 222, 1);
+    border-radius: 3rpx;
+    font-size: 26rpx;
+    color: rgba(67, 67, 67, 1);
+    text-align: center;
+}
+
+.page-wrap>text:nth-child(2) {
+    font-size: 26rpx;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+}
+.con-main-video-live .live-tab{
+  font-size:36rpx;
+  font-weight:bold;
+  color:#333333;
+  display: block;
+  line-height: 30rpx;
+}
+.video-live-group{
+  margin-top:41rpx;
+}
+
+.title-line-long{
+  display: inline-block;
+  width:81rpx;
+  height:12rpx;
+  background:rgba(255,0,0,1);
+  border-radius:2rpx
+}
+.title-line-short{
+  display: inline-block;
+  width:12rpx;
+  height:12rpx;
+  background:rgba(0,0,0,1);
+  border-radius:2rpx;
+  margin-left:3rpx;
+}

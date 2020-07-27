@@ -1,0 +1,36 @@
+<!--商贸配对页面-->
+<view class="container">
+	<view class="appoint-list">
+		<view wx:for="{{list}}" wx:key="item" data-id="{{item.id}}" class="appoint-item">
+			<view class="appoint-info">
+				<view class="top-info">
+					<text class="appoint-name">{{item.name}}</text>
+					<!-- <view class="checked-area" bindtap="goDetailPage" data-id="{{item.id}}">
+						<image src="{{staticImageUrl}}/img/purchaser/checked.png" class="checked-img"></image>
+						<text class="checked-text">{{langTranslate['查看']}}</text>
+					</view> -->
+				</view>
+				<view class="info-item">
+					<text class="info-label">{{langTranslate['活动时间']}}：{{item.activityTime}} {{item.startTime}}-{{item.endTime}}</text>
+				</view>
+				<view class="info-item">
+					<text class="info-label">{{langTranslate['会议房间数量']}}：{{item.rooms}}</text>
+				</view>
+				<view class="info-item">
+					<text class="info-label">{{langTranslate['洽谈时长（分钟）']}}：{{item.negotiationTime}}</text>
+				</view>
+			</view>
+			<view class="appoint-buttons">
+				<view  wx:if="{{item.isStart === 0}}" class="go-meeting"  bindtap="goToMeeting" data-meetingid="{{item.meetingId}}" data-supplierid="{{item.supplierId}}">
+					<text class="button-text">{{langTranslate['进入会议']}}</text>
+				</view>
+				<view  wx:if="{{item.isStart === 1}}" class="count-down">
+					<text class="button-text">{{langTranslate['已结束']}}</text>
+				</view>
+				<view wx:if="{{item.isStart === 2}}" class="count-down">
+					<text class="button-text">{{langTranslate['会议开启倒计时']}}{{item.difftime}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

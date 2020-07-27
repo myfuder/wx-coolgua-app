@@ -1,0 +1,85 @@
+<!--activityDetail.wxml-->
+<!-- <view class="container">
+  <view class="exhibitor-index">
+    <view class="detail">
+      <view class="banner">
+        <image wx:if="{{banner!=undefined&&banner!=null}}" src="{{banner}}" mode='widthFix'></image>
+        <image wx:else src="{{staticImageUrl}}/img/banner.png" mode='widthFix'></image>
+      </view>
+      <view class="su-title">{{activityName}}</view>
+      <view class="flex-item item-text">
+        <view class="item-com">
+          <image src="{{staticImageUrl}}/img/person.png" mode='widthFix'></image>
+          报名人数：
+          <text>{{regNum}}</text>
+          人
+        </view>
+        <view class="item-com">
+          <image src="{{staticImageUrl}}/img/time.png" mode='widthFix'></image>
+          {{startTime}}至{{endTime}}
+        </view>
+        <view class="item-top item-com">
+          <image src="{{staticImageUrl}}/img/adress.png" mode='widthFix'></image>
+          {{address}}
+        </view>
+        <rich-text nodes="{{activityCon}}"></rich-text>
+      </view>
+    </view>
+    <view class="footer">
+      <button wx:if="{{signUpShow}}" class="tab-ticket" bindtap="signUp" data-id="{{id}}">参加报名</button>
+      <button wx:else class="tab-ticket" bindtap="cancelSignUp" data-id="{{id}}">取消报名</button>
+    </view>
+  </view>
+</view> -->
+
+<view class="activityDetail">
+  <view class="exhibitor-index">
+    <view class="activityHeader">
+      <view class="activityRules">活动规则 </view>
+      <view class="countdown"> 会议开启倒计时05:45:16 </view>
+    </view>
+    <view class="ruleDetail">
+        <view>1、最多只能勾选3个采购商</view>
+        <view>2、活动将在2020-05-01 14:00开始</view>
+        <view>3、......</view>
+    </view>
+  </view>
+  <view class="itemActivityBox">
+    <view class="itemActivity">
+      <view>
+        <view class="itemTitle">1.北京微展</view>
+        <view class="category"><view>产品类别：</view><view class="categoryBar">电动工具</view></view>
+        <view class="itemTime">预计时间：14:00-15:00</view>
+      </view>
+      <view class="entranceBox">
+        <checkbox class="entrance"></checkbox> 
+      </view>
+    </view>
+     <view class="itemActivity">
+      <view>
+        <view class="itemTitle">1.北京微展</view>
+        <view class="category"><view>产品类别：</view><view class="categoryBar">电动工具</view></view>
+        <view class="itemTime">预计时间：14:00-15:00</view>
+      </view>
+      <view class="entranceBox">
+       <checkbox class="entrance"></checkbox> 
+      </view>
+    </view>
+     <view class="itemActivity">
+      <view>
+        <view class="itemTitle">1.北京微展</view>
+        <view class="category"><view>产品类别：</view><view class="categoryBar">电动工具</view></view>
+        <view class="itemTime">预计时间：14:00-15:00</view>
+      </view>
+      <view class="entranceBox">
+        <checkbox class="entrance"></checkbox> 
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footrBar">
+      <view class="sure">确认</view>
+      <view class="goBack">返回上一页</view>
+    </view>
+  </view>
+</view>

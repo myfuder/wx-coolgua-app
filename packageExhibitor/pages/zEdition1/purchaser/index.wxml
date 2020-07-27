@@ -1,0 +1,32 @@
+<view class="content"  style="background: #F6F7FB;min-height: {{height}}px">
+    <filter-search bind:handleSearch="triggerSearch"></filter-search>
+    <view class="row-container">
+        <!--   <person-connect bind:handleShow="handleShow" wx:for="{{list1}}" value="{{item}}" wx:key="*this"
+                           list="list"></person-connect>-->
+        <!-- <person-connect bind:handleShow="handleShow"  wx:for="{{list1}}" value="{{item}}"  itemType="list" wx:key="*this"></person-connect> -->
+        <!-- <text class="loading" wx:if="{{isProgressing}}">{{loading}}...</text> -->
+        <!--    观众  List    -->
+        <block wx:for="{{list1}}">
+            <audienceItem wx:key="*this" item="{{item}}"></audienceItem>
+        </block>
+
+        <view wx:if="{{!isMore&&list1.length}}"
+              style="text-align: center;padding: 40rpx;font-size: 24rpx;padding-bottom: 140rpx;"
+        >
+            我也是有底线的~
+        </view>
+
+        <!--   pagination-->
+        <!--        <view class="page-wrap" wx:if="{{list1.length>0}}">-->
+        <!--            <text class="{{pageNumber!=1?'activeClass':''}}" bindtap="preClick">上一页</text>-->
+        <!--            <text>-->
+        <!--                <text style="color:#FF2D30;">{{pageNumber}}</text>-->
+        <!--                /{{pages}}-->
+        <!--            </text>-->
+        <!--            <text class="{{pageNumber!=pages?'activeClass':''}}" bindtap="nextClick">下一页</text>-->
+        <!--        </view>-->
+        <!--    </view>-->
+
+        <!--    <invitation-dialog param="{{dialogParam}}" wx:if="{{dialogShow}}" bind:handleHide="handleHide"></invitation-dialog>-->
+    </view>
+</view>

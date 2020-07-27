@@ -1,0 +1,25 @@
+/* packageExhibitor/pages/zEdition1/components/bizComponents/demand/index.wxss */
+@import "../personConnect/index.wxss"
+
+.link-str{
+  color:#FF2D2E;
+}
+.link-str::after{
+  content: '>';
+  margin-left: 10rpx;
+}
+/**收起隐藏**/
+.tagsHidden{
+  height:132rpx;
+  overflow:hidden;
+}
+.tagsShow{
+  height:;
+}
+.more{
+  text-align:right;
+}
+.more image{
+  width: 45rpx;
+  height: 25rpx;
+}

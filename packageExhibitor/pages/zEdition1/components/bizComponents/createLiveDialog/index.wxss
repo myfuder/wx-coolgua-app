@@ -1,0 +1,64 @@
+/* packageExhibitor/pages/zEdition1/components/bizComponents/createLiveDialog/index.wxss */
+.dialog-wrap{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.content{
+  width: 691rpx;
+  height: 734rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-left: 30rpx;
+  margin-top: 150rpx;
+}
+.content{
+  padding: 28rpx 35rpx;
+  box-sizing: border-box;
+}
+.content>text{
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-bottom: 20rpx;
+  display: block;
+}
+.content>input {
+  width:626rpx;
+  height:80rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(220,223,230,1);
+  margin-bottom: 29rpx;
+  padding-left: 21rpx;
+  box-sizing: border-box;
+}
+.poster-img{
+  width:280rpx;
+  height:280rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+}
+.btn-text{
+  width:315rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  background:linear-gradient(0deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-radius:4rpx;
+  display: inline-block;
+  text-align: center;
+  font-size:32rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:white !important;
+  margin-top: 50rpx;
+  margin-left: 145rpx;
+}
+
+.close-btn{
+  margin-top: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 340rpx;
+}

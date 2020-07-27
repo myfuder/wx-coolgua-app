@@ -1,0 +1,267 @@
+<!--packageExhibitor/pages/zEdition1/me/myInvitation/index.wxml-->
+<view class="content_one">
+
+  <!-- 切换的tabber -->
+   <view class="switch-tab">
+      <view class="{{language!='en' ? 'switch-tab_zh':'switch-tab_en'}}" wx:for="{{switchTabStr}}" wx:key="*this"
+            data-idx="{{idx}}" wx:for-index="idx" bindtap="switchTabClick">
+        <text class="switch-tab-item {{currentTabIndex == idx?'focus_style':''}}">{{item}}</text>
+      </view>
+    </view>
+
+  <!-- 我的预约 -->
+  <view wx:if="{{currentTabIndex == 0}}">
+    <!-- 我发起的邀约-->
+    <view class="yaoyue">
+      <view class="yaoyue_one">
+        <view class="yaoyue_one_word"><image style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;" src="https://www.coolgua.net/match_img/img/purchaser/icon_start.png"></image><text>{{Invitation_fa}}</text></view>
+      </view>
+      <view class="yaoyue_two  {{language!='en' ? '':'yaoyue_two_item_en'}}">
+        <view bindtap="switchTabClick_two" data-idx="{{idx}}" wx:for-index="idx"
+              class="yaoyue_two_item {{current_menus == item.unreadNum?'focus_style_two':''}}"
+              wx:for="{{menus}}" wx:key="*this">
+          <view class="fontsize">{{item.title}}</view>
+        </view>
+      </view>
+
+
+      <!--      内容-->
+      <view class="yaoyue_three"
+            wx:if="{{!loadingData}}"
+            wx:for="{{faqi_list}}" wx:key="*this"
+            data-idx="{{idx}}"
+            wx:for-index="idx">
+        <view class="yaoyue_three1">{{item.top}}</view>
+        <view class="yaoyue_three2">{{language!='en' ? item.company : item.companyEn }}</view>
+        <view class="yaoyue_three3">{{Invitation_time}}：{{item.activityTimeBegin}} - {{item.activityTimeEnd}}
+        </view>
+        <view class="yaoyue_three3">{{time_fa}}：{{item.createTime}}</view>
+        <view class="yaoyue_three3">{{time_beizhu}}：{{item.remark}}</view>
+
+        <!-- 正在进行 -->
+        <view class="yaoyue_three6" wx:if="{{current_menus == '0' && item.iska=='3'}}">
+          <view class="yaoyue_three6_left" bindtap="enterRoom" data-item="{{item}}">{{meeting_enter}}</view>
+          <view class="yaoyue_three6_right" bindtap="quxiao" data-item="{{item.id}}">{{Quxiao}}</view>
+        </view>
+        <!-- 已过期 -->
+        <view class="yaoyue_three5" wx:if="{{current_menus == '0' &&item.iska=='2'}}">
+          {{Expired}}
+        </view>
+        <!-- 倒计时 -->
+        <view class="yaoyue_three5 {{language!='en' ? '':'yaoyue_three5_en'}}"
+              wx:if="{{item.iska=='1' && current_menus == '0'}}">
+          <!--          {{meeting_start}}{{item.difftime}}-->
+          <coutTimeButton time="{{item.activityTimeBegin}}"></coutTimeButton>
+        </view>
+
+        <!-- 发起预约里的待确认 -->
+        <view class="yaoyue_three6" wx:if="{{current_menus == '1'}}">
+          <view class="yaoyue_three6_left" bindtap="quxiao" data-item="{{item.id}}">{{Quxiao}}</view>
+          <view class="yaoyue_three6_right" bindtap="tixing" data-item="{{item.id}}">{{Tixing}}</view>
+        </view>
+
+
+        <!-- 发起预约里的被拒绝 -->
+        <view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue1"
+              data-item="{{item}}" wx:if="{{current_menus == '2'}}">{{faqi_agian}}
+        </view>
+
+        <!-- 收到预约里的已取消 -->
+        <view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue1"
+              data-item="{{item}}" wx:if="{{current_menus == '3'}}">{{faqi_agian}}
+        </view>
+      </view>
+
+      <!--加载-->
+      <mp-loading wx:if="{{loadingData}}" style="padding: 100rpx;"></mp-loading>
+      <view wx:if="{{!loadingData&&faqi_list.length==0}}" style="font-size: 24rpx; padding: 40rpx;text-align: center">
+        暂时没有数据
+      </view>
+    </view>
+
+    <!-- 我收到的邀约 -->
+    <view class="yaoyue">
+      <view class="yaoyue_one {{language!='en' ? '':'yaoyue_two_item_en'}}">
+        <view class="yaoyue_one_word "><image style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;" src="https://www.coolgua.net/match_img/img/purchaser/icon_start.png"></image><text>{{Invitation_shou}}</text></view>
+      </view>
+      <view class="yaoyue_two  {{language!='en' ? '':'yaoyue_two_item_en'}}">
+        <view bindtap="switchTabClick_three" data-idx="{{item.unreadNum}}" wx:for-index="item.unreadNum"
+              class="yaoyue_two_item {{current_menus1 == item.unreadNum?'focus_style_two':''}}"
+              wx:for="{{menus1}}" wx:key="*this">
+          <view class="fontsize">{{item.title}}</view>
+        </view>
+      </view>
+
+      <!--内容-->
+      <view class="yaoyue_three"
+            wx:if="{{!loadingData1}}"
+            wx:for="{{shoudao_list}}" wx:key="*this" data-idx="{{idx}}" wx:for-index="idx">
+        <view class="yaoyue_three1">{{item.top}}</view>
+        <view class="yaoyue_three2">{{language!='en' ? item.company : item.companyEn }}</view>
+        <view class="yaoyue_three3">{{Invitation_time}}：{{item.activityTimeBegin}} - {{item.activityTimeEnd}}
+        </view>
+        <view class="yaoyue_three3">{{time_fa}}：{{item.createTime}}</view>
+        <view class="yaoyue_three3">{{time_beizhu}}：{{item.remark}}</view>
+        <!-- 收到预约里的已确认 -->
+        <!-- 正在进行 -->
+        <view class="yaoyue_three6" wx:if="{{current_menus1 == '0' && item.iska=='3'}}">
+          <view class="yaoyue_three6_left" bindtap="enterRoom" data-item="{{item}}">{{meeting_enter}}</view>
+          <view class="yaoyue_three6_right" bindtap="quxiao" data-item="{{item.id}}">{{Quxiao}}</view>
+        </view>
+        <!-- 已过期 -->
+        <view class="yaoyue_three5" wx:if="{{current_menus1 == '0' &&item.iska=='2'}}">
+          {{Expired}}
+        </view>
+        <!-- 倒计时 -->
+        <view class="yaoyue_three5 {{language!='en' ? '':'yaoyue_three5_en'}}"
+              wx:if="{{current_menus1 == '0' &&item.iska=='1'}}">
+          <coutTimeButton time="{{item.activityTimeBegin}}"></coutTimeButton>
+        </view>
+
+        <!-- 收到预约里的待确认 -->
+        <view class="yaoyue_three6" wx:if="{{current_menus1 == '1'}}">
+          <view class="yaoyue_three6_left" bindtap="queren" data-item="{{item.id}}">{{Queren}}</view>
+          <view class="yaoyue_three6_right" bindtap="jujue" data-item="{{item.id}}">{{Jujue}}</view>
+        </view>
+        <!-- 收到预约里的被拒绝 -->
+        <view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue2"
+              data-item="{{item.id}}" wx:if="{{current_menus1 == '2'}}">{{faqi_agian}}
+        </view>
+        <!-- 收到预约里的已取消 -->
+        <view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue2"
+              data-item="{{item.id}}" wx:if="{{current_menus1 == '3'}}">{{faqi_agian}}
+        </view>
+      </view>
+
+      <!--加载-->
+      <mp-loading wx:if="{{loadingData1}}" style="padding: 100rpx;"></mp-loading>
+
+      <view wx:if="{{!loadingData1&&shoudao_list.length==0}}"
+            style="font-size: 24rpx; padding: 40rpx;text-align: center">
+        暂时没有数据
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 我的日程 -->
+  <view wx:if="{{currentTabIndex == 1}}">
+    <!-- 日历 -->
+    <!-- 日历年月 -->
+    <view class='calendar_title flex_nowrap' style="padding-top: 20rpx;">
+      <view class='icon' bindtap='lastMonth'>
+        <image src='https://www.coolgua.net/match_img/img/tou.png'/>
+      </view>
+      <view class="calendar_title_riqi" wx:if="{{language!='en'}}">{{year}}年{{month}}月</view>
+      <view class="calendar_title_riqi" wx:else>{{month_en_list[month-1]}}\t\t\t{{year}}</view>
+      <view class='icon' bindtap='nextMonth'>
+        <image src='https://www.coolgua.net/match_img/img/jian.png'/>
+      </view>
+    </view>
+
+    <!-- 日历主体 -->
+    <view class='calendar'>
+      <view class='header'>
+        <view wx:for='{{date}}' wx:key='' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
+          {{item}}
+        </view>
+      </view>
+
+      <view class='date-box'>
+        <view wx:for='{{dateArr}}' wx:key='*this'>
+          <view class='{{item.dateNum==currentDay ? "nowDay" : ""}} {{item.isshow?"hashEvents":""}}'>
+            <view class='date-head' bindtap='lookHuoDong' data-year='{{year}}' data-month='{{month}}'
+                  data-datenum='{{item.dateNum}}'>
+              <view>{{item.dateNum}}</view>
+              <view class="smallRedCount">{{item.count}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <view style="background:#F6F7FB ">
+      <view class="shijian">
+        <view class="shijian_time" wx:if="{{language!='en'}}">{{month_one}}月{{day}}日{{week}}</view>
+        <view class="shijian_time" wx:else>
+          {{month_en_list[month_en_number-1]}}{{day}},{{weeken_list[weeken_number]}}
+        </view>
+      </view>
+      <view>
+        <view wx:for="{{rili_list}}" wx:key="*this" style="margin-bottom: 20rpx;padding: 20rpx;">
+          <huiyi-item item="{{item}}"
+                      type="1"
+                      status="0">
+          </huiyi-item>
+        </view>
+      </view>
+    </view>
+
+    <!--    <view class="yaoyue_three" wx:for="{{rili_list}}" wx:key="*this" data-idx="{{idx}}"
+              wx:for-index="idx">
+          <view class="yaoyue_three1">{{item.top}}</view>
+          <view class="yaoyue_three2">{{language!='en' ? item.company :item.companyEn }}</view>
+          <view class="yaoyue_three3">{{Contacts}}：{{language!='en' ? item.contact :item.contactEn }}</view>
+&lt;!&ndash;      <view class="yaoyue_three3">{{Invitation_time}}：{{item.activityTime }}</view>&ndash;&gt;
+
+      <view class="yaoyue_three3">{{time_fa}}：{{item.activityTimeBegin}} - {{item.activityTimeEnd}}</view>
+      &lt;!&ndash;      <view class="yaoyue_three3">{{time_beizhu}}：{{item.remark }}</view>&ndash;&gt;
+      <view class="yaoyue_three4 {{language!='en' ? '':'yaoyue_three4_en'}}" wx:if="{{item.iska=='3'}}"
+            bindtap="enterRoom" data-item="{{item}}">{{meeting_enter}}
+      </view>
+      <view class="yaoyue_three4 {{language!='en' ? '':'yaoyue_three4_en'}}" wx:if="{{item.supplierStatus==0}}"
+            bindtap="exhibitorInvite" data-id="{{item.id}}">完成
+      </view>
+      <view class="yaoyue_three4 {{language!='en' ? '':'yaoyue_three4_en'}}" wx:else>已完成</view>
+      &lt;!&ndash;<view class="yaoyue_three5 {{language!='en' ? '':'yaoyue_three5_en'}}" wx:if="{{item.iska=='1'}}">{{meeting_start}}{{item.difftime}}</view>
+      <view class="yaoyue_three5" wx:if="{{item.iska=='2'}}">{{Expired}}</view>&ndash;&gt;
+    </view>-->
+
+    <mp-loading wx:if="{{loadingRili}}" style="padding:20rpx;"></mp-loading>
+    <view wx:if="{{rili_list.length==0}}" style="padding: 40rpx;text-align: center;font-size: 24rpx;">暂无预约</view>
+  </view>
+
+  <view class="outer-wrap" wx:if="{{is_time_show}}">
+    <view class="content">
+      <label>{{label1}}：</label>
+      <input bindinput='inputChange' placeholder="{{label2}}"></input>
+      <label>{{label3}}：</label>
+      <picker mode="date" bindchange="bindDateChange">
+        <view class="picker">
+          {{date_time?date_time:label4}}
+        </view>
+      </picker>
+      <view class="time-wrap">
+        <view>
+          <label>{{label5}}：</label>
+          <picker mode="time" bindchange="bindTimeStartChange">
+            <view class="picker">
+              <image class="picker-icon"
+                     src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+              <text>{{timeStart?timeStart:label6}}</text>
+            </view>
+          </picker>
+        </view>
+        <view>
+          <label>{{label7}}：</label>
+          <picker mode="time" bindchange="bindTimeEndChange">
+            <view class="picker">
+              <image class="picker-icon"
+                     src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+              <text>{{timeEnd?timeEnd:label6}}</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <label>{{label8}}：</label>
+      <textarea placeholder="{{label9}}" bindinput='inputRemarkChange'></textarea>
+      <view class="footer">
+        <button bindtap="cancleClick">{{label10}}</button>
+        <button bindtap="sureClick">{{label11}}</button>
+      </view>
+    </view>
+  </view>
+</view>
+

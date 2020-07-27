@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "product": "../../components/bizComponents/product",
+    "exhibitorItem": "../../components/exhibitorItemProfile/exhibitorItemProfile"
+  }
+}

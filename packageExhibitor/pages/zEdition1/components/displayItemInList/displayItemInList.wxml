@@ -1,0 +1,32 @@
+<view style="padding:30rpx;border-radius: 20rpx;background: #fff;position: relative;"
+      class="flex">
+    <view style="width:140rpx;height:140rpx;">
+        <image
+            catchtap="go2productdetail"
+            style="max-width: 100%;max-height: 109%;border-radius: 10rpx;"
+            src="{{item.coverImage||default_product_image}}"></image>
+    </view>
+    <view style="padding-left: 20rpx;">
+        <view class="h3"   catchtap="go2productdetail">{{isEn?item.nameEn:item.name}}</view>
+        <view style="margin-top: 20rpx;">
+            <view class="small flex">
+                <view style="color: #666666;">{{langTranslate['所属类别']}}：</view>
+                <view style="flex-wrap: wrap;display: flex;flex:1;">
+                    <view class="wx-button grey small "
+                          wx:for="{{isEn?item.tagEnglishNames:item.tagNames}}"
+                          wx:key="*this"
+                          wx:for-item="tag"
+                          style="margin-bottom: 10rpx;margin-right: 20rpx;">{{tag}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="small flex flex-c-c" style="position: absolute;color: #FF2E2E;right: 40rpx;top: 20rpx;">
+        <image src="{{fireImage}}"
+        style="width:18rpx;height:21rpx;"
+        ></image>
+        <view style="margin-left:10rpx;">{{item.popular}}</view>
+    </view>
+</view>

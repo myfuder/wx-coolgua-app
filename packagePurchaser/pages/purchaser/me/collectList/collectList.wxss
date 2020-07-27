@@ -1,0 +1,110 @@
+/**index.wxss**/
+
+page{
+  width:100%;
+  /* height:100%; */
+}
+.tab-container{
+  width:100%;
+  /* height:100%; */
+  position:relative;
+  /* background:#f5f5f5; */
+}
+/* 搜索部分 */
+.search-area {
+  padding: 30rpx;
+}
+.search-area .search-top {
+  display: flex;
+  align-items: center;
+}
+.search-top .input-area {
+  width: 560rpx;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 14rpx 0 25rpx;
+  background:#f3f3f3;
+  border-radius:30rpx;
+}
+.input-area image {
+  width: 35rpx;
+  height: 35rpx;
+  flex-shrink: 0;
+}
+.input-area .input {
+  margin-left: 24rpx;
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 33rpx;
+}
+.search-top .search-label {
+  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-label text {
+  font-size: 28rpx;
+  color:#333333;
+  line-height: 34rpx;
+}
+.search-label image {
+  width: 27rpx;
+  margin-left: 17rpx;
+}
+.search-con {
+  padding-top: 24rpx;
+}
+.search-con .con-item {
+  margin-top: 50rpx;
+}
+.search-con .con-item:first-child {
+  margin-top: 0;
+}
+.con-item .search-par,
+.con-item .child-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.con-item image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.con-item .con-title {
+  font-size: 26rpx;
+  color:rgba(51,51,51,1);
+  line-height: 30rpx;
+  font-weight: 700;
+  margin-left: 12rpx;
+}
+.con-item .search-child {
+  margin-top: 8rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-child .child-item {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+}
+.child-item .con-title {
+  color: #666;
+  font-weight: 500;
+}
+/* 展品列表 */
+.con-area {
+  padding: 20rpx 30rpx 30rpx;
+  background:#f6f7fb;
+}
+.exhibition-list {
+  width: 100%;
+  padding-top: 10rpx;
+}
+/* 底部分页 */
+.bottom-page {
+  padding: 32rpx 0
+}

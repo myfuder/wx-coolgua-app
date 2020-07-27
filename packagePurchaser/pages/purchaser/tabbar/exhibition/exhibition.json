@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "pagination": "/components/pagination/pagination",
+        "exh-item": "/components/exh-item/exh-item"
+    }
+    
+}

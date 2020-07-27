@@ -1,0 +1,62 @@
+<!-- 我的预约/日程 -->
+<view class="container">
+	<view class="con-main">
+		<view class="tab-con">
+			<view class="date-area">
+				<view class="date-title">
+					<image src="{{staticImageUrl}}/img/xgyz/icon_left.png" bindtap="lastDateTap"></image>
+					<text>{{date}}</text>
+					<image src="{{staticImageUrl}}/img/xgyz/icon_right.png" bindtap="nextDateTap"></image>
+				</view>
+				<view class="day-area">
+					<view class="week-box">
+						<view wx:for="{{weekNameArr}}" wx:key="item" class="week-item">
+							<text class="week-text">{{item}}</text>
+						</view>
+					</view>
+					<view class="week-box day-list">
+						<view wx:for="{{firstDay}}" wx:key="item" class="week-item">
+							<text class="week-text"></text>
+						</view>
+						<view wx:for="{{lists}}" wx:key="item" class="week-item" bindtap="refreshDateTap" data-day="{{item.value}}">
+							<text class="week-text">{{item.value}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="date-tips">
+				<text>{{todayDate}}</text>
+			</view>
+			<view wx:if="{{myDateScheduleList.length > 0}}" class="meeting-list">
+				<view wx:for="{{myDateScheduleList}}" wx:key="item" data-id="{{item.id}}" class="meeting-item">
+					<view class="time-item">
+						<text class="company-name"> {{item.activityTimeBegin}}-{{item.activityTimeEnd}}</text>
+					</view>
+					<view class="top-info">
+						<text class="meeting-title">{{ item.top }}</text>
+					</view>
+					<view class="info-box">
+						<text class="company-name">{{item.company}}</text>
+					</view>
+					<view class="info-box">
+						<text class="company-name">{{langTranslate['联系人']}}：{{isEn ? item.contactEn : item.contact}}</text>
+					</view>
+					<view class="info-box">
+						<text class="company-name">{{langTranslate['发起时间']}}：{{item.createTime}}</text>
+					</view>
+					<view class="info-box">
+						<text class="company-name">{{langTranslate['备注留言']}}：{{item.remark}}</text>
+					</view>
+					<view class="opt-area" bindtap="goToMeeting" data-meetingid="{{item.meetingId}}" data-supplierid="{{item.supplierId}}">
+						<view class="complete" wx:if="{{item.purchaserStatus==0}}" bindtap="exhibitorInvite" data-id="{{item.id}}">
+							<text>完成</text>
+						</view>
+						<view wx:else class="completed">
+							<text>已完成</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,32 @@
+/* begin 搜索部分 */
+.search-area {
+  padding: 30rpx;
+}
+.search-area .search-top {
+  display: flex;
+  align-items: center;
+}
+.search-top .input-area {
+  width: 690rpx;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 14rpx 0 25rpx;
+  background: #f3f3f3;
+  border-radius: 30rpx;
+}
+.input-area image {
+  width: 35rpx;
+  height: 35rpx;
+  flex-shrink: 0;
+}
+.input-area .input {
+  margin-left: 24rpx;
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 33rpx;
+}
+
+/* end 搜索部分 */

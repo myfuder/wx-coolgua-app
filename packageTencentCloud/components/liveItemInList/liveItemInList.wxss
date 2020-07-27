@@ -1,0 +1,22 @@
+@import "../../components/common.wxss";
+
+.icon.active{
+    max-width:120rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    height:30rpx;
+    background:linear-gradient(0deg,rgba(50,203,159,1) 0%,rgba(4,186,124,1) 100%);
+    border-radius:10rpx 0 10rpx 0rpx;
+    color: #fff;
+    font-size: 24rpx;
+}
+.icon{
+    max-width:120rpx;
+    height:40rpx;
+    background:linear-gradient(0deg,#E0E0E0 0%,#E0E0E0 100%);
+    border-radius:10rpx 0 10rpx 0rpx;
+    color: #666;
+    font-size: 24rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}

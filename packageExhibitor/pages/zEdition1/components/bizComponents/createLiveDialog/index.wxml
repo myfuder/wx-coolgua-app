@@ -1,0 +1,10 @@
+<view class="dialog-wrap" wx:if="{{visibleDialog}}">
+  <view class="content">
+    <text>{{label.Live_video_theme}}：</text>
+    <input fixed="true" bindinput="getInputValue" placeholder="{{label.placeHolder}}" value="{{inputTheme}}"></input>
+    <text>{{label.posterImg}}：</text>
+    <image bindtap="uploadImage" src="{{imageSrc?imageSrc:'https://www.coolgua.net/match_img/img/add_img.png'}}" class="poster-img"></image>
+    <text class="btn-text" bindtap="submit">{{label.start}}</text>
+  </view>
+  <image src="https://www.coolgua.net/match_img/img/close.png" bindtap="closeDialog" class="close-btn"></image>
+</view>

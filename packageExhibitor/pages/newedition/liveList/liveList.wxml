@@ -1,0 +1,39 @@
+<!--packageExhibitor/pages/newedition/liveList/liveList.wxml-->
+<view id="live-list">
+  <view class="live-list-item">
+    <view class="title" style="display:flex;align-items:center;justify-content:space-between;">
+      <view class="con-main-video-live" style="">
+        <p class="live-tab">正在直播</p>
+        <p class="live-tab">
+          <span class="title-line-long"></span>
+          <span class="title-line-short"></span>
+        </p>
+      </view>
+      <view class="intination-live">
+        发起直播
+      </view>
+    </view>
+    <view class="video-live-group">
+      <video-live-page live_name="直播名称"></video-live-page>
+      <video-live-page live_name="直播名称" style="float:right"></video-live-page>
+    </view>
+  </view>
+  <view class="live-list-item" style="margin:60rpx 0;">
+    <view class="title" style="display:flex;align-items:center;justify-content:space-between;">
+      <view class="con-main-video-live" style="">
+        <p class="live-tab">历史直播</p>
+        <p class="live-tab">
+          <span class="title-line-long"></span>
+          <span class="title-line-short"></span>
+        </p>
+      </view>
+      <!-- <view class="intination-live">
+        发起直播
+      </view> -->
+    </view>
+      <view class="video-live-group">
+        <video-live-page play_custom="直播回放"></video-live-page>
+        <video-live-page play_custom="直播回放" style="float:right"></video-live-page>
+      </view>
+  </view>
+</view>

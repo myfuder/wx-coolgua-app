@@ -1,0 +1,13 @@
+<view class="_div bg-logo">
+  <view class="_div bg">
+    <view class="_div title">{{fromNick}} 邀请您进行通话</view>
+    <view class="_div btn">
+      <view bindtap="receive" class="_div  close answer">
+        <image src="../../../common/image/call.png" class="_image operation"></image>
+      </view>
+      <view bindtap="reject" class="_div  close">
+        <image src="../../../common/image/close.png" class="_image operation"></image>
+      </view>
+    </view>
+  </view>
+</view>

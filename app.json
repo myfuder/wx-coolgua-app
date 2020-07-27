@@ -1,0 +1,133 @@
+{
+  "pages": [
+    "pages/indexnew/index",
+    "pages/indexExhibitor/indexExhibitor",
+    "pages/index/index",
+    "pages/role/role",
+    "pages/view/view",
+    "pages/logs/logs",
+    "pages/appoint-schedule-plus/appoint-schedule-plus",
+    "pages/appoint-schedule-list/appoint-schedule-list",
+    "components/authorize/authorize",
+    "components/video-live-page/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "subpackages": [
+    {
+      "root": "packageTencentCloud",
+      "pages": [
+        "pages/meeting/meeting",
+        "pages/live/live",
+        "pages/chat/chat",
+        "pages/videoCall/videoCall",
+        "pages/live/liveList/liveList"
+      ]
+    },
+    {
+      "root": "packageExhibitor",
+      "pages": [
+        "pages/zEdition1/index",
+        "pages/zEdition1/me/index",
+        "pages/zEdition1/me/meInfo/index",
+        "pages/zEdition1/me/meInfo/edit/index",
+        "pages/zEdition1/me/myLiveBroadcast/index",
+        "pages/zEdition1/me/myInvitation/index",
+        "pages/zEdition1/me/msg/index",
+        "pages/zEdition1/me/msg/systemmsg/index",
+        "pages/zEdition1/me/appointment/appointment",
+        "pages/zEdition1/me/my-schedule/my-schedule",
+        "pages/zEdition1/me/received/received",
+        "pages/zEdition1/me/sponsored/sponsored",
+        "pages/zEdition1/ExhibitorsService/index",
+        "pages/zEdition1/ExhibitorsService/activity/index",
+        "pages/zEdition1/ExhibitorsService/activity/self/index",
+        "pages/zEdition1/ExhibitorsService/activity/goIn/index",
+        "pages/zEdition1/purchaser/detail/index",
+        "pages/zEdition1/purchaser/list/index",
+        "pages/zEdition1/purchaser/invitation/invitation",
+        "pages/zEdition1/demand/list/index",
+        "pages/zEdition1/demand/detail/index",
+        "pages/zEdition1/product/edit/index",
+        "pages/zEdition1/me/myLiveBroadcast/live/index",
+        "pages/zEdition1/im/call/main",
+        "pages/zEdition1/im/chat/chat",
+        "pages/zEdition1/im/room/room",
+        "pages/zEdition1/me/myInvitation/myGetInvitation/index",
+        "pages/zEdition1/register/register",
+        "pages/zEdition1/authorize/authorize",
+        "pages/zEdition1/activity/activity",
+        "pages/zEdition1/activityDetail/activityDetail",
+        "pages/zEdition1/like/list/list",
+        "pages/zEdition1/displays/list/displaysList",
+        "pages/zEdition1/product/detail/detail",
+        "pages/zEdition1/like/seeDetailList/seeDetailList",
+        "pages/newedition/index/index",
+        "pages/newedition/demand/demand",
+        "pages/newedition/demandDetail/demandDetail",
+        "pages/newedition/demandRelease/demandRelease",
+        "pages/newedition/buyersList/buyersList",
+        "pages/newedition/buyerDetail/buyerDetail",
+        "pages/newedition/filter/filter",
+        "pages/newedition/myInformation/myInformation",
+        "pages/newedition/liveList/liveList",
+        "pages/newedition/liveRelease/liveRelease",
+        "pages/newedition/collectionPrise/collectionPrise",
+        "pages/newedition/lookNav/lookNav"
+      ]
+    },
+    {
+      "root": "packagePurchaser",
+      "pages": [
+        "pages/purchaser/tabbar/index/index",
+        "pages/purchaser/tabbar/me/me",
+        "pages/purchaser/tabbar/exhibits/exhibits",
+        "pages/purchaser/tabbar/exhibition/exhibition",
+        "pages/purchaser/exhibition/detail/detail",
+        "pages/purchaser/exhibits/detail/detail",
+        "pages/purchaser/me/my-appoint/my-appoint",
+        "pages/purchaser/me/appoint-detail/appoint-detail",
+        "pages/purchaser/me/my-demand/my-demand",
+        "pages/purchaser/me/publish-demand/publish-demand",
+        "pages/purchaser/index/hot-video/hot-video",
+        "pages/purchaser/index/hot-detail/hot-detail",
+        "pages/purchaser/index/activity/activity",
+        "pages/purchaser/index/activityDetail/activityDetail",
+        "pages/purchaser/me/message/message",
+        "pages/purchaser/me/edit-info/edit-info",
+        "pages/purchaser/me/collect/collect",
+        "pages/purchaser/me/collectList/collectList",
+        "pages/purchaser/me/system-message/system-message",
+        "pages/purchaser/me/appoint-schedule/appoint-schedule",
+        "pages/purchaser/index/rich-text/rich-text",
+        "pages/purchaser/index/web-view/web-view",
+        "pages/purchaser/register/register",
+        "pages/purchaser/authorize/authorize",
+        "pages/purchaser/me/collect/seeDetailList/seeDetailList",
+        "pages/purchaser/index/hot-video/classification-video/index"
+      ]
+    }
+  ],
+  "usingComponents": {
+    "inviteDialog": "/components/inviteDialog/inviteDialog",
+    "banner": "/components/banner/banner",
+    "my-checkout": "/components/my-checkout/my-checkout",
+    "my-checkout-group": "/components/my-checkout-group/my-checkout-group",
+    "authorize": "/components/authorize/authorize",
+    "s-table": "/components/table/index",
+    "video-live-page": "/components/video-live-page/index"
+  }
+}

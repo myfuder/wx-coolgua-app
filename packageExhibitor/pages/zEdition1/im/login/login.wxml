@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class='bottom-btn'>
+  <button class="btn" bindtap="handleLogin" hover-class="none">登录到消息列表</button>
+</view>

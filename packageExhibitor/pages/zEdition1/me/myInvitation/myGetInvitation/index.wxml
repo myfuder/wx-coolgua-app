@@ -1,0 +1,4 @@
+<!--packageExhibitor/pages/zEdition1/me/myInvitation/myGetInvitation/index.wxml-->
+<view wx:if="{{liveId}}">
+  <my-get-invitation liveId="{{liveId}}"></my-get-invitation>
+</view>

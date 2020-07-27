@@ -1,0 +1,85 @@
+<!--packageExhibitor/pages/zEdition1/me/msg/index.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="flex-item">
+      <view class="name">我的点赞</view>
+      <navigator url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=0&type=2&passive=0"
+                 class="user-box clearfix" data-page="exhibits" data-type="2" data-operation="1" data-passive="0">
+        <view class="item">
+          <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab9.png"  style="width: 24rpx;height: 24rpx;"></image>
+          <text class="menu-label">{{langTranslate['展品']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.likesExhibit}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+      <navigator
+        url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=0&type=0&passive=0"
+        class="user-box clearfix" data-page="exhibitor" data-type="0" data-operation="1" data-passive="0">
+        <view class="item">
+          <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab10.png" style="width: 24rpx;height: 24rpx;"></image>
+          <text class="menu-label">{{langTranslate['展商']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.likesSupplier}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class="flex-item">
+      <view class="name">{{langTranslate['我的收藏']}}</view>
+      <navigator
+        url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=1&type=2&passive=0"
+        class="user-box clearfix" bindtap="goPage" data-page="exhibits" data-type="2" data-operation="0"
+        data-passive="0">
+        <view class="item">
+          <image  style="width: 24rpx;height: 24rpx;" mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab9.png"></image>
+          <text class="menu-label">{{langTranslate['展品']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.collectExhibit}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+      <navigator
+        url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=1&type=0&passive=0"
+        class="user-box clearfix" data-page="exhibitor" data-type="0" data-operation="0" data-passive="0">
+        <view class="item">
+          <image  style="width: 24rpx;height: 24rpx;" mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab10.png"></image>
+          <text class="menu-label">{{langTranslate['展商']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.collectSupplier}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class="flex-item">
+      <view class="name">{{langTranslate['关注我的展商']}}</view>
+      <navigator class="user-box clearfix"
+                 url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=0&type=2&passive=1">
+        <view class="item">
+          <image  style="width: 24rpx;height: 24rpx;" mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab11.png"></image>
+          <text class="menu-label">{{langTranslate['收藏的展商']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.beCollect}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+      <navigator
+        url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=0&type=0&passive=1"
+        class="user-box clearfix">
+        <view class="item">
+          <image  style="width: 24rpx;height: 24rpx;" mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab12.png"></image>
+          <text class="menu-label">{{langTranslate['点赞的展商']}}</text>
+        </view>
+        <view class="user-value">
+          <text class="value-text">{{userInfo.beLikes}}</text>
+          <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

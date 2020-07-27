@@ -1,0 +1,89 @@
+<view style="background:#F6F7FB;min-height: {{height}}px">
+  <view style="background: #fff;position: relative;">
+    <displayItemProfile item="{{detail}}"></displayItemProfile>
+    <view class="margin"
+          wx:if="{{!isUser}}"
+          style="padding: 20rpx;margin-top: 10rpx;border-top: 1px solid #dddd">
+      <callButtons class="wxml"
+                   userid="{{detail.supplierId}}"
+                   item="{{detail}}"
+                   src="1"
+                   type="2"
+                   online="{{detail.online}}"
+      ></callButtons>
+    </view>
+
+    <view style="position: absolute;right: 20rpx;top: 30rpx;z-index:998;display: flex" wx:if="{{isUser}}">
+      <view class="small flex flex-c-c" style="color:#2FC99D "
+            bindtap="go2edit"
+      >
+        <image
+          style="width: 30rpx;height: 30rpx;"
+          src="{{edit_icon_image}}"></image>
+        {{langTranslate['编辑']}}
+      </view>
+      <view
+        bindtap="go2delete"
+        class="small flex flex-c-c" style="color:#2FC99D;margin-left: 20rpx;">
+        <image
+          style="width: 30rpx;height: 30rpx;"
+          src="{{delete_icon_image}}"></image>
+        {{langTranslate['删除']}}
+      </view>
+    </view>
+  </view>
+
+  <view class="row-container" style="margin-top: 20rpx;">
+    <view class="wx-card" style="margin-bottom: 20rpx;">
+      <view class="wx-card-title">
+        {{langTranslate['图片']}}
+      </view>
+      <view class="wx-card-body">
+        <view class="imaegContainerRow">
+          <view class="imageItem" style="margin-right: 20rpx;" wx:if="{{detail.product_image1}}" bindtap="zoomImage">
+            <image src="{{detail.product_image1}}" mode="aspectFit"></image>
+          </view>
+          <view class="imageItem" wx:if="{{detail.product_image2}}" bindtap="zoomImage">
+            <image src="{{detail.product_image2}}" mode="aspectFit"></image>
+          </view>
+          <view class="imageItem" style="margin-right: 20rpx;" wx:if="{{detail.product_image3}}" bindtap="zoomImage">
+            <image src="{{detail.product_image3}}" mode="aspectFit"></image>
+          </view>
+        </view>
+        <view
+          wx:if="{{!detail.product_image1&&!detail.product_image2&&!detail.product_image3}}"
+          style="font-size: 24rpx;text-align:center;padding: 20rpx;">
+          {{langTranslate['暂时无图片']}}
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+  <view class="row-container" style="margin-top: 20rpx;">
+    <view class="wx-card" style="margin-bottom: 20rpx;">
+      <view class="wx-card-title">
+        {{langTranslate['展品介绍']}}
+      </view>
+      <view class="wx-card-body">
+        <view class="textContent">
+          {{isEn=='en'?detail.introductionEn:detail.introduction}}
+        </view>
+        <view wx:if="{{!detail.introduction}}" style="font-size: 24rpx;text-align:center;padding: 20rpx;">
+          {{langTranslate['暂无介绍']}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--分享-->
+  <button
+    class="shareButton"
+    open-type="share"
+    style="padding: 0rpx;position: fixed;flex-direction: column;display: flex;justify-content:center;align-items:center;bottom: 200rpx;right: 20rpx;width:130rpx;height:130rpx;border-radius:50%;">
+    <image
+      style="width:130rpx;height:130rpx;border-radius:50%;"
+      src="https://www.coolgua.net/match_img/img/xgyz/share.png"></image>
+  </button>
+</view>

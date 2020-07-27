@@ -1,0 +1,20 @@
+/* packageExhibitor/pages/zEdition1/demand/index.wxss */
+@import '../purchaser/index.wxss';
+/*checkbox选中后样式  */
+
+/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	 border: none;
+ background:linear-gradient(0deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%)!important;
+}
+/*checkbox选中后图标样式  */
+/deep/checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

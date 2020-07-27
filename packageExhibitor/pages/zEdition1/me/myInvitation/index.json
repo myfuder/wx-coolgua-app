@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-get-invitation": "../../components/bizComponents/myGetInvitation/index",
+    "coutTimeButton": "../../../../../components/coutTimeButton/coutTimeButton",
+    "huiyi-item": "/components/huiyi-item/huiyi-item"
+  }
+}

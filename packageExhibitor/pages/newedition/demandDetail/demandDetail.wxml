@@ -1,0 +1,84 @@
+<!--packageExhibitor/pages/newedition/demandDetail/demandDetail.wxml-->
+<view id="demand-detail">
+  <view class="procurement-news">
+     <view class="item-total">
+        <view class="item-name">
+          <view class="need-img">
+            <image src=""></image>
+          </view>
+          <view class="right">
+            <view class="top">
+              <text class="title">激光雕刻机</text>
+              <text >
+                <image src=""></image>
+                <text class="hot">360</text>
+              </text>
+            </view>
+            <view class="specifications labelStyle" style="margin:15rpx 0">
+              采购规格：50万/年
+            </view>
+            <view class="release labelStyle">
+              需求描述：主要针对中高端酒吧客户
+            </view>
+          </view>
+        </view>
+        <view class="item-category">
+          <text class="label labelStyle">发布时间：2020-04-23 12:30:02</text>
+        </view>
+        <view class="item-category" style="border-bottom:1px dashed rgba(238,238,238,1);padding-bottom: 15rpx;">
+          <text class="label labelStyle" style="margin-right:28rpx;">采购商品品类</text>
+          <text class="category-item">电动工具</text>
+        </view>
+        <view class="item-company">
+          <view class="manage-name">
+            <text class="name">胡思艺</text>
+            <text class="posts">经理</text>
+          </view>
+          <view class="company-name">浙江中硕电器有点公司</view>
+        </view>
+      </view>
+    <!-- <view class="procurement-header">
+      <text class="left">
+        <text class="title">果味啤酒供货渠道，提供至湖北</text>
+        <text class="edit">
+          <image src="" />
+          <text>编辑</text>
+        </text>
+      </text>
+      <text class="right">查看观众</text>
+    </view>
+    <view class="hot">
+      <image  class="hot-img" src=""/>
+      <text>360</text>
+    </view>
+    <view class="commodities">
+      <text class="labelStyle">采购商品品类</text>
+      <text class="commodities-item">电动工具</text>
+    </view>
+    <view>
+      <text class="labelStyle">需求状态</text>
+      <text class="state">进行中</text>
+    </view> -->
+    <view class="btns">
+      <view class="icons"></view>
+      <view class="stop-btn">立即邀约</view>
+    </view>
+  </view>
+  <view class="imgs">
+    <view class="title">图片</view>
+    <view class="imgs-content">
+      <view class="box" bindtap="previewImage">
+        <image src="" />
+      </view>
+      <view class="box">
+        <image src="" />
+      </view>
+      <view class="box">
+        <image src="" />
+      </view>
+      <view class="box">
+        <image src="" />
+      </view>
+    </view>
+  </view>
+</view>

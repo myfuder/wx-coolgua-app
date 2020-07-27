@@ -1,0 +1,27 @@
+<view style="display: flex;" class="space-between flex-c-c">
+    <view class="flex flex-c-c imageContainers">
+        <image
+            style="margin-right: 20rpx;margin-top: -10rpx;width:38rpx;height:38rpx;"
+            bindtap="mesgClick"
+            src="{{online==1?messageActiveButton:messageActiveButton_disbaled}}"></image>
+        <view style="position: relative;">
+            <view class="red tag" style="" wx:if="{{item.likes&&item.likes!=0}}">{{item.likes}}</view>
+            <image
+                bindtap="likeClick"
+                style="margin-right: 20rpx;width:38rpx;height:38rpx;"
+                src="{{isLikedItem.objectId?likeButton_active:likeButton}}"></image>
+        </view>
+
+        <view style="position: relative;">
+            <view class="red tag" style="" wx:if="{{item.collect&&item.collect!=0}}">{{item.collect}}</view>
+            <image
+                bindtap="collectClick"
+                style="margin-right: 20rpx;width:38rpx;height:38rpx;"
+                src="{{isCollectedItem.objectId?collect_button_active:collect_button}}"></image>
+        </view>
+
+    </view>
+
+    <inviteButton userid="{{userid}}" />
+
+</view>

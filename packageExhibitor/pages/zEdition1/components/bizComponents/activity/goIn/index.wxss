@@ -1,0 +1,37 @@
+.top_title{
+	font-size: 32rpx;
+	color: #333;
+	text-align: center;
+	font-weight: 600;
+}
+
+/* 底部列表项 */
+.choose_items{
+	display: flex;
+	justify-content: flex-start;
+	padding: 40rpx 50rpx;
+}
+.items_l{
+	flex: 1;
+	margin-right: 20rpx;
+}
+.items_l checkbox{
+	border: 1rpx solid #eee;
+}
+.items_r{
+	flex: 10;
+}
+.items_title{
+	font-size:28rpx;
+	font-family:Microsoft YaHei;
+	font-weight:600;
+	color:rgba(51,51,51,1);
+}
+.items_record{
+	font-size:24rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin: 10rpx 0 0;
+}
+

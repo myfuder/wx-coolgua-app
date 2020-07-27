@@ -1,0 +1,111 @@
+/**invitationList.wxss**/
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;/*清除浮动*/
+  visibility:hidden;
+}
+.clearfix{zoom:1;/*为IE6，7的兼容性设置*/}
+page{
+  width:100%;
+  height:100%;
+}
+.container{
+  width:100%;
+  height:100%;
+  position:relative;
+  background:#f7f7f7;
+}
+.container .exhibitor-index{
+  width: 100%;
+  padding: 30rpx 30rpx 120rpx;
+  box-sizing: border-box;
+  background:#f7f7f7;
+}
+.container .myContent{
+  width: 100%;
+  box-sizing: border-box;
+}
+.content-item{
+  background:#fff;
+  border-radius:15rpx;
+  margin-bottom:20rpx;
+  box-shadow: 0 1px 10px #efefef;
+}
+.myContent .content-item .title{
+  color:#333333;
+  font-size:32rpx;
+  padding:20rpx 30rpx;
+  border-bottom:1px solid #eeeeee;
+}
+.myContent .nav{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding:40rpx 0;
+  border-bottom:2rpx solid #f2f2f2;
+}
+.myContent .nav .nav-item{
+  width: 25%;
+  text-align: center;
+}
+.myContent .nav .nav-item image{
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  margin: 0 auto;
+}
+.myContent .nav .nav-item .num{
+  font-size:40rpx;
+  height:38rpx;
+}
+.myContent .nav .nav-item .num1{
+  color:#39c99f;
+}
+.myContent .nav .nav-item .num2{
+  color:#368efd;
+}
+.myContent .nav .nav-item .num3{
+  color:#fb8164;
+}
+.myContent .nav .nav-item .num4{
+  color:#ffa603;
+}
+.myContent .nav .nav-item text{
+  margin-top:4rpx;
+  font-size:28rpx;
+  color:#c1c1c1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.myContent .schedule-item{
+  padding:30rpx 35rpx;
+}
+.schedule-item image{
+  width:40rpx;
+  margin-right:20rpx;
+}
+.myContent .schedule-item .schedule{
+  float:left;
+  color:#333333;
+  font-size:32rpx;
+  display: flex;
+  align-items: center;
+}
+.myContent .schedule-item .num{
+  float:right;
+  color:#c1c1c1;
+  font-size:30rpx;
+  display:flex;
+  align-items:center;
+}
+.myContent .schedule-item .num image{
+  display:inline-block;
+  margin-left:20rpx;
+  width:15rpx;
+}

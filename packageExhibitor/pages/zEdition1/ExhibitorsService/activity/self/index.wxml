@@ -1,0 +1,42 @@
+<view>
+	<!-- 我的预约 -->
+	<!-- <view class="top_title">{{activity.title2}}</view> -->
+	<view wx:if="{{isHide == true}}">
+		<view wx:for="{{dataList}}" wx:key="index">
+			<view class="choose_items">
+				<view class="items_r">
+					<text class="items_title">{{index + 1}}.{{item.company}}</text>
+					<view class="items_record" wx:if="{{language != 'en'}}">
+						<!-- <view>{{activity.city}}：{{item.country}}</view> -->
+						<view>{{activity.kind}}：{{item.tagNames}}</view>
+						<view>{{activity.name}}：{{item.purchasedGoodsName}}</view>
+						<view>{{activity.num}}：{{item.purchasedCount}}</view>
+						<view>{{activity.price}}：{{item.purchasedPrice}}</view>
+						<view>{{activity.texture}}：{{item.material}}</view>
+					</view>
+					<view class="items_record" wx:else>
+						<!-- <view>{{activity.city}}：{{item.country}}</view> -->
+						<view>{{activity.kind}}：{{item.tagEnglishNames}}</view>
+						<view>{{activity.name}}：{{item.purchasedGoodsName}}</view>
+						<view>{{activity.num}}：{{item.purchasedCount}}</view>
+						<view>{{activity.price}}：{{item.purchasedPrice}}</view>
+						<view>{{activity.texture}}：{{item.material}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="items_btns" wx:if="{{language != 'en'}}">
+				<!--<view class="status1" bindtap="enterRoom" wx:if='{{item.predictStartTime < time}}' data-item="{{item}}">{{activity.status1}}</view>-->
+				<view class="status2">{{activity.status2}}</view>
+			</view>
+			<view class="items_btns" wx:else>
+				<!--<view class="status_1" bindtap="enterRoom" wx:if='{{item.predictStartTime < time}}' data-item="{{item}}">{{activity.status1}}</view>-->
+				<view class="status_2">{{activity.status2}}</view>
+			</view>
+			<view class="fg_line"></view>
+		</view>
+		
+	</view>
+	<view class="msg_null" wx:else>
+		{{activity.hint}}~
+	</view>
+</view>

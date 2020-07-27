@@ -1,0 +1,26 @@
+<view class="card-row-item "
+      style="background: #fff;border-radius: 20rpx;padding: 20rpx;position: relative;padding-top: 40rpx;">
+  <demandItemProile item="{{item}}"></demandItemProile>
+  <view style="border-top:1px dashed #ddd;padding-top: 20rpx;">
+    <view class="flex align-items" style="margin-bottom: 10rpx;">
+      <view style="color: #222" class="fontsize strong"
+            bindtap="go2purchaser"
+      >{{isEn?item.contactEn:item.contact}}
+      </view>
+      <view class="tag small" style="margin-left: 40rpx;" wx:if="{{isEn?item.jobEn:item.job}}">
+        {{isEn?item.jobEn:item.job}}
+      </view>
+    </view>
+    <view class="small" style="color: #666666">{{isEn?item.companyEn:item.company}}</view>
+  </view>
+  <view class="flex flex-c-c space-between"
+        style="border-top: 1px solid rgba(237,237,237,1);margin-top: 20rpx;padding-top: 40rpx;">
+    <callbutton online="{{item.online}}"
+                style="width: 100%"
+                userid="{{item.purchaserId}}"
+                type="3"
+                src="0"
+                item="{{item}}"></callbutton>
+  </view>
+
+</view>

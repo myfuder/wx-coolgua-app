@@ -1,0 +1,488 @@
+/* packageExhibitor/pages/zEdition1/me/myInvitation/index.wxss */
+@import "../../../../../../dist/style/weui.wxss"; 
+.content{
+	width: 100%;
+}
+
+.switch-tab{
+  text-align: center;
+  padding-top: 50rpx;
+}
+.switch-tab_zh{
+	width: 200rpx;
+	display: inline-block;
+}
+.switch-tab_en{
+	width: 260rpx;
+	display: inline-block;
+}
+.switch-tab-item{
+  display: inline-block;
+  border: 1px solid #19c28c;
+  width: 100%;
+  height: 77rpx;
+  line-height: 77rpx;
+
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color: #19c28c;
+}
+.focus_style{
+  background-color: #19c28c;
+  color: white;
+}
+
+/* 我发起的邀约 */
+.yaoyue{
+	width: 100%;
+}
+.yaoyue_one{
+	width: 100%;
+	margin-top: 49rpx;
+	margin-bottom: 20rpx;
+	overflow: hidden;
+}
+.yaoyue_one_img{
+	width: 36rpx;
+	height: 42rpx;
+	float: left;
+	margin-left: 42rpx;
+}
+.yaoyue_one_word{
+	color: #333333;
+	font-size: 32rpx;
+	line-height: 48rpx;
+	display: inline-block;
+	margin-left: 28rpx;
+	float: left;
+}
+.yaoyue_two{
+	width: 100%;
+	background-color: #F3F3F3;
+	height: 80rpx;
+}
+.yaoyue_two_item{
+	float: left;
+	width: 25%;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	color: #333333;
+	font-size: 32rpx;
+}
+.yaoyue_two_item view{
+	height: 80rpx;
+}
+.focus_style_two{
+	color: #19c28c;
+	border-bottom: 4rpx solid #19c28c;
+}
+.yaoyue_two_item_en view:nth-child(2) view{
+	line-height: 37rpx!important;
+	font-size: 28rpx!important;
+}
+.yaoyue_three{
+	width: 100%;
+	padding: 52rpx 40rpx 40rpx;
+	box-sizing: border-box;
+	border-bottom: 20rpx solid #F3F3F3;
+}
+.yaoyue_three1{
+	color: #333333;
+	font-weight: 800;
+	font-size: 32rpx;
+	line-height: 18rpx;
+	margin-bottom: 22rpx;
+}
+.yaoyue_three2{
+	color: #666666;
+	font-size: 24rpx;
+	line-height: 18rpx;
+	margin-bottom: 20rpx;
+}
+.yaoyue_three3{
+	color: #333333;
+	font-size: 24rpx;
+	line-height: 36rpx;
+	margin-bottom: 20rpx;
+}
+.yaoyue_three4{
+	width: 315rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 32rpx;
+	color: #FFFFFF;
+	background-color: #19c28c;
+	border-radius: 10rpx;
+	margin-top: 76rpx;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.yaoyue_three4_en{
+	width: 430rpx;
+}
+.yaoyue_three5{
+	width: 470rpx;
+	background-color: #909399;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 32rpx;
+	color: #FFFFFF;
+	border-radius: 10rpx;
+	margin-top: 76rpx;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.yaoyue_three5_en{
+	width: 560rpx;
+}
+.yaoyue_three6{
+	margin-top: 76rpx;
+	width: 100%;
+	overflow: hidden;
+}
+.yaoyue_three6_left{
+	width: 314rpx;
+	background-color: #19c28c;
+	border-radius: 10rpx;
+	color: #FFFFFF;
+	font-size: 32rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	float: left;
+}
+.yaoyue_three6_right{
+	width: 314rpx;
+	background-color: #ffffff;
+	border: 1rpx solid #FF3138;
+	border-radius: 10rpx;
+	color: #FF2E30;
+	font-size: 32rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	float: right;
+}
+.yaoyue_three7{
+	width: 314rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	background-color: #19c28c;
+	margin-top: 76rpx;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #FFFFFF;
+	font-size: 32rpx;
+}
+.islengthclass{
+	width: 420rpx !important;
+}
+.date-show{
+    position: relative;
+    width: 250rpx;
+    font-family: PingFang-SC-Regular;
+    font-size: 40rpx;
+    color: #282828;
+    text-align: center;
+    margin: 59rpx auto 10rpx;
+}
+.lt-arrow,.rt-arrow{
+    position: absolute;
+    top: 1rpx;
+    width: 60rpx;
+    height: 60rpx;
+  padding-right: 0.6rem;
+}
+.lt-arrow image,.rt-arrow image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.lt-arrow{
+    left: -110rpx;
+    /* transform: rotate(180deg); */
+}
+.rt-arrow{
+    right: -100rpx;
+}
+.header{
+    font-size: 0;
+    padding: 0 24rpx;
+}
+.header>view{
+    display: inline-block;
+    width: 14.285%;
+    color: #333;
+    font-size: 30rpx;
+    text-align: center;
+    border-bottom: 1px solid #D0D0D0;
+    padding: 39rpx 0;
+}
+.weekMark{
+    position: relative;
+}
+.weekMark view{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #22A7F6;
+}
+.date-box{
+    font-size: 0;
+    padding: 10rpx 0;
+}
+.date-box>view{
+    position: relative;
+    display: inline-block;
+    width: 14.285%;
+    color: #020202;
+    font-size: 40rpx;
+    text-align: center;
+    vertical-align: middle;
+    margin: 15rpx 0;
+}
+.date-head{
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+}
+.nowDay .date-head{
+    width: 60rpx;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background-color: #22A7F6;
+    margin: 0 auto;
+}
+.date-weight{
+    font-size: 22rpx;
+    padding: 15rpx 0;
+}
+.nowDay .date-weight{
+    color: #22A7F6;
+}
+.one{
+    position: absolute;
+    bottom: 0;
+    right: 5rpx;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background-color: #19c28c;
+}
+.two{
+    position: absolute;
+    bottom: 30rpx;
+    right: 5rpx;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.shijian{
+	border-bottom: 3rpx solid #CACACA;
+	padding: 20rpx 42rpx;
+	box-sizing: border-box;
+}
+.shijian_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: inline-block;
+}
+.shijian_time{
+	color: #333333;
+	font-size: 32rpx;
+	display: inline-block;
+	margin-left: 20rpx;
+}
+
+/* 日历
+ */
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: #cfcfcf;
+}
+.flex-week {
+  background-color: #fff;
+  border-top : 2rpx solid #19c28c;
+  border-bottom : 2rpx solid#19c28c;
+}
+.flex-week .weui-flex__item view{
+  background-color: #fff;
+  color: #19c28c;
+}
+.flex-day .weui-flex__item .placeholder{
+  margin: 0rpx;
+  color: #fff;
+  background-color: #19c28c;
+  border : 1rpx solid#19c28c;
+}
+.day_late {   
+	/* 可以点击的日期样式 */
+	background-color: #fff !important;
+	border : 1rpx solid#EBEBEB !important; 
+	color: #cfcfcf !important;
+}
+.day_no { /* 无法操作的日期样式 */ 
+	background-color: #EBEBEB !important; 
+	border : 1rpx solid#fff !important; 
+	color: #cfcfcf !important;}
+.chooseDay { color: #000;}
+
+/* 日历二 */
+.calendar_title{
+	/* width: 70%; */
+	margin: 10rpx auto; 
+	justify-content: space-between;
+	font-size: 20pt;
+	color: #333333;
+	overflow: hidden;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	display: inline-block;
+}
+.calendar_title_riqi{
+	float: left;
+	color: #333333;
+	font-size: 34rpx;
+	margin-top: 10rpx;
+}
+.calendar_title .icon{
+	float: left;
+}
+.calendar_title .icon image{
+	width: 60rpx; 
+	height: 60rpx;
+	margin: 5rpx auto;
+}
+
+/* 日历 */
+.calendar{width: 100%;margin-top: 75rpx;background: #fff;border-bottom-right-radius: 20rpx;border-bottom-left-radius: 20rpx;padding: 0 0 20rpx;font-family: FZZhunYuan-M02S;}
+.header{font-size: 0;width: 80%;margin: 0 auto;}
+.header>view{display: inline-block;width: 14.285%;color: #666;font-size: 30rpx;text-align: center;border-bottom: 1px solid #D0D0D0;padding: 20rpx 0;}
+.weekMark{position: relative;width: 80%;margin: 0 auto;}
+.weekMark view{position: absolute;bottom: 0;left: 0;width: 100%;border-bottom: 2px solid #69f;}
+.date-box{font-size: 0;padding: 10rpx 0;width: 80%;margin: 0 auto;}
+.date-box>view{position: relative;display: inline-block;width: 14.285%;color: #666;text-align: center;vertical-align: middle;}
+.date-head{height: 60rpx;line-height: 60rpx;font-size: 12pt; color: #666;}
+.nowDay .date-head{width: 60rpx;border-radius: 50%;text-align: center;color: #666;background-color: #fff;margin: 0 auto;}
+
+/* 再次发起预约 */
+.outer-wrap{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.content{
+  width: 691rpx;
+  height: 916rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 30rpx;
+  border-radius: 10rpx;
+  background-color: white;
+  padding: 28rpx 36rpx;
+  box-sizing: border-box;
+}
+.time-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.time-wrap>view{
+  width: 47%;
+}
+.picker{
+  border: 1px solid #DCDFE6;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  padding-left: 21rpx;
+}
+input{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border: 1px solid #DCDFE6;
+  padding: 0 23rpx;
+  box-sizing: border-box;
+
+}
+label{
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+  display: block;
+}
+label:first-of-type{
+  margin-top: 0;
+}
+.picker-icon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 18rpx;
+}
+textarea{
+  width: 626rpx;
+  height: 210rpx;
+  border: 1px solid #DCDFE6;
+  padding: 25rpx 21rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  box-sizing: border-box;
+}
+.footer{
+
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+.footer>button{
+  width:249rpx;
+  height:69rpx;
+  border-radius:4rpx;
+  border:1px solid #19c28c;
+  font-size: 28rpx;
+}
+.footer>button:first-of-type{
+  background-color: white;
+  color: #19c28c;
+}
+.footer>button:last-of-type{
+  background-color: #19c28c;
+  color: white;
+}
+

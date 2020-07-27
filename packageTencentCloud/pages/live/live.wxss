@@ -1,0 +1,30 @@
+/* pages/live/live.wxss */
+.bottom-container {
+  position:absolute;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 710rpx;
+  padding: 30rpx 20rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bottom-container .title {
+  color: #fff;
+  font-size: 28rpx;
+}
+.bottom-container .info {
+  color: #fff;
+}
+
+.info .icon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.info .count {
+  color: #fff;
+  font-size: 28rpx;
+}

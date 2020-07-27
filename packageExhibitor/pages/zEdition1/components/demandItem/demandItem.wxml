@@ -1,0 +1,52 @@
+<view class="card-row-item "
+      style="background: #fff;border-radius: 20rpx;padding: 20rpx;position: relative;padding-top: 40rpx;">
+
+    <demandItemForList item="{{demandDetail}}"></demandItemForList>
+
+<!--    <view class="fontsize flex flex-c-c"
+          style="position: absolute;right: 20rpx;top: 40rpx;color:rgba(255,46,46,1);">
+        <image
+            style="width:18px;height:21px;"
+        1222
+    </view>
+    <view class="flex flex-c-c">
+        <image
+            style="width: 126rpx;height: 126rpx;border-radius: 10rpx;"
+        <view style="padding-left: 20rpx;">
+            <view class="flex align-items" style="margin-bottom: 10rpx;">
+                <view style="color: #222;width: 393rpx;" class="fontsize strong text-overflow-one">果味啤酒供货渠道，提供至果味啤酒供货渠道果味啤酒供货渠道</view>
+            </view>
+            <view class="small" style="color:#666666">采购规格：50万/年</view>
+            <view class="small" style="color:#666666">需求描述：主要针对中高端酒吧客户</view>
+        </view>
+    </view>
+    <view  style="border-bottom:1px dashed #ddd;padding-bottom: 20rpx;margin-bottom: 20rpx; ">
+        <view class="flex flex-c-c" style="margin-top: 20rpx;">
+            <view class="small flex-c-c" style="color: #666666;" >发布时间：2020-04-23 12:30:02</view>
+        </view>
+        <view class="flex flex-c-c" >
+            <view class="small flex-c-c" style="color: #666666;width: 160rpx;" >采购商品品类</view>
+            <view class="flex">
+                <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view class="flex align-items" style="margin-bottom: 10rpx;">
+            <view style="color: #222" class="fontsize strong">胡思艺</view>
+            <view class="tag small" style="margin-left: 40rpx;">经理</view>
+        </view>
+        <view class="small" style="color: #666666">浙江中硕电器有限公司</view>
+    </view>-->
+ <!--   <view class="flex flex-c-c space-between"
+          style="border-top: 1px solid rgba(237,237,237,1);margin-top: 20rpx;padding-top: 40rpx;">
+      <inviteButton
+          style="width: 100%"
+          userid="{{item.purchaserId}}" item="{{demandDetail}}"
+      online="{{demandDetail.online}}"
+      ></inviteButton>
+    </view>-->
+
+</view>

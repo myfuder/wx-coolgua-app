@@ -1,0 +1,19 @@
+<view wx:for="{{value}}" wx:key="index">
+	<view class="content">
+	  <view class="body">
+	    <image src="{{item.coverImage}}" mode="aspectFill" wx:if="{{item.coverImage!=''}}"></image>
+	    <image src="https://www.coolgua.net/match_img/img/default/product.png" wx:else></image>
+	    <view style="width: 500rpx;">
+	      <text class="tx1" style="margin-bottom:20rpx;" wx:if="{{language!='en'}}">{{item.name}}</text>
+	      <text class="tx1" style="margin-bottom:20rpx;" wx:else>{{item.nameEn}}</text>
+	      <text class="tx2" wx:if="{{language!='en'}}">{{str.productType}}：<text class="middle-label" wx:for="{{item.tagNames}}" wx:key="item">{{item}}</text></text>
+	      <text class="tx2" wx:else>{{str.productType}}：<text class="middle-label" wx:for="{{item.tagEnglishNames}}" wx:key="item">{{item}}</text></text>
+	    </view>
+	  </view>
+	  <view class="footer">
+	    <text bindtap="delete1" data-id="{{item.id}}" data-index="{{index}}">{{str.delete}}</text>
+	    <text bindtap="gotoEdit" data-id="{{item.id}}">{{str.edit}}</text>
+	  </view>
+	</view>
+	 <view style="height:20rpx; background-color: #F8F8F8;"></view>
+</view>

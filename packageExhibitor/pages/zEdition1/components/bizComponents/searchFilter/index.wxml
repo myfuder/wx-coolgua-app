@@ -1,0 +1,94 @@
+<view class="content">
+  <view class="search-area">
+    <view class="search-top">
+      <view class="input-area">
+        <image src="{{staticImageUrl}}/img/xgyz/search.png" mode='widthFix'></image>
+        <input class="input" type="text" placeholder="{{langTranslate['请输入展商名称/展位号']}}"
+               placeholder-class="input-placeholder" bindinput="changeKeyTap"
+               bindconfirm="bindconfirm"
+               value="{{key}}"></input>
+      </view>
+      <view class="search-label" bindtap="showSearchTap">
+        <text>{{langTranslate['筛选']}}</text>
+        <image mode='widthFix'
+               style="width: 30rpx;height: 30rpx;"
+               src="{{staticImageUrl}}{{isShowSearch ? '/img/xgyz/arrow_top.png' : '/img/xgyz/arrow_down.png'}}"></image>
+      </view>
+    </view>
+
+    <scroll-view scroll-y class="search-con" wx:if="{{isShowSearch}}"
+                 animation="{{animationadd}}"
+                 style="transform: translateX(300rpx);height: 90%;top:60rpx;z-index:998;position: fixed;background: #fff;background: #ffff;margin-bottom: 200rpx;padding: 20rpx;box-sizing: border-box;border-radius: 10rpx;width: 599rpx;right: 0rpx;;">
+      <treeProductType
+        id="treeProductType"
+        bind:changevalues="changetreevalues"></treeProductType>
+      <view style="height: 200rpx;width: 100rpx">
+        <text></text>
+      </view>
+    </scroll-view>
+
+    <view class="footer1" wx:if="{{isShowSearch}}"
+          animation="{{animationadd}}"
+          style="transform: translateY(300)"
+    >
+      <view class="wx-button button-line border-radius  long" bindtap="resetForm"
+            style="height:53rpx;width: 120rpx;text-align: center">重置
+      </view>
+      <view class="wx-button button-line border-radius long primary"
+            style="height:53rpx;width: 120rpx;text-align: center"
+            bindtap="submit">确定
+      </view>
+    </view>
+    <view class="markContainer"
+          bindtap="closeModal"
+          wx:if="{{isShowSearch}}"
+          style="width: 100%;height: 100%;background: #222;opacity: .5;left: 0rpx;bottom: 0rpx;position: fixed;z-index:95;"></view>
+  </view>
+
+  <!-- <view class="search-wrap">
+       <view class="header">
+           <view class="search-input">
+               <icon bindtap="bindconfirm" class="search-icon" type="search"></icon>
+               <input confirm-type="search" bindconfirm="bindconfirm" bindinput="searchTextInput"
+                      placeholder="{{str.placeholder}}"></input>
+           </view>
+           <view bindtap="switchFilterView">
+               <text class="filter-text">{{str.filter}}</text>
+               <image wx:if="{{!filterViewVisible}}" src="https://www.coolgua.net/match_img/img/switch_up.png"
+                      class="switch-down"></image>
+               <image wx:else src="https://www.coolgua.net/match_img/img/switch_down.png" class="switch-down"></image>
+           </view>
+       </view>
+   </view>
+
+   <view wx:if="{{filterViewVisible}}" class="search-con">
+       <view wx:for="{{filterData}}" wx:key="item" data-id="{{item.id}}" class="con-item">
+           <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+               <image
+                   src="{{staticImageUrl}}{{item.isChecked ? '/img/purchaser/choose_pre.png' : '/img/purchaser/choose.png'}}"></image>
+               <text class="con-title">{{item.chinese}}</text>
+           </view>
+           <view class="search-child">
+               <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+                     data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap" data-index="{{childIndex}}">
+                   <image
+                       src="{{staticImageUrl}}{{childItem.isChecked ? '/img/purchaser/choose_pre.png' : '/img/purchaser/choose.png'}}"></image>
+                   <text class="con-title">{{isEn ? childItem.english : childItem.chinese}}</text>
+               </view>
+           </view>
+       </view>
+   </view>
+-->
+  <!-- <view class="item-wrap" wx:for="{{filterData}}" wx:key="*this">
+     <view class="father-wrap">
+       <checkbox-group class="checkboxq " bindchange="selectall" data-idx="{{index}}">
+         <checkbox class="checkbox-style"  color="#ca0c16" checked="{{item.parent.checked}}" value="{{item.parent.id}}">{{isEn?item.parent.english:item.parent.chinese}}</checkbox>
+       </checkbox-group>
+     </view>
+     <view class="child">
+       <checkbox-group class="checkboxq wx-checkbox-input" bindchange="selectItem" data-idx="{{index}}">
+         <checkbox class="checkbox-style" color="#ca0c16" value="{{item2.id}}" checked="{{item2.checked}}" wx:for-item="item2" wx:for="{{item.subclass}}" wx:key="*this">{{isEn?item2.english:item2.chinese}}</checkbox>
+       </checkbox-group>
+     </view>
+   </view>-->
+</view>

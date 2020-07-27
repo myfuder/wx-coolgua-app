@@ -1,0 +1,222 @@
+<!--packageExhibitor/pages/zEdition1/me/index.wxml-->
+<import src="../../../../pages/common/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
+<view class="container" style="height: {{height}}px;background: #F6F7FB;">
+  <view class="topContainer" style="position: relative;display: flex;align-items: center;margin-bottom: 20rpx;padding:30rpx;padding-top: 40rpx;background:url({{personalCenter}}) no-repeat 100% 100%;">
+    <image src="{{info.portrait}}" mode="aspectFill" wx:if="{{info.portrait}}"bindtap="zoomImage" data-imageurl="{{info.portrait}}" class="user-img"></image>
+    <image wx:else src="{{defaultUserImage}}" class="user-img"></image>
+    <view style="padding-left: 30rpx;color:#fff;">
+      <view class="text-overflow-one strong" style="width: 400rpx;">
+        <text wx:if="{{language!='en'}}">{{info.company}}</text>
+        <text wx:else>{{info.companyEn}}</text>
+      </view>
+      <view style="font-size: 24rpx;color:#fff;">{{langTranslate['展馆号']}}：{{info.hallNumber}}</view>
+      <view style="font-size: 24rpx;color:#fff;">{{langTranslate['展位号']}}：{{info.boothNumber}}</view>
+      <view><text bindtap="detail"  class="compile">{{langTranslate['查看']}}</text></view>
+    </view>
+  </view>
+  <!-- <view class="mine_top">
+       <view class="topcontent">
+           <view class="mine_logo">
+               <image src="{{info.portrait}}" mode="aspectFill" wx:if="{{info.portrait}}"></image>
+               <image wx:else src="https://www.coolgua.net/match_img/img/default/exhibitor.png"></image>
+           </view>
+           <view class="mine_intro">
+               <text wx:if="{{language!='en'}}">{{info.company}}</text>
+               <text wx:else>{{info.companyEn}}</text>
+               <text>{{hallNumber}}：{{info.hallNumber}}</text>
+               <text>{{boothNumber}}：{{info.boothNumber}}</text>
+           </view>
+           <view class="viewblock" bindtap="detail">
+               <image src="https://www.coolgua.net/match_img/img/zEdition1/yanjing.png"></image>
+               <text>{{viewname}}</text>
+           </view>
+       </view>
+   </view>-->
+
+  <view class="row-container">
+    <view style="background: #fff;border-radius: 20rpx;">
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;"
+            bindtap="go2exhibits"
+      >
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+                 src="https://live.signchinashow.com/icon/bbb110.png"></image>
+          {{langTranslate['我的展品']}}
+        </view>
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{getStatOverview.exhibit||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;"
+            bindtap="go2reservation"
+      >
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb92.png"></image>
+          {{langTranslate['我的预约']}}
+        </view>
+
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{getStatOverview.invite||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;"
+            bindtap="go2reservation_richeng"
+      >
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb93.png"></image>
+          {{langTranslate['我的日程']}}
+        </view>
+
+
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{getStatOverview.schedule||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;" bindtap="go2mymessage">
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb95.png"></image>
+          {{langTranslate['我的消息']}}
+        </view>
+
+
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{messageUnRead||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;"
+            bindtap="go2activityList"
+      >
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb99.png"></image>
+          {{langTranslate['商贸配对活动']}}
+        </view>
+
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{getStatOverview.event||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;"
+            bindtap="go2collectAndLikePage"
+      >
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb32.png"></image>
+          {{langTranslate['收藏/点赞']}}
+        </view>
+        <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+          <view style="margin-right: 10rpx;">
+            {{getStatOverview.collectLikeCount||0}}
+          </view>
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view>
+      </view>
+      <!-- <view class="flex flex-c-c space-between" style="padding: 30rpx;" bindtap="callTelephone"> -->
+      <view class="flex flex-c-c space-between" style="padding: 30rpx;" bindtap="toLive">
+        <view style="color:#333333;" class="flex flex-c-c fontsize">
+          <image
+            style="width: 32rpx;height: 32rpx;margin-right: 10rpx;"
+            src="https://live.signchinashow.com/icon/bbb76.png"></image>
+          {{langTranslate['我的直播']}}
+        </view>
+          <view class="small flex flex-c-c" style="color:#C1C1C1 ">
+            <view style="margin-right: 10rpx;">
+              {{getStatOverview.event||0}}
+            </view>
+            <image
+              style="width: 10rpx;height: 21rpx;"
+              src="{{myself_right}}"></image>
+          </view>
+
+        <!-- <view class="small" style="color:#C1C1C1 ">
+          <image
+            style="width: 10rpx;height: 21rpx;"
+            src="{{myself_right}}"></image>
+        </view> -->
+
+      </view>
+
+    </view>
+  </view>
+
+  <!--<view class="menu_list">
+      <view class="menu_item" wx:for="{{menus}}" wx:key="item" data-idx="{{idx}}" wx:for-index="idx"
+            bindtap="menuClick">
+          <image src="{{item.imgsrc}}"></image>
+          <view class="itemcontent">
+              <text class="{{language!='en' ? 'chinesemenu' :''}}">{{item.title}}</text>
+              <text class="{{language!='en' ? 'chinesemenu1' :''}}">{{item.unreadNum}}</text>
+          </view>
+      </view>
+  </view>-->
+
+  <view style="margin-top: 40rpx;">
+    <view class="flex flex-c-c flex-c"
+          bindtap="switchRole"
+          style="margin: 0 auto 150rpx;color:#fff;font-size: 36rpx;text-align:ceter;width:694rpx;height:90rpx;background:rgba(255,0,0,1);border-radius:45rpx;"
+    > {{langTranslate['切换为观众']}}
+    </view>
+    <!-- <view class="language">
+      <text bindtap="switchLanguage" data-name="{{lang==='zh_CN' ? 'en' : 'zh_CN'}}">{{lang==='zh_CN' ? 'EN' : '中'}}
+      </text>
+    </view> -->
+  </view>
+
+  <!--    <view class="mine_bottom">
+          <view bindtap="repassword">{{repass}}</view>
+          <view bindtap="logout">{{exit}}</view>
+      </view>
+      <view class="footer">
+      </view>-->
+
+
+  <!-- 修改密码弹出层 -->
+  <view class="mask" wx:if="{{ismask}}" bindtap="cancel"></view>
+  <!-- 修改密码 -->
+  <view class="repasscon" wx:if="{{ismask}}">
+    <text>{{oldpwd}}:</text>
+    <input password="true" placeholder="{{placoldpwd}}" placeholder-class="inp" bindinput="bindoldpwdInput"/>
+    <text>{{newpwd}}:</text>
+    <input password="true" placeholder="{{placnewpwd}}" placeholder-class="inp" bindinput="bindnewpwdInput"/>
+    <text>{{confirmpwd}}:</text>
+    <input password="true" placeholder="{{placconfirmpwd}}" placeholder-class="inp" bindinput="bindconpwdInput"/>
+    <view class="confirm" bindtap="repwd">{{submit}}</view>
+    <image src="https://www.coolgua.net/match_img/img/zEdition1/cancel.png" bindtap="cancel"></image>
+  </view>
+</view>

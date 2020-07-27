@@ -1,0 +1,10 @@
+@import "../common.wxss";
+.imageContainers image{
+    width:70rpx;
+    height:70rpx;
+}
+.tag{
+    text-align: center;justify-content: center;align-items: center;
+    font-size:24rpx;position: absolute;min-width: 30rpx;min-height: 30rpx;color: #fff;background: red;border-radius: 20rpx;display: inline-flex;top:0rpx;right: 8rpx;
+    border-color: red;
+}

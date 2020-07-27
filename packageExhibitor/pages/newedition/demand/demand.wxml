@@ -1,0 +1,92 @@
+<!--packageExhibitor/pages/newedition/demand/demand.wxml-->
+<import src="../../../../pages/common/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
+<view id="demand-list" style="min-height: {{height}}px">
+  <view class="header" style="z-index:1">
+     <!-- <view class="search-box">
+        <image src="{{search_btn}}" style="width:30rpx;height:30rpx;position: absolute;top: 15rpx;left: 20rpx;"/>
+        <input class="weui-input" auto-focus placeholder="{{langTranslate['请输入需求名称/采购人名称']}}"
+               placeholder-class="input-placeholder" bindinput="changeKeyTap"
+               bindconfirm="bindconfirm"
+               value="{{key}}"/>
+        <view class="search-box-btn">搜索</view>
+      </view> -->
+      <view class="input-area search-box" style="">
+        <image src="{{search_btn}}" mode='widthFix' style="width:30rpx;height:30rpx;position: absolute;top: 15rpx;left: 20rpx;"></image>
+        <input class="weui-input" type="text" placeholder="{{langTranslate['请输入需求名称/采购人名称']}}"
+               placeholder-class="input-placeholder" bindinput="changeKeyTap"
+               bindconfirm="bindconfirm"
+               value="{{key}}"></input>
+        <view class="search-box-btn" bindtap="filterTagsTriggerData">{{langTranslate['搜索']}}</view>
+      </view>
+      <view bindtap="openFilter">
+        <text class="filter">{{langTranslate['筛选']}}</text>
+        <image src="{{filter_btn}}" style="width:32rpx;height:32rpx;vertical-align: middle;margin-left:12rpx;"/>
+      </view>
+  </view>
+  <view class="need-list" id="needsList">
+    <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{list2}}" wx:key="index" bindtap="go2demandDetail" data-id="{{item.id}}">
+      <view class="item-total">
+        <view class="item-name">
+          <view class="need-img">
+            <image src="{{item.image1}}"></image>
+          </view>
+          <view class="right">
+            <view class="top">
+              <text class="title">{{isEn?item.purchasedGoodsNameEn:item.purchasedGoodsName}}</text>
+              <view>
+                <image src="{{demand_fire}}" style="width:18rpx;height:21rpx;margin-right:7rpx;"></image>
+                <text class="hot">{{item.popular}}</text>
+              </view>
+            </view>
+            <view class="specifications labelStyle">
+              {{langTranslate['采购规格']}}：{{item.material}}
+            </view>
+            <view class="release labelStyle">
+              {{langTranslate['发布时间']}}：{{item.createTime}}
+            </view>
+          </view>
+        </view>
+        <view class="item-category">
+          <text class="label labelStyle" style="margin-right:30rpx;">{{langTranslate['采购商品类']}}</text>
+          <text class="category-item" wx:for="{{isEn?item.tagEnglishNames:item.tagNames}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem">{{childItem}}</text>
+        </view>
+      </view>
+      <view class="item-company">
+        <view class="manage-name">
+          <text class="name">{{isEn?item.contactEn:item.contact}}</text>
+          <text class="posts">{{isEn?item.jobEn:item.job}}</text>
+        </view>
+        <view class="company-name">{{isEn?item.companyEn:item.company}}</view>
+      </view>
+      <view class="item-booking">
+        <!-- <view class="icons">
+          <view data-id="{{item.id}}"
+            bindtap="mesgClick"><image src="{{messageActiveButton_disbaled}}" /></view>
+          <view data-id="{{item.id}}"
+                bindtap="likeClick"><image src="{{likeButton}}" /></view>
+          <view data-id="{{item.id}}"
+                bindtap="collectClick"><image src="{{collect_button}}" /></view>
+        </view> -->
+    <callbutton online="{{item.online}}"
+                style="width: 100%"
+                userid="{{item.purchaserId}}"
+                type="3"
+                src="0"
+                item="{{item}}"
+                userid="{{item.id}}"></callbutton>
+        <!-- <view class="booking-btn" bindtap="">预约</view> -->
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{list2&&list2.length==0}}"
+        style="font-size: 24rpx;text-align: center;padding: 40rpx;"
+  >{{langTranslate['暂时无数据']}}
+  </view>
+  <view wx:if="{{list2&&list2.length!=0&&!isMore}}"
+        style="font-size: 24rpx;text-align: center;padding: 40rpx;"
+  >{{langTranslate['我也是有底线的']}}
+  </view>
+  <filter bind:close="close" bind:comfire="comfire"  isShowSearch="{{isShowSearch}}" style="width:100%;height:100%;"></filter>
+
+</view>

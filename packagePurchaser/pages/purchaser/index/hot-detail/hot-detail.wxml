@@ -1,0 +1,174 @@
+<!-- 展商 -->
+<view class="container">
+  <view class="flex-c align-items" style="position:absolute;left:27rpx;top: calc({{height}}px + 10rpx);height:68rpx;z-index: 10;">
+    <i class="iconfont icon-left-arrow jiantou" style="font-size:40rpx;color:#fff;width: 60rpx;height: 60rpx" bindtap="backpage"></i>
+    <view wx:if="{{showMask&&type != -1}}" class="message-exhi-info" style="margin-left:20rpx;width: 228rpx;padding-left: 30rpx;height: 68rpx;display: flex;flex-direction: column;margin-bottom:0">
+      <p style="font-size:24rpx;color:#fff">{{liveDetail.name||liveDetail.theme}}</p>
+      <view class="video-living" style="position: relative;left: 0;top: 0;background: transparent;padding: 0 ;">
+        <span class="video-living-icon"></span>
+        {{liveDetail.number}}{{langTranslate['观看']}}
+      </view>
+    </view>
+  </view>
+
+	<block wx:if="{{type != -1}}">
+    <view wx:if="{{showMask}}" class="barrage-container" >
+        <view wx:if="{{live_type=='exhibition'}}" class="align-items" style="margin-bottom:20rpx;">
+          <view class="message-exhi-info align-items" style="margin-bottom:0">
+            <image class="message-exhi-info-img" src="{{detailInfo.coverImage}}"></image>
+            <span style="margin:0 10rpx;min-width:100rpx;font-size:28rpx;color:#fff">{{detailInfo.name}}</span>
+          </view>
+          <i class="iconfont {{open_detail_up?'icon-up-arrow':'icon-down-arrow'}} jiantou" style="font-size:28rpx;color:#fff" bindtap="onTaggleODUP"></i>
+        </view>
+        <view animation="{{ani}}" wx:if="{{live_type=='zhuban'&&type==0}}" class="flex-c" style="position: fixed;right:0rpx;top:181rpx">
+          <i class="iconfont {{open_detail_lr?'icon-left-arrow':'icon-right-arrow'}} jiantou" style="margin:22rpx 18rpx 0 0;font-size:30rpx;color:#fff;width: 45rpx;height: 45rpx" bindtap="onTaggleODLR"></i>
+          <view style="width: 300rpx;max-height: 600rpx;overflow: auto;">
+            <view wx:for='{{sponsorSupplierList}}' style="position:relative;" >
+              <image src="{{item.portrait}}" class="message-exhi-info-img" style="position:absolute;left:0;z-index: 10;">
+              </image>
+              <view class="message-exhi-info align-items" style="border-top-right-radius:0;border-bottom-right-radius:0" animation="{{ani2}}">
+                <view class="text-overflow-one"  style="width:170rpx;margin-left: 124rpx;">
+                  <span style="font-size:32rpx;color:#fff">{{isEn?item.companyEn:item.company}}</span>
+                  <view class="space-between" style="width:100rpx;">
+                    <image style="width:24rpx;height:24rpx" data-likecollectId="{{item.likeCollectVO.likeId}}" data-id="{{item.supplierId}}" data-isActive="{{item.liked}}" data-operation="0" bindtap="sponsorSupplierList" src="{{item.liked?likeButton_active:likeButton}}"></image>
+                    <image style="width:24rpx;height:24rpx" data-likecollectId="{{item.likeCollectVO.collectId}}" data-id="{{item.supplierId}}" data-isActive="{{item.collect}}" data-operation="1" bindtap="sponsorSupplierList" src="{{item.collect?collect_button_active:collect_button}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            
+          </view>
+        </view>
+
+        <view wx:if="{{!open_detail_up&&live_type=='exhibition'}}" class="exh-detail">
+          <view class="align-items space-between" style="padding:6rpx 24rpx 0 24rpx">
+            <view>
+              <text class="label-text">{{langTranslate['展馆号']}}：</text>
+              <text class="value-text text-overflow-one">{{detailInfo.hallNumber}}
+              </text>
+            </view>
+            <view>
+              <text class="label-text">{{langTranslate['展位号']}}：</text>
+              <text class="value-text text-overflow-one" >{{detailInfo.boothNumber}}
+              </text>
+            </view>
+            <view class="space-between" style="width: 180rpx;">
+              <view class="align-items flex-c">
+                <image mode='widthFix' src="{{hot}}" style="width:24rpx;height:24rpx"></image>
+                <text style="font-size:24rpx">{{detailInfo.hot}}</text>
+              </view>
+              <view class="align-items flex-c">
+                <image style="width:24rpx;height:24rpx" bindtap="likeClick" src="{{isLikedItem.objectId?likeButton_active:likeButton}}"></image><text style="font-size:24rpx"></text>
+              </view>
+              <view class="align-items flex-c">
+                <image style="width:24rpx;height:24rpx" bindtap="collectClick" src="{{isCollectedItem.objectId?collect_button_active:collect_button}}"></image><text style="font-size:24rpx"></text>
+              </view>
+            </view>
+          </view>
+          <view class="align-items " style="padding:8rpx 24rpx 0 24rpx">
+            <text class="label-text">{{langTranslate['主营产品']}}：</text>
+            <text class="value-text text-overflow-one" style="width: 240rpx;">{{langIsEn ? item.companyEn :item.company}}
+            </text>
+          </view>
+          <view class="align-items space-between" style="padding:10rpx 24rpx 0 24rpx">
+            <view wx:for="{{exhibits}}" style="text-align: center;">
+              <view class="butImg">
+                <image class="img-b" src="{{item.coverImage}}" mode='widthFix'></image>
+              </view>
+              <text class="box-text">{{isEn?item.nameEn:item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    <view wx:if="{{showMask}}" style="width:70rpx;height:70rpx;position:absolute;bottom:21rpx;z-index: 9;border-radius:50%;right:113rpx;background:rgba(0,0,0,0.3);" class="align-items flex-c ">
+      <image style="width:60%;height:60%" mode="aspectFit" src="{{share}}" alt='daddad' ></image>
+    </view>
+    <view style="width:70rpx;height:70rpx;position:absolute;bottom:21rpx;border-radius:50%;z-index: 9;right:23rpx;background:#f00" class="align-items flex-c " bindtap="onToggleControl">
+      <image style="width:60%;height:60%" mode="aspectFit" src="{{showMask?live_clean:live_clean_cancle}}" alt='daddad' ></image>
+    </view>
+		<custom-live-player wx:if="{{!loadLoginPop}}" showMask="{{showMask}}" style="width:100%;height:100%" bindonFinishEvent="onFinishEvent" cust-class="video-screen" liveId="{{id}}"></custom-live-player>
+    <view wx:else class="align-items flex-c" style="width:100%;height:100%;background: #000;"><text style="padding:10rpx;border-radius:10rpx;color:#fff">主播正在赶来的路上~</text></view>
+		<!-- <exh-item exhibitList="{{exhibitLit}}" liveId="{{id}}" exhItemType="exhibition"></exh-item>
+		<view class="module-area">
+			<view class="module-item">
+				<view class="module-top">
+					<view class="module-title">
+						<image src="{{staticImageUrl}}/img/index/icon_2.png" class="title-img"></image>
+						<text class="title-text">{{langTranslate['视频直播']}}</text>
+					</view>
+				</view>
+				<view class="module-con">
+					<video style="width: 690rpx; height: calc(690rpx * 9 / 16);" src="{{detailInfo.video}}"></video>
+					<!-- <image src="{{staticImageUrl}}/img/banner.png" class="video-img"></image>
+					<image src="{{staticImageUrl}}/img/purchaser/icon_play.png" class="play-img"></image> 
+				</view>
+			</view>
+			<view class="module-item company-item">
+				<view class="module-top">
+					<view class="module-title">
+						<image src="{{staticImageUrl}}/img/purchaser/company.png" class="title-img"></image>
+						<text class="title-text">{{langTranslate['公司介绍']}}</text>
+					</view>
+				</view>
+				<view class="module-con">
+					<text class="exh-desc">{{ isEn ? detailInfo.introductionEn : detailInfo.introduction }}</text>
+				</view>
+			</view>
+			<view class="module-item company-item">
+				<view class="module-top">
+					<view class="module-title">
+						<image src="{{staticImageUrl}}/img/purchaser/icon_exh.png" class="title-img"></image>
+						<text class="title-text">{{langTranslate['展品']}}</text>
+					</view>
+				</view>
+				<view class="exh-list">
+					<view wx:for="{{exhibits}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item">
+						<view class="exhibition-info">
+							<view class="logo-area">
+								<image src="{{item.coverImage}}" class="logo-img"></image>
+							</view>
+							<view class="detail-info">
+								<view class="company-name">
+									<text class="name">{{isEn ? item.nameEn : item.name}}</text>
+								</view>
+								<view class="industry-area">
+									<text class="label-text">{{langTranslate['所属行业']}}：</text>
+									<view class="industry-list">
+										<view wx:for="{{isEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem" class="industry-item">{{tagItem}}</view>
+									</view>
+								</view>
+								<view class="hot-area">
+									<image src="{{staticImageUrl}}/img/purchaser/icon_redu.png" class="hot-img"></image>
+									<text class="hot-text">{{item.hot}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="opt-area">
+							<view class="opt-box">
+							</view>
+							<view class="opt-button" catchtap="goDetailPage" data-id="{{item.id}}">
+								<text class="opt-text">{{langTranslate['查看']}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view> -->
+	</block>
+	<block wx:else>
+		<video id="myVideo" src="{{detailInfo.video}}" controls></video>
+	</block>
+  <view class="wx-popup" wx:if="{{loadLoginPop&&live_type=='exhibition'&&type != -1}}">
+    <view class='popup-container'>
+      <view class="popup-account" style="padding:30rpx;width:520rpx;height: 630rpx;overflow:auto">
+        <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">x</i>
+        <view style="text-align:center;font-size:32rpx;font-weight:bold;padding-bottom:32rpx">{{langTranslate['其他人也在看']}}</view>
+         <!-- <video-live-page style="float:{{index%2!=0?'right':''}}" wx:for="{{daka.data}}" wx:key="{{index}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="{{item.type}}"  page_img="{{item.coverImage}}" live_name="{{item.title}}"bindtap="goDetailPage" live_number="{{item.number}}"></video-live-page> -->
+        <view wx:for="{{exhibitshot||[]}}" style="width:250rpx;display:inline-block;float:{{index%2==0?'':'right'}};">
+          <video-live-page is_live="{{item.status==0}}" width="250rpx;" height="250rpx" page_img="{{item.coverImage}}" play_custom="{{item.type==1?'直播回放':''}}" live_name="{{item.theme}}"live_number="{{item.number}}"></video-live-page>
+          <view style="text-align:center;font-size:28rpx;color:#666666">{{item.company}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

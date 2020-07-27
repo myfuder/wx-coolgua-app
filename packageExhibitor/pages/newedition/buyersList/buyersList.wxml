@@ -1,0 +1,71 @@
+<!--packageExhibitor/pages/newedition/buyersList/buyersList.wxml-->
+<import src="../../../../pages/common/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
+<view id="buyers-list"  style="min-height: {{height}}px">
+  <view class="header" style="z-index:1">
+     <!-- <view class="search-box">
+        <image src="{{search_btn}}" style="width:30rpx;height:30rpx;position: absolute;top: 15rpx;left: 20rpx;"/>
+        <input class="weui-input" auto-focus placeholder="请输入需求名称/采购人名称"/>
+        <view class="search-box-btn">搜索</view>
+      </view> --> 
+      <view class="input-area search-box" style="">
+        <image src="{{search_btn}}" mode='widthFix' style="width:30rpx;height:30rpx;position: absolute;top: 15rpx;left: 20rpx;"></image>
+        <input class="weui-input" type="text" placeholder="{{langTranslate['请输入展商名称/展位号']}}"
+               placeholder-class="input-placeholder" bindinput="changeKeyTap"
+               bindconfirm="bindconfirm"
+               value="{{key}}"></input>
+        <view class="search-box-btn" bindtap="filterTagsTriggerData">{{langTranslate['搜索']}}</view>
+      </view>
+      <view bindtap="openFilter">
+        <text class="filter">{{langTranslate['筛选']}}</text>
+        <image src="{{filter_btn}}" style="width:32rpx;height:32rpx;vertical-align: middle;margin-left:12rpx;"/>
+      </view>
+  </view>
+  <view class="list">
+    <view class="item" hover-class="none" hover-stop-propagation="false" wx:for="{{list1}}" wx:key="index" bindtap="detailClick" data-id="{{item.id}}">
+      <view class="item-total">
+        <view class="header-img">
+          <image src="{{item.portrait}}" style="width:126rpx;height:126rpx;"/>
+        </view>
+        <view class="header-right" style="flex-grow:1">
+          <view class="top">
+            <view class="manage-box">
+              <text class="name">{{isEn?item.contactEn:item.contact}}</text>
+              <text class="posts">{{isEn?item.jobEn:item.job}}</text>
+            </view>
+            <view class="hot">
+              <image src="{{demand_fire}}" style="width:18rpx;height:21rpx;margin-right:7rpx;"></image>
+              <text>{{item.popular}}</text>
+            </view>
+          </view>
+          <view class="totalStyle">{{isEn?item.companyEn:item.company}}</view>
+          <view class="totalStyle">{{langTranslate['业务性质']}}：{{nature}}</view>
+        </view>
+      </view>
+      <view class="like" style="">
+        <!-- <view class="like-box"> -->
+          <text class="totalStyle" style="margin-right:30rpx;">{{langTranslate['感兴趣的产品']}}</text>
+          <text class="like-item" wx:for="{{isEn?item.tagEnglishNames:item.tagNames}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem">{{childItem}}</text>
+        <!-- </view> -->
+      </view>
+      <view class="item-booking">
+        <!-- <view class="icons">
+          <view><image src="{{messageActiveButton_disbaled}}" /></view>
+          <view><image src="{{likeButton}}" /></view>
+          <view><image src="{{collect_button}}" /></view>
+        </view>
+        <view class="booking-btn">预约</view> -->
+    <callbutton online="{{item.online}}"
+                style="width: 100%"
+                userid="{{item.purchaserId}}"
+                type="3"
+                src="0"
+                item="{{item}}"
+                userid="{{item.id}}"></callbutton>
+      </view>
+    </view>
+
+  </view>
+  <filter bind:close="close" bind:comfire="comfire"  isShowSearch="{{isShowSearch}}" style="width:100%;height:100%;"></filter>
+
+</view>

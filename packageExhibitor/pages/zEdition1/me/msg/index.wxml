@@ -1,0 +1,21 @@
+<!--packageExhibitor/pages/zEdition1/me/msg/index.wxml-->
+<view>
+  <view class="border"></view>
+  <view class="content" bindtap="msgClick1" wx:for="{{systemmsglist}}" wx:key="item" wx:if="{{index==0}}">
+    <view class="item">
+      <image src="https://www.coolgua.net/match_img/img/activity.png"></image>
+      <view class="con">
+        <view class="top">
+          <text>{{system}}</text>
+          <text class="time">{{item.createTime}}</text>
+        </view>
+        <view class="text">
+          <text>[{{systemmsglist.length}}条]</text>
+          <text>{{item.messageList.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <msg wx:for="{{msglist}}" msg="{{item}}" wx:key="item" data-idx="{{idx}}" wx:for-index="idx" bindtap="goChat"
+       data-item="{{ item }}" wx:if="{{item.type!='@TIM#SYSTEM'}}"></msg>
+</view>

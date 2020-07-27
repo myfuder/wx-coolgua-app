@@ -1,0 +1,21 @@
+<view style="padding-top: 20rpx;">
+  <!-- <view style="padding: 20rpx;" wx:if="{{loading}}">
+    <mp-loading></mp-loading>
+  </view> -->
+  <view wx:if="{{!loading}}" wx:for="{{productTypeList}}" wx:key="*this" data-id="{{item.id}}" class="con-item">
+    <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+      <image
+        src="{{item.isChecked?default_checkbox_checked:default_checkbox_no_chekced}}"></image>
+      <text class="con-title">{{isEn ? item.parent.english:item.parent.chinese}}</text>
+    </view>
+    <view class="search-child">
+      <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex"
+            wx:key="childItem" data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap"
+            data-index="{{childIndex}}">
+        <text class="con-title con-children-item  {{childItem.isChecked?'primary':''}}"
+              data-childItem="{{childItem}}">{{isEn ? childItem.english : childItem.chinese}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+<!-- 我的预约/日程 -->
+<view style="background: #F6F7FB;min-height: {{height}}px">
+  <view style="padding: 20rpx;padding-top: 30rpx;">
+    <view style="background: #fff;border-radius: 10rpx;padding: 20rpx 10rpx 10rpx 20rpx;">
+      <view style="font-size:32rpx;border-bottom: 1px solid #EEEEEE;padding-bottom: 10rpx;">我发起的预约</view>
+      <view style="display: flex;justify-content: space-between;padding: 20rpx;">
+       <!-- /packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=1&status=0" -->
+          <!-- url="/pages/appoint-schedule-list/appoint-schedule-list?type=1&status=0" -->
+        <navigator
+           url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=1&status=0"
+          class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#39C99F;">{{exhibitorConfirmed}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">已确认</view>
+        </navigator>
+         <!-- url="/pages/appoint-schedule-list/appoint-schedule-list?type=1&status=2" -->
+        <navigator
+          url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=1&status=2"
+          class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#368EFD;">{{exhibitorTobeconfirmed}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">待确认</view>
+        </navigator>
+        <navigator
+         url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=1&status=5"
+          class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#FB8164;">{{exhibitorRefuse}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">被拒绝</view>
+        </navigator>
+        <navigator
+          url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=1&status=6"
+          class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#FFA704;">{{exhibitorCancel}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">已取消</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view style="padding: 20rpx;">
+    <view style="background: #fff;border-radius: 10rpx;padding: 20rpx 10rpx 10rpx 20rpx;">
+      <view style="font-size:32rpx;border-bottom: 1px solid #EEEEEE;padding-bottom: 10rpx;">我收到的预约</view>
+      <view style="display: flex;justify-content: space-between;padding: 20rpx;">
+        <navigator class="item" style="text-align: center;"
+         url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=0&status=0">
+          <view class="strong" style="font-size:40rpx;color:#39C99F;">{{purchaserConfirmed}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">已确认</view>
+        </navigator>
+        <navigator url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=0&status=2"
+                   class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#368EFD;">{{purchaserTobeconfirmed}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">待确认</view>
+        </navigator>
+        <navigator url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=0&status=5"
+                   class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#FB8164;">{{purchaserRefuse}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">被拒绝</view>
+        </navigator>
+        <navigator url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=0&status=6"
+                   class="item" style="text-align: center;">
+          <view class="strong" style="font-size:40rpx;color:#FFA704;">{{purchaserCancel}}</view>
+          <view class="small" style="font-size: 24rpx;color: #999;">已取消</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+
+  <view style="padding: 20rpx;">
+    <view
+      bindtap="go2rili"
+      data-url="/packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule?type=2"
+      style="background: #fff;border-radius: 10rpx;display: flex;padding: 30rpx;">
+      <view style="display: flex;flex:1;align-items: center;">
+        <image src="{{myself_schedule}}" style="width: 30rpx;height: 30rpx;margin-right: 20rpx;"></image>
+        <view style="font-size:28rpx;">我的日程</view>
+      </view>
+      <view class="right" style="display: flex;">
+        <view style="font-size: 24rpx;color: #C1C1C1;padding-right: 10rpx;">{{schedule}}</view>
+        <image src="{{myself_left}}" style="width: 14rpx;height: 20rpx;position: relative;top: 10rpx;"></image>
+      </view>
+    </view>
+  </view>
+
+</view>

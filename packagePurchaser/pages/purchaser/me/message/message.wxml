@@ -1,0 +1,29 @@
+<!--packageExhibitor/pages/zEdition1/me/msg/index.wxml-->
+<view>
+  <view class="border"></view>
+  <view class="content" bindtap="msgClick1" wx:for="{{systemmsglist}}" wx:key="item" wx:if="{{index==0}}">
+    <view class="item">
+      <image src="https://www.coolgua.net/match_img/img/activity.png"></image>
+      <view class="con">
+        <view class="top">
+          <text>{{langTranslate['系统消息']}}</text>
+          <text class="time">{{item.createTime}}</text>
+        </view>
+        <view class="text">
+          <text style="color:rgba(25,196,153,1)">[{{systemmsglist.length}}{{langTranslate['条']}}]</text>
+          <text>{{item.messageList.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view  wx:if="{{msglist&&msglist.length!=0}}">
+    <msg
+      wx:for="{{msglist}}" msg="{{item}}" wx:key="item" data-idx="{{idx}}" wx:for-index="idx" bindtap="goChat"
+      data-item="{{ item }}"></msg>
+  </view>
+  
+  <view wx:else style="font-size: 24rpx;text-align: center;padding: 100rpx;">
+    {{langTranslate['目前还没有人和你聊天']}}~
+  </view>
+</view>

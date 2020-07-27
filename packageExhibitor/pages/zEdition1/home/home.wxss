@@ -1,0 +1,128 @@
+/* packageExhibitor/pages/zEdition1/home/home.wxss */
+@import "../components/common.wxss";
+.container {
+  width: 100%;
+}
+.demo-text-1 {
+  background-color: green;
+}
+.demo-text-2 {
+  background-color: #e28409;
+}
+.demo-text-3 {
+  background-color: #3011e2;
+}
+.swiper-item {
+  width: 100%;
+}
+.swiper-item > image {
+  width: 100%;
+}
+.swiper {
+  width: 100%;
+}
+swiper {
+  height: 280rpx !important;
+}
+.menu-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+  padding-top: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #F4F5F8;
+}
+.menu-item {
+  display: inline-block;
+  width: 225rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: linear-gradient(90deg, #ff2d2e 0%, #fd476c 100%);
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: white;
+  text-align: center;
+  margin-top: 30rpx;
+  position: relative;
+}
+.switch-tab {
+  text-align: center;
+  padding-top: 50rpx;
+  padding-bottom: 20rpx;
+  background-color: white;
+}
+.switch-tab-item {
+  display: inline-block;
+  border: 1px solid #FF2D30;
+  width: 280rpx;
+  height: 77rpx;
+  line-height: 77rpx;
+  font-size: 28rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #FF2D30;
+}
+.focus_style {
+  background-color: #FF2D30;
+  color: white;
+}
+.view-more {
+  text-align: center;
+  background-color: white;
+  padding: 30rpx;
+}
+.view-more > text {
+  width: 160rpx;
+  height: 66rpx;
+  line-height: 64rpx;
+  display: inline-block;
+  border: 1px solid #FF2D2E;
+  font-size: 28rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #ff2e30;
+  text-align: center;
+  background-color: white;
+  border-radius: 4rpx;
+}
+.unread-text {
+  background-color: white;
+  border: 1px solid #ff2e30;
+  border-radius: 50%;
+  color: #ff2e30;
+  display: inline-block;
+  width: 40rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 22rpx;
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+}
+/*menu 菜单*/
+.menuContainer {
+  display: flex;
+  align-items: center;
+}
+.menuContainer .menuItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menuContainer .menuItem image {
+  width: 70rpx;
+  height: 70rpx;
+}
+.menuContainer .menuItem .text {
+  text-align: center;
+  font-size: 24rpx;
+}
+.tab .tabitem.active {
+  color: #22C593;
+  font-weight: 600;
+}
+/*# sourceMappingURL=home.wxss.map */

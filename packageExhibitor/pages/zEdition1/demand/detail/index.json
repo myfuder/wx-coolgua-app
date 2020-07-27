@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "demand": "../../components/bizComponents/demand",
+    "invitation-dialog":"../../components/bizComponents/invitationDialog/index",
+    "demandItemForList": "../../components/demandItemForList/demandItemForList"
+  }
+}

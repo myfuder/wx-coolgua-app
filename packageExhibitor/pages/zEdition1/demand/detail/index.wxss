@@ -1,0 +1,56 @@
+/* packageExhibitor/pages/zEdition1/demand/detail/index.wxss */
+.label1{
+  display: inline-block;
+  font-size:32rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  width: 210rpx;
+  text-align: center;
+  border-bottom: 4rpx solid #FF2D2E;
+  margin-top: 67rpx;
+  margin-left: 31rpx;
+}
+.space-line{
+  width: 100%;
+  height: 1rpx;
+  background-color: #DCDFE6;
+}
+.body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30rpx;
+  justify-content: space-between;
+}
+.body>image{
+  width:330rpx;
+  height:300rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(220,223,230,1);
+  border-radius:4rpx;
+  background-color: gray;
+  margin-bottom: 22rpx;
+}
+.image-container-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.image-container-row .imageWrapper{
+    box-sizing: border-box;
+    width:310rpx;
+    height:240rpx;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(213,218,224,1);
+    border-radius:16rpx;
+    background: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+.image-container-row .imageWrapper image{
+    max-height: 100%;
+    max-width: 100%;
+}

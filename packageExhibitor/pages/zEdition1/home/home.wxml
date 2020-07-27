@@ -1,0 +1,327 @@
+<!--packageExhibitor/pages/zEdition1/home/home.wxml-->
+
+<view class="container" style="background: #F6F7FB;min-height: {{height}}px;padding-bottom: 100rpx;">
+  <view
+    style="background: url('https://www.coolgua.net/match_img/img/xgyz/index/topBack.png') no-repeat top;background-size:100% 80%;">
+
+    <!--    swiper -->
+    <view style="padding: 20rpx;">
+      <swiper class="swiper" autoplay="true" duration="500" style="height: 300rpx;width: 100%;"
+              indicator-dots="true"
+              indicator-active-color="#31CB9E"
+              indicator-color="#E1F8F1">
+        <swiper-item wx:for="{{bannerList}}" wx:key="item" class="swiper-item">
+          <view
+            style="width: 100%;height:100%;background: url({{item.picPath}}) no-repeat center/ 100% 100%;border-radius: 10rpx;"></view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+  </view>
+  <!-- 菜单列表-->
+  <view class="menuContainer"
+        style="margin-top: 20rpx;display: flex;flex-wrap: wrap;">
+    <view class="menuItem" bindtap="go2traffic"
+          style="width:185rpx;box-sizing: border-box"
+          data-item="{{traffic}}"
+          wx:if="{{traffic&&traffic.id}}">
+      <image src="{{menu_1}}"></image>
+      <view class="text" style="padding-top: 10rpx;">交通指南</view>
+    </view>
+    <!--    直播互动-->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}"
+          catchtap="go2LiveList11"
+          data-id="{{liveColumsItem.id}}"
+          data-appid="{{liveColumsItem.detailList[0].link}}"
+          data-linkmini="{{liveColumsItem.detailList[0].linkMini}}"
+          wx:if="{{liveColumsItem.id}}"
+          style="display: inline-flex;flex-direction: column;align-items: center;justify-content:center;width:185rpx;box-sizing: border-box"
+    >
+      <view class="butImg"
+            style="position: relative;">
+        <image class="img-b"
+               style="width:90rpx;height: 100rpx;"
+               src="{{menu_005}}" mode='widthFix'></image>
+      </view>
+      <text style="font-size: 24rpx;">{{langTranslate['直播活动']}}</text>
+    </view>
+
+    <!-- 场馆导航-->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}"
+          wx:if="{{stadiumNavigation.id}}"
+          bindtap="go2StadiumNavigation"
+          data-title="{{stadiumNavigation.title}}"
+          data-id="{{stadiumNavigation.id}}"
+          data-appid="{{stadiumNavigation.detailList[0].link}}"
+          data-linkmini="{{stadiumNavigation.detailList[0].linkMini}}"
+          style="display: inline-flex;flex-direction: column;align-items: center;width:185rpx;box-sizing: border-box"
+    >
+      <view class="butImg">
+        <image
+          style="width:90rpx;height: 100rpx;"
+          class="img-b" src="{{menu_003}}" mode='widthFix'></image>
+      </view>
+      <text style="font-size: 24rpx;">{{langTranslate['云上地展']}}</text>
+    </view>
+
+    <view class="menuItem"
+          bindtap="go2traffic"
+          data-item="{{exhibitionIntroduce}}"
+          wx:if="{{exhibitionIntroduce&&exhibitionIntroduce.id}}"
+          style="width:185rpx;box-sizing: border-box">
+      <image src="{{menu_004}}" style="width:90rpx;height: 90rpx;"></image>
+      <view class="text" style="padding-top: 10rpx;">{{langTranslate['展会介绍']}}</view>
+    </view>
+
+
+    <!--    <view class="menuItem" bindtap="go2activityList"
+              style="width:185rpx;box-sizing: border-box">
+          <image src="{{menu_4}}" style="width: 82rpx;"></image>
+          <view class="text" style="padding-top: 10rpx;">论坛活动</view>
+        </view>-->
+
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}} "
+          style="display: inline-flex;flex-direction: column;align-items: center;width:185rpx;box-sizing: border-box"
+          bindtap="go2postDemond" data-page="my-demand">
+      <view class="butImg">
+        <image src="{{menu_008}}" mode='widthFix' style="width:90rpx;height: 108rpx;"></image>
+      </view>
+      <text style="font-size: 24rpx;">{{langTranslate['供需发布']}}</text>
+    </view>
+
+  </view>
+
+  <!--    同期活动-->
+  <view style="margin-top: 40rpx;" wx:if="{{concurrentEvents.length}}">
+    <view class="headerContainer flex   space-between fontsize  align-items"
+          style="padding: 20rpx"
+    >
+      <view class="strong h2">{{langTranslate['同期活动']}}</view>
+      <view class="seeMore small button-line border-radius long wx-button"
+            bindtap="go2activityList"
+      >{{langTranslate['查看更多']}}
+      </view>
+    </view>
+    <!--       活动列表-->
+    <view class="row-container">
+      <block wx:for="{{concurrentEvents}}" wx:key="*this">
+        <view style="margin-bottom: 20rpx;">
+          <activityItem item="{{item}}" data-item="{{item}}"></activityItem>
+        </view>
+
+      </block>
+    </view>
+    <!-- <view class="" style="padding: 20rpx;border-radius: 20rpx;">
+         <view style="background: #fff;border-radius: 20rpx;padding-top: 30rpx;">
+             <view style="text-align: center;display: flex;justify-content: center;">
+                 <image
+                     style="height:338rpx;border-radius: 10rpx;max-width: 100%;max-height: 100%"
+             </view>
+             <view class="flex flex-c-c" style="padding: 20rpx;">
+                 <view class="h2 flex-1 strong">第102届全国糖酒会主论坛</view>
+                 <view class="wx-button small grey">123123报名</view>
+             </view>
+             <view style="padding-bottom:40rpx;padding-left: 20rpx;padding-right: 20rpx;padding-top: 20rpx">
+                 <view class="flex flex-c-c">
+                     <image src="" style="width: 25rpx;height: 25rpx;"></image>
+                     <view class="small"
+                           style="font-size:26rpx;color:rgba(153,153,153,1);">
+                         2020.05.21 10:00至2020.05.26 10:00
+                     </view>
+                 </view>
+                 <view class="flex flex-c-c">
+                     <image src="" style="width: 25rpx;height: 25rpx;"></image>
+                     <view class="small"
+                           style="font-size:26rpx;color:rgba(153,153,153,1);">
+                         A301会议厅
+                     </view>
+                 </view>
+             </view>
+         </view>
+     </view>-->
+  </view>
+
+  <!--    推荐观众   推荐商机-->
+  <view class="row-container" style="margin-top: 40rpx;">
+    <view class="space-between flex flex-c-c" style="margin-bottom: 20rpx;">
+      <view class="tab flex flex-c-c">
+        <view
+          bindtap="switchTabClick"
+          data-idx="0"
+          class="tabitem h2 {{currentTabIndex==0?'active':'none'}}">
+          {{langTranslate['推荐观众']}}
+        </view>
+        <view
+          style="position: relative;top:10rpx;height: 34rpx;width: 2rpx;background: #CDCDCD;margin-left: 30rpx;margin-right: 30rpx;"></view>
+        <view
+          bindtap="switchTabClick"
+          data-idx="1"
+          class="tabitem h2  {{currentTabIndex==1?'active':'none'}}">
+          {{langTranslate['推荐商机']}}
+        </view>
+      </view>
+      <view
+        style="display: inline-flex"
+        bindtap="viewMoreClick"
+        class="wx-button long small button-line border-radius"> {{langTranslate['查看更多']}}
+      </view>
+    </view>
+
+    <!--        观众-->
+    <!--      <view class="card-row-item "
+                style="background: #fff;border-radius: 20rpx;padding: 20rpx;position: relative;padding-top: 40rpx;margin-bottom: 20rpx;padding-top: 40rpx;">
+              <view class="fontsize flex flex-c-c"
+                    style="position: absolute;right: 20rpx;top: 40rpx;color:rgba(255,46,46,1);">
+                  <image
+                      style="width:18px;height:21px;"
+                  1222
+              </view>
+              <view class="flex flex-c-c">
+                  <image
+                      style="width: 126rpx;height: 126rpx;border-radius: 10rpx;"
+                  <view style="padding-left: 20rpx;">
+                      <view class="flex align-items" style="margin-bottom: 10rpx;">
+                          <view style="color: #222" class="fontsize strong">胡思艺</view>
+                          <view class="tag small" style="margin-left: 40rpx;">经理</view>
+                      </view>
+                      <view class="small">浙江中硕电器有限公司</view>
+                      <view class="small">业务性质：电商</view>
+                  </view>
+              </view>
+              <view class="border-bottom">
+                  <view class="flex" style="margin-top: 20rpx;">
+                      <view class="small flex-c-c" style="width: 140rpx;color: #666666">感兴趣产品</view>
+                      <view class="flex">
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                      </view>
+                  </view>
+
+                  <view class="flex" style="margin-top: 10rpx;">
+                      <view class="small flex-c-c" style="width: 140rpx;color: #666666">参会目的</view>
+                      <view class="flex">
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                          <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                      </view>
+                  </view>
+              </view>
+              <view class="flex flex-c-c space-between"
+                    style="border-top: 1px solid rgba(237,237,237,1);margin-top: 20rpx;padding-top: 40rpx;">
+                  <image
+                      style="width:70rpx;height:70rpx;"
+                  <view class="flex  fontsize"
+                        style="display: inline-flex;justify-content:center;align-items:center;color:#fff;width:210rpx;height:60rpx;background:linear-gradient(0deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);border-radius:35rpx;">
+                      离线留言
+                  </view>
+              </view>
+
+          </view>-->
+    <block wx:for="{{list1}}" wx:if="{{currentTabIndex==0}}">
+      <audienceItem item="{{item}}" wx:key="*this"></audienceItem>
+    </block>
+
+
+    <!--        商机-->
+    <view wx:for="{{list2}}" wx:if="{{currentTabIndex==1}}"
+          wx:key="*this"
+          style="margin-bottom: 20rpx;">
+      <demandItemForList item="{{item}}"
+      ></demandItemForList>
+    </view>
+    <!--<view class="card-row-item "
+          style="background: #fff;border-radius: 20rpx;padding: 20rpx;position: relative;padding-top: 40rpx;">
+        <view class="fontsize flex flex-c-c"
+              style="position: absolute;right: 20rpx;top: 40rpx;color:rgba(255,46,46,1);">
+            <image
+                style="width:18px;height:21px;"
+            1222
+        </view>
+        <view class="flex flex-c-c">
+            <image
+                style="width: 126rpx;height: 126rpx;border-radius: 10rpx;"
+            <view style="padding-left: 20rpx;">
+                <view class="flex align-items" style="margin-bottom: 10rpx;">
+                    <view style="color: #222;width: 393rpx;" class="fontsize strong text-overflow-one">
+                        果味啤酒供货渠道，提供至果味啤酒供货渠道果味啤酒供货渠道
+                    </view>
+                </view>
+                <view class="small" style="color:#666666">采购规格：50万/年</view>
+                <view class="small" style="color:#666666">发布时间：2020-04-23 12:30:02：电商</view>
+            </view>
+        </view>
+        <view style="border-bottom:1px dashed #ddd;padding-bottom: 20rpx;margin-bottom: 20rpx; ">
+            <view class="flex flex-c-c" style="margin-top: 20rpx;">
+                <view class="small flex-c-c" style="color: #666666;width: 160rpx;">采购商品品类</view>
+                <view class="flex">
+                    <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                    <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                    <view class="wx-button grey small" style="margin-right: 10rpx">电动工具</view>
+                </view>
+            </view>
+        </view>
+        <view>
+            <view class="flex align-items" style="margin-bottom: 10rpx;">
+                <view style="color: #222" class="fontsize strong">胡思艺</view>
+                <view class="tag small" style="margin-left: 40rpx;">经理</view>
+            </view>
+            <view class="small" style="color: #666666">浙江中硕电器有限公司</view>
+        </view>
+        <view class="flex flex-c-c space-between"
+              style="border-top: 1px solid rgba(237,237,237,1);margin-top: 20rpx;padding-top: 40rpx;">
+            <view class="flex">
+                <image
+                    style="width:70rpx;height:70rpx;margin-right:20rpx;"
+                <image
+                    style="width:70rpx;height:70rpx;margin-right:20rpx;"
+                <image
+                    style="width:70rpx;height:70rpx;margin-right:20rpx;"
+            </view>
+            <view class="flex  fontsize"
+                  style="display: inline-flex;justify-content:center;align-items:center;color:#fff;width:210rpx;height:60rpx;background:linear-gradient(0deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);border-radius:35rpx;">
+                离线留言
+            </view>
+        </view>
+
+    </view>-->
+
+  </view>
+  <!--  <view class="menu-wrap">
+        <text class="menu-item" bindtap="menuClick" data-idx="{{idx}}" wx:for-index="idx" wx:for="{{menus}}"
+              wx:key="*this">{{item.title}}
+            <text class="unread-text" wx:if="{{item.unreadNum}}">{{item.unreadNum}}</text>
+        </text>
+    </view>-->
+  <!--  <view class="switch-tab">
+        <text bindtap="switchTabClick" data-idx="{{idx}}" wx:for-index="idx"
+              class="switch-tab-item {{currentTabIndex == idx?'focus_style':''}}" wx:for="{{switchTabStr}}"
+              wx:key="*this">{{item}}
+        </text>
+    </view>-->
+  <view class="connect-list">
+    <!--  <block wx:if="{{currentTabIndex == 0}}">
+          <block wx:for="{{list1}}" wx:key="*this">
+              <person-connect bind:handleShow="handleShow" value="{{item}}" list="list"></person-connect>
+          </block>
+      </block>-->
+    <!--        <block wx:if="{{currentTabIndex == 1}}">-->
+    <!--            <block wx:for="{{list2}}" wx:key="*this">-->
+    <!--                <demand bind:handleShow="handleShow" value="{{item}}" list="list"></demand>-->
+    <!--            </block>-->
+    <!--        </block>-->
+    <!-- <view wx:if="{{currentTabIndex == 0 && list1.length>0}}" class="view-more" bindtap="viewMoreClick">
+      <text wx:if="{{isProgress}}">正在加载...</text>
+      <text wx:else>查看更多</text>
+    </view>
+    <view wx:if="{{currentTabIndex == 1 && list2.length>0}}" class="view-more" bindtap="viewMoreClick">
+      <text wx:if="{{isProgress}}">正在加载...</text>
+      <text wx:else>查看更多</text>
+    </view> -->
+    <!-- <view class="view-more" bindtap="viewMoreClick">
+         <text>{{viewmore}}</text>
+     </view>-->
+    <!--        <activityList activityList="{{concurrentEvents}}" source="home"></activityList>-->
+  </view>
+  <!--    <invitation-dialog param="{{dialogParam}}" wx:if="{{dialogShow}}" bind:handleHide="handleHide"></invitation-dialog>-->
+</view>

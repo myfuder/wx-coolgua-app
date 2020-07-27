@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "indexScrollView": "/components/scroll-view/scroll-view",
+      "demandScrollView": "/components/demand-scroll-view/demand-scroll-view",
+      "activityList": "/components/activityList/activityList"
+    }
+}

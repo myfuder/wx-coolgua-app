@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "callButtons": "../callButtons/callButtons"
+  }
+}

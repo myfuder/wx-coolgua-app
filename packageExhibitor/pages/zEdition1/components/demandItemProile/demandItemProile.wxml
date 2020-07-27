@@ -1,0 +1,62 @@
+<view class="card-row-item "
+      style="background: #fff;border-radius: 20rpx;;position: relative;">
+  <view class="fontsize flex flex-c-c"
+        style="position: absolute;right: 10rpx;top: 10rpx;color:rgba(255,46,46,1);font-size: 24rpx;">
+    <image
+      style="width:24rpx;height:24rpx;"
+      src="{{fireImage}}"></image>
+    <text style="padding-left: 10rpx;">{{item.popular}}</text>
+  </view>
+  <view class="flex flex-c-c">
+    <image
+      style="width: 126rpx;height: 126rpx;border-radius: 10rpx;"
+      mode="aspectFit"
+      bindtap="zoomImage" data-imageurl="{{item.portrait||item.image1||item.image2||defaultUserImage}}"
+      src="{{item.portrait||item.image1||item.image2||defaultUserImage}}"></image>
+    <view style="padding-left: 20rpx;">
+      <view class="flex align-items" style="margin-bottom: 10rpx;" bindtap="go2demandDetail">
+        <view style="color: #222;width: 393rpx;font-size: 30rpx;" class="strong text-overflow-one"
+              bindtap="go2demandDetail"
+        >{{isEn?item.purchasedGoodsNameEn:item.purchasedGoodsName}}
+        </view>
+      </view>
+      <view class="small" style="color:#666666">{{langTranslate['采购规格']}}：{{isEn?item.materialEn:item.material}}</view>
+      <view class="small" style="color:#666666" wx:if="{{item.createTime}}">
+        {{langTranslate['发布时间']}}：{{item.createTime}}
+      </view>
+    </view>
+  </view>
+  <view style="padding-bottom: 10rpx;">
+    <view class="flex" style="margin-top: 20rpx;">
+      <view class="small flex-start" style="color: #666666;width: 160rpx;">{{langTranslate['采购商品品类']}}</view>
+      <view class="flex" style="flex-wrap: wrap;flex:1;">
+        <view class="wx-button grey small" style="margin-right: 10rpx;margin-bottom:10rpx;"
+              wx:for="{{isEn?item.tagEnglishNames:item.tagNames}}" wx:for-item="tagName" wx:key="*this"
+              wx:if="{{index<8}}"
+        >{{tagName}}
+        </view>
+      </view>
+    </view>
+    <!--more-->
+    <view wx:if="{{item.tagNames.length>8}}">
+      <view bindtap="seeMoreClick" style="display: flex;justify-content: flex-end;">
+        <image
+          style="width: 45rpx;height: 25rpx;position: relative;top: -35rpx;"
+          wx:if="{{seeMoreShow}}" class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_top.png"></image>
+        <image
+          style="width: 45rpx;height: 25rpx;position: relative;top: -35rpx;"
+          wx:else class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+      </view>
+      <view class="flex" style="flex-wrap: wrap;padding-left: 160rpx;margin-top: -20rpx;">
+        <view
+          wx:if="{{seeMoreShow}}"
+          class="wx-button grey small" style="margin-right: 10rpx;margin-bottom: 10rpx"
+          wx:for="{{moreTags}}"
+          wx:key="*this"
+        >{{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

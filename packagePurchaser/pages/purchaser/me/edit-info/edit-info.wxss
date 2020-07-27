@@ -1,0 +1,192 @@
+/**index.wxss**/
+
+page {
+  width: 100%;
+  /* height:100%; */
+}
+
+.container {
+  width: 100%;
+  /* height:100%; */
+  position: relative;
+  /* background:#f5f5f5; */
+  box-sizing: border-box;
+}
+
+.con-main {
+  width: 750rpx;
+}
+.img-area {
+  padding: 33rpx 0 45rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img-area .user-img {
+  width: 181rpx;
+  height: 183rpx;
+}
+.img-area .img-buttons {
+  margin-top: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.img-buttons .img-button {
+  padding: 0 25rpx;
+  /* width: 152rpx; */
+  height: 56rpx;
+  border:1px solid #FF0000;
+  border-radius:2px;
+  margin-left: 29rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-buttons .img-button:first-child {
+  margin-left: 0;
+}
+.img-buttons .choose-img {
+  background-color: #FF0000;
+}
+.img-button text {
+  font-size:24rpx;
+  color:#FF0000;
+  line-height:26rpx;
+}
+.choose-img text {
+  color: #fff;
+}
+.info-title {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 31rpx;
+  font-size:32rpx;
+  color:rgba(102,102,102,1);
+  line-height:36rpx;
+  background-color: #F6F7FA;
+}
+/* 表单提交 */
+.form-list {
+  padding: 0 32rpx;
+}
+.form-info .show-area {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+.form-info text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 32rpx;
+}
+.form-list .input,
+.choose-area {
+  width: 686rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+  padding: 0 32rpx;
+  border: 1px solid rgba(220, 223, 230, 1);
+  font-size: 28rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}
+.choose-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.choose-area image {
+  width: 27rpx;
+  height: 15rpx;
+}
+.input-placeholder,
+.choose-area text {
+  color: #CCC;
+}
+.form-info .required-area {
+  display: flex;
+}
+.required-area .requried-col {
+  color: #FF0000;
+  line-height: 20rpx;
+}
+/* 表单提交-完 */
+.buttons-area {
+  margin-top: 70rpx;
+  padding: 0 34rpx 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttons-area .button {
+  width: 320rpx;
+  height: 80rpx;
+  border-radius:10rpx;
+  border: 1px solid #FF0000;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button text {
+  color: #FF0000;
+  font-size:32rpx;
+  line-height: 34rpx;
+}
+.buttons-area .submit-button {
+  background:linear-gradient(0deg,#FF0000 0%,#FF0000 100%);
+}
+.submit-button text {
+  color: #FFF;
+}
+.form-title-area {
+  display: flex;
+}
+.form-info .requried-col {
+  color: red;
+}
+/* 品类样式 */
+.con-item {
+  margin-top: 30rpx;
+}
+
+.con-item:first-child {
+  margin-top: 0;
+}
+
+.con-item .search-par,
+.con-item .child-item {
+  display: flex;
+  align-items: center;
+}
+
+.con-item image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.con-item .con-title {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 28rpx;
+  margin-left: 23rpx;
+}
+
+.con-item .search-child {
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-child .child-item {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+}
+
+/* 品类样式-完 */
+.type-area {
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+}

@@ -1,0 +1,66 @@
+<!--packageExhibitor/pages/newedition/buyerDetail/buyerDetail.wxml-->
+<view id="buyers-detail">
+  <view class="list">
+    <view class="item" hover-class="none" hover-stop-propagation="false">
+      <view class="item-total">
+        <view class="header-img">
+          <image src="" />
+        </view>
+        <view class="header-right" style="flex-grow:1">
+          <view class="top">
+            <view class="manage-box">
+              <text class="name">胡思艺</text>
+              <text class="posts">经理</text>
+            </view>
+            <view class="hot">
+              <image src="" class="hot-img"/>
+              <text>360</text>
+            </view>
+          </view>
+          <view class="totalStyle">浙江中硕电器有限公司</view>
+          <view class="totalStyle">业务性质：电商</view>
+        </view>
+      </view>
+      <view class="like likeSelf">
+        <text class="totalStyle">感兴趣的产品</text>
+        <text class="like-item">电动工具</text>
+      </view>
+      <view class="like objective">
+        <text class="totalStyle">参会目的</text>
+        <text class="like-item">订货采购</text>
+      </view>
+      <view class="item-booking">
+        <view class="icons"></view>
+        <view class="booking-btn">立即邀约</view>
+      </view>
+    </view>
+  </view>
+  <view class="title">已发布商机</view>
+  <view class="detail-list">
+    <view class="detail-item">
+      <view class="top">
+        <text class="detail-title">果味啤酒供货渠道，提供至湖北</text>
+        <text class="hot">
+          <image src="" class="hot-img"/>
+          <text>360</text>
+        </text>
+      </view>
+      <view>
+        <text class="totalStyle">采购商品品类</text>
+        <text class="category-item">电动工具</text>
+      </view>
+      <view class="totalStyle buy">采购规格：50万/年</view>
+      <view class="totalStyle public-time">发布时间：2020-04-23 12:30:02</view>
+      <view class="praise">
+        <view>
+          <image src="" />
+          <text>14</text>
+        </view>
+        <view>
+          <image src="" />
+          <text>12</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

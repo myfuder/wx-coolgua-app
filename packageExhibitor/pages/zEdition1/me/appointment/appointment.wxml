@@ -1,0 +1,53 @@
+<!--invitationList.wxml-->
+<view class="container"> 
+    <view class="exhibitor-index">
+        <view class="myContent">
+            <view class="content-item">
+                <view class="title">我发起的邀约</view>
+                <view class="nav">
+                    <view class="nav-item" bindtap="switchConfirmed" data-status="0">
+                        <view class="num1">{{exhibitorConfirmed}}</view>
+                        <text>已确认</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchConfirmed" data-status="2">
+                        <view class="num2">{{exhibitorTobeconfirmed}}</view>
+                        <text>待确认</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchConfirmed" data-status="5">
+                        <view class="num3">{{exhibitorRefuse}}</view>
+                        <text>被拒绝</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchConfirmed" data-status="6">
+                        <view class="num4">{{exhibitorCancel}}</view>
+                        <text>已取消</text>
+                    </view>
+                </view>
+            </view>
+            <view class="content-item">
+                <view class="title">我收到的邀约</view>
+                <view class="nav">
+                    <view class="nav-item" bindtap="switchReceived" data-status="0">
+                        <view class="num1">{{purchaserConfirmed}}</view>
+                        <text>已确认</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchReceived" data-status="2">
+                        <view class="num2">{{purchaserTobeconfirmed}}</view>
+                        <text>待确认</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchReceived" data-status="5">
+                        <view class="num3">{{purchaserRefuse}}</view>
+                        <text>已拒绝</text>
+                    </view>
+                    <view class="nav-item" bindtap="switchReceived" data-status="6">
+                        <view class="num4">{{purchaserCancel}}</view>
+                        <text>已取消</text>
+                    </view>
+                </view>
+            </view>
+            <view class="schedule-item content-item clearfix" bindtap="switchSchedule">
+                <view class="schedule"><image src="{{staticImageUrl}}/img/xgyz/date.png" mode='widthFix'></image>我的日程</view>
+                <view class="num">{{schedule}} <image src="{{staticImageUrl}}/img/xgyz/down.png" mode='widthFix'></image></view>
+            </view>
+        </view>
+    </view>
+</view>

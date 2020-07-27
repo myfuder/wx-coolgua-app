@@ -1,0 +1,82 @@
+<!--展商-->
+<view class="container">
+  <view class="con-main">
+    <view class="top-info">
+      <view class="form-item clearfix">
+        <text class="form-title">{{langTranslate['采购商/采购企业名称']}}</text>
+        <text class="form-name">{{userInfo.company}}</text>
+      </view>
+      <view class="form-item clearfix">
+        <text class="form-title">{{langTranslate['国家']}}</text>
+        <text class="form-name">{{userInfo.country||'中国大陆'}}</text>
+      </view>
+      <view class="form-info" style="flex-direction: column;">
+        <text class="form-title">{{langTranslate['采购商品品类']}}</text>
+        <view class="type-area">
+          <view wx:for="{{exhibitList}}" wx:key="item" data-id="{{item.id}}" class="con-item">
+            <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+              <image
+                src="{{staticImageUrl}}{{item.isChecked ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>
+              <text class="con-title">{{ isEn ? item.english : item.chinese}}</text>
+            </view>
+            <!--            tree 二级渲染-->
+            <view class="search-child">
+              <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+                    data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap" data-index="{{childIndex}}">
+<!--                <image   src="{{staticImageUrl}}{{childItem.isChecked ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>-->
+                <text class="con-title" style="background: {{childItem.isChecked?'#EAFAF5':'rgba(242,242,242,1)'}};color:{{childItem.isChecked?'#27C597':'#222'}};border:1px solid {{childItem.isChecked?'#27C597':'#eee'}};min-width:160rpx;min-height:60rpx;display:flex;justify-content: center;align-items: center;border-radius: 40rpx;">{{isEn ? childItem.english : childItem.chinese}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-list">
+        <view class="form-info">
+          <text class="form-title">{{langTranslate['采购商品名称']}}</text>
+          <textarea bindinput="setPurchasedGoodsName" value="{{purchasedGoodsName}}" class="textarea"
+                    placeholder="{{langTranslate['请输入采购商品名称']}}" placeholder-class="input-placeholder"></textarea>
+        </view>
+        <view class="form-item clearfix">
+          <text class="form-title">{{langTranslate['采购数量']}}</text>
+          <input bindinput="setPurchasedCount" value="{{purchasedCount}}" class="input" type="number" placeholder="500"
+                 placeholder-class="input-placeholder"></input>
+        </view>
+        <view class="form-item clearfix">
+          <text class="form-title">{{langTranslate['价格幅度']}}</text>
+          <input bindinput="setPurchasedPrice" value="{{purchasedPrice}}" class="input" type="text"
+                 placeholder="500-100000RMB" placeholder-class="input-placeholder"></input>
+        </view>
+        <view class="form-item clearfix">
+          <text class="form-title">{{langTranslate['材质/规格']}}</text>
+          <input bindinput="setMaterial" value="{{material}}" class="input" type="text" placeholder="材质/规格"
+                 placeholder-class="input-placeholder"></input>
+        </view>
+        <view wx:for="{{images}}" wx:key="item" class="form-info">
+          <text class="form-title">{{langTranslate['图片']}}{{index+1}}</text>
+          <image wx:if="{{item !== ''}}" src="{{item}}" class="form-img"></image>
+          <view class="upload-button" bindtap="uploadPic" data-index="{{index}}">{{langTranslate['选择文件']}}</view>
+        </view>
+        <!-- <view class="form-info">
+          <text class="form-title">图片2：</text>
+          <view class="upload-button" bindtap="uploadPic" data-index="1">选择文件</view>
+        </view>
+        <view class="form-info">
+          <text class="form-title">图片3：</text>
+          <view class="upload-button" bindtap="uploadPic" data-index="2">选择文件</view>
+        </view>
+        <view class="form-info">
+          <text class="form-title">图片4：</text>
+          <view class="upload-button" bindtap="uploadPic" data-index="3">选择文件</view>
+        </view> -->
+      </view>
+    </view>
+    <view class="buttons-area">
+      <view class="button return" bindtap="returnPage">
+        <text>{{langTranslate['返回']}}</text>
+      </view>
+      <view class="button submit-button" bindtap="submitTap">
+        <text>{{langTranslate['发布需求']}}</text>
+      </view>
+    </view>
+  </view>
+</view>

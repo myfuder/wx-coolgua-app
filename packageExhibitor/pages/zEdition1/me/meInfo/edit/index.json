@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "treeProductType": "../../../components/treeProductType/treeProductType",
+    "uploadFileImage": "../../../components/uploadFileImage/uploadFileImage",
+    "uploadVideo": "../../../components/uploadVideo/uploadVideo"
+  }
+}

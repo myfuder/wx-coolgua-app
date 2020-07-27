@@ -1,0 +1,18 @@
+<!--pages/live/live.wxml-->
+<view style="width:100%;height: 100%; background-color: black;">
+  <view style="width:100%;height:100%;">
+    <live-player style="width:100%;height:100%; position:absolute;" id="video-livePlayer" mode="live" orientation="{{orientation}}" muted="{{muted}}" background-mute="{{backgroundMute}}" object-fit="{{objectFit}}" min-cache="1" max-cache="3" src="{{playUrl}}"
+      debug="{{debug}}" bindstatechange="onPlayEvent" bindfullscreenchange="onFullScreenChange">
+      <image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></image>
+
+      <view class="bottom-container">
+        <view class="title">{{live.theme}}</view>
+        <view class="info">
+          <image class="icon"></image>
+          <text class="count">{{live.number}}人</text>
+        </view>
+      </view>
+      <image class='close' style="top:{{(headerHeight + statusBarHeight) - 26}}rpx" src="/pages/Resources/back.png" bindtap="onBack"></image>
+    </live-player>
+  </view>
+</view>

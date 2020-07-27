@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "callbutton": "/components/exh-item/callButtons/callButtons"
+  }
+}

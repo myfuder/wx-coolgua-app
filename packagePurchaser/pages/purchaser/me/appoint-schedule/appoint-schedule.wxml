@@ -1,0 +1,295 @@
+<!-- 我的预约/日程 -->
+<view class="container">
+  <view class="con-main">
+    <view class="tab-area">
+       <view class="{{currentType === 1 ? 'tab-item active' : 'tab-item'}}" bindtap="changeTypeTap" data-type="1">
+         <text>{{langTranslate['我的预约']}}</text>
+       </view>
+       <view class="{{currentType === 2 ? 'tab-item active' : 'tab-item'}}" bindtap="changeTypeTap" data-type="2">
+         <text>{{langTranslate['我的日程']}}</text>
+       </view>
+     </view>
+    <view class="tab-con">
+      <block wx:if="{{currentType === 1}}">
+        <view class="module-item">
+          <view class="top-title">
+            						<image src="{{staticImageUrl}}/img/purchaser/icon_start.png"></image>
+            <text>{{langTranslate['我发起的预约']}}</text>
+          </view>
+          <view class="status-area">
+            <!--状态列表-->
+            <view wx:for="{{statusList}}"
+                  wx:key="item" data-idx="{{item.value}}" data-id="{{item.value}}"
+                  class="{{currentStatus === item.value ? 'status-item active' : 'status-item'}}"
+                  bindtap="changeStatusTap" data-type="{{item.value}}">
+              <text>{{item.label}}</text>
+              <text class="strong">({{item.count}})</text>
+            </view>
+          </view>
+          <view class="meeting-list">
+            <!--加载-->
+            <mp-loading wx:if="{{loadingData}}" style="padding: 100rpx;"></mp-loading>
+            <view wx:for="{{exhibits}}"
+                  wx:if="{{!loadingData}}"
+                  wx:key="item" data-id="{{item.id}}" class="meeting-item">
+              <view class="top-info">
+                <text class="meeting-title">{{item.top}}</text>
+                <view class="cancel-area" wx:if="{{currentIndex == 0 && item.iska=='3'}}" bindtap="cancelSchedule"
+                      data-id="{{item.id}}">
+                  <image src="{{staticImageUrl}}/img/purchaser/icon_cancel.png"></image>
+                  <text>{{langTranslate['取消']}}</text>
+                </view>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{isEn ? item.companyEn : item.company}}</text>
+              </view>
+              <!-- <view class="info-box">
+                <text class="company-name">{{langTranslate['联系人']}}：{{isEn ? item.contactEn : item.contact}}</text>
+              </view> -->
+              <view class="info-box">
+                <text class="company-name">
+                  {{langTranslate['邀约时间']}}：{{item.activityTimeBegin}}-{{item.activityTimeEnd}}
+                </text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{langTranslate['发起时间']}}：{{item.createTime}}</text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{langTranslate['备注留言']}}：{{item.remark}}</text>
+              </view>
+              <!-- 已确认正在进行 -->
+              <view wx:if="{{currentIndex === 0&& item.iska=='3'}}" class="opt-area" bindtap="goToMeeting" data-meetingid="{{item.meetingId}}" data-supplierid="{{item.supplierId}}">
+                <view class="opt-button">
+                  <text>{{langTranslate['进入会议']}}</text>
+                </view>
+              </view>
+              <!-- 已确认已过期 -->
+              <view wx:if="{{currentIndex === 0&& item.iska=='2'}}" class="opt-area">
+                <view class="yaoyue_three5">
+                  <text>{{langTranslate['已过期']}}</text>
+                </view>
+              </view>
+              <!-- 已确认倒计时 -->
+              <view wx:if="{{currentIndex === 0&& item.iska=='1'}}" class="opt-area">
+                <view class="opt-button">
+                                   <!-- <text>{{langTranslate['会议开启倒计时']}}{{item.difftime}}</text> -->
+                                   <!-- <text>会议将于{{item.activityTimeBegin}}开始</text> -->
+                  <coutTimeButton class="wxml" time="{{item.activityTimeBegin}}"></coutTimeButton>
+                </view>
+              </view>
+              <!-- 待确认 -->
+              <view wx:if="{{currentIndex === 2&&item.iska!='2'}}" class="opt-area">
+                  <view class="yaoyue_three6_right" bindtap="cancelSchedule" data-id="{{item.id}}">
+                    <text>{{langTranslate['取消预约']}}</text>
+                  </view>
+                  <!-- <view class="opt-tixing" style="background:{{item.countDown?'#666666':''}}" bindtap="tixing" data-id="{{item.id}}">
+                    <text >{{item.countDown||langTranslate['提醒对方']}}</text>
+                  </view> -->
+                  <countDown idx="{{item.id}}" countDown="{{item.countDown}}"></countDown>
+              </view>
+               <view wx:if="{{currentIndex === 2&&item.iska=='2'}}" class="opt-area">
+                 <view class="yaoyue_three5">
+                  <text>{{langTranslate['已过期']}}</text>
+                </view>
+              </view>
+              <!-- 被拒绝 -->
+              <view wx:if="{{currentIndex === 5}}" class="opt-area">
+                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                  <text>{{langTranslate['再次发起预约']}}</text>
+                </view>
+              </view>
+              <!-- 已取消 -->
+              <view wx:if="{{currentIndex === 6}}" class="opt-area">
+                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                  <text>{{langTranslate['再次发起预约']}}</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{!loadingData&&exhibits&&exhibits.length==0}}"
+                  style="padding: 40rpx;text-align: center;font-size: 24rpx;background: #fff">
+              目前没有数据
+            </view>
+          </view>
+        </view>
+        <view class="module-item">
+          <view class="top-title">
+            						<image src="{{staticImageUrl}}/img/purchaser/icon_end.png"></image>
+            <text>{{langTranslate['我收到的预约']}}</text>
+          </view>
+          <view class="status-area">
+            <view wx:for="{{receiveStatusList}}" wx:key="item" data-id="{{item.value}}"
+                  class="{{currentReceiveStatus === item.value ? 'status-item active' : 'status-item'}}"
+                  bindtap="changeReceiveStatusTap" data-type="{{item.value}}">
+              <text>{{item.label}}</text>
+              <text class="strong">({{item.count}})</text>
+            </view>
+          </view>
+
+          <view class="meeting-list">
+            <!--加载-->
+            <mp-loading wx:if="{{loadingData1}}" style="padding: 100rpx;"></mp-loading>
+            <view
+              wx:if="{{!loadingData1}}"
+              wx:for="{{scheduleList}}" wx:key="item" data-id="{{item.id}}" class="meeting-item">
+              <view class="top-info">
+                <text class="meeting-title">{{item.top}}</text>
+                <view class="cancel-area" wx:if="{{currentReceiveStatus == 0 && item.iska=='3'}}"
+                      bindtap="cancelSchedule" data-id="{{item.id}}">
+                  <image src="{{staticImageUrl}}/img/purchaser/icon_cancel.png"></image>
+                  <text>{{langTranslate['取消']}}</text>
+                </view>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{isEn ? item.companyEn : item.company}}</text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{langTranslate['联系人']}}：{{isEn ? item.contactEn : item.contact}}</text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">
+                  {{langTranslate['邀约时间']}}：{{item.activityTimeBegin}}-{{item.activityTimeEnd}}
+                </text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{langTranslate['发起时间']}}：{{item.createTime}}</text>
+              </view>
+              <view class="info-box">
+                <text class="company-name">{{langTranslate['备注留言']}}：{{item.remark}}</text>
+              </view>
+              <!-- 已确认正在进行 -->
+              <view wx:if="{{currentReceiveStatus === 0&& item.iska=='3'}}" class="opt-area" bindtap="goToMeeting" data-meetingid="{{item.meetingId}}" data-supplierid="{{item.supplierId}}">
+                <view class="opt-button">
+                  <text>{{langTranslate['进入会议']}}</text>
+                </view>
+              </view>
+              <!-- 已确认已过期 -->
+              <view wx:if="{{currentReceiveStatus === 0&& item.iska=='2'}}" class="opt-area">
+                <view class="yaoyue_three5">
+                  <text>{{langTranslate['已过期']}}</text>
+                </view>
+              </view>
+              <!-- 已确认倒计时 -->
+              <view wx:if="{{currentReceiveStatus === 0&& item.iska=='1'}}" class="opt-area">
+                <view class="yaoyue_three5">
+                  <!-- <text>{{langTranslate['会议开启倒计时']}}{{item.difftime}}</text> -->
+                  <coutTimeButton class="wxml" time="{{item.activityTimeBegin}}"></coutTimeButton>
+                </view>
+              </view>
+              <!-- 待确认 -->
+              <view wx:if="{{currentReceiveStatus === 2}}" class="opt-area">
+                <view class="yaoyue_three6_right" bindtap="refuseSchedule" data-id="{{item.id}}">
+                  <text>{{langTranslate['拒绝']}}</text>
+                </view>
+                <view class="opt-button" bindtap="queren" data-id="{{item.id}}">
+                  <text>{{langTranslate['确认']}}</text>
+                </view>
+              </view>
+              <!-- 被拒绝 -->
+              <view wx:if="{{currentReceiveStatus === 5}}" class="opt-area">
+                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                  <text>{{langTranslate['再次发起预约']}}</text>
+                </view>
+              </view>
+              <!-- 已取消 -->
+              <view wx:if="{{currentReceiveStatus === 6}}" class="opt-area">
+                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                  <text>{{langTranslate['再次发起预约']}}</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{!loadingData1&&scheduleList&&scheduleList.length==0}}"
+                  style="padding: 40rpx;text-align: center;font-size: 24rpx;background: #fff">
+              目前没有数据
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="date-area" style="padding-bottom: 20rpx;">
+          <view class="date-title">
+            <image src="{{staticImageUrl}}/img/purchaser/icon_left.png" bindtap="lastDateTap"></image>
+            <text>{{date}}</text>
+            <image src="{{staticImageUrl}}/img/purchaser/icon_right.png" bindtap="nextDateTap"></image>
+          </view>
+          <view class="day-area">
+            <view class="week-box">
+              <view wx:for="{{weekNameArr}}" wx:key="item" class="week-item">
+                <text class="week-text">{{item}}</text>
+              </view>
+            </view>
+            <view class="week-box day-list">
+              <view wx:for="{{firstDay}}" wx:key="item" class="week-item">
+                <text class="week-text"></text>
+              </view>
+              <view wx:for="{{lists}}"
+                    wx:key="item"
+                    class="week-item  {{currentSelectDay==item.value?'currentSelectDay':'none'}}  {{item.count?'redCount':''}}"
+                    bindtap="refreshDateTap" data-day="{{item.value}}">
+                <view class="innerBox">
+                  <text class="week-text">{{item.value}}</text>
+                  <text class="red" wx:if="{{item.count}}">{{item.count}}</text>
+                </view>
+
+              </view>
+            </view>
+          </view>
+        </view>
+<!--        日历具体哪一天-->
+        <view class="date-tips" style="background: #F6F7FB;">
+          <view style="display:flex">
+            <image src="{{calendar}}" style="height:40rpx;width:40rpx;margin-right:20rpx"></image>
+          </view>
+          <text>{{todayDate}}</text>
+        </view>
+        <view wx:if="{{myDateScheduleList.length > 0}}" class="meeting-list" style="padding: 20rpx;">
+          <view wx:for="{{myDateScheduleList}}" wx:key="*this" style="margin-bottom: 20rpx;">
+            <huiyi-item item="{{item}}"
+                        type="1"
+                        status="0">
+            </huiyi-item>
+          </view>
+
+          <!-- <view wx:for="{{myDateScheduleList}}" wx:key="item" data-id="{{item.id}}" class="meeting-item">
+             <view class="top-info">
+               <text class="meeting-title">{{ item.top }}</text>
+             </view>
+             <view class="info-box">
+               <text class="company-name">{{item.company}}</text>
+             </view>
+             <view class="info-box">
+               <text class="company-name">{{langTranslate['联系人']}}：{{isEn ? item.contactEn : item.contact}}</text>
+             </view>
+             <view class="info-box">
+               <text class="company-name">
+                 {{langTranslate['邀约时间']}}：{{item.activityTimeBegin}}-{{item.activityTimeEnd}}
+               </text>
+             </view>
+             <view class="info-box">
+               <text class="company-name">{{langTranslate['发起时间']}}：{{item.createTime}}</text>
+             </view>
+             <view class="info-box">
+               <text class="company-name">{{langTranslate['备注留言']}}：{{item.remark}}</text>
+             </view>
+             <view class="opt-area" bindtap="goToMeeting"
+                   wx:if="{{item.purchaserStatus==0}}"
+                   data-meetingid="{{item.meetingId}}"
+                   data-supplierid="{{item.supplierId}}">
+               <view class="complete" bindtap="exhibitorInvite"
+                     data-id="{{item.id}}">
+                 <text>完成</text>
+               </view>
+             </view>
+             <view class="opt-area" wx:else
+                   data-meetingid="{{item.meetingId}}"
+                   data-supplierid="{{item.supplierId}}">
+               <view class="completed">
+                 <text>已完成</text>
+               </view>
+             </view>
+           </view> -->
+        </view>
+      </block>
+    </view>
+
+  </view>
+</view>

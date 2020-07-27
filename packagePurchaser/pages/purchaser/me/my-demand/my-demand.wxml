@@ -1,0 +1,23 @@
+<!--展商-->
+<view class="container">
+  <view class="con-main">
+    <view class="demand-list">
+      <view wx:for="{{demandList}}" wx:key="item" data-id="{{item.id}}" class="demand-item">
+        <view class="purchase">
+          <view class="demand-desc">
+            <view class="demandImg"><image style="height: 126rpx;width: 126rpx;" src="{{item.image1|item.image2||item.image3||item.image4}}"></image></view>
+            <view class="demandExplain">
+              <view class="demandName">{{isEn ?purchasedGoodsNameEn:item.purchasedGoodsName}}</view>
+              <view class="specification">{{langTranslate['采购规格']}}：{{item.material}}</view>
+              <view><text class="userName">{{isEn ?item.contactEn : item.contact}}</text><text class="userJob">{{isEn ?item.companyEn : item.company}}</text></view>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </view>
+  </view>
+  <view class="publish-area" bindtap="goPublishPage">
+    <image mode='widthFix' wx:if="{{isEn}}" src="https://live.signchinashow.com/icon/bbb207.png"></image>
+    <image mode='widthFix'wx:else src="https://live.signchinashow.com/icon/bbb208.png"></image>
+  </view>
+</view>

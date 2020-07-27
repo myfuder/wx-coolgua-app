@@ -1,0 +1,40 @@
+<!--activity.wxml-->
+<!-- <view class="container" style="background: #f7f7f7;">
+  <view class="exhibitor-index" wx:if="{{concurrentEvents&&concurrentEvents.length}}">
+    <view class="section"
+          wx:for="{{concurrentEvents}}" wx:key="item" >
+      <activityItem item="{{item}}"></activityItem>
+      <view class="flex-wrp">
+          <view class="flex-item banner">
+              <image wx:if="{{item.banner!=undefined&&item.banner!=null}}" src="{{item.banner}}" class="item-img" mode='widthFix'></image>
+              <image wx:else src="{{staticImageUrl}}/img/activityList.jpg" mode='widthFix' class="item-img"></image>
+          </view>
+          <view class="flex-item item-text">
+              <view class="item-title item-com">{{item.name}}</view>
+              <view class="item-top item-com"><image src="{{staticImageUrl}}/img/person.png" mode='widthFix'></image>报名人数：<text>{{item.regNum}}</text>人</view>
+              <view class="item-top item-com"><image src="{{staticImageUrl}}/img/time.png" mode='widthFix'></image>{{item.registerStartTime}}至{{item.registerEndTime}}</view>
+              <view class="item-top item-com"><image src="{{staticImageUrl}}/img/adress.png" mode='widthFix'></image>{{item.address}}</view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else style="font-size: 24rpx;text-align: center;padding: 40rpx;" >
+    暂时没有数据
+  </view>
+  <view wx:if="{{concurrentEvents.length!=0&&!isMore}}" style="font-size: 24rpx;padding: 20rpx;text-align: center;width: 100%;background: #f7f7f7">
+    我也是有底线的
+  </view>
+</view> -->
+<view class="container">
+  <view class="exhibitor-index">
+    <view class="section" wx:for="{{concurrentEvents}}" wx:key="item">
+        <view class="flex-item item-text">
+          <view class="activityName">{{item.name}}</view>
+          <view class="activityTime">活动时间：{{item.activityTime}}</view>
+          <view class="activityRoom">会议房间数量：{{item.rooms}}</view>
+          <view class="talkTime">洽谈时间（分钟）：{{item.negotiationTime}}</view>
+          <view class="immediatelyBox"><view class="immediately" data-tid="{{item.id}}"  bindtap="goOverview">立即预约</view><view class="ToDetail" bindtap="goOverview" data-tid="{{item.id}}">我的预约</view></view>
+        </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+.uploadImageContainer{
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(220,223,230,1);
+    border-radius:10rpx;
+}

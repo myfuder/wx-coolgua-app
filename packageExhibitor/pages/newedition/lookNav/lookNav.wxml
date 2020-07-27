@@ -1,0 +1,10 @@
+<!--packageExhibitor/pages/newedition/lookNav/lookNav.wxml-->
+
+<!-- 场馆导航 -->
+<view style="padding:28rpx" class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" wx:if="{{stadiumNavigation.id}}" bindtap="go2StadiumNavigation" data-title="{{stadiumNavigation.title}}" data-id="{{stadiumNavigation.id}}" data-appid="{{stadiumNavigation.detailList[0].link}}" data-linkmini="{{stadiumNavigation.detailList[0].linkMini}}">
+  <view class="butImg">
+    <!-- <image class="img-b" src="{{menu_003}}" mode='widthFix'></image> -->
+  </view>
+  <rich-text nodes="{{stadiumNavigation.content}}"></rich-text>
+  <!-- <text>{{langTranslate['云上地展']}}</text> -->
+</view>

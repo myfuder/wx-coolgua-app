@@ -1,0 +1,5 @@
+<!--packageExhibitor/pages/zEdition1/me/msg/index.wxml-->
+<view>
+	<view class="border"></view>
+	<systemmsg systemmsglist="{{systemmsglist}}"></systemmsg>
+</view>

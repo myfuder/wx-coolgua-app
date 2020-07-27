@@ -1,0 +1,58 @@
+<!--received.wxml-->
+<view class="container"> 
+    <view class="exhibitor-index">
+        <view class="exhibitorInput clearfix">
+            <input placeholder-style="color:#cccccc;" ctype="text" value="" class="weui-input"  bindinput="bindKeyInput" placeholder="请输入关键字"/>
+            <icon type="search" color="#999999" bindtap="searchExhibitorList" size="17" class="icon"/>
+        </view>
+        <view class="adience">
+            <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="audienceList">
+                <view class="adience-item" wx:for="{{sponsoredArray}}" wx:key="item" data-id="{{item.id}}">
+                    <view class="item-top clearfix">
+                        <image wx:if="{{item.portrait!=null&&item.portrait!=undefined}}" src="{{item.portrait}}" mode='widthFix' class="home-banner"></image>
+                        <image wx:else src="../../../../common/img/logo.png" mode='widthFix' class="home-banner"></image>
+                        <view class="inform">
+                            <text wx:if="{{item.contact!=null}}" class="name">{{item.contact}}</text>
+                            <text wx:if="{{item.job!=null}}">{{item.job}}</text>
+                            <view wx:if="{{item.company!=null}}" class="company">{{item.company}}</view>
+                            <block wx:for="{{supplierLayout}}" wx:for-item="items" wx:key="items">
+                                <view wx:if="{{items.nameKey=='tags'}}" class="item-info">
+                                    {{items.nameZh}}: 
+                                    <block wx:for="{{item.tags}}" wx:for-item="citem" wx:key="citem">
+                                        <block wx:for="{{items.cascades}}" wx:for-item="data" wx:key="data">
+                                            <block wx:if="{{data.subclass!=null&&data.subclass!=undefined&&data.subclass!=''}}">
+                                                <block wx:for="{{data.subclass}}" wx:for-item="yitem" wx:key="yitem">
+                                                    <view wx:if="{{citem== yitem.id}}">{{data.parent.chinese}}-{{yitem.chinese}}</view>
+                                                </block>
+                                            </block>
+                                            <block wx:else>
+                                                <view wx:if="{{citem== data.parent.id}}">{{data.parent.chinese}}</view>
+                                            </block>
+                                        </block>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="item-time">
+                        <view class="title">
+                            邀约时间：<text>{{item.activityTime}}</text><text wx:if="{{item.timeInterval=='AM'}}">上午</text><text wx:else>下午</text>
+                        </view>
+                        <view class="title">
+                            留言：
+                            <text wx-if="{{item.remark}}">{{item.remark}}</text>
+                        </view>
+                    </view>
+                    <view class="invitation" wx:if="{{status==2}}">
+                        <button class="remind cancel" bindtap="refuseInvitation" data-id="{{item.id}}">拒绝</button>
+                        <button class="remind confirm" bindtap="confirmInvitation" data-id="{{item.id}}">确认</button>
+                    </view>
+                    <view class="invitation" wx:elif="{{status==5}}">
+                        <button class="again cancel" bindtap="afreshInvitation" data-id="{{item.id}}">发起邀约</button>
+                        <button wx:if="{{item.time}}" bindtap="confirmInvitation"  class="again grey" data-id="{{item.id}}">重新确认邀约(剩余{{item.countDown}}可操作)</button>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

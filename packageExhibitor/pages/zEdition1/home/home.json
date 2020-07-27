@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "person-connect": "../components/bizComponents/personConnect",
+    "demand": "../components/bizComponents/demand",
+    "invitation-dialog":"../components/bizComponents/invitationDialog/index",
+    "activityList": "/components/activityList/activityList",
+    "audienceItem": "../components/audienceItem/audienceItem",
+    "demandItemForList":  "../components/demandItemForList/demandItemForList",
+   "activityItem": "../components/activityItem/activityItem"
+  }
+}

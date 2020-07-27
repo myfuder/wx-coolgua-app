@@ -1,0 +1,560 @@
+/**index.wxss**/
+@import "../../../../../common/css/live.wxss";
+@import "./index.skeleton.wxss";
+
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;/*清除浮动*/
+  visibility:hidden;
+}
+.clearfix{zoom:1;/*为IE6，7的兼容性设置*/}
+page{
+  width:100%;
+  /* height:100%; */
+}
+.tab-container{
+  width:100%;
+  /* height:100%; */
+  position:relative;
+  /* background:#f5f5f5; */
+}
+/* .container .exhibitor-index{
+  width: 100%;
+  padding: 0rpx 0rpx 100rpx;
+  box-sizing: border-box;
+}
+.container .exhibitor-index .home-b{
+  background:#fff;
+  padding: 15rpx 20rpx 0rpx;
+  margin-bottom:20rpx;
+}
+.container .exhibitor-index .banner .img-b{
+  width:100%;
+}
+.container .nav{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding:0rpx 0 30rpx;
+}
+.container .nav .nav-item{
+  width: 25%;
+  text-align: center;
+}
+.container .nav .nav-item image{
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 auto;
+}
+.container .nav .nav-item text{
+  font-size:24rpx;
+  color:#333333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.container .exhibitor-index  .activity-b{
+  background:#fff;
+  margin-bottom:20rpx;
+}
+.activity-b .title{
+  border-bottom:2rpx solid #f2f2f2;
+  padding: 20rpx 30rpx 20rpx;
+  height:60rpx;
+  line-height:60rpx;
+  position:relative;
+}
+.activity-b .title .name{
+  font-size:36rpx;
+  color:#333333;
+  float:left;
+  padding-left:20rpx;
+}
+.activity-b .title .name:before{
+  content: '';
+  width: 12rpx;
+  height: 45rpx;
+  background: #023890;
+  display: block;
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+}
+.activity-b .title .more{
+  font-size:24rpx;
+  color:#cccccc;
+  float:right;
+}
+.activity .content{
+  padding: 30rpx 30rpx 55rpx;
+}
+.activity .content{
+  padding: 30rpx 30rpx 30rpx;
+}
+.activity .content .swiper{
+  height:180rpx;
+}
+.activity .content .swiper-item .detailLeft{
+  float:left;
+  width:35%;
+  height:180rpx;
+  position: relative;
+}
+.activity .content .swiper-item .detailLeft image{ 
+  display:block;
+  max-height: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  left: 50%;
+}
+.activity .content .swiper-item .detailRight{
+  float:right;
+  width:62%;
+}
+.activity .content .swiper-item .detailRight .activityName{
+  font-size:28rpx;
+  color:#333333;
+  font-weight:bold;
+  margin-bottom:10rpx;
+  height: 50rpx;
+  line-height:50rpx;
+}
+.activity .content .swiper-item .detailRight .detail{
+  font-size:22rpx;
+  color:#666666;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  display:flex;
+  margin-bottom:10rpx;
+}
+.activity .content .swiper-item .detailRight .detail:last-child{
+  margin-bottom:none;
+}
+.activity .content .swiper-item .detailRight .detail .icon{
+  width:30rpx;
+  margin-right:15rpx;
+}
+.container .adience{
+  padding: 20rpx 30rpx 0rpx;
+}
+.container .adience .adience-item{
+  border-bottom:2rpx dashed #f2f2f2;
+  padding:10rpx 10rpx 30rpx;
+  font-size:22rpx;
+  color:#666666;
+  margin-bottom:20rpx;
+}
+.container .adience .adience-item:last-child{
+  border-bottom:none;
+}
+.adience .adience-item .item-top image{
+  width:20%;
+  float:left;
+  margin-top:2%;
+  border-radius: 50%;
+}
+.adience .adience-item .item-top .inform{
+  float:left;
+  margin-left:2%;
+  width:78%;
+}
+.adience .adience-item .item-top .inform .name{
+  font-size:28rpx;
+  color:#333333;
+  font-weight:bold;
+  margin-right:10%;
+  display:inline-block;
+}
+.adience .adience-item .item-top .inform .company{
+  margin-top:3%;
+}
+.adience .adience-item .item-top .inform .item-info {
+  padding:10rpx 0;
+  color:#666666;
+  font-size:22rpx;
+}
+.adience .adience-item .item-top .inform .item-info view{
+  border:2rpx solid #cccccc;
+  margin-right:10rpx;
+  padding:5rpx 15rpx;
+  display:inline-block;
+  margin-bottom:15rpx;
+}
+.adience .adience-item .invitation{
+  float:right;
+  font-size: 26rpx;
+  background: #24499e;
+  color:#fff;
+  border-radius: 10rpx;
+  margin:3% auto 0; 
+  border:none;
+  text-align:center; 
+  display:inline-block;
+  padding:0 30rpx;
+} */
+/* 顶部图片 */
+.top-area {
+  width: 100%;
+  position:relative;
+  background: #f6f7fb;
+}
+.top-area .areaImg{
+  width: 100%;
+  position:absolute;
+  top:0;
+}
+.swiper {
+  width: 90%;
+	height: 297rpx;
+  margin:0 auto;
+  padding-top:20rpx;
+}
+.swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.swiper-item-img {
+  width: 100%;
+  height: 100%;
+}
+.back-img {
+  width: 100%;
+  height: 100%;
+  border-radius:10rpx;
+}
+/* .top-area image {
+  width: 100%;
+  height: 100%;
+} */
+/* 按钮区域 */
+.buttons-area {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 50rpx 30rpx 20rpx;
+  background: #f6f7fb;
+}
+.buttons-area .button-box {
+  width: 25%;
+  text-align: center;
+  margin-bottom:20rpx;
+}
+.buttons-area .en-button-box {
+  width: 25%;
+  text-align: center;
+  margin-bottom:30rpx;
+}
+.buttons-area .button-box .butImg{
+  display: flex;
+  width: 90rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.buttons-area .button-box .butImg image{
+  display: block;
+  max-width: 90rpx;
+  max-height: 100rpx;
+  margin: 0 auto;
+}
+.button-box text {
+  font-size:24rpx;
+  color:#333333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.button-box .count {
+  position: absolute;
+  right: -5rpx;
+  top: -5rpx;
+  min-width: 24rpx;
+  height: 24rpx;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  background-color: #FF0000;
+  text-align: center;
+  border-radius: 50%;
+  font-size:17rpx;
+  color:rgba(255,255,255,1);
+  line-height: 24rpx;
+}
+/* .en-button-box .count {} */
+/* 主体开始 */
+.con-area {
+  padding: 0rpx 30rpx 30rpx;
+  background:#f6f7fb;
+}
+.con-area .tab-area {
+  width:100%;
+}
+.con-area .tab-area .remmord{
+  float:left;
+  margin-top: 10rpx;
+}
+.tab-area .tab-box {
+  display: inline-block;
+}
+.tab-box:first-child {
+  border-right:2rpx solid #cdcdcd;
+  padding-right:20rpx;
+}
+.tab-box:last-child {
+  padding-left:20rpx;
+}
+.tab-box text {
+  font-size:32rpx;
+  color:#333333;
+  line-height: 30rpx;
+}
+.tab-box.active text {
+  color: #22c592;
+  font-size:34rpx;
+  font-weight:bold;
+}
+/* 展商列表 */
+.exhibition-list {
+  width: 100%;
+  margin-top: 20rpx;
+}
+.exhibition-list .exhibition-item {
+  padding: 40rpx 0;
+  border-bottom: 1px solid #E1E1E1;
+}
+.exhibition-item .exhibition-info {
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx 0 35rpx;
+}
+.exhibition-info .logo-area {
+  width: 150rpx;
+  height: 150rpx;
+  background-color: rgba(255,255,255,1);
+  border: 1px solid rgba(225,225,225,1);
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-area image {
+  width: 98%;
+  height: 98%;
+}
+.exhibition-info .detail-info {
+  margin-left: 30rpx;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail-info .company-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.company-name .name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  line-height: 34rpx;
+}
+.hot-area {
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.hot-area image {
+  width: 24rpx;
+  height: 28rpx;
+}
+.hot-area text {
+  font-size: 28rpx;
+  color:rgba(255,46,46,1);
+  line-height: 28rpx;
+  margin-left: 9rpx;
+}
+.pavilion-number {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+}
+.industry-area {
+  display: flex;
+  margin-top: 6rpx;
+}
+.label-text,
+.value-text {
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  line-height: 28rpx;
+}
+.value-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.industry-area .label-text {
+  margin-top: 16rpx;
+}
+.industry-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.industry-list .industry-item {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 11rpx;
+  font-size: 22rpx;
+  color:rgba(255,46,46,1);
+  border: 1px solid #FF2D2E;
+  border-radius: 3px;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.opt-area {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx 0 35rpx;
+}
+.opt-area .opt-box {
+  display: flex;
+  align-items: center;
+}
+.opt-box image {
+  margin-right: 50rpx;
+}
+.opt-box .message-img {
+  width: 40rpx;
+  height: 33rpx;
+}
+.opt-box .video-img {
+  width: 48rpx;
+  height: 30rpx;
+}
+.opt-box .phone-img {
+  width: 38rpx;
+  height: 38rpx;
+}
+.opt-area .opt-button {
+  width: 160rpx;
+  height: 60rpx;
+  background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opt-button text {
+  font-size:28rpx;
+  color:rgba(255,255,255,1);
+  line-height: 34rpx;
+}
+/* 展商列表查看更多 */
+.more-area {
+  font-size: 24rpx;
+  color: #333333;
+  float:right;
+  border:1rpx solid #e3e3e3;
+  border-radius:40rpx;
+  padding:0 25rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.matching-live-area {
+  margin-top: 20rpx;
+}
+/* 弹窗内容 */
+.popup-container {
+  width: 626rpx;
+  padding: 0 32rpx 50rpx;
+}
+.form-area .form-item {
+  margin-top: 28rpx;
+}
+.form-item .form-title {
+  font-size: 28rpx;
+  color:rgba(51,51,51,1);
+  line-height: 34rpx;
+}
+.form-item .form-input-area {
+  margin-top: 20rpx;
+}
+.form-input-area .input,
+.form-input-area .date-area {
+  width: 586rpx;
+  height: 80rpx;
+  border: 1px solid rgba(220,223,230,1);
+  font-size:28rpx;
+  color:#333333;
+  line-height: 32rpx;
+  padding: 0 20rpx;
+}
+.form-input-area .date-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date-area .input {
+  border: none;
+  margin-left: 18rpx;
+}
+.date-area image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.date-area text {
+  font-size:28rpx;
+  color:#666666;
+  line-height: 32rpx;
+  margin-left: 20rpx;
+}
+.picker {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.time-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.time-area .time-box {
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+}
+.time-box .date-area {
+  width: auto;
+}
+.input-placeholder {
+  color: #CCCCCC;
+}
+.form-input-area .textarea {
+  width: 586rpx;
+  height: 174rpx;
+  border: 1px solid rgba(220,223,230,1);
+  font-size:28rpx;
+  color:#333333;
+  line-height: 36rpx;
+  padding: 18rpx 20rpx;
+}

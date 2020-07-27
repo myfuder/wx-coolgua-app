@@ -1,0 +1,61 @@
+<!--商贸配对页面-->
+<view class="container">
+  <view class="con-main">
+    <!-- <view class="tab-area">
+      <view class="{{currentType === 1 ? 'tab-item active' : 'tab-item'}}" bindtap="changeTypeTap" data-type="1">
+        <text>直播列表</text>
+      </view>
+      <view class="{{currentType === 2 ? 'tab-item active' : 'tab-item'}}" bindtap="changeTypeTap" data-type="2">
+        <text>视频列表</text>
+      </view>
+    </view>
+    <view class="video-list">
+      <view wx:for="{{videoList}}" wx:key="item" data-id="{{item.id}}" class="video-item" bindtap="goDetailPage">
+        <image src="{{item.videoCoverImage}}" class="video-img"></image>
+        <view class="video-info">
+          <text class="title">{{item.videoTitle}}</text>
+          <view class="company-info">
+            <text class="company-name">{{item.company}}</text>
+            <view class="count-area">
+              <image src="{{staticImageUrl}}/img/purchaser/icon_count.png"></image>
+              <text>{{ item.videoPopular }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <view class="con-main-video-live">
+      <p class="live-tab">{{langTranslate['正在直播']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view class="intination-live" wx:if="{{exhibitId}}" bindtap="releaseLive">
+        {{langTranslate['发起直播']}}
+      </view>
+      
+      <view wx:if="{{liveList.length>0}}" class="video-live-group" >
+        <video-live-page wx:for="{{liveList}}"wx:key="item" is_live="{{item.status==0}}" style="float:{{(index % 2)!=0?'right':''}}" data-id="{{item.id}}" data-type="1" bindtap="goDetailPage" live_number="{{item.videoPopular}}" page_img="{{item.videoCoverImage}}" live_name="{{item.videoTitle}}"></video-live-page>
+      </view>
+      <view wx:else style="font-size: 28rpx;color: #777777;text-align: center;margin-top:250rpx">暂无更多直播内容</view>
+    </view>
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['历史直播']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      
+      <view class="video-live-group">
+        <video-live-page wx:for="{{videoList}}"wx:key="item" is_live="{{item.status==0}}" style="float:{{(index % 2)!=0?'right':''}}" is_live="{{false}}" play_custom="{{langTranslate['直播回放']}}" data-id="{{item.id}}" data-type="-1"  page_img="{{item.videoCoverImage}}"bindtap="goDetailPage"></video-live-page>
+      </view>
+    </view>
+    <view wx:if="{{videoList.lengt==0}}" style="padding-top: 40rpx;font-size: 24rpx;text-align: center;">
+      {{langTranslate['暂时没有数据']}}
+    </view>
+  </view>
+  <!-- 以下是对分页组件的引用 -->
+  <!-- <view class="bottom-page">
+    <pagination current-page="{{currentPage}}" total-page="{{totalPage}}" bind:changePage="changePageTap"></pagination>
+  </view> -->
+</view>

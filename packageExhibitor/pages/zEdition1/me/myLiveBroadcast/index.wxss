@@ -1,0 +1,89 @@
+/* packageExhibitor/pages/zEdition1/me/myLiveBroadcast/index.wxss */
+.content{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(248,248,248,1);
+}
+page {
+  background-color: rgba(248,248,248,1);
+}
+.btn{
+  display: inline-block;
+  flex-grow: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #FF2D2E;
+  border-radius:4rpx;
+  color: white;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.text-wrap{
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.tx1{
+  font-size:26rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+.tx2{
+  font-size:24rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-bottom: 5rpx;
+}
+.item-wrap1{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 20rpx solid rgba(248,248,248,1);
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  background-color: white;
+}
+.data-out-wrap{
+  border-top: 1px solid #F0F4F7;
+  padding-top: 10rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.data-wrap{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+.item-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.item-wrap:text:last-of-type{
+  font-size:32rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(90,202,134,1);
+}
+.note1{
+  color: #FF5ACA86; 
+}
+.note2{
+  color:rgba(255,138,59,1);
+}
+.note3{
+  color: rgba(254,56,71,1);
+}
+.note4{
+  color: rgba(153,153,153,1);
+}

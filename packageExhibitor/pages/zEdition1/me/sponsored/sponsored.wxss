@@ -1,0 +1,140 @@
+/**sponsored.wxss**/
+page{
+  width:100%;
+  height:100%;
+}
+.container{
+  width:100%;
+  height:100%;
+  position:relative;
+  background:#f7f7f7;
+}
+.container .exhibitor-index{
+  width: 100%;
+  box-sizing: border-box;
+  font-size:28rpx;
+  background:#f7f7f7;
+}
+.container .exhibitor-index .exhibitorInput{
+  position: relative;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #999999;
+  padding: 10px 30rpx 0px;
+  font-size: 24rpx;
+  background: #fff;
+}
+.container .exhibitor-index .exhibitorInput input{
+  display: inline-block;
+  width: 90%;
+  padding-left: 10%;
+  border-radius: 100rpx;
+  background: #f3f3f3;
+}
+.container .exhibitor-index .exhibitorInput .icon{
+  position: absolute;
+  left: 56rpx;
+  top: 28rpx;
+  display: inline-block;
+  height:20rpx;
+}
+.container .adience{
+  padding:25rpx 30rpx;
+}
+.container .adience .adience-item{
+  background:#fff;
+  padding:30rpx 30rpx 30rpx 20rpx;
+  font-size:22rpx;
+  color:#666666;
+  margin-bottom:20rpx;
+  box-shadow: 0 1px 10px #e7e7e7;
+  border-radius:10rpx;
+}
+.adience .adience-item .item-top{
+  padding-bottom:15rpx;
+  border-bottom:2rpx dashed #f2f2f2;
+}
+.adience .adience-item .item-top image{
+  width:20%;
+  float:left;
+  margin-top:2%;
+}
+.adience .adience-item .item-top .inform{
+  float:left;
+  margin-left:2%;
+  width:78%;
+  color:#666666;
+  font-size:24rpx;
+}
+.adience .adience-item .item-top .inform text{
+  font-size:22rpx;
+  color:#666666;
+}
+.adience .adience-item .item-top .inform .name{
+  font-size:28rpx;
+  color:#333333;
+  font-weight:bold;
+  margin-right:10%;
+  display:inline-block;
+}
+.adience .adience-item .item-top .inform .company{
+  margin-top:3%;
+  font-size:24rpx;
+}
+.adience .adience-item .item-top .inform .item-info {
+  padding:10rpx 0;
+}
+.adience .adience-item .item-top .inform .item-info view{
+  margin-right:10rpx;
+  padding:5rpx 15rpx;
+  display:inline-block;
+  background:#f4f8fb;
+  color:#85888d;
+  border-radius:5rpx;
+}
+.adience .adience-item .item-info,.adience .adience-item .item-time{
+  padding:20rpx 0 0;
+  font-size:24rpx;
+  color:#333333;
+}
+.adience .adience-item .item-info,.adience .adience-item .item-time view{
+  padding-bottom:10rpx;
+}
+.adience .adience-item .item-info,.adience .adience-item .item-time view:last-child{
+  padding-bottom:0;
+}
+.adience-item .invitation{
+  padding:30rpx 0 0;
+  display:flex;
+}
+.adience-item .invitation .remind{
+  font-size:32rpx;
+  border-radius: 10rpx;
+  text-align:center; 
+  display:inline-block;
+  width:47%;
+}
+.adience-item .invitation .again{
+  font-size:32rpx;
+  border-radius: 10rpx;
+  text-align:center; 
+  display:inline-block;
+  width:80%;
+}
+.adience-item .invitation .cancel{
+  border:2rpx solid #29c799;
+  color:#29c799;
+  background:#fff;
+  border-radius:50rpx;
+}
+.adience-item .invitation .confirm{
+  border:none;
+  background:#29c799;
+  color:#fff;
+}
+.adience-item .invitation .grey{
+  border:none;
+  background:#e4e4e4;
+  color:#999999;
+  border-radius:50rpx;
+}

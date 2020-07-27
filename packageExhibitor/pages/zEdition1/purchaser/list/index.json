@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "audienceItem": "../../components/audienceItem/audienceItem",
+      "filter-search": "../../components/bizComponents/searchFilter/index"
+  }
+}

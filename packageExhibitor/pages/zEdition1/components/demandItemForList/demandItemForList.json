@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "callbutton": "../../components/callButtons/callButtons",
+    "demandItemProile": "../demandItemProile/demandItemProile"
+  }
+}

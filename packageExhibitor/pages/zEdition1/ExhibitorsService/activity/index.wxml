@@ -1,0 +1,36 @@
+<!--packageExhibitor/pages/zEdition1/ExhibitorsService/activity/index.wxml-->
+<view class="page">
+	<!-- <view class="top_title">{{activity.title}}</view> -->
+	<!-- 列表部分 -->
+	<view wx:if="{{isHide == true}}">
+		<!-- 列表项 -->
+		<view wx:for="{{dataList}}" wx:key="item" data-id="{{item.id}}">
+			<view class="act_items">
+				<text class="items_title">{{index + 1}}.{{item.name}}</text>
+				<view class="items_record">
+					<view>{{activity.time}} ：{{item.activityTime}} {{item.startTime}}~{{item.endTime}}</view>
+					<view>{{activity.roomNum}} ：{{item.rooms}}</view>
+					<view>{{activity.taking}} ：{{item.negotiationTime}}</view>
+				</view>
+			</view>
+			<!-- 中文 -->
+			<view class="items_btns" wx:if="{{language != 'en'}}">
+			<!-- 立即预约 -->
+				<view class="btnR_zh" bindtap="goin" data-id="{{item}}">{{activity.btnR}}</view>
+				<!-- 我的预约 -->
+				<view class="btnL_zh" bindtap="appoint" data-id="{{item.id}}">{{activity.btnL}}</view>
+			</view>
+			<!-- 英文 -->
+			<view class="items_btns"  wx:if="{{language == 'en'}}">
+				<!-- 我的预约 -->
+				<view class="btnL_en" bindtap="appoint" data-id="{{item.id}}">{{activity.btnL}}</view>
+				<!-- 立即预约 -->
+				<view class="btnR_en" bindtap="goin" data-id="{{item}}">{{activity.btnR}}</view>
+			</view>
+			<view class="fg_line"></view>
+		</view>
+	</view>
+	<view class="msg_null" wx:if="{{isHide == false}}">
+		{{activity.activity}}~
+	</view>
+</view>

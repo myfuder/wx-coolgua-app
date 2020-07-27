@@ -1,0 +1,19 @@
+{
+  "name": "小瓜云展",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.coolgua.cn/coolgua/yiwu_miniprogram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cos-wx-sdk-v5": "^0.7.10",
+    "tim-wx-sdk": "^2.6.2"
+  }
+}

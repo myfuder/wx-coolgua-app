@@ -1,0 +1,241 @@
+/**index.wxss**/
+
+page{
+  width:100%;
+  /* height:100%; */
+}
+.container{
+  width:100%;
+  background:#f6f7fb;
+  /* height:100%; */
+  position:relative;
+  /* background:#f5f5f5; */
+  display:block;
+}
+.module-area {
+  margin-top:30rpx;
+  padding:0 30rpx;
+  background: #fff;
+}
+.module-area .module-item {
+  background:#fff;
+  border-radius:20rpx;
+  margin-bottom:20rpx;
+}
+.module-item .module-top {
+  border-bottom: 1px solid #DCDFE6;
+  padding: 18rpx 30rpx;
+  display: flex;
+}
+.module-top .module-title {
+  padding: 0 4rpx 14rpx;
+  display: flex;
+  align-items: center;
+}
+.module-title .title-img {
+  width: 40rpx;
+  height: 42rpx;
+}
+.module-title .title-text {
+  font-size:32rpx;
+  color: #333333;
+  line-height: 38rpx;
+  margin-left: 14rpx;
+}
+.module-item .module-con {
+  position: relative;
+  padding: 20rpx 30rpx;
+}
+.module-con .video-img {
+  width: 690rpx;
+  height: 376rpx;
+  border-radius: 4rpx;
+}
+.module-con .play-img {
+  width: 123rpx;
+  height: 123rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.module-area .company-item{
+  margin-bottom:40rpx;
+}
+.module-con .exh-desc {
+  font-size: 30rpx;
+  color:#666666;
+  line-height: 44rpx;
+}
+/* 展品列表 */
+.exh-list .exhibition-item {
+  padding: 20rpx 0;
+}
+.exhibition-item .exhibition-info {
+  display: flex;
+  /* padding: 0 30rpx 0 30rpx; */
+}
+.exhibition-info .logo-area {
+  width: 150rpx;
+  height: 150rpx;
+  background-color: rgba(255,255,255,1);
+  border: 1px solid rgba(225,225,225,1);
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-area .logo-img {
+  width: 98%;
+  height: 98%;
+}
+.exhibition-info .detail-info {
+  margin-left: 30rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.detail-info .company-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.company-name .name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  line-height: 34rpx;
+  font-weight: 700;
+}
+.collect{
+  display: flex;
+  margin-top:10rpx;
+}
+.collect .hot-area {
+  display: flex;
+  align-items: center;
+  margin-right:40rpx;
+}
+.collect .hot-area .hot-img {
+  width: 30rpx;
+}
+.company-name .hot-area {
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+}
+.company-name .hot-area .hot-img {
+  width: 24rpx;
+}
+.collect .hot-area .hot-text {
+  font-size: 26rpx;
+  color:#8590a6;
+  line-height: 28rpx;
+  margin-left: 9rpx;
+}
+.company-name .hot-area .hot-text {
+  font-size: 28rpx;
+  color:rgba(255,46,46,1);
+  line-height: 28rpx;
+  margin-left: 9rpx;
+}
+.industry-area {
+  display: flex;
+  margin-top: 11rpx;
+}
+.label-text {
+  font-size:26rpx;
+  color:#666666;
+  line-height: 28rpx;
+  flex-shrink: 0;
+  margin-top: 16rpx;
+}
+.industry-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.industry-list .industry-item {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 11rpx;
+  font-size: 20rpx;
+  color:#85888d;
+  background:#f4f8fb;
+  border-radius: 3px;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.opt-area {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx 0 35rpx;
+}
+.opt-area .opt-box {
+  display: flex;
+  align-items: center;
+}
+.message-img,
+.video-img,
+.phone-img {
+  margin-right: 50rpx;
+}
+.opt-box .message-img {
+  width: 40rpx;
+  height: 33rpx;
+}
+.opt-box .video-img {
+  width: 48rpx;
+  height: 30rpx;
+}
+.opt-box .phone-img {
+  width: 38rpx;
+  height: 38rpx;
+}
+.opt-area .opt-button {
+  /* width: 160rpx; */
+  height: 60rpx;
+  padding: 0 27rpx;
+  background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opt-button .opt-text {
+  font-size:28rpx;
+  color:rgba(255,255,255,1);
+  line-height: 34rpx;
+}
+/**收起隐藏**/
+.tagsHidden{
+  height:165rpx;
+  overflow:hidden;
+}
+.tagsShow{
+  height:;
+}
+.more{
+  text-align:right;
+}
+.more image{
+  width: 45rpx;
+  height: 25rpx;
+}
+
+
+.share{
+  position:fixed;
+  bottom:70rpx;
+  right:30rpx;
+}
+.share .tab-ticket{
+  border:none;
+}
+.share image{
+  width:140rpx;
+}

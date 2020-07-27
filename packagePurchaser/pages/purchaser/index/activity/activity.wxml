@@ -1,0 +1,52 @@
+<!--activity.wxml-->
+<!-- <view class="container">
+  <view class="exhibitor-index">
+    <view class="section" bindtap="goOverview"
+          wx:for="{{concurrentEvents}}" wx:key="item"
+          data-tid="{{item.tid}}"
+          data-id="{{item.id}}">
+      <view class="flex-wrp">
+        <view class="flex-item11 banner11">
+          <image
+            wx:if="{{item.images||item.banner}}"
+            src="{{item.images||item.banner}}"
+            mode='aspectFill'></image>
+          <image wx:else
+                 src="{{staticImageUrl}}/img/activityList.jpg" mode='aspectFill'></image>
+        </view>
+
+        <view class="flex-item item-text">
+          <view class="activityName">{{item.name}}</view>
+          <view class="regitem">{{item.regNum}}人报名</view>
+          <view class="detail">
+            <image src="{{staticImageUrl}}/img/xgyz/time.png" mode='widthFix' class="icon"></image>
+            {{item.registerStartTime}}至{{item.registerEndTime}}
+          </view>
+          <view class="detail">
+            <image src="{{staticImageUrl}}/img/xgyz/place.png" mode='widthFix' class="icon"></image>
+            {{item.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{concurrentEvents.length!=0&&!isMore}}" style="font-size: 24rpx;padding: 20rpx;text-align: center;width: 100%;background: #f7f7f7">
+    我也是有底线的
+  </view>
+</view> -->
+<view class="container">
+  <view class="exhibitor-index">
+    <view class="section" wx:for="{{concurrentEvents}}" wx:key="item" bindtap="goOverview" 
+    data-tid="{{item.tid}}"
+    data-id="{{item.id}}">
+        <view class="flex-item item-text">
+          <view class="activityName">{{item.title}}</view>
+          <view class="activityTime">活动时间：{{item.time}}</view>
+          <view class="activityRoom">会议房间数量：{{item.count}}</view>
+          <view class="talkTime">洽谈时间（分钟）：{{item.talkTime}}</view>
+          <!-- <view class="countdownBox"><view class="countdown">会议开启倒计时：{{item.countdown}}</view></view> -->
+          <view class="immediatelyBox"><view class="immediately">立即预约</view><view class="ToDetail">我的预约</view></view>
+        </view>
+    </view>
+  </view>
+</view>

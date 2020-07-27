@@ -1,0 +1,48 @@
+<view class="content">
+  <view class="body">
+     <image bindtap="detailClick" mode="aspectFill" class="person-img" src="{{value.portrait?value.portrait:'https://www.coolgua.net/match_img/img/default/purchaser.png'}}"></image>
+     <!-- <image bindtap="wxParseImgTap" data-from="article" data-src="{{value.portrait?value.portrait:'https://www.coolgua.net/match_img/img/default/purchaser.png'}}" class="person-img" src="{{value.portrait?value.portrait:'https://www.coolgua.net/match_img/img/default/purchaser.png'}}"></image> -->
+     <view class="detail">
+      <view bindtap="detailClick">
+        <view class="person-name-wrap">
+          <text class="tx1">{{value[isEn?'contactEn':'contact']}}<text wx:if="{{value.job}}" class="small-label">{{value[isEn?'jobEn':'job']}}</text></text>
+          <view class="hot-wrap">
+            <image class="hot-icon" src="https://www.coolgua.net/match_img/img/zEdition1/icon_redu.png"></image>
+            <text>{{value.popular?value.popular:'0'}}</text>
+          </view>
+        </view>
+        <text style="display:block;" class="tx2">{{value[isEn?'companyEn':'company']}}</text>
+        <text style="display:block;" class="tx2">{{label.kind}}：{{value.nature}}</text>
+      </view>
+      <block wx:if="isEn">
+        <text class='tx2 {{uhide==value.id||value.tagNames.length<6?"tagsShow":"tagsHidden"}}'>{{label.intrest}}：<text wx:if="{{value.tagNames}}" style="margin-bottom:8rpx;" class="middle-label" wx:for="{{value[isEn?'tagEnglishNames':'tagNames']}}" wx:key="*this">{{item}}</text></text>
+      </block>
+      <block wx:else>
+        <text class='tx2 {{uhide==value.id||value.tagEnglishNames.length<4?"tagsShow":"tagsHidden"}}'>{{label.intrest}}：<text wx:if="{{value.tagNames}}" style="margin-bottom:8rpx;" class="middle-label" wx:for="{{value[isEn?'tagEnglishNames':'tagNames']}}" wx:key="*this">{{item}}</text></text>
+      </block>
+      <block wx:if="isEn">
+				<view class="more" wx:if="{{value.tagNames.length>=6}}" bindtap="openMore" data-id="{{value.id}}">
+					<image wx:if="{{uhide==value.id}}" class="icon ml5" src="https://www.coolgua.net/match_img/img/purchaser/arrow_top.png"></image>
+					<image wx:else class="icon ml5" src="https://www.coolgua.net/match_img/img/purchaser/arrow_down.png"></image>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="more" wx:if="{{value.tagEnglishNames.length>=4}}" bindtap="openMore" data-id="{{value.id}}">
+					<image wx:if="{{uhide==value.id}}" class="icon ml5" src="https://www.coolgua.net/match_img/img/purchaser/arrow_top.png"></image>
+					<image wx:else class="icon ml5" src="https://www.coolgua.net/match_img/img/purchaser/arrow_down.png"></image>
+				</view>
+			</block>
+     </view>
+  </view>
+  <view class="footer">
+    <view class="left-opt-wrap">
+      <image wx:if="{{value.online==0}}" bindtap="mesgClick" class="connect-icon" src="https://www.coolgua.net/match_img/img/icon_xiaoxi@2x.png"></image>
+      <image wx:else bindtap="mesgClick" class="connect-icon" src="https://www.coolgua.net/match_img/img/zEdition1/icon_xiaoxi.png"></image>
+      <!--<image wx:if="{{value.online==0}}" bindtap="videoClick" class="connect-icon" src="https://www.coolgua.net/match_img/img/icon_shipin@2x.png"></image>
+      <image wx:else bindtap="videoClick" class="connect-icon" src="https://www.coolgua.net/match_img/img/zEdition1/icon_shipin.png"></image>-->
+      <image bindtap="phoneCall" class="connect-icon" src="https://www.coolgua.net/match_img/img/zEdition1/icon_phone.png"></image>
+    </view>
+    <text class="btn" bindtap="immediateAppointment">{{label.connectSoon}}</text>
+  </view>
+
+</view>

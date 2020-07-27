@@ -1,0 +1,240 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/5/26 下午6:54:50 
+使用方法：
+1. 在"packagePurchaser\pages\purchaser\tabbar\index\index.wxml"中使用`include`指令引入此模板，
+2. 在"packagePurchaser\pages\purchaser\tabbar\index\index.wxss"中使用`import`指令引入"packagePurchaser\pages\purchaser\tabbar\index\index.skeleton.wxss"
+3. 书写对应的逻辑，来控制骨架屏的显示与隐藏
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="tab-bar" style="color: rgb(158, 158, 158); background: rgb(255, 255, 255); bottom: 0px; border: none;">
+      <navigator class="menu-item" open-type="redirect" style="color: #22c592">
+        <image class="img sk-image"></image>
+        <view class="sk-transparent sk-text-18-7500-222 sk-text" style="background-size: 23.1884% 1.2rem; background-position-x: 50%;">首页</view>
+      </navigator>
+      <navigator class="menu-item" open-type="redirect" style="true">
+        <image class="img sk-image"></image>
+        <view class="sk-transparent sk-text-18-7500-863 sk-text" style="background-size: 23.1884% 1.2rem; background-position-x: 50%;">展品</view>
+      </navigator>
+      <navigator class="menu-item" open-type="redirect" style="true">
+        <image class="img sk-image"></image>
+        <view class="sk-transparent sk-text-18-7500-669 sk-text" style="background-size: 23.1884% 1.2rem; background-position-x: 50%;">展商</view>
+      </navigator>
+      <navigator class="menu-item" open-type="redirect" style="true">
+        <image class="img sk-image"></image>
+        <view class="sk-transparent sk-text-18-7500-194 sk-text" style="background-size: 23.1884% 1.2rem; background-position-x: 50%;">我的</view>
+      </navigator>
+    </view>
+    <view class="tab-container">
+      <view class="top-area">
+        <image class="areaImg sk-image" mode="widthFix" style="height: 160.08px;"></image>
+        <swiper autoplay="true" class="swiper" duration="500">
+          <swiper-item class="swiper-item" style="position: absolute; width: 100%; height: 100%; transform: translate(0%, 0px) translateZ(0px);">
+            <view class="swiper-item-img">
+              <image class="back-img sk-image" mode="aspectFit"></image>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class="buttons-area">
+        <view class="button-box" data-page="my-demand">
+          <view class="butImg">
+            <image mode="widthFix" style="height: 51.194px;" class="sk-image"></image>
+          </view><text class="sk-transparent sk-text-18-7500-13 sk-text" style="background-size: 54.4503% 1.3rem; background-position-x: 50%;">联系客服</text></view>
+        <view class="button-box" data-page="my-demand">
+          <view class="butImg">
+            <image mode="widthFix" style="height: 39.338px;" class="sk-image"></image>
+          </view><text class="sk-transparent sk-text-18-7500-726 sk-text" style="background-size: 54.4503% 1.3rem; background-position-x: 50%;">我的资料</text></view>
+        <view class="button-box" data-id="396">
+          <view class="butImg">
+            <image class="img-b sk-image" mode="widthFix" style="height: 47.6757px;"></image>
+          </view><text class="sk-transparent sk-text-18-7500-984 sk-text" style="background-size: 54.4503% 1.3rem; background-position-x: 50%;">地展信息</text></view>
+      </view>
+      <view class="con-area">
+        <view class="tab-area clearfix sk-pseudo sk-pseudo-circle">
+          <view class="remmord">
+            <view class="tab-box active" data-type="1" style="border: none;"><text class="sk-transparent sk-text--6-2500-77 sk-text" style="background-size: 100% 1rem;">推荐展商</text></view>
+            <view class="tab-box" data-type="2" style="true"><text class="sk-transparent sk-text--3-1250-513 sk-text" style="background-size: 100% 1rem;">推荐展品</text></view>
+          </view>
+          <view class="more-area sk-transparent sk-text-30-3030-564 sk-text" style="border: none; background-size: 100% 2.0625rem;">查看更多</view>
+        </view>
+        <view class="exhibition-list">
+          <view is="components/exh-item/exh-item">
+            <view class="item--exhibition-item item--clearfix sk-pseudo sk-pseudo-circle" data-exhitemtype="exhibition">
+              <view class="item--exhibition-info item--clearfix sk-pseudo sk-pseudo-circle">
+                <view class="item--logo-area" style="border: none;">
+                  <image class="item--logo-img sk-image" data-from="article" data-id="00a7e4f4b4f54fd1b4c65130e3010811" data-src="https://ywmatch.coolgua.com/applet_img/1586514263796/64800225_187407940.jpg"></image>
+                </view>
+                <view class="item--detail-info">
+                  <view data-id="00a7e4f4b4f54fd1b4c65130e3010811">
+                    <view class="item--company-name" data-id="00a7e4f4b4f54fd1b4c65130e3010811"><text class="item--name sk-transparent sk-text-5-5556-446 sk-text" style="background-size: 20.8568% 1.125rem;">大公司</text>
+                      <view class="item--hot-area">
+                        <image class="item--hot-img sk-image"></image><text class="item--hot-text"></text></view>
+                    </view>
+                    <view class="item--pavilion-number"><text class="item--label-text sk-transparent sk-text-0-0000-464 sk-text" style="background-size: 100% 0.875rem;">展馆号：</text><text class="item--value-text sk-transparent sk-text-0-0000-87 sk-text" style="background-size: 100% 0.875rem;">2号馆</text></view>
+                    <view
+                      class="item--pavilion-number"><text class="item--label-text sk-transparent sk-text-0-0000-816 sk-text" style="background-size: 100% 0.875rem;">展位号：</text><text class="item--value-text sk-transparent sk-text-0-0000-236 sk-text" style="background-size: 100% 0.875rem;">8K193B</text></view>
+                  </view>
+                </view>
+              </view>
+              <view class="item--industryB item--clearfix sk-pseudo sk-pseudo-circle" style="border: none;">
+                <view class="item--industry-area"><text class="item--label-text sk-transparent sk-text-0-0000-988 sk-text" style="background-size: 100% 0.875rem;">所属行业：</text>
+                  <view class="item--industry-list item--tagsShow"></view>
+                </view>
+              </view>
+              <view class="item--opt-area">
+                <view is="components/exh-item/callButtons/callButtons" style="width: 100%">
+                  <view class="callButtons--space-between callButtons--flex-c-c" style="display: flex;">
+                    <view class="callButtons--flex callButtons--flex-c-c callButtons--imageContainers">
+                      <image style="margin-right: 11px;margin-top: -5px;" class="sk-image"></image>
+                      <view style="position: relative;">
+                        <image style="margin-right: 11px;" class="sk-image"></image>
+                      </view>
+                      <view style="position: relative;">
+                        <image style="margin-right: 11px;" class="sk-image"></image>
+                      </view>
+                    </view>
+                    <view is="components/exh-item/inviteButton/inviteButton">
+                      <view>
+                        <view class="inviteButton--fontsize inviteButton--flex inviteButton--flex-c-c inviteButton--flex-c sk-transparent sk-image" style="color: #fff;width:115px;height:38px;background:linear-gradient(0deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);border-radius:19px;">
+                          离线留言
+                        </view>
+                        <view class="inviteButton--wx-popup" hidden="true">
+                          <view class="inviteButton--popup-container">
+                            <view class="inviteButton--form-area">
+                              <view class="inviteButton--form-item">
+                                <view class="inviteButton--form-title sk-transparent sk-opacity">预约主题：</view>
+                                <view class="inviteButton--form-input-area"><input class="inviteButton--input sk-transparent sk-opacity" placeholder="请输入预约主题" placeholder-class="input-placeholder" type="text" value="true" style="border: none;">请输入预约主题</input>
+                                </view>
+                              </view>
+                              <view class="inviteButton--form-item">
+                                <view class="inviteButton--form-title sk-transparent sk-opacity">日期：</view>
+                                <view class="inviteButton--form-input-area">
+                                  <view class="inviteButton--date-area" style="border: none;">
+                                    <image class="sk-image"></image>
+                                    <picker mode="date" start="2020-05-26" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                                      <view class="inviteButton--picker sk-transparent"></view>
+                                    </picker><text></text></view>
+                                </view>
+                              </view>
+                              <view class="inviteButton--form-item inviteButton--time-area">
+                                <view class="inviteButton--time-box">
+                                  <view class="inviteButton--form-title sk-transparent sk-opacity">开始时间：</view>
+                                  <view class="inviteButton--form-input-area">
+                                    <view class="inviteButton--date-area" style="margin-left: 0px; border: none;">
+                                      <image class="sk-image"></image>
+                                      <picker mode="time" start="18:54" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                                        <view class="inviteButton--picker sk-transparent"></view>
+                                      </picker>
+                                    </view>
+                                  </view>
+                                </view>
+                                <view class="inviteButton--time-box">
+                                  <view class="inviteButton--form-title sk-transparent sk-opacity">结束时间：</view>
+                                  <view class="inviteButton--form-input-area">
+                                    <view class="inviteButton--date-area" style="margin-left: 0px; border: none;">
+                                      <image class="sk-image"></image>
+                                      <picker end="24:00" mode="time" start="00:00" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                                        <view class="inviteButton--picker sk-transparent"></view>
+                                      </picker>
+                                    </view>
+                                  </view>
+                                </view>
+                              </view>
+                              <view class="inviteButton--form-item">
+                                <view class="inviteButton--form-title sk-transparent sk-opacity">留言：</view>
+                                <view class="inviteButton--form-input-area"><textarea class="inviteButton--textarea sk-transparent sk-opacity" placeholder="请输入留言内容" placeholder-class="input-placeholder" value="true" style="border: none;">请输入留言内容a</textarea></view>
+                              </view>
+                            </view>
+                            <view class="inviteButton--button-area">
+                              <view class="inviteButton--button sk-transparent sk-opacity" style="border: none;">取消</view>
+                              <view class="inviteButton--button inviteButton--submit-button sk-transparent sk-opacity" style="border: none;">确定</view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="item--exhibition-item item--clearfix sk-pseudo sk-pseudo-circle" data-exhitemtype="exhibition">
+              <view class="item--exhibition-info item--clearfix sk-pseudo sk-pseudo-circle">
+                <view class="item--logo-area" style="border: none;">
+                  <image class="item--logo-img sk-image" data-from="article" data-id="0176b599e2e44d6ca2c1aa685c22b6bc" data-src="https://ywmatch.coolgua.com/backend_file/backend_img/1590209517013_zip/TZ002-logo.jpg"></image>
+                </view>
+                <view class="item--detail-info">
+                  <view data-id="0176b599e2e44d6ca2c1aa685c22b6bc">
+                    <view class="item--company-name" data-id="0176b599e2e44d6ca2c1aa685c22b6bc"><text class="item--name sk-transparent sk-text-5-5556-976 sk-text" style="background-size: 88.0712% 1.125rem;">湖山(北京)农业技术有限公司</text>
+                      <view class="item--hot-area">
+                        <image class="item--hot-img sk-image"></image><text class="item--hot-text"></text></view>
+                    </view>
+                    <view class="item--pavilion-number"><text class="item--label-text sk-transparent sk-text-0-0000-272 sk-text" style="background-size: 100% 0.875rem;">展馆号：</text><text class="item--value-text sk-transparent sk-text-0-0000-284 sk-text" style="background-size: 100% 0.875rem;">田间馆</text></view>
+                    <view
+                      class="item--pavilion-number"><text class="item--label-text sk-transparent sk-text-0-0000-216 sk-text" style="background-size: 100% 0.875rem;">展位号：</text><text class="item--value-text sk-transparent sk-text-0-0000-164 sk-text" style="background-size: 100% 0.875rem;">TZ002</text></view>
+                  </view>
+                </view>
+              </view>
+              <view class="item--industryB item--clearfix sk-pseudo sk-pseudo-circle" style="border: none;"></view>
+            </view>
+            <view class="item--wx-popup" hidden="true">
+              <view class="item--popup-container">
+                <view class="item--form-area">
+                  <view class="item--form-item">
+                    <view class="item--form-title sk-transparent sk-opacity">预约主题：</view>
+                    <view class="item--form-input-area"><input class="item--input sk-transparent sk-opacity" placeholder="请输入预约主题" placeholder-class="input-placeholder" type="text" value="true" style="border: none;">请输入预约主题</input>
+                    </view>
+                  </view>
+                  <view class="item--form-item">
+                    <view class="item--form-title sk-transparent sk-opacity">日期：</view>
+                    <view class="item--form-input-area">
+                      <view class="item--date-area" style="border: none;">
+                        <image class="sk-image"></image>
+                        <picker mode="date" start="2020-05-26" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                          <view class="item--picker sk-transparent"></view>
+                        </picker><text></text></view>
+                    </view>
+                  </view>
+                  <view class="item--form-item item--time-area">
+                    <view class="item--time-box">
+                      <view class="item--form-title sk-transparent sk-opacity">开始时间：</view>
+                      <view class="item--form-input-area">
+                        <view class="item--date-area" style="margin-left: 0px; border: none;">
+                          <image class="sk-image"></image>
+                          <picker mode="time" start="18:54" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                            <view class="item--picker sk-transparent"></view>
+                          </picker>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="item--time-box">
+                      <view class="item--form-title sk-transparent sk-opacity">结束时间：</view>
+                      <view class="item--form-input-area">
+                        <view class="item--date-area" style="margin-left: 0px; border: none;">
+                          <image class="sk-image"></image>
+                          <picker end="24:00" mode="time" start="00:00" style="width: auto;height: 44px;flex: 1;margin-left: 9px" value="true">
+                            <view class="item--picker sk-transparent"></view>
+                          </picker>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                  <view class="item--form-item">
+                    <view class="item--form-title sk-transparent sk-opacity">留言：</view>
+                    <view class="item--form-input-area"><textarea class="item--textarea sk-transparent sk-opacity" placeholder="请输入留言内容" placeholder-class="input-placeholder" value="true" style="border: none;">请输入留言内容a</textarea></view>
+                  </view>
+                </view>
+                <view class="item--button-area">
+                  <view class="item--button sk-transparent sk-opacity" style="border: none;">取消</view>
+                  <view class="item--button item--submit-button sk-transparent sk-opacity" style="border: none;">确定</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

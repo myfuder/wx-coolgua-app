@@ -1,0 +1,131 @@
+<!-- 展商 -->
+<view class="container">
+  <exh-item exhibitList="{{exhibitList}}" exhItemType="exhibition" itemType="detail" exhItemTypeStatus="detail"></exh-item>
+  <view class="module-area">
+
+    <view class="con-main-video-live" style="padding-top:60rpx">
+      <p class="live-tab">{{langTranslate['宣传视频']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view class="video-live-item" style="width:686rpx;margin-top: 40rpx;">
+        <video style="width: 100%; height: calc(690rpx * 9 / 16);" src="{{detailInfo.video}}"></video>
+      </view>
+    </view>
+
+<view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['展商直播']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span data-type="zhanshang" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view class="video-live-group">
+      <video-live-page wx:for="{{liveList}}" is_live="{{item.status==0}}"data-live_type="exhibition" data-id="{{item.id}}" data-type="zhanshang"  page_img="{{item.coverImage}}" live_name="{{item.name}}"bindtap="toLiveDetailPage" live_number="{{item.number}}"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['企业介绍']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view style="margin-top:41rpx;width:688rpx;border-radius:10rpx;">
+        {{detailInfo.introduction}}
+      </view>
+    </view>
+
+    
+    <!-- <view class="module-item" wx:if="{{detailInfo.video}}">
+      <view class="module-top">
+        <!--<image src="{{staticImageUrl}}/img/index/icon_2.png" class="title-img"></image>
+        <text class="title-text">{{langTranslate['宣传视频']}}</text>
+      </view>
+      <view class="module-con">
+        <video style="width: 100%; height: calc(690rpx * 9 / 16);" src="{{detailInfo.video}}"></video>
+      </view>
+    </view>-->
+    <!-- <view class="module-item" wx:if="{{detailInfo.introduction}}">
+      <view class="module-top">
+        <!--<image src="{{staticImageUrl}}/img/purchaser/company.png" class="title-img"></image>
+        <text class="title-text">{{langTranslate['展商介绍']}}</text>
+      </view> 
+      <view class="module-con">
+        <text class="exh-desc">{{isEn ? detailInfo.introductionEn : detailInfo.introduction}}</text>
+      </view>
+    </view> -->
+    <view class="module-item company-item">
+      <view class="con-main-video-live" style="margin-top:60rpx">
+        <p class="live-tab">{{langTranslate['展品']}}</p>
+        <p class="live-tab">
+          <span class="title-line-long"></span>
+          <span class="title-line-short"></span>
+        </p>
+      </view>
+      <view class="exh-list">
+        <view wx:for="{{exhibitData}}" wx:key="item"  data-id="{{item.id}}" class="exhibition-item"
+        style="border-bottom: 1px solid #ddd;padding-bottom: 20rpx;margin-bottom: 20rpx;"
+        >
+          <view class="exhibition-info">
+            <view class="logo-area">
+              <image bindtap="wxParseImgTap" data-from="article" data-src="{{item.coverImage}}" src="{{item.coverImage}}" class="logo-img"></image>
+            </view>
+            <view class="detail-info">
+              <view class="company-name">
+                <text class="name" catchtap="goDetailPage" data-id="{{item.id}}" >{{isEn ? item.nameEn : item.name}}</text>
+                <view class="hot-area">
+                  <image mode='widthFix' src="{{staticImageUrl}}/img/purchaser/icon_redu.png" class="hot-img"></image>
+                  <text class="hot-text">{{item.hot}}</text>
+                </view>
+              </view>
+              <view class="industry-area">
+                <text class="label-text">{{langTranslate['所属类别']}}：</text>
+                <view class="industry-list">
+                  <block wx:if="!isEn">
+                    <view class='industry-list {{uhide==item.id||item.tagNames.length<6?"tagsShow":"tagsHidden"}}' >
+                      <view wx:for="{{isEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem" class="industry-item">{{tagItem}}</view>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class='industry-list {{uhide==item.id||item.tagEnglishNames.length<4?"tagsShow":"tagsHidden"}}' >
+                      <view wx:for="{{isEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem" class="industry-item">{{tagItem}}</view>
+                    </view>
+                  </block>
+                </view>
+              </view>
+              <block wx:if="!isEn">
+                <view class="more" wx:if="{{item.tagNames.length>=6}}" bindtap="openMore" data-id="{{item.id}}">
+                  <image wx:if="{{uhide==item.id}}" class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_top.png"></image>
+                  <image wx:else class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="more" wx:if="{{item.tagEnglishNames.length>=4}}" bindtap="openMore" data-id="{{item.id}}">
+                  <image wx:if="{{uhide==item.id}}" class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_top.png"></image>
+                  <image wx:else class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+                </view>
+              </block>
+              <view class="collect">
+                <view class="hot-area">
+                  <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/exhibitZan.png" class="hot-img"></image>
+                  <text class="hot-text">{{item.likes}}</text>
+                </view>
+                <view class="hot-area">
+                  <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/exhibitsCollect.png" class="hot-img"></image>
+                  <text class="hot-text">{{item.collect}}</text>
+                </view>
+              </view>
+            </view>
+          </view>      
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="share">
+    <button open-type="share" plain="true" class="tab-ticket">
+      <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/share.png"></image>
+    </button>
+  </view>
+</view>

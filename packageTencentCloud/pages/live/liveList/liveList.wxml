@@ -1,0 +1,20 @@
+<view style="background: #F6F7FB;min-height: {{height}}px;padding-top: 40rpx;">
+    <view style="display: flex;flex-wrap: wrap;" class="row-container">
+        <view
+            wx:for="{{liveList}}"
+            wx:key="*this"
+            bindtap="go2livePage"
+            data-item="{{item}}"
+            style="padding-right: 20rpx;width: 50%;margin-bottom: 20rpx;box-sizing: border-box;">
+            <liveItemInList item="{{item}}"></liveItemInList>
+        </view>
+    </view>
+
+    <view wx:if="{{liveList.length==0}}" style="font-size: 24rpx;text-align: center;margin-top: 20rpx">
+        暂时没有数据
+    </view>
+
+    <view wx:if="{{!isMore&&liveList.length}}" style="font-size: 24rpx;text-align: center;margin-top: 20rpx">
+        我也是有底线的~
+    </view>
+</view>

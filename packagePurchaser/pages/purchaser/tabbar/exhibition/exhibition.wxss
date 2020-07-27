@@ -1,0 +1,229 @@
+/**index.wxss**/
+@import "./exhibition.skeleton.wxss";
+page {
+  width: 100%;
+  /* height:100%; */
+}
+.tab-container {
+  width: 100%;
+  /* height:100%; */
+  position: relative;
+  /* background:#f5f5f5; */
+}
+/* 搜索部分 */
+.search-area {
+  padding: 30rpx;
+}
+.search-area .search-top {
+  display: flex;
+  align-items: center;
+}
+.search-top .input-area {
+  width: 100%;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 0 0 25rpx;
+  background: #f3f3f3;
+  border-radius: 30rpx;
+}
+.input-area image {
+  width: 35rpx;
+  height: 35rpx;
+  flex-shrink: 0;
+}
+.input-area .input {
+  margin-left: 24rpx;
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 33rpx;
+}
+
+.search-top .search-label {
+  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-label text {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 34rpx;
+}
+.search-label image {
+  width: 27rpx;
+  margin-left: 17rpx;
+}
+.search-con {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  z-index: 998;
+}
+
+.search-con .innnerContent {
+  width: 599rpx;
+  position: absolute;
+  right: 0px;
+  top: 10rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  z-index: 998;
+  box-sizing: border-box;
+}
+.search-con .con-item {
+  margin-top: 20rpx;
+}
+.search-con .con-item:first-child {
+  margin-top: 0;
+}
+.con-item .search-par,
+.con-item .child-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.con-item image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.con-item .con-title {
+  font-size: 26rpx;
+  color: rgba(51, 51, 51, 1);
+  line-height: 30rpx;
+  font-weight: 700;
+  margin-left: 12rpx;
+}
+.con-item .search-child {
+  margin-top: 8rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-child .child-item {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+}
+.child-item .con-title {
+  color: #666;
+  font-weight: 500;
+}
+/* 展品列表 */
+.con-area {
+  background: #f6f7fb;
+  display: flex;
+  background: #F5F7FB;
+  height: 100%;
+}
+.serch-icon{
+  color: #fff;
+  height: 68rpx;
+  background: #FF0000;
+  border-radius: 17px;
+  font-size: 28rpx;
+  line-height: 68rpx;
+  padding: 0 30rpx;
+}
+.exhibition-menu{
+  width:150rpx;
+  background: #F5F7FB;
+  height: 100%;
+  overflow: auto;
+}
+.exhibition-menu .exhibition-menu-text{
+  font-size: 28rpx;
+  padding: 30rpx 0;
+  display: block;
+  text-align: center; 
+  color:#777777;
+}
+.exhibition-menu-text-active{
+  color:#333333;
+  font-weight: bold;
+  background: #fff;
+}
+.exhibition-list {
+  width: calc(100% - 150rpx);
+  height: 100%;
+  overflow: auto;
+  background: #fff
+}
+.exhibition-list-tabs .exhibition-list-tab-item{
+  display: inline-block;
+  text-align: center;
+  padding:20rpx 0;
+  font-size:32rpx;
+  width:30%;
+  box-sizing: border-box;
+  color:#333333;
+}
+.exhibition-list-tab-active{
+  color:#FF2D30 !important;
+  font-weight: bold;
+  border-bottom-left-radius:2rpx;
+  border-bottom-right-radius:2rpx;
+  border-bottom: 6rpx solid;
+  border-image: -webkit-linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-image: -moz-linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-image: linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+}
+.exhibition-menu-text-active .menu-icon{
+  width: 8rpx;
+  height: 45rpx;
+  background: rgba(255,0,0,1);
+  display: inline-block;
+  float: left;
+}
+/* 底部分页 */
+.bottom-page {
+  padding: 32rpx 0;
+}
+
+/*fitler 弹出框 */
+.search-con .mark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  opacity: 0.8;
+  top: -20rpx;
+  left: 0px;
+  z-index: 888;
+}
+.search-con .bottom-btns {
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 20rpx;
+  z-index: 889;
+  min-height: 100rpx;
+  width: 599rpx;
+  background: #fff;
+  position: absolute;
+  right: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.search-con .bottom-btns .button {
+  border-radius: 40rpx;
+  border: 1px solid #ddd;
+  display: inline-flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding: 0 20rpx;
+  position: relative;
+  top: 10rpx;
+}
+.search-con .bottom-btns .button.button-primary {
+  background: #22C592;
+  color: #fff;
+  border-color:#22C592;
+}

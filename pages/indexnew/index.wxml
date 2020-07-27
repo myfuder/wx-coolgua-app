@@ -1,0 +1,140 @@
+<!--packagePurchaser/pages/newpurchaser/index.wxml-->
+<!-- <text>packagePurchaser/pages/newpurchaser/index.wxml</text> -->
+<import src="../common/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
+<view wx:if="{{loadFinish}}" class="tab-container">
+  <!-- banner图 -->
+  <view class="top-area">
+    <!-- swiper -->
+    <view style="">
+      <banner bannerlist="{{bannerList}}"></banner>
+    </view>
+  </view>
+  <view style="padding:0 32rpx;position:relative">
+    <view class="language-change flex" style="position: absolute;right: 33rpx;top: -30rpx;justify-content:flex-end">
+      <view bindtap="switchLanguage" data-lang="zh_CN" class="align-items flex-c {{lang=='zh_CN'?'lauguage-active':''}}">中</view>
+      <view bindtap="switchLanguage" data-lang="en" class="align-items flex-c {{lang=='en'?'lauguage-active':''}}">EN</view>
+    </view>
+    <view class="buttons-area">
+      <view wx:for="{{menus}}" class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" data-url="{{item.toPage}}" bindtap="toPage">
+        <view class="butImg">
+          <image class="img-b" src="{{item.image}}" mode='widthFix'></image>
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="width:330rpx;display: inline-block;" >
+      <p class="live-tab">{{langTranslate['大会直播']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span data-type="0" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view class="video-live-group" style="min-height:330rpx">
+        <video-live-page wx:for="{{live_list['0'].data}}" is_live="{{item.status==0}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="0"  page_img="{{item.coverImage}}" live_name="{{item.name}}"bindtap="goDetailPage" live_number="{{item.number}}"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+      </view>
+    </view>
+    <view class="con-main-video-live" style="width:330rpx;display: inline-block;float:right">
+      <p class="live-tab">{{langTranslate['分馆实时画面']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span data-type="1" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view class="video-live-group">
+        <video-live-page wx:for="{{live_list['1'].data}}" is_live="{{item.status==0}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="1"  page_img="{{item.coverImage}}" live_name="{{item.name}}"bindtap="goDetailPage"live_number="{{item.number}}"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['展商直播']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span data-type="zhanshang" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view class="video-live-group">
+        <video-live-page wx:for="{{live_list['zhanshang'].data}}" is_live="{{item.status==0}}" data-live_type="exhibition" data-id="{{item.id}}" data-type="zhanshang"  page_img="{{item.coverImage}}" live_name="{{item.name}}"live_number="{{item.number}}"bindtap="goDetailPage"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['同期活动']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span data-type="2" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view class="video-live-group">
+      <video-live-page wx:for="{{live_list['2'].data}}" is_live="{{item.status==0}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="2" live_number="{{item.number}}"  page_img="{{item.coverImage}}" play_custom="{{item.name}}"bindtap="goDetailPage"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+        <!-- <video-live-page play_custom="专场采购对接会"></video-live-page>
+        <video-live-page play_custom="会议直播" style="float:right"></video-live-page> -->
+      </view>
+    </view>
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['全球大咖带你逛SIGN CHINA']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long" style="width:268rpx"></span>
+        <span class="title-line-short"></span>
+        <span  data-type="daka" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view style="margin-top:41rpx;width:688rpx;min-height:346rpx;border-radius:10rpx;">
+        <image style="width:100%;height:100%" mode='widthFix' src="{{home_globalshow}}"/>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['热门采购需求']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+        <span style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+      </p>
+      <view style="margin-top:41rpx;width:688rpx;min-height:346rpx;border-radius:10rpx;">
+        <s-table s-class-header='s-class-header' hasBorder='no'  width='686' pixelunit="rpx" tdWidth='180'   headers='{{headers}}' list='{{demandList}}'></s-table>
+      </view>
+    </view>
+
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['品牌推荐']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view style="width:688rpx;border-radius:10rpx;margin-top:30rpx">
+        <image wx:for="{{ppqy}}" style="width:200rpx;height:135rpx;padding:0 10rpx" src="{{item.images}}"/>
+      </view>
+    </view>
+    <view class="con-main-video-live" style="margin-top:60rpx">
+      <p class="live-tab">{{langTranslate['特别鸣谢']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view style="width:688rpx;border-radius:10rpx;margin-top:30rpx">
+        <image wx:for="{{tbmx}}" style="width:200rpx;height:135rpx;padding:0 10rpx" src="{{item.images}}"/>
+      </view>
+    </view>
+  </view>
+  <view class="wx-popup" hidden="{{loadLoginPop}}">
+    <view class='popup-container'>
+      <view class="popup-account" style="padding:30rpx;width:520rpx">
+        <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">×</i>
+        <view style="text-align:center;font-size:32rpx;font-weight:bold;padding-bottom:32rpx">{{langTranslate['热门展商']}}</view>
+         <!-- <video-live-page style="float:{{index%2!=0?'right':''}}" wx:for="{{daka.data}}" wx:key="{{index}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="{{item.type}}"  page_img="{{item.coverImage}}" live_name="{{item.title}}"bindtap="goDetailPage" live_number="{{item.number}}"></video-live-page> -->
+        <view wx:for="{{exhibitList}}" bindtap="goDetailPage2" data-id="{{item.id}}" style="display:inline-block;width: 250rpx;float:{{index%2==0?'':'right'}}">
+          <view style="position:relative">
+            <view class="align-items" style="position:absolute;top:0;right:0;background:#f00;color:#fff;padding:0 10rpx">
+              <image style="width:18rpx;height:21rpx;mrgin-right:10rpx" src="{{hot_white}}"></image><text style="font-size:19rpx">{{item.hot}}</text>
+            </view>
+            <image mode="scaleToFill" src="{{item.exhibitList[0].coverImage}}" style="width:250rpx;height:250rpx"></image>
+            <view class="hot-item-name text-overflow-one">{{isEn?item.exhibitList[0].nameEn:item.exhibitList[0].name}}</view>
+          </view>
+          <view class="text-overflow-one" style="text-align:center;font-size:28rpx;color:#666666">{{isEn?item.companyEn:item.company}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <authorize wxpopup="wx-popup" popupcontainer="popup-container" load-login-pop="{{true}}"></authorize> -->
+</view>

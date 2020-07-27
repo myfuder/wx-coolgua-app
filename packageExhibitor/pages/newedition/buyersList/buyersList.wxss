@@ -1,0 +1,214 @@
+/* packageExhibitor/pages/newedition/buyersList/buyersList.wxss */ 
+page{
+  width: 100%;
+  height: 100%;
+}
+#buyers-list{
+  background:#F7F6F9;
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
+}
+#buyers-list .header .weui-input{
+  width:548rpx;
+  height:60rpx;
+  background:rgba(243,243,243,1);
+  border-radius:30rpx;
+  padding: 0 99rpx 0 70rpx;
+  box-sizing: border-box;
+  min-height: 0;
+  font-size: 28rpx;
+}
+#buyers-list .header{
+  width:100%;
+  height:101rpx;
+  line-height:101rpx;
+  background:rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+}
+#buyers-list .header .search-box{
+  position: relative;
+  display: flex;
+}
+#buyers-list .header .search-box-btn{
+  width:99rpx;
+  height:52rpx;
+  line-height:52rpx;
+  background:rgba(255,0,0,1);
+  border-radius:26rpx;
+  position: absolute;
+  top: 4rpx;
+  font-size: 28rpx;
+  right: 0rpx;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+}
+#buyers-list .header .filter{
+  width:56rpx;
+  height:26rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:18rpx;
+}
+#buyers-list .list {
+  width: 100%;
+  /* height: calc(100% - 330rpx); */
+  /* overflow-y: scroll; */
+  padding: 102rpx 0;
+  background:#F7F6F9;
+
+}
+#buyers-list .list .item{
+  margin: 20rpx 31rpx 20rpx 32rpx;
+  width:687rpx;
+  /* height:355rpx; */
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+}
+#buyers-list .totalStyle{
+  height:23rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:18rpx;
+  margin: 14rpx 0 16rpx;
+}
+#buyers-list .item-total{
+  display: flex;
+  align-items: center;
+  padding: 25rpx 25rpx 0 27rpx;
+  box-sizing: border-box;
+}
+#buyers-list .item .header-img{
+  width:126rpx;
+  height:126rpx;
+  border-radius:10rpx;
+  margin-right: 23rpx;
+  border: 1px solid #ccc;
+}
+#buyers-list .item .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#buyers-list .item .header-right .name{
+  /* width: 300rpx; */
+  /* height:28rpx; */
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  line-height:36rpx;
+  max-width: 250rpx;
+  overflow:hidden; 
+  white-space:nowrap;
+}
+#buyers-list .manage-box{
+  display: flex;
+}
+#buyers-list .item .header-right .posts{
+  /* width:58rpx; */
+  padding: 0 10rpx;
+  height:30rpx;
+  border:1px solid rgba(255,0,0,1);
+  border-radius:6rpx;
+  display: inline-block;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,0,0,1);
+  line-height:30rpx;
+  text-align: center;
+  margin-left: 24rpx;
+}
+#buyers-list .item .header-right .hot text{
+  height:23rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,46,46,1);
+  line-height:36px;
+}
+#buyers-list .item .header-right .hot .hot-img{
+  width:18rpx;
+  height:21rpx;
+}
+#buyers-list .list .item .like{
+  border-bottom:1px solid rgba(237,237,237,1);
+  padding: 8rpx 0 28rpx 0;
+  margin: 0 25rpx 0 27rpx;
+  box-sizing: border-box;
+  /* line-height: 50rpx;
+  width:100%; */
+}
+#buyers-list .list .item .like-box{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  height:63rpx;
+  white-space:nowrap;
+  width:650rpx;
+  margin: 0 25rpx 0 27rpx;
+  /* box-sizing: border-box; */
+}
+#buyers-list .list .item .like-item{
+  /* width:120rpx; */
+  height:42rpx;
+  background:rgba(244,248,251,1);
+  border-radius:4rpx;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(133,136,141,1);
+  line-height:42rpx;
+  display: inline-block;
+  text-align: center;
+  margin-right: 10rpx;
+}
+#buyers-list .list .item .item-booking {
+  display: flex;
+  padding: 26rpx 22rpx 26rpx 21rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+#buyers-list .list .item .item-booking .booking-btn{
+  width:210rpx;
+  height:70rpx;
+  background:rgba(255,0,0,1);
+  border-radius:35rpx;
+  font-size:30rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:70rpx;
+  text-align: center;
+}
+#buyers-list .icons {
+  display: flex;
+}
+#buyers-list .icons view{
+  width:70rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background:rgba(255,0,0,1);
+  opacity:0.05;
+  border-radius:50%;
+  margin-right: 30rpx;
+  /* display: inline-block; */
+}
+#buyers-list .icons image{
+  width:38rpx;
+  height:38rpx;
+  vertical-align: middle;
+
+}

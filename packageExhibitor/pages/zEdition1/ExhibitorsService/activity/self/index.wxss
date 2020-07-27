@@ -1,0 +1,86 @@
+.top_title{
+	font-size: 32rpx;
+	color: #333;
+	text-align: center;
+	font-weight: 600;
+}
+
+/* 底部列表项 */
+.choose_items{
+	display: flex;
+	justify-content: flex-start;
+	padding: 40rpx 50rpx;
+}
+.items_l{
+	flex: 1;
+	margin-right: 20rpx;
+}
+.items_l checkbox{
+	border: 1rpx solid #eee;
+}
+.items_r{
+	flex: 10;
+}
+.items_title{
+	font-size:28rpx;
+	font-family:Microsoft YaHei;
+	font-weight:600;
+	color:rgba(51,51,51,1);
+}
+.items_record{
+	font-size:24rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin: 10rpx 0 0;
+}
+
+/* 底部按钮 */
+.items_btns{
+	padding-bottom: 40rpx;
+	display: flex;
+	justify-content: center;
+	font-size:32rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	color:rgba(255,45,48,1);
+	
+}
+.items_btns .status1,
+.items_btns .status2{
+	width:220rpx;
+	height:80rpx;
+	border-radius:4rpx;
+	line-height: 80rpx;
+	text-align: center;
+	color: #fff;
+}
+.items_btns .status1{
+	background:linear-gradient(0deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+}
+.items_btns .status2{
+	background-color: #909399;
+}
+
+.items_btns .status_1,
+.items_btns .status_2{
+	color: #fff;
+	height:80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	border-radius:4rpx;
+}
+.items_btns .status_1{
+	width:401rpx;
+	background:linear-gradient(0deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+}
+.items_btns .status_2{
+	width:350rpx;
+	background:rgba(144,147,153,1);
+}
+
+.fg_line{
+	width: 100%;
+	height:20rpx;
+	background:rgba(248,248,248,1);
+}

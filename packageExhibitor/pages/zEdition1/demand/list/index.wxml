@@ -1,0 +1,29 @@
+<!--packageExhibitor/pages/zEdition1/purchaser/list/index.wxml-->
+<view class="content" style="background: #F6F7FB;min-height: {{height}}px">
+  <filter-search bind:handleSearch="searchData"></filter-search>
+  <view
+    class="row-container"
+    style="margin-top: 20rpx">
+    <view wx:for="{{list2}}" wx:key="*this" style="margin-bottom: 20rpx;">
+      <demandItemForList bind:handleShow="handleShow"
+              item="{{item}}"
+              list="list"></demandItemForList>
+    </view>
+  </view>
+  <view wx:if="{{list2&&list2.length==0}}"
+        style="font-size: 24rpx;text-align: center;padding: 40rpx;"
+  >暂时无数据
+  </view>
+  <view wx:if="{{list2&&list2.length!=0&&!isMore}}"
+        style="font-size: 24rpx;text-align: center;padding: 40rpx;"
+  >我也是有底线的
+  </view>
+  <!-- <demand bind:handleShow="handleShow" wx:for="{{list2}}" value="{{item}}"  itemType="list" wx:key="*this"></demand> -->
+  <!-- <text class="loading" wx:if="{{isProgressing}}">{{loading}}...</text> -->
+  <!--  <view class="page-wrap" wx:if="{{list2.length>0}}">-->
+  <!--    <text class="{{pageNumber!=1?'activeClass':''}}" bindtap="preClick">上一页</text>-->
+  <!--    <text><text style="color:#FF2D30;">{{pageNumber}} </text>/{{pages}}</text>-->
+  <!--    <text class="{{pageNumber!=pages?'activeClass':''}}" bindtap="nextClick">下一页</text>-->
+  <!--  </view>-->
+  <!--  <invitation-dialog param="{{dialogParam}}" wx:if="{{dialogShow}}" bind:handleHide="handleHide"></invitation-dialog>-->
+</view>

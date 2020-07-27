@@ -1,0 +1,25 @@
+<view style="min-height:{{height}}px;background: #F6F7FB;">
+  <!--  <view class="search-area" style="background: #fff">
+      <view class="search-top">
+        <view class="input-area">
+          <image src="{{staticImageUrl}}/img/xgyz/search.png" mode='widthFix'></image>
+          <input class="input" type="text" placeholder="请输入展品名称/展位号"
+                 placeholder-class="input-placeholder" bindchange="changeKeyTap" value="{{key}}"></input>
+        </view>
+      </view>
+    </view>-->
+  <!--列表-->
+  <view style="padding: 20rpx">
+    <view wx:for="{{lists}}" wx:key="*this" style="margin-bottom: 20rpx;">
+      <huiyi-item item="{{item}}"
+                  type="{{type}}"
+                  status="{{status}}">
+      </huiyi-item>
+    </view>
+
+
+    <view wx:if="{{lists.length==0}}" style="font-size: 24rpx;text-align: center;padding: 100rpx;">
+      暂时没有数据
+    </view>
+  </view>
+</view>

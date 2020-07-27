@@ -1,0 +1,31 @@
+<!--authorize.wxml-->
+<view class="container">
+  <view class="valid-phone">
+    <image src="{{staticImageUrl}}/img/xgyz/startBanner.jpg" class="login-title"></image>
+    <image src="{{defaultUserImage}}" class="logo"
+           style="height: 320rpx;width: 320rpx;"
+    ></image>
+    <view class="authorize">
+      <view class="notice">
+        <text>1、个人信息仅用于身份验证识别与授权，确保数据安全</text>
+        <text>2、绑定信息后用户即可进行展会活动信息查询,匹配商机邀约发起、确认</text>
+      </view>
+      <view class="register">
+        <button open-type="getUserInfo" class="button immediately" bindgetuserinfo="userLogin">授权成为展商</button>
+        <button class="button exhibitor" bindtap="switchRole">切换为观众</button>
+        <text class="telephone" bindtap="callTelephone">客服电话</text>
+      </view>
+    </view>
+    <view class="wx-popup" hidden="{{dialogShow}}">
+      <view class='popup-container'>
+        <view class="wx-popup-title">
+          <text>为了校验您的展商身份\n请授权手机号</text>
+        </view>
+        <view class="wx-popup-con">
+          <button class="cancal" bindtap="cancel">取消</button>
+          <button class="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

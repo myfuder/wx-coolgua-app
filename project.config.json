@@ -1,0 +1,590 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": [
+			{
+				"type": "folder",
+				"value": "docs"
+			}
+		]
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"preloadBackgroundData": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"compileHotReLoad": false,
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.3",
+	"appid": "wxcd1b215df7c6db13",
+	"projectname": "%E5%B0%8F%E7%93%9C%E4%BA%91%E5%B1%95111",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 3,
+					"name": "packageExhibitor/pages/zEdition1/me/myLiveBroadcast/live/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myLiveBroadcast/live/index",
+					"query": "scene=720",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "packageExhibitor/pages/zEdition1/index",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "scene=720",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "scene=720",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/index",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "packageExhibitor/pages/zEdition1/like/list/list",
+					"pathName": "packageExhibitor/pages/zEdition1/like/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "packageExhibitor/pages/zEdition1/me/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "packageExhibitor/pages/zEdition1/me/index/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/purchaser/list/index",
+					"pathName": "packageExhibitor/pages/zEdition1/purchaser/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "展商详情 ",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑展商",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "展商个人中心",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "展品列表",
+					"pathName": "packageExhibitor/pages/zEdition1/displays/list/displaysList",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "展品详情",
+					"pathName": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "packageExhibitor/pages/zEdition1/product/edit/index",
+					"pathName": "packageExhibitor/pages/zEdition1/product/edit/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "packageExhibitor/pages/zEdition1/activity/activity",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/activity/activity",
+					"pathName": "packageExhibitor/pages/zEdition1/activity/activity/activityDetail",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "直播列表",
+					"pathName": "packageTencentCloud/pages/live/liveList/liveList",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "观众详情",
+					"pathName": "packageExhibitor/pages/zEdition1/purchaser/detail/index",
+					"query": "purchaserId=a83fc4c0-49a8-42d1-90f1-aae5e82a0eb9&projectId=11c3530d-2115-4740-ac55-1d10661921cb",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/purchaser/list/index",
+					"pathName": "packageExhibitor/pages/zEdition1/purchaser/list/index",
+					"query": "purchaserId=a83fc4c0-49a8-42d1-90f1-aae5e82a0eb9&projectId=11c3530d-2115-4740-ac55-1d10661921cb",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/demand/list/index",
+					"pathName": "packageExhibitor/pages/zEdition1/demand/list/index",
+					"query": "purchaserId=a83fc4c0-49a8-42d1-90f1-aae5e82a0eb9&projectId=11c3530d-2115-4740-ac55-1d10661921cb",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/index",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "purchaserId=a83fc4c0-49a8-42d1-90f1-aae5e82a0eb9&projectId=11c3530d-2115-4740-ac55-1d10661921cb",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/purchaser/detail/index",
+					"pathName": "packageExhibitor/pages/zEdition1/purchaser/detail/index",
+					"query": "purchaserId=8321a2f15fe24b7f83843d89f7dbf6b9&projectId=2baf2968-f6e4-48a7-b6c2-59f1c63aa569",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/meInfo/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/index",
+					"query": "purchaserId=8321a2f15fe24b7f83843d89f7dbf6b9&projectId=2baf2968-f6e4-48a7-b6c2-59f1c63aa569",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑个人信息",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "产品列表",
+					"pathName": "packageExhibitor/pages/zEdition1/displays/list/displaysList",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑产品",
+					"pathName": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"query": "id=1357",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"pathName": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"query": "id=123",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"pathName": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"query": "id=1361",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏列表",
+					"pathName": "packageExhibitor/pages/zEdition1/like/list/list",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "packageExhibitor/pages/zEdition1/activity/activity",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/like/list/list",
+					"pathName": "packageExhibitor/pages/zEdition1/like/list/list",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"pathName": "packageExhibitor/pages/zEdition1/product/detail/detail",
+					"query": "id=1360",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑产品",
+					"pathName": "packageExhibitor/pages/zEdition1/product/edit/index",
+					"query": "id=1360",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"query": "id=dd79e2d4-2f40-41c8-9561-96132c070620",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/message/message",
+					"pathName": "packagePurchaser/pages/purchaser/me/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/collect/collect",
+					"pathName": "packagePurchaser/pages/purchaser/me/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/tabbar/index/index",
+					"pathName": "packagePurchaser/pages/purchaser/tabbar/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "卖家首页-for bone",
+					"pathName": "packageExhibitor/pages/zEdition1/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/collect/collect",
+					"pathName": "packagePurchaser/pages/purchaser/me/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "packageExhibitor/pages/zEdition1/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "观众--我是个人信息",
+					"pathName": "packagePurchaser/pages/purchaser/tabbar/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "观众 活动",
+					"pathName": "packagePurchaser/pages/purchaser/index/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "packagePurchaser/pages/purchaser/index/activityDetail/activityDetail",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "packageExhibitor/pages/zEdition1/activityDetail/activityDetail",
+					"query": "id=418",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "观众我搜集",
+					"pathName": "packagePurchaser/pages/purchaser/me/collect/collect",
+					"query": "id=418",
+					"scene": null
+				},
+				{
+					"id": 49,
+					"name": "个人信息",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/authorize/authorize",
+					"pathName": "packagePurchaser/pages/purchaser/authorize/authorize",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/register/register",
+					"pathName": "packagePurchaser/pages/purchaser/register/register",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": 52,
+					"name": "packageExhibitor/pages/zEdition1/index",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": 53,
+					"name": "pages/role/role",
+					"pathName": "pages/role/role",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/edit-info/edit-info",
+					"pathName": "packagePurchaser/pages/purchaser/me/edit-info/edit-info",
+					"query": "id=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/meInfo/edit/index",
+					"query": "id=37eadb4d6b444d0fb1b226d2368b357c",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/activityDetail/activityDetail",
+					"pathName": "packageExhibitor/pages/zEdition1/activityDetail/activityDetail",
+					"query": "tid=96916bfed805462e8748db203ce64a00",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"pathName": "packageExhibitor/pages/zEdition1/me/myInvitation/index",
+					"query": "richeng=richeng",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/publish-demand/publish-demand",
+					"pathName": "packagePurchaser/pages/purchaser/me/publish-demand/publish-demand",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 62,
+					"name": "pages/purchaser/me/appoint-schedule-plus/appoint-schedule-plus",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule-plus/appoint-schedule-plus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/exhibition/detail/detail",
+					"pathName": "packagePurchaser/pages/purchaser/exhibition/detail/detail",
+					"query": "id=0001591b0eb74126b2d87efa8ca4d6df",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/exhibits/detail/detail",
+					"pathName": "packagePurchaser/pages/purchaser/exhibits/detail/detail",
+					"query": "id=3786",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/tabbar/exhibits/exhibits",
+					"pathName": "packagePurchaser/pages/purchaser/tabbar/exhibits/exhibits",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/appoint-schedule-plus/appoint-schedule-plus",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule-plus/appoint-schedule-plus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule/appoint-schedule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "D:\\Users\\tai\\Documents\\yiwu_miniprogram_xgyz\\packagePurchaser\\pages\\purchaser\\me\\appoint-schedule-list\\appoint-schedule-list.wxml",
+					"pathName": "packagePurchaser/pages/purchaser/me/appoint-schedule-list/appoint-schedule-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/appoint-schedule-list/appoint-schedule-list",
+					"pathName": "pages/appoint-schedule-list/appoint-schedule-list",
+					"query": "sponsor=1&status=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/appoint-schedule-plus/appoint-schedule-plus",
+					"pathName": "pages/appoint-schedule-plus/appoint-schedule-plus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 72,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "scene=liveId_1195",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageExhibitor/pages/zEdition1/index",
+					"pathName": "packageExhibitor/pages/zEdition1/index",
+					"query": "scene=liveId_1003",
+					"scene": null
+				}
+			]
+		}
+	}
+}

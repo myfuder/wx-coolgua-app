@@ -1,0 +1,6 @@
+<!--packageExhibitor/pages/newedition/index/index.wxml-->
+<view>
+  <view class="" bindTap="toOther" wx:for="{{list}}">
+    {{item.name}}
+  </view>
+</view>

@@ -1,0 +1,63 @@
+/**index.wxss**/
+page{
+  width:100%;
+  height:100%;
+}
+/**启动页内容**/
+.container{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+
+.valid-phone{
+  width:100%;
+  height: 100%;
+  font-size:34rpx;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.valid-phone .logo{
+  position:absolute;
+  top:190rpx;
+}
+/**启动页banner**/
+.valid-phone .login-bg{
+  height:100%;
+  width:100%;
+  display:block;
+}
+
+/**切换按钮**/
+.valid-phone .loginType{
+  position:absolute;
+  width: 100%;
+  bottom:5%;
+  display:flex;
+  height:19%;
+  align-items: flex-end;
+  /*border-top:2rpx dashed #16d0ff;*/
+}
+.valid-phone .loginType .button{
+  font-size: 36rpx;
+  color:#fff;
+  width: 42%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+  border-radius:50rpx;
+}
+.valid-phone .loginType .audience{
+  background:linear-gradient(90deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);
+  box-shadow: 0 1px 10px #feead9;
+}
+.valid-phone .loginType .exhibitor{
+  background:#6ba9f7;
+  box-shadow: 0 1px 10px #dae2ef;
+}
+button::after{
+  border:none;
+}

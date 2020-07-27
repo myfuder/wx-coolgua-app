@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "filter":"../filter/filter",
+    "callbutton": "../../zEdition1/components/callButtons/callButtons"
+  }
+}

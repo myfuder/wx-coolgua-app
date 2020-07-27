@@ -1,0 +1,19 @@
+<view class="card-row-item "
+      style="background: #fff;border-radius: 20rpx;padding: 20rpx;position: relative;padding-top: 40rpx;">
+    <demandItemProile item="{{item}}"></demandItemProile>
+    <view class="footer" style="border-top: 1px solid #EDEDED;display: flex;position:relative;top: 20rpx;margin-top: 20rpx;">
+        <view class="footer-item" style="flex:1;display: flex;align-items: center;justify-content: center;">
+            <image src="{{like_default}}"
+                   style="width: 24rpx;height: 24rpx;"
+            ></image>
+            <view class="small"  style="padding-left: 10rpx;">{{item.beLikes}}</view>
+        </view>
+        <view class="mine-line" style="width: 2rpx;height: 60rpx;background:#EDEDED;"></view>
+        <view class="footer-item" style="flex:1;display: flex;align-items: center;justify-content: center;">
+            <image src="{{collect_default}}"
+                   style="width: 24rpx;height: 24rpx;"
+            ></image>
+            <view class="small" style="padding-left: 10rpx;">{{item.beCollect}}</view>
+        </view>
+    </view>
+</view>

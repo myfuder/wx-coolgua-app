@@ -1,0 +1,39 @@
+<wxs src="../../filter/timefilter.wxs" module="filters"></wxs>
+<view class="content">
+  <create-live-dialog visibleDialog="{{visibleDialog}}" bind:handleDialog="handleDialog"></create-live-dialog>
+  <view>
+    <text class="btn" bindtap="startLive">{{label.publishLive}}</text>
+  </view>
+  <view class="item-wrap1" wx:for="{{list}}" wx:key="*this">
+    <view class="text-wrap">
+      <text class="tx1" style="margin-bottom: 15rpx;">{{item.theme}}</text>
+      <text class="tx2">{{label.startTime}}：{{item.startTime}}</text>
+      <text class="tx2">{{label.endTime}}：{{item.endTime}}</text>
+      <text class="tx2">{{label.duration}}：{{filters.formatSeconds(item.duration)}}</text>
+      <text class="tx2">{{label.liveStatus}}：已结束</text>
+      <!-- <text class="tx2">{{label.judgeStatus}}：通过审核</text> -->
+      <text class="tx2">{{label.num}}：{{item.number}}</text>
+    </view>
+    <view class="data-out-wrap">
+      <text class="tx1">{{label.conversionOfInvitaion}}</text>
+      <view class="data-wrap">
+        <view class="item-wrap">
+          <text class="tx2">{{label.sure}}</text>
+          <text class="note1">{{item.confirmCount||0}}</text>
+        </view>
+        <view class="item-wrap">
+          <text class="tx2">{{label.waitSure}}</text>
+          <text class="note2">{{item.toBeConfirmedCount||0}}</text>
+        </view>
+        <view class="item-wrap">
+          <text class="tx2">{{label.reject}}</text>
+          <text class="note3">{{item.refusetoCount||0}}</text>
+        </view>
+        <view class="item-wrap">
+          <text class="tx2">{{label.cancel}}</text>
+          <text class="note4">{{item.cancelCount||0}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

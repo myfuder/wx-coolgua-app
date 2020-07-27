@@ -1,0 +1,21 @@
+<!--展品列表-->
+<view style="background:#F6F7FB;min-height: {{height}}px;padding-top: 40rpx;">
+  <view class="row-container">
+    <!--    <product value="{{list}}"></product>-->
+    <view wx:for="{{list}}"
+          wx:key="*this"
+          style="margin-bottom: 20rpx;"
+    >
+      <displayItemInList
+        item="{{item}}" style="margin-bottom: 20rpx;"></displayItemInList>
+    </view>
+
+  </view>
+
+  <view class="flex flex-c-c flex-c" style="margin-top: 40rpx;" bindtap="go2addproduct">
+    <view class="wx-button button-line fontsize border-radius long"
+          style="color: #FF0000;border-color:#FF0000;"
+    >{{langTranslate['添加产品']}}
+    </view>
+  </view>
+</view>

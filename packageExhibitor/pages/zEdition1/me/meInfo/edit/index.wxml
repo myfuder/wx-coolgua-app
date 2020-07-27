@@ -1,0 +1,428 @@
+<!-- <view class="content">
+  <text class="label">{{label.ZHName}}：</text>
+  <input value="{{info.company}}" bindinput="bindZHNameInput"></input>
+  <text class="label">{{label.ENName}}：</text>
+  <input value="{{info.companyEn}}" bindinput="bindEHNameInput"></input>
+  <text class="label">{{label.roomNum}}：</text>
+  <input value="{{info.hall_number}}"  bindinput="bindhall_numberInput"></input>
+  <text class="label">{{label.doorNum}}：</text>
+  <input value="{{info.boothNumber}}"  bindinput="bindboothNumberInput"></input>
+  <text class="label">{{label.link}}：</text>
+  <input value="{{info.url}}" bindinput="bindurlInput"></input>
+  <text class="label">{{label.productType}}：</text>
+  <view class="filter-wrap" wx:if="{{language!='en'}}">
+	<view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+		<checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+		  <view class="father-wrap">
+			<checkbox color="#ca0c16" class="checkbox-style">{{item.parent.chinese}}</checkbox>
+		  </view>
+		 </checkbox-group>
+		 <checkbox-group>
+		  <view class="child">
+			<checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}"  wx:key="item" bindtap="checkboxChange1" checked="{{item.checked}}"  data-value="{{item.id}}">{{item.chinese}}</checkbox>
+		  </view>
+		 </checkbox-group>
+	</view>
+  </view>
+  <view class="filter-wrap" wx:else>
+    <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+		<checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+		  <view class="father-wrap">
+			<checkbox color="#ca0c16" class="checkbox-style">{{item.parent.english}}</checkbox>
+		  </view>
+		 </checkbox-group>
+		 <checkbox-group>
+		  <view class="child">
+			<checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}"  wx:key="item" bindtap="checkboxChange1" checked="{{item.checked}}"  data-value="{{item.id}}">{{item.english}}</checkbox>
+		  </view>
+		 </checkbox-group>
+    </view>
+  </view>
+  <text class="label">{{label.img}}：</text>
+  <view>
+      <view class="add-img-wrap">
+        <view wx:if="{{imageSrc.length!=0}}" class="item-wrap" wx:for="{{imageSrc}}" wx:key="item">
+          <image src="{{item}}"></image>
+        </view>
+		<view wx:if="{{imageSrc.length==0}}" class="item-wrap">
+		  <image src="https://www.coolgua.net/match_img/img/zEdition1/canzhanshang.png"></image>
+		</view>
+      </view>
+	  <view class="btn">
+		  <view bindtap="removeimg">{{label.remove}}</view>
+		  <view bindtap="uploadimg">{{label.upload}}</view>
+	  </view>
+  </view>
+  <text class="label">{{label.video}}：</text>
+  <view>
+      <view class="add-video-wrap">
+        <video src="{{videoSrc}}"></video>
+      </view>
+  	  <view class="btn">
+  		  <view bindtap="removevideo">{{label.remove}}</view>
+  		  <view bindtap="uploadvideo">{{label.upload}}</view>
+  	  </view>
+  </view>
+  <text class="label">{{label.ZHIntroller}}：</text>
+  <view class="text-wrap">
+    <textarea value="{{info.introduction}}" maxlength="1000" auto-height bindinput="bindintroInput"></textarea>
+  </view>
+  <text class="label">{{label.ENIntroller}}：</text>
+  <view class="text-wrap">
+    <textarea value="{{info.introductionEn}}" maxlength="1000"auto-height  bindinput="bindinforenInput"></textarea>
+  </view>
+  
+  <view class="btn-wrap">
+    <text bindtap="cancelback">{{label.cancel}}</text>
+    <text bindtap="editsave">{{label.save}}</text>
+  </view> -->
+<!-- 弹出层 -->
+<!--  <view class="uni-mask" wx:if="{{ismask}}"></view>
+  <view class="uni-upload" wx:if="{{ismask}}">
+  	<view class="uni-paizhao" bindtap="photo">拍照上传</view>
+  	<view class="uni-xiangce" bindtap="album">手机相册选取</view>
+  </view>
+  <view class="uni-quxiao" wx:if="{{ismask}}" bindtap="cancel">取消</view>
+  
+  <view class="uni-mask" wx:if="{{ismask1}}"></view>
+  <view class="uni-upload" wx:if="{{ismask1}}">
+  	<view class="uni-paizhao" bindtap="photo1">拍摄上传</view>
+  	<view class="uni-xiangce" bindtap="album1">相册选取</view>
+  </view>
+  <view class="uni-quxiao" wx:if="{{ismask1}}" bindtap="cancel1">取消</view>
+</view> -->
+
+
+<!-- 引入wxs脚本 -->
+<wxs src="../../../../../../wxs/subutil.wxs" module="tools"></wxs>
+<view class="content" style="min-height: {{height}}px;background:#F6F7FB;margin-bottom: 200rpx;">
+  <!--公司名称  展馆号 展位号 网址-->
+  <view style="margin-top: 20rpx;margin-bottom: 20rpx;background: #fff;border-radius: 20rpx;">
+    <view class="wx-form-item">
+      <view class="form-label required" style="width: 180rpx">{{langTranslate['公司名称']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['公司名称']}}" bindchange="changeText" data-key="company"
+               value="{{object.company}}"
+        />
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['公司名称/英文']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['公司名称/英文']}}"
+               value="{{object.companyEn}}"
+               bindchange="changeText" data-key="companyEn"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label required" style="width: 180rpx">{{langTranslate['手机号']}}</view>
+      <view>
+        <input type=textmobile"
+               value="{{object['mobilePhone']}}"
+               placeholder="{{langTranslate['手机号']}}" bindchange="changeText" data-key="mobilePhone"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['展馆号']}}</view>
+      <view>
+        <checkbox-group bindchange="checkboxchoose"
+                        data-key="hall_number"
+                        value="{{object.hall_number}}">
+          <label class="checkbox"
+                 style="margin-bottom: 10rpx;" wx:for="{{hall_numberOptions}}" wx:for-item="item1"
+                 wx:key="*this">
+            <checkbox value="{{item1.name}}" checked="{{item1.checked}}"/>
+            {{item1.name}}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['展位号']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['展位号']}}"
+               value="{{object['boothNumber']}}"
+               bindchange="changeText" data-key="boothNumber"/>
+      </view>
+    </view>
+
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['网址']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['网址']}}"
+               value="{{object['url']}}"
+               bindchange="changeText" data-key="url"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['展商确认码']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['展商确认码']}}"
+               value="{{object['confirm_code']}}"
+               bindchange="changeText" data-key="confirm_code"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['中文联系人']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['中文联系人']}}"
+               value="{{object['contact']}}"
+               bindchange="changeText" data-key="contact"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['英文联系人']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['英文联系人']}}"
+               value="{{object['contactEn']}}"
+               bindchange="changeText" data-key="contactEn"/>
+      </view>
+    </view>
+    <view class="wx-form-item">
+      <view class="form-label" style="width: 180rpx">{{langTranslate['邮箱']}}</view>
+      <view>
+        <input type="text" placeholder="{{langTranslate['邮箱']}}"
+               value="{{object['email']}}"
+               bindchange="changeText" data-key="email"/>
+      </view>
+    </view>
+  </view>
+
+  <!--    产品类型-->
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['产品类型']}}</view>
+    <view class="wx-card-body">
+      <treeProductType id="treeProductType"></treeProductType>
+    </view>
+  </view>
+  <!--    公司图片-->
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['公司图片']}}</view>
+    <view class="wx-card-body">
+      <view style="position: relative;display: flex;justify-content: center;align-items: center">
+        <image src="{{icon_delete}}"
+               catchtap="deletePortrait"
+               wx:if="{{object.portrait}}"
+               style="z-index:998;width: 24rpx;height: 24rpx;position: absolute;top: -10rpx;right: 10rpx;"></image>
+        <image src="{{object.portrait}}"
+               wx:if="{{object.portrait}}"
+               style="width: 100%;height: 228rpx;"
+               mode="aspectFit"
+        ></image>
+      </view>
+      <uploadFileImage bind:finish="changePortrait" wx:if="{{!object.portrait}}"></uploadFileImage>
+    </view>
+  </view>
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['宣传视频']}}</view>
+    <view class="wx-card-body">
+      <uploadVideo bind:finish="changeVideo" video="{{object.video}}"></uploadVideo>
+    </view>
+  </view>
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['地址']}}</view>
+    <view class="wx-card-body">
+      <view class="wx-form-item">
+        <view class="form-label" style="width: 180rpx"> {{langTranslate['国家/省市']}}</view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange"
+                bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{multiIndex}}"
+                range="{{allnumber}}">
+          <view class="picker">
+            <text wx:if="{{region[0]}}"> {{region[0]}}</text>
+            <text wx:if="{{region[1]}}"> ,{{region[1]}}</text>
+            <text wx:if="{{region[2]}}"> ,{{region[2]}}</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="wx-form-item">
+        <view class="form-label" style="width: 180rpx">{{langTranslate['公司地址']}}</view>
+        <view>
+          <input type="text" placeholder="{{langTranslate['公司地址']}}" bindchange="changeText"
+                 value="{{object['company_address']}}"
+                 data-key="company_address"/>
+        </view>
+      </view>
+      <view class="wx-form-item">
+        <view class="form-label" style="width: 180rpx">{{langTranslate['公司地址/英文']}}</view>
+        <view>
+          <input type="text"
+                 value="{{object['company_address_en']}}"
+                 bindchange="changeText" data-key="company_address_en"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['中文介绍']}}</view>
+    <view class="wx-card-body">
+      <view class="textarea">
+                <textarea bindinput="changeText" data-key="introduction"
+                          maxlength="250"
+                          value="{{object['introduction']}}">
+            </textarea>
+        <text class="currentWordNumber">{{object['introduction'].length||0}}/{{250}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="wx-card" style="margin-bottom: 20rpx;">
+    <view class="wx-card-title">{{langTranslate['英文介绍']}}</view>
+    <view class="wx-card-body">
+      <view class="textarea">
+                <textarea bindinput="changeText" data-key="introduction_en"
+                          maxlength="250"
+                          value="{{object['introduction_en']}}">
+            </textarea>
+        <text class="currentWordNumber">{{object['introduction_en'].length||0}}/{{250}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!--
+
+      <view wx:for="{{infoarray}}" wx:key="index" style="background: #fff;border-radius: 10rpx;">
+          <view wx:if="{{item.type==1}}">
+              <text class="label">{{item.name}}：</text>
+              <input value="{{item.value}}" data-item="{{item}}" data-index="{{index}}" bindinput="valueinput"></input>
+          </view>
+          <view wx:if="{{item.nameKey=='tags'}}">
+              <text class="label">{{item.name}}：</text>
+              <view class="filter-wrap" wx:if="{{language!='en'}}">
+                  <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+                      <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+                          <view class="father-wrap">
+                              <checkbox color="#ca0c16" class="checkbox-style">{{item.parent.chinese}}</checkbox>
+                          </view>
+                      </checkbox-group>
+                      <checkbox-group>
+                          <view class="child">
+                              <checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}" wx:key="item"
+                                        bindtap="checkboxChange1" checked="{{item.checked}}" data-value="{{item.id}}">
+                                  {{item.chinese}}
+                              </checkbox>
+                          </view>
+                      </checkbox-group>
+                  </view>
+              </view>
+              <view class="filter-wrap" wx:else>
+                  <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+                      <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+                          <view class="father-wrap">
+                              <checkbox color="#ca0c16" class="checkbox-style">{{item.parent.english}}</checkbox>
+                          </view>
+                      </checkbox-group>
+                      <checkbox-group>
+                          <view class="child">
+                              <checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}" wx:key="item"
+                                        bindtap="checkboxChange1" checked="{{item.checked}}" data-value="{{item.id}}">
+                                  {{item.english}}
+                              </checkbox>
+                          </view>
+                      </checkbox-group>
+                  </view>
+              </view>
+          </view>
+          <view wx:if="{{item.type==5}}">
+              <text class="label">{{item.name}}：</text>
+              <view>
+                  <view class="add-img-wrap">
+                      <view class="item-wrap" wx:for="{{imageSrc}}" wx:key="item">
+                          <image src="{{item}}"></image>
+                      </view>
+                  </view>
+                  <view class="btn">
+                      <view bindtap="removeimg">{{label.remove}}</view>
+                      <view bindtap="uploadimg">{{label.upload}}</view>
+                  </view>
+              </view>
+          </view>
+          <view wx:if="{{item.type==8}}">
+              <text class="label">{{item.name}}：</text>
+              <view>
+                  <view class="add-video-wrap" wx:if="{{videoSrc!=''}}">
+                      <video src="{{videoSrc}}"></video>
+                  </view>
+                  <view class="add-video-wrap" wx:else style="background-color: black;">
+                      &lt;!&ndash; <video src="{{videoSrc}}"></video> &ndash;&gt;
+                  </view>
+                  <view class="btn">
+                      <view bindtap="removevideo">{{label.remove}}</view>
+                      <view bindtap="uploadvideo">{{label.upload}}</view>
+                  </view>
+              </view>
+          </view>
+          <view wx:if="{{item.type==2}}">
+              <text class="label">{{item.name}}：</text>
+              <view class="text-wrap">
+                  <textarea value="{{item.value}}" maxlength="1000" auto-height data-item="{{item}}"
+                            data-index="{{index}}" bindinput="valueinput"></textarea>
+              </view>
+          </view>
+          <view wx:if="{{item.type==3 && item.defaults.length!=0}}">
+              <text class="label">{{item.name}}：</text>
+              <view class="filter-wrap">
+                  <radio-group class="radio-group" bindchange="radioChange" data-index="{{index}}">
+                      <radio class="radio" wx:for="{{item.defaults}}" wx:for-item="item1" wx:key="item1" value="{{item1}}"
+                             checked="{{item1==item.value}}">
+                          <text>{{item1}}</text>
+                      </radio>
+                  </radio-group>
+              </view>
+          </view>
+          <view wx:if="{{item.type==4 && item.defaults.length!=0}}">
+              <text class="label">{{item.name}}：</text>
+              <view class="filter-wrap">
+                  <checkbox-group bindchange="checkboxchoose" data-index="{{index}}">
+                      <label class="checkbox" wx:for="{{item.defaults}}" wx:for-item="item1" wx:key="item1">
+                          <checkbox value="{{item1}}" checked="{{tools.includestr(item.value,item1)}}"/>
+                          {{item1}}
+                      </label>
+                  </checkbox-group>
+              </view>
+          </view>
+          <view wx:if="{{item.type==6}}">
+              <text class="label">{{item.name}}：</text>
+              <view class="filter-wrap1" wx:if="{{language!='en'}}">
+                  <picker mode="multiSelector" bindchange="bindMultiPickerChange"
+                          bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{multiIndex}}"
+                          range="{{allnumber}}">
+                      <view class="picker">
+                          {{label.choosed}}：{{region[0]}}，{{region[1]}}，{{region[2]}}
+                      </view>
+                  </picker>
+              </view>
+              <view class="filter-wrap1" wx:else>
+                  <picker mode="multiSelector" bindchange="bindMultiPickerChange"
+                          bindcolumnchange="bindMultiPickerColumnChange" range-key="english" value="{{multiIndex}}"
+                          range="{{allnumber}}">
+                      <view class="picker">
+                          {{label.choosed}}：{{region[0]}}，{{region[1]}}，{{region[2]}}
+                          &lt;!&ndash; 当前选择：{{allnumber[0][multiIndex[0]].name}}，{{allnumber[1][multiIndex[0]].name}}，{{allnumber[2][multiIndex[0]].name}} &ndash;&gt;
+                      </view>
+                  </picker>
+              </view>
+          </view>
+
+      </view>
+  -->
+
+
+  <view class="btn-wrap">
+    <text bindtap="cancelback">{{label.cancel}}</text>
+    <text bindtap="editsave">{{label.save}}</text>
+  </view>
+  <!-- 弹出层 -->
+  <!-- <view class="uni-mask" wx:if="{{ismask}}"></view>
+   <view class="uni-upload" wx:if="{{ismask}}">
+       <view class="uni-paizhao" bindtap="photo">{{label.photo}}</view>
+       <view class="uni-xiangce" bindtap="album">{{label.album}}</view>
+   </view>
+   <view class="uni-quxiao" wx:if="{{ismask}}" bindtap="cancel">{{label.cancel}}</view>
+
+   <view class="uni-mask" wx:if="{{ismask1}}"></view>
+   <view class="uni-upload" wx:if="{{ismask1}}">
+       <view class="uni-paizhao" bindtap="photo1">{{label.shoot}}</view>
+       <view class="uni-xiangce" bindtap="album1">{{label.album}}</view>
+   </view>
+   <view class="uni-quxiao" wx:if="{{ismask1}}" bindtap="cancel1">{{label.cancel}}</view>-->
+</view>

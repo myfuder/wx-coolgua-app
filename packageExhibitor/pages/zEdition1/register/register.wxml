@@ -1,0 +1,33 @@
+<!--register.wxml-->
+<view class="container"> 
+    <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+        <view class="form-sign">
+            <view class="form-item">
+                <view class="name">姓名<text>*</text></view>
+                <input focus="true" placeholder-style="color:#cccccc" class="weui-input" bindinput="bindNameInput" placeholder="请输姓名"/>
+            </view>
+            <view class="form-item">
+                <view class="name">职位<text>*</text></view>
+                <input placeholder-style="color:#cccccc" class="weui-input" bindinput="bindJobInput" placeholder="请输入职务"/>
+            </view>
+            <view class="form-item">
+                <view class="name">展商标识码<text>*</text></view>
+                <input placeholder-style="color:#cccccc" class="weui-input" bindinput="bindCodeyInput" placeholder="请输入展商确认码/展商手册用户名"/>
+            </view>
+            <view class="form-item">
+                <view class="name">名称<text>*</text></view>
+                <input placeholder-style="color:#cccccc" class="weui-input" bindinput="bindEnameInput" placeholder="请输入展商名称"/>
+            </view>
+        </view>
+        <view class="notice">
+            <view>如有问题请联系客服</view>
+            <text class="telephone" bindtap="callTelephone">客服电话</text>
+        </view>
+        <view class="formTitle">
+            <button formType="submit" class="tab-ticket">保存</button>
+        </view>
+        <view class="register">
+            <button class="button exhibitor" bindtap="switchRole">切换为观众</button>
+        </view>
+    </form>
+</view>

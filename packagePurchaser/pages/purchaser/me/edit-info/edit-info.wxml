@@ -1,0 +1,195 @@
+<!--展商-->
+<view class="container">
+  <view class="con-main">
+    <!--	begin 头像-->
+    <view class="img-area">
+      <image wx:if="{{headFile === null}}" src="{{params.portrait}}" class="user-img"></image>
+      <image wx:else src="{{headFile}}" class="user-img"></image>
+      <view class="img-buttons">
+        <view class="img-button choose-img" bindtap="uploadPic">
+          <text>{{langTranslate['选择图片']}}</text>
+        </view>
+        <view class="img-button" bindtap="uploadTap">
+          <text>{{langTranslate['上传图片']}}</text>
+        </view>
+      </view>
+    </view>
+    <!--	end 头像	-->
+
+    <view class="info-title">{{langTranslate['请完善您的资料']}}</view>
+    <view class="form-list">
+      <view wx:for="{{fieldList}}" wx:for-item="fieldItem" wx:key="fieldItem" class="form-info">
+
+        <view class="show-area"
+              wx:if="{{fieldItem.isShow === 1 && (fieldItem.type !== 6 || fieldItem.nameKey === 'country' || (countryCodes[countryCodeIndex] === countryCodes[0] && fieldItem.type === 6))}}">
+
+          <view class="form-title-area">
+            <text class="form-title">{{isEn ? fieldItem.nameEn : fieldItem.nameZh}}</text>
+            <text wx:if="{{fieldItem.mandatory === '1'}}" class="requried-col">※</text>
+          </view>
+
+          <!-- 文本框 -->
+          <input wx:if="{{fieldItem.type==1}}" class="input" type="text"
+                 data-type="{{fieldItem.type}}"
+                 data-key="{{fieldItem.nameKey}}"
+                 placeholder="{{ langTranslate['请输入'] }}{{isEn ? ' ' + fieldItem.nameEn : fieldItem.nameZh}}"
+                 placeholder-class="input-placeholder" bindinput="changeInput"
+                 value="{{params[fieldItem.nameKey]}}"></input>
+          <!-- 文本框-完 -->
+
+          <!-- 标签类型 -->
+          <view wx:if="{{fieldItem.type == '7' || fieldItem.nameKey === 'tags'}}" class="type-area">
+            <view wx:for="{{exhibitList}}" wx:key="item" data-id="{{item.id}}" class="con-item">
+              <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+                <image wx:if="{{item.isChecked}}" src="{{filter_active}}"></image>
+                <image wx:else src="{{default_checkbox_no_chekced}}"></image>
+                <text class="con-title">{{isEn ? item.english : item.chinese}}</text>
+              </view>
+              <view class="search-child">
+                <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+                      data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap" data-index="{{childIndex}}">
+                  <image wx:if="{{childItem.isChecked}}" src="{{filter_active}}"></image>
+                  <image wx:else src="{{default_checkbox_no_chekced}}"></image>
+                  <text class="con-title">{{isEn ? childItem.english : childItem.chinese}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 标签类型-完 -->
+
+
+          <!-- 单选-完 -->
+          <view wx:if="{{fieldItem.type === 3 || fieldItem.nameKey === 'expo'}}" class="choose-area">
+            <picker
+              data-type="{{fieldItem.type}}"
+              data-key="{{fieldItem.nameKey}}"
+              data-field="{{fieldItem}}"
+              bindchange="radioChange" range="{{fieldItem.defaultArr}}" style="flex: 1">
+              <text class="picker-select-text">{{params[fieldItem.nameKey]||'请选择'}}</text>
+            </picker>
+            <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+          </view>
+          <!-- 单选-完 -->
+
+
+          <!-- 国家/省/市选择 -->
+          <view wx:if="{{fieldItem.type == 6 && fieldItem.nameKey == 'country'}}" class="choose-area">
+            <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}"
+                    style="flex: 1">
+              <text class="picker-select-text">{{countryCodes[countryCodeIndex]}}</text>
+            </picker>
+            <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+          </view>
+          <view
+            wx:if="{{countryCodes[countryCodeIndex] === countryCodes[0] && fieldItem.type === 6 && fieldItem.nameKey === 'province'}}"
+            class="choose-area">
+            <picker bindchange="bindProvinceCodeChange" value="{{provinceCodeIndex}}" range="{{provinceCodes}}"
+                    style="flex: 1">
+              <text class="picker-select-text">{{provinceCodes[provinceCodeIndex]}}</text>
+            </picker>
+            <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+          </view>
+          <view
+            wx:if="{{countryCodes[countryCodeIndex] === countryCodes[0] && fieldItem.type === 6 && fieldItem.nameKey === 'city'}}"
+            class="choose-area">
+            <picker bindchange="bindCityCodeChange" value="{{cityCodeIndex}}" range="{{cityCodes}}" style="flex: 1">
+              <text class="picker-select-text">{{cityCodes[cityCodeIndex]}}</text>
+            </picker>
+            <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+          </view>
+          <!-- 国家/省/市选择-完 -->
+
+          <!--begin 多选 -->
+          <view
+            data-nameKey="{{fieldItem.nameKey}}"
+            data-values="{{params[fieldItem.nameKey]}}"
+            wx:if="{{fieldItem.type === 4}}" class="choose-area1" style="padding: 10rpx;padding-top:20rpx;">
+            <my-checkout-group list="{{fieldItem.defaultArr}}" values="{{params[fieldItem.nameKey]}}"
+                               data-field="{{fieldItem}}"
+                               bindchangecheckout="bindchangecheckout"></my-checkout-group>
+          </view>
+          <!-- end: 多选 -->
+
+        </view>
+
+      </view>
+      <!-- <view class="form-info">
+        <text class="form-title">职位（中文）</text>
+        <input class="input" type="text" placeholder="请输入职位" placeholder-class="input-placeholder" bindinput="setJob" value="{{job}}"></input>
+      </view>
+      <view class="form-info">
+        <text class="form-title">国家</text>
+        <view class="choose-area">
+          <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}" style="flex: 1">
+              <text class="picker-select-text">{{countryCodes[countryCodeIndex]}}</text>
+          </picker>
+          <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+        </view>
+      </view>
+      <view wx:if="{{countryCodes[countryCodeIndex] === '中国'}}" class="form-info">
+        <text class="form-title">省份</text>
+        <view class="choose-area">
+          <picker bindchange="bindProvinceCodeChange" value="{{provinceCodeIndex}}" range="{{provinceCodes}}" style="flex: 1">
+              <text class="picker-select-text">{{provinceCodes[provinceCodeIndex]}}</text>
+          </picker>
+          <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+        </view>
+      </view>
+      <view wx:if="{{countryCodes[countryCodeIndex] === '中国'}}" class="form-info">
+        <text class="form-title">城市</text>
+        <view class="choose-area">
+          <picker bindchange="bindCityCodeChange" value="{{cityCodeIndex}}" range="{{cityCodes}}" style="flex: 1">
+              <text class="picker-select-text">{{cityCodes[cityCodeIndex]}}</text>
+          </picker>
+          <image src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+        </view>
+      </view>
+      <view class="form-info">
+        <text class="form-title">职位（英文）</text>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setJobEn" value="{{jobEn}}"></input>
+      </view>
+      <view class="form-info">
+        <text class="form-title">公司（英文）</text>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setCompanyEn" value="{{companyEn}}"></input>
+      </view>
+      <view class="form-info">
+        <text class="form-title">单位性质</text>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setNature" value="{{nature}}"></input>
+      </view>
+      <view class="form-info">
+      <view class="required-area">
+          <text class="form-title">联系人（中文）</text>
+          <text class="requried-col">※</text>
+        </view>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setContact" value="{{contact}}"></input>
+      </view>
+      <view class="form-info">
+        <view class="required-area">
+          <text class="form-title">联系人（英文）</text>
+          <text class="requried-col">※</text>
+        </view>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setContactEn" value="{{contactEn}}"></input>
+      </view>
+      <view class="form-info">
+        <view class="required-area">
+          <text class="form-title">手机</text>
+          <text class="requried-col">※</text>
+        </view>
+        <input class="input" type="number" placeholder="" placeholder-class="input-placeholder" bindinput="setMobilePhone" value="{{mobilePhone}}"></input>
+      </view>
+      <view class="form-info">
+        <text class="form-title">邮箱</text>
+        <input class="input" type="text" placeholder="" placeholder-class="input-placeholder" bindinput="setEmail" value="{{email}}"></input>
+      </view> -->
+    </view>
+    <view class="buttons-area">
+      <view class="button" bindtap="returnPage">
+        <text>{{langTranslate['返回']}}</text>
+      </view>
+      <view class="button submit-button" bindtap="submitTap">
+        <text>{{langTranslate['提交']}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

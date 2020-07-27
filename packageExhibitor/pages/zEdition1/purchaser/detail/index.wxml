@@ -1,0 +1,52 @@
+<!--packageExhibitor/pages/zEdition1/purchaser/detail/index.wxml-->
+<view class="content" style="background: #F6F7FB;min-height:{{height}}px;padding-bottom: 100rpx;">
+    <audienceItem item="{{purchasetDetail}}" online="{{purchasetDetail.online}}"></audienceItem>
+    <!--    <person-connect bind:handleShow="handleShow" value="{{purchasetDetail}}"></person-connect>-->
+    <!-- <person-connect bind:handleShow="handleShow" itemType="detail" value="{{purchasetDetail}}"></person-connect> -->
+    <!--  已发布商机-->
+    <view class="row-container">
+        <view
+            wx:if="{{list.length!=0}}"
+            class="h1 strong" style="padding-top: 20rpx;padding-bottom: 20rpx;">{{langTranslate['已发布商机']}}</view>
+        <view wx:if="{{list.length}}">
+            <view  wx:key="*this"  wx:for="{{list}}"
+                   style="margin-bottom: 20rpx;" >
+                <displayItemInMySelfList
+                                         item="{{item}}"
+                ></displayItemInMySelfList>
+            </view>
+
+        </view>
+        <view wx:if="{{list.length==0}}" style="font-size: 24rpx;padding: 40rpx;text-align: center;">
+          {{langTranslate['暂时没有发布过需求']}}
+        </view>
+    </view>
+
+ <!--   <view class="detail-wrap">
+        <text class="label1">{{label.publishdemand}}</text>
+        <view class="space-line"></view>
+        <view class="item-wrap" wx:for="{{list}}" wx:key="*this" wx:for-index="idx">
+            <view class="header">
+                <text class="title">{{idx+1}}.{{item.purchasedGoodsName}}</text>
+                <view class="eay-wrap" bindtap="viewDemandDetail" data-item="{{item}}">
+                    <image class="eay"></image>
+                    <text>{{label.view}}</text>
+                </view>
+            </view>
+            <view class="body">
+                <text>{{label.kind}}：
+                    <text style="margin-bottom:8rpx;" class="middle-label" wx:for="{{item.tagNames}}" wx:key="*this">
+                        {{item}}
+                    </text>
+                </text>
+                <text>{{label.num}}：{{item.purchasedCount}}</text>
+                <text>{{label.priceRang}}：{{item.purchasedPrice}}RMB</text>
+                <text>{{label.properties}}：{{item.material}}</text>
+            </view>
+            <view class="big-space"></view>
+        </view>
+    </view>
+    <invitation-dialog param="{{dialogParam}}" wx:if="{{dialogShow}}" bind:handleHide="handleHide"></invitation-dialog>
+-->
+
+</view>

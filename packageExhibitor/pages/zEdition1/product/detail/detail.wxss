@@ -1,0 +1,40 @@
+@import "../../components/common.wxss";
+
+.imaegContainerRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imaegContainerRow .imageItem {
+    box-sizing: border-box;
+    width: 310rpx;
+    height: 240rpx;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(213, 218, 224, 1);
+    border-radius: 16rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.imaegContainerRow .imageItem image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.textContent{
+    font-size:28rpx;
+    font-family:PingFang SC;
+    font-weight:500;
+    color:rgba(102,102,102,1);
+    line-height:40rpx;
+}
+
+.shareButton{
+  border: none;
+
+}
+
+.shareButton::after{
+  border: none;
+}

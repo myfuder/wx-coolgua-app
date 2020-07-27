@@ -1,0 +1,116 @@
+/**index.wxss**/
+page{
+  width:100%;
+  height:100%;
+}
+/**启动页内容**/
+.container{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+.valid-phone{
+  width:100%;
+  height: 100%;
+  font-size:34rpx;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+/**启动页banner**/
+.valid-phone .login-bg{
+  height:100%;
+  width:100%;
+  display:block;
+}
+/**切换按钮**/
+.valid-phone .loginType{
+  position:absolute;
+  width: 100%;
+  bottom:7%;
+  display:flex;
+}
+.valid-phone .loginType .button{
+  font-size: 32rpx;
+  color:#fff;
+  border-radius: 10rpx;
+  width: 42%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+}
+.valid-phone .loginType .audience{
+  background: #f77400;
+  box-shadow: 0 1px 10px #feead9;
+}
+.valid-phone .loginType .exhibitor{
+  background: #003990;
+  box-shadow: 0 1px 10px #dae2ef;
+}
+button::after{
+  border:none;
+}
+/**弹窗**/
+.wx-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index:9;
+}
+.popup-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  max-width: 600rpx;
+  border-radius: 10rpx;
+  box-sizing: bordre-box;
+  transform: translate(-50%, -50%); 
+  overflow: hidden;
+  background: #fff;
+}
+.wx-popup-title {
+  text-align: center;
+  font-size: 40rpx;
+  padding:60rpx 20rpx;
+  border-bottom:2rpx solid #ededed;
+}
+.wx-popup-title text{
+  font-size:32rpx;
+  color:#000000;
+  display:inline-block;
+}
+.wx-popup-con{
+  display: flex;
+}
+.wx-popup-con .cancal{
+  font-size: 32rpx;
+  color:#333333;
+  width:50%;
+  background:#fff;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+  display:inline-block;
+  border-right:2rpx solid #ededed;
+}
+.wx-popup-con .button{
+  font-size: 32rpx;
+  color:#576b95;
+  width:50%;
+  background:#fff;
+  display:inline-block;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+  display:inline-block;
+}

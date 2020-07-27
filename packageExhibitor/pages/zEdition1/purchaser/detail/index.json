@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "person-connect": "../../components/bizComponents/personConnect",
+    "invitation-dialog": "../../components/bizComponents/invitationDialog",
+    "audienceItem": "../../components/audienceItem/audienceItem",
+    "displayItemInMySelfList":  "../../components/displayItemInMySelfList/displayItemInMySelfList"
+  }
+}

@@ -1,0 +1,300 @@
+<!--index.wxml-->
+<view class="container">
+    <scroll-view scroll-y
+                 class="main-area" scroll-into-view="{{scrollId}}"
+                 scroll-with-animation="true">
+        <view class="back-area"  >
+            <swiper class="swiper" style="padding-left: 20rpx;padding-right: 20rpx;box-sizing: border-box"
+                autoplay="true"
+                duration="500">
+                <block wx:for="{{bannerList}}" wx:key="*this">
+                    <swiper-item class="swiper-item" wx:if="{{item&&item.picPath}}"                    >
+                        <view class="swiper-item-img" style="background:url({{item.picPath}}) no-repeat center / cover">
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="lang-area" bindtap="switchLanguage" data-name="{{lang==='zh_CN' ? 'en' : 'zh_CN'}}">{{lang==='zh_CN' ? 'EN' : '中'}}</view>
+        </view>
+
+
+        <view class="menu-area">
+            <view class="menu-line">
+                <view class="menu-item" bindtap="goDetailTap" data-id="{{zhjsId}}" data-title="{{langTranslate['展会介绍']}}">
+                    <view class="last-img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_2.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['展会介绍']}}</text>
+                </view>
+                <view class="menu-item" bindtap="goPage" data-role="2">
+                    <view class="img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_4.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['参展商']}}</text>
+                </view>
+                <view class="menu-item" bindtap="goPage" data-role="3">
+                    <view class="last-img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_5.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['采购商']}}</text>
+                </view>
+            </view>
+            <view class="menu-line">
+                <view class="menu-item" bindtap="scrollToTap">
+                    <view class="last-img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_1.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['配套活动']}}</text>
+                </view>
+                <view class="menu-item" bindtap="goDetailTap" data-id="{{cgznId}}" data-title="{{langTranslate['场馆指南']}}">
+                    <view class="img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_3.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['场馆指南']}}</text>
+                </view>
+                <view class="menu-item" bindtap="goDetailTap" data-id="{{jtznId}}" data-title="{{langTranslate['交通指南']}}">
+                    <view class="last-img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_6.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['交通指南']}}</text>
+                </view>
+            </view>
+            <view class="menu-pay" wx:if="{{wxpayShow}}">
+                <view class="menu-item" bindtap="payWX">
+                    <view class="last-img-area">
+                        <image src="{{staticImageUrl}}/img/index/menu_1.png" class="menu-img"></image>
+                    </view>
+                    <text class="menu-text">{{langTranslate['微信支付']}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="hot-area">
+            <view class="top-area">
+                <text class="title-text">{{langTranslate['热门展商']}}</text>
+                <view class="more-area" bindtap="goHotExhibitor">
+                    <text>{{langTranslate['查看更多']}}></text>
+                </view>
+            </view>
+            <view class="name-num" style="padding-right: 0">
+                <text>{{langTranslate['展商名称']}}</text>
+                <text style="width: 240rpx;text-align: center">{{langTranslate['展位号']}}</text>
+            </view>
+            <indexScrollView supplierList="{{supplierList}}" scrollType="2"></indexScrollView>
+            <!-- <scroll-view scroll-y scroll-top="{{supplierScrollTop}}" class="exhibition-area">
+                <view wx:for="{{supplierList}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item" bindtap="goPage">
+                    <view class="img-name">
+                        <image src="{{item.portrait}}"></image>
+                        <text>{{item.company}}</text>
+                    </view>
+                    <text class="num-text">{{item.boothNumber}}</text>
+                </view>
+            </scroll-view>-->
+        </view>
+        <view class="hot-area">
+            <view class="top-area">
+                <text class="title-text" style="width: 224rpx">{{langTranslate['采购需求']}}</text>
+                <view class="publish-button" bindtap="goPage" data-role="4"><text>{{langTranslate['发布需求']}}</text></view>
+                <view class="more-area" bindtap="goPage" data-role="4" style="width: 224rpx;">
+                    <text>{{langTranslate['查看更多']}}></text>
+                </view>
+            </view>
+            <view class="name-num">
+                <text>{{langTranslate['采购需求_2']}}</text>
+                <text>{{langTranslate['采购商_2']}}</text>
+            </view>
+            <demandScrollView demandList="{{demandList}}" scrollType="1"></demandScrollView>
+            <!-- <scroll-view scroll-y scroll-top="{{demandScrollTop}}" class="exhibition-area">
+                <view wx:for="{{demandList}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item">
+                    <view class="img-name">
+                        <image src="{{item.image1}}"></image>
+                        <text>{{item.purchasedGoodsName}}</text>
+                    </view>
+                    <text class="num-text">{{item.company}}</text>
+                </view>
+            </scroll-view> -->
+        </view>
+        <view id="activity" class="matching-area">
+            <view class="matching-title">
+                <view class="left-area">
+                    <image src="{{staticImageUrl}}/img/index/icon_1.png"></image>
+                    <text>{{langTranslate['配套活动_2']}}</text>
+                </view>
+                <!-- <view class="checked-more">
+                    查看更多>
+                </view> -->
+            </view>
+            <view class="matching-video">
+                <image src="{{supportingActivityList[0].detailList[0].images}}"></image>
+                <!--<view class="live-area">
+                    <view class="live-title">{{supportingActivityList[0].title}}</view>
+                </view>-->
+            </view>
+            <view class="matching-module">
+                <view class="matching-item" bindtap="goPage" data-role="4">
+                    <image src="{{supportingActivityList[1].detailList[0].images}}"></image>
+                    <!-- <view class="live-area">
+                        <view class="live-title">{{supportingActivityList[1].title}}</view>
+                    </view>-->
+                </view>
+                <view class="matching-item">
+                    <image src="{{supportingActivityList[2].detailList[0].images}}"></image>
+                    <!-- <view class="live-area">
+                        <view class="live-title">{{supportingActivityList[2].title}}</view>
+                    </view>-->
+                </view>
+            </view>
+        </view>
+        <!--<view class="matching-area">
+            <view class="matching-title">
+                <view class="left-area">
+                    <image src="{{staticImageUrl}}/img/index/icon_2.png"></image>
+                    <text>{{langTranslate['视频直播']}}</text>
+                </view>
+                <view class="checked-more" bindtap="goVideoMorePage">
+                    {{ langTranslate['查看更多'] }}>
+                </view>
+            </view>
+            <view class="live-list">
+                <view wx:for="{{liveList}}" wx:key="item" data-id="{{item.id}}" class="live-item" bindtap="goLivePage" wx:if="{{index<3}}">
+                    <image src="{{item.coverImage}}"></image>
+                    <view class="living-area">
+                        <view class="circle"></view>
+                        <text>{{langTranslate['直播中']}}</text>
+                    </view>
+                </view>
+                <view wx:for="{{videoList}}" wx:key="item" data-id="{{item.supplierId}}" class="live-item" bindtap="goVideoPage">
+                    <image src="{{item.videoCoverImage}}"></image>
+                </view>
+            </view>
+        </view>-->
+        <activityList activityList="{{concurrentEvents}}" source="home"></activityList>
+        <view class="matching-area friendship-area">
+            <view class="matching-title">
+                <view class="left-area">
+                    <image src="{{staticImageUrl}}/img/index/icon_3.png"></image>
+                    <text>{{langTranslate['友情链接']}}</text>
+                </view>
+            </view>
+            <view class="friendship-list">
+                <block wx:for="{{friendLinkList}}" wx:key="item">
+                    <view wx:if="{{index < friendLinkList.length / 2}}" data-id="{{item.id}}" class="friendship-item">
+                        <image src="{{item.images}}"></image>
+                    </view>
+                </block>
+                <block wx:for="{{friendLinkList}}" wx:key="item">
+                    <view wx:if="{{index < friendLinkList.length / 2}}" data-id="{{item.id}}" class="friendship-item">
+                        <image src="{{item.images}}"></image>
+                    </view>
+                </block>
+            </view>
+            <view class="friendship-list" style="top: 360rpx">
+                <block wx:for="{{friendLinkList}}" wx:key="item">
+                    <view wx:if="{{index > friendLinkList.length / 2  || index === friendLinkList.length / 2}}" data-id="{{item.id}}" class="friendship-item">
+                        <image src="{{item.images}}"></image>
+                    </view>
+                </block>
+                <block wx:for="{{friendLinkList}}" wx:key="item">
+                    <view wx:if="{{index > friendLinkList.length / 2  || index === friendLinkList.length / 2}}" data-id="{{item.id}}" class="friendship-item">
+                        <image src="{{item.images}}"></image>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </scroll-view>
+    <!--<view class="wx-popup" hidden="{{dialogHide}}">
+        <view class='popup-container'>
+            <view class="wx-popup-top">
+                <view class="{{currentRole === 1 ? 'popup-top-item active' : 'popup-top-item'}}" bindtap="changeRoleTap" data-type="1">{{langTranslate['参展商登录']}}</view>
+                <view class="{{currentRole === 2 ? 'popup-top-item active' : 'popup-top-item'}}" bindtap="changeRoleTap" data-type="2">{{langTranslate['采购商登录']}}</view>
+            </view>
+            <view class="wx-popup-con">
+                <block wx:if="{{currentRole === 1}}">
+                    <view class="input-area">
+                        <image src="{{staticImageUrl}}/img/index/account.png"></image>
+                        <input class="input" type="text" placeholder="{{langTranslate['请输入账号']}}" placeholder-class="input-placeholder" bindinput="setUserName" maxlength="11" value="{{userName}}" adjust-position="false"></input>
+                    </view>
+                    <view class="input-area">
+                        <image src="{{staticImageUrl}}/img/index/icon_mima.png" class="pwd-img"></image>
+                        <input class="input" type="password" placeholder="{{langTranslate['请输入密码']}}" placeholder-class="input-placeholder" bindinput="setPassword" maxlength="20" value="{{password}}" adjust-position="false"></input>
+                    </view>
+                    <view class="code-img-area">
+                        <view class="input-area code-area">
+                            <image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+                            <input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setImageCode" maxlength="6" value="{{imageCode}}" adjust-position="false"></input>
+                        </view>
+                        <image src="data:image/gif;base64,{{imageFile}}" class="code-img"></image>
+                    </view>
+                    <view class="opt-area">
+                        <view class="opt-box" catchtap="remeberPwdTap">
+                            <image src="{{staticImageUrl}}{{isRememberPwd ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>
+                            <text>{{langTranslate['记住密码']}}</text>
+                        </view>
+                        <view class="opt-box" catchtap="autoLoginTap">
+                            <image src="{{staticImageUrl}}{{isAutoLogin ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>
+                            <text>{{langTranslate['自动登录']}}</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="input-area">
+                        <image src="{{staticImageUrl}}/img/index/icon_phone.png" class="phone-img"></image>
+                        <input class="input" type="text" placeholder="{{langTranslate['请输入账号']}}" placeholder-class="input-placeholder" bindinput="setCellNumber" maxlength="11" value="{{cellNumber}}" adjust-position="false"></input>
+                    </view>
+                    <view class="code-img-area">
+                        <view class="input-area code-area">
+                            <image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+                            <input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setVcode" maxlength="6" value="{{vcode}}" adjust-position="false"></input>
+                        </view>
+                        <image src="data:image/gif;base64,{{imageFile}}" class="code-img" bindtap="getGifCode"></image>
+                    </view>
+                    <view class="code-img-area">
+                        <view class="input-area code-area">
+                            <image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+                            <input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setMobileCode" maxlength="6" value="{{mobileCode}}" adjust-position="false"></input>
+                        </view>
+                        <view class="send-code-button" catchtap="getVerCode">
+                            <text>{{countDown}}</text>
+                            <text>{{getVerCodeTitle}}</text>
+                        </view>
+                    </view>
+                </block>
+                <view class="button-area">
+                    <view class="button" bindtap="cancelPopupTap">{{langTranslate['取消']}}</view>
+                    <view class="button submit-button" bindtap="loginTap">{{langTranslate['确定']}}</view>
+                </view>
+                <view class="registerButton" wx:if="{{currentRole === 2&&lang==='zh_CN'}}">
+                   {{langTranslate['如您未注册请您先']}}<view class="register" bindtap="registerTap" data-url="https://buyer.yiwufair.com/reg/#/login?lang=zh&origin=33&fquestionId=3&isEasy=true&isXCX=true">{{langTranslate['注册']}}</view>
+                </view>
+                <view class="registerButton" wx:if="{{currentRole === 2&&lang==='en'}}">
+                   {{langTranslate['如您未注册请您先']}}<view class="register" bindtap="registerTap" data-url="https://buyer.yiwufair.com/reg/#/login?lang=en&origin=34&fquestionId=4&isEasy=true&isXCX=true">{{langTranslate['注册']}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    </view>-->
+
+    <view class="wx-popup agreementPromiseDialog" hidden="{{!showAgreementPromise}}">
+        <view class="wx-popup-container popup-container">
+             <scroll-view style="height: 600rpx;padding-right:10rpx;"  scroll-y>
+                 <view class="innnerContainer" >
+                     <view class="h1">线上五金会参展商承诺书</view>
+                     <view>为保证五金会线上展会的正常交易秩序，维护公平竞争，维护知识产权权利人，交易参与者和消费者的合法权益，我公司郑重承诺：</view>
+                     <view>（一）坚决不将未取得专利权的非专利产品冒充专利产品上标注专利标记；</view>
+                     <view>（二）专利权被认定无效后，不继续在产品、展品上标注专利标记；</view>
+                     <view>（三）未经许可，不在产品、展品及其包装上标注他人的专利号；</view>
+                     <view>（四）未经商标注册人许可，不在同一种商品或类似商品上使用与其注册商标相同或近似商标；</view>
+                     <view>（五）不销售侵犯注册商标专用权和假冒注册商标的商品；</view>
+                     <view>（六）未经商标注册人同意，不更换其注册商标，且不将更换商标的商品投入市场；</view>
+                     <view>（七）不对他人的注册商标专用权造成其他损害；</view>
+                     <view>（八）展示产品不出现涉外涉台、涉宗涉教、涉黑涉毒、涉黄涉赌等违法违规图文信息，同时不随意使用国旗、国徽、国歌；</view>
+                     <view>（九）不得展示、销售不属于五金会参展范围的展品；</view>
+                     <view>（十）主动接受主办方的监督管理。</view>
+                 </view>
+             </scroll-view>
+                <view class="button-area">
+                    <view class="button submit-button" bindtap="confirmAgreePromise">同意</view>
+                </view>
+        </view>
+
+    </view>
+</view>

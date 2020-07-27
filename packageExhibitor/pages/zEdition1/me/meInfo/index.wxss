@@ -1,0 +1,130 @@
+/* packageExhibitor/pages/zEdition1/me/meInfo/index.wxss */
+@import "../../components/common.wxss";
+
+.switch-tab{
+  text-align: center;
+  padding-top: 50rpx;
+  padding-bottom: 20rpx;
+  background-color: white;
+}
+.switch-tab-item{
+  display: inline-block;
+  border: 1px solid #FF2D30;
+  width: 280rpx;
+  height: 77rpx;
+  line-height: 77rpx;
+
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color: #FF2D30;
+}
+.focus_style{
+  background-color: #FF2D30;
+  color: white;
+}
+.middle-label{
+  border: 1px solid #FF2D2E;
+  font-size:22rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,46,46,1);
+  margin-right: 20rpx;
+  display: inline-block;
+  padding-left: 11rpx;
+  padding-right: 11rpx;
+  margin-bottom: 6rpx;
+  border-radius:6rpx;
+}
+.tx1{
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:#333333;
+}
+.tx1 text:first-child{
+	width: 510rpx;
+}
+.tx2{
+  font-size:24rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.me-info-wrap{
+  padding: 33rpx;
+}
+.header-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+}
+.content{
+  text-align: left;
+}
+.label1{
+  display: inline-block;
+  font-size:32rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  /* width: 210rpx; */
+  text-align: center;
+  border-bottom: 4rpx solid #FF2D2E;
+  margin-top: 67rpx;
+  margin-left: 31rpx;
+}
+.space-line{
+  width: 100%;
+  height: 1rpx;
+  background-color: #DCDFE6;
+}
+.company-img-wrap{
+  padding: 20rpx 30rpx;
+}
+.company-img-wrap>image{
+  width: 226rpx;
+  height: 226rpx;
+  border:1px solid rgba(225,225,225,1);
+  border-radius:10rpx;
+  background-color: gray;
+}
+.edit-btn-text{
+  color: #FF2D30;
+}
+.videocon{
+	width:689rpx;
+	height:376rpx;
+	border-radius:4rpx;
+	margin-left: 26rpx;
+	margin-top: 30rpx;
+}
+.videocon video{
+	width: 100%;
+	height: 100%;
+}
+
+.add image{
+	width: 50rpx;
+	height: 50rpx;
+	margin-top: 40rpx;
+	margin-bottom: 40rpx;
+	margin-left: 48rpx;
+}
+.intoduction{
+	width: 100%;
+	padding: 26rpx;
+	font-size:26rpx;
+	font-family:Microsoft YaHei;
+	color:rgba(51,51,51,1);
+	line-height:48rpx;
+}

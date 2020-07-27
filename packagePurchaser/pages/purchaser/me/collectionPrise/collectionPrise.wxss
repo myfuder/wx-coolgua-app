@@ -1,0 +1,68 @@
+/* packageExhibitor/pages/newedition/collectionPrise/collectionPrise.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+#collection-prise{
+  background:#F7F6F9;
+  height: 100%;
+  width: 100%;
+  padding: 30rpx 26rpx;
+  box-sizing: border-box;
+}
+#collection-prise .item{
+  /* margin: 30rpx 26rpx 0; */
+  border-radius:20px;
+  background: #fff;
+}
+#collection-prise .item:nth-child(2){
+  margin: 30rpx 0;
+}
+#collection-prise .title{
+  height:31rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height:31rpx;
+  padding: 23rpx 0 24rpx 29rpx;
+  border-bottom: 1px solid rgba(238,238,238,1);
+}
+#collection-prise .child-title{
+  height:25rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:25rpx;
+}
+#collection-prise .child-count{
+  height:18rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(193,193,193,1);
+  line-height:18rpx;
+}
+#collection-prise .title-img{
+  width:32rpx;
+  height:32rpx;
+  /* background:rgba(125,173,245,1); */
+  /* border:2rpx solid rgba(91,142,215,1); */
+  margin-right: 27rpx;
+}
+#collection-prise .count-img{
+  width:12rpx;
+  height:21rpx;
+  margin-left: 18rpx;
+}
+#collection-prise .content-item{
+  padding: 39rpx 16rpx 23rpx 29rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#collection-prise .content-item>view{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,33 @@
+
+<import src="../../../../pages/common/tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
+<view class="container">
+  <view class="content">
+    <home id="mychild1" wx:if="{{tabIndex == 0}}"></home>
+    <purchaser id="mychild2" wx:if="{{tabIndex == 1}}"></purchaser>
+    <demand id="mychild3" wx:if="{{tabIndex == 2}}" list="list"></demand>
+    <me id="mychild4" wx:if="{{tabIndex == 3}}"></me>
+  </view>
+  <view class="footer-menu">
+    <view class="footer-menu_item" data-index="0" bindtap="selectTab">
+      <image class="tab_img" wx:if="{{tabIndex == 0}}" src="{{tab_image_home_active}}"></image>
+      <image class="tab_img" wx:else src="{{tab_image_home_default}}"></image>
+      <text class="tab_text">{{tab.tab1}}</text>
+    </view>
+    <view class="footer-menu_item" data-index="1" bindtap="selectTab">
+      <image class="tab_img" wx:if="{{tabIndex == 1}}" src="{{tab_image_audience_active}}"></image>
+      <image class="tab_img" wx:else src="{{tab_image_audience_default}}"></image>
+      <text class="tab_text">{{tab.tab2}}</text>
+    </view>
+    <view class="footer-menu_item" data-index="2" bindtap="selectTab">
+      <image class="tab_img" wx:if="{{tabIndex == 2}}" src="{{tab_image_business_active}}"></image>
+      <image class="tab_img" wx:else src="{{tab_image_business_default}}"></image>
+      <text class="tab_text">{{tab.tab3}}</text>
+    </view>
+    <view class="footer-menu_item" data-index="3" bindtap="selectTab">
+      <image class="tab_img" wx:if="{{tabIndex == 3}}" src="{{tab_image_myself_active}}"></image>
+      <image class="tab_img" wx:else src="{{tab_image_myself_default}}"></image>
+      <text class="tab_text">{{tab.tab4}}</text>
+    </view>
+  </view>
+</view>

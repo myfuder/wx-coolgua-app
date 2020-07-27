@@ -1,0 +1,47 @@
+<!--展商-->
+<view class="container">
+	<exh-item exhibitList="{{exhibitList}}" itemType="detail" exhItemType="exhibits"  exhItemTypeStatus="detail"></exh-item>
+	<view class="module-area">
+		<view class="module-item">
+			<view class="con-main-video-live" >
+        <p class="live-tab">{{langTranslate['图片']}}</p>
+        <p class="live-tab">
+          <span class="title-line-long"></span>
+          <span class="title-line-short"></span>
+        </p>
+      </view>
+			<view class="module-con" style="border:border:1rpx solid rgba(224,225,234,1);border-radius:20rpx;min-height:300rpx">
+				<image bindtap="wxParseImgTap" data-from="article" data-src="{{item}}" src="{{item}}" class="pro-img"></image>
+			</view>
+		</view>
+
+    <view class="con-main-video-live">
+      <p class="live-tab">{{langTranslate['视频']}}</p>
+      <p class="live-tab">
+        <span class="title-line-long"></span>
+        <span class="title-line-short"></span>
+      </p>
+      <view class="video-live-item" style="width:686rpx;margin-top:30rpx">
+        <video style="width: 100%; height: calc(690rpx * 9 / 16);" src="{{detailInfo.video}}"></video>
+      </view>
+    </view>
+    
+		<view class="module-item company-item" wx:if="{{detailInfo.introduction}}">
+      <view class="con-main-video-live" style="margin-top:60rpx">
+        <p class="live-tab">{{langTranslate['展品介绍']}}</p>
+        <p class="live-tab">
+          <span class="title-line-long"></span>
+          <span class="title-line-short"></span>
+        </p>
+      </view>
+			<view class="module-con">
+				<text class="exh-desc">{{isEn ? detailInfo.introductionEn : detailInfo.introduction}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="share">
+		<button open-type="share" plain="true" class="tab-ticket">
+		<image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/share.png"></image>
+		</button>
+	</view>
+</view>

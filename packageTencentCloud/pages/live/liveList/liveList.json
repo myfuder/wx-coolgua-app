@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "liveItemInList": "../../../components/liveItemInList/liveItemInList"
+  }
+}

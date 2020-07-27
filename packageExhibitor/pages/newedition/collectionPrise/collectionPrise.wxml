@@ -1,0 +1,22 @@
+<!--packageExhibitor/pages/newedition/collectionPrise/collectionPrise.wxml-->
+<view id="collection-prise">
+  <view class="item" wx:for="{{totalData}}" wx:key="{{item}}" data-index="{{index}}">
+    <view class="title">{{item.title}}</view>
+    <view class="content">
+      <view class="content-item" wx:for="{{item.children}}" wx:for-item="childItem" 
+        url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=1&type=2&passive=0"
+        bindtap="goPage" data-page="exhibits" data-type="0" data-operation="0"
+        data-passive="0" data-totaltype="{{childItem.type}}"
+        wx:for-index="childIndex" wx:key="{{item}}" data-index="{{childIndex}}">
+        <view>
+          <image src="{{childItem.imgUrl}}" class="title-img" />
+          <text class="child-title">{{childItem.title}}</text>
+        </view>
+        <view>
+          <text class="child-count">{{childItem.count}}</text>
+          <image src="{{item.imgUrl}}" class="count-img"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

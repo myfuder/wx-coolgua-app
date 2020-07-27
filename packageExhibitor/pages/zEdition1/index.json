@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "home": "./home/home",
+    "purchaser": "./purchaser/index",
+    "demand": "./demand/index",
+    "me": "./me/index"
+  }
+}

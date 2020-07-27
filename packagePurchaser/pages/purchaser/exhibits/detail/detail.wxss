@@ -1,0 +1,85 @@
+/**index.wxss**/
+
+page{
+  width:100%;
+  min-height:100%;
+  background:#f6f7fb;
+  /* height:100%; */
+}
+.container{
+  width:100%;
+  background:#f6f7fb;
+  min-height:100%;
+  position:relative;
+  /* background:#f5f5f5; */
+  display:block;
+}
+.module-area {
+  padding:30rpx;
+  background:#fff;
+}
+.module-area .module-item {
+  background:#fff;
+  border-radius:20rpx;
+  margin-bottom:20rpx;
+}
+.module-item .module-top {
+  border-bottom: 1px solid #DCDFE6;
+  padding: 18rpx 30rpx;
+  display: flex;
+}
+.module-top .module-title {
+  padding: 0 4rpx 14rpx;
+  display: flex;
+  align-items: center;
+}
+.module-title .title-img {
+  width: 40rpx;
+  height: 42rpx;
+}
+.module-title .title-text {
+  font-size:32rpx;
+  color: #333333;
+  line-height: 38rpx;
+  margin-left: 14rpx;
+}
+.module-item .module-con {
+  position: relative;
+  padding: 20rpx 30rpx;
+}
+.module-area .company-item{
+  margin-bottom:40rpx;
+}
+.module-con .img-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.img-list .img-item {
+  width: 48%;
+  height: 300rpx;
+  box-sizing: border-box;
+}
+.img-list .img-item:nth-child(odd) {
+  margin-right:4%;
+}
+.pro-img {
+  width: 98%;
+  height: 98%;
+}
+.module-con .exh-desc {
+  font-size: 30rpx;
+  color:#666666;
+  line-height: 44rpx;
+}
+.share{
+  position:fixed;
+  bottom:70rpx;
+  right:30rpx;
+}
+.share .tab-ticket{
+  border:none;
+}
+.share image{
+  width:140rpx;
+}

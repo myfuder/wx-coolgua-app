@@ -1,0 +1,25 @@
+<!--展商-->
+<view class="container">
+	<view class="con-area">
+		<view class="top-area">
+			<view class="rule-area">
+				<text class="rule-label">{{langTranslate['活动规则']}}：</text>
+				<view class="rule-value">
+					<text>{{ appointDetail.rule }}</text>
+				</view>
+			</view>
+		</view>
+		<view class="detail-list">
+			<view wx:for="{{detailInfo}}" wx:key="item" class="detail-item">
+				<text>{{ index + 1 }}.{{item.supplierName}}</text>
+				<text>{{langTranslate['产品类别']}}:{{item.tagName}}</text>
+				<text>{{langTranslate['预计时间']}}:{{ item.startTime }} - {{ item.endTime }}</text>
+				<view class="appoint-buttons">
+					<view class="go-meeting" bindtap="goToMeeting" data-meetingid="{{item.meetingId}}" data-supplierid="{{item.supplierId}}">
+						<!--<view class="button-text">{{langTranslate['进入会议']}}</view>-->
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

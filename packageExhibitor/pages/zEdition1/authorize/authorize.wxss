@@ -1,0 +1,151 @@
+/**authorize.wxss**/
+page{
+  width:100%;
+  height:100%;
+}
+/**展商版注册内容**/
+.container{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+.valid-phone{
+  width:100%;
+  height: 100%;
+  font-size:34rpx;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.valid-phone .logo{
+  position:absolute;
+  top:130rpx;
+  left:30%;
+}
+.container .valid-phone .login-title{
+  height:100%;
+  width:100%;
+  display:block;
+}
+.container .valid-phone .authorize{
+  width:100%;
+  position:absolute;
+  top:40%;
+  margin:0 auto;
+}
+/**展商版注册内容banner**/
+.authorize .login-title{
+  z-index: 1;
+  width:100%;
+  margin:100rpx auto 0;
+  display:block;
+}
+/**展商版注册注意**/
+.authorize .notice {
+  width:80%;
+  margin:0 auto;
+}
+.authorize .notice text{
+  font-size: 22rpx;
+  color: #333333;
+  display:inline-block;
+  width:100%;
+}
+/**展商版注册按钮**/
+.authorize .register{
+  width:100%;
+  margin:200rpx auto 20rpx;
+  text-align:center;
+}
+.authorize .register .button{
+  font-size: 36rpx;
+  border-radius: 10rpx;
+  width: 80%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin:0 auto; 
+  text-align:center;
+}
+.authorize .register .immediately{
+  border-radius:50rpx;
+  color:#fff;
+  border:none;
+  background:linear-gradient(90deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);
+}
+.authorize .register .exhibitor{
+  border-radius:50rpx;
+  color:#26c597;
+  border:2rpx solid #26c597;
+  margin-top:40rpx;
+}
+.authorize .register .telephone{
+  font-size: 28rpx;
+  display:inline-block;
+  margin-top:20rpx;
+  color: #27c597;
+}
+button::after{
+  border:none;
+}
+/**弹窗**/
+.wx-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index:9;
+}
+.popup-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  max-width: 600rpx;
+  border-radius: 10rpx;
+  box-sizing: bordre-box;
+  transform: translate(-50%, -50%); 
+  overflow: hidden;
+  background: #fff;
+}
+.wx-popup-title {
+  text-align: center;
+  font-size: 40rpx;
+  padding:60rpx 20rpx;
+  border-bottom:2rpx solid #ededed;
+}
+.wx-popup-title text{
+  font-size:32rpx;
+  color:#000000;
+  display:inline-block;
+}
+.wx-popup-con{
+  display: flex;
+}
+.wx-popup-con .cancal{
+  font-size: 32rpx;
+  color:#333333;
+  width:50%;
+  background:#fff;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+  display:inline-block;
+  border-right:2rpx solid #ededed;
+}
+.wx-popup-con .button{
+  font-size: 32rpx;
+  color:#576b95;
+  width:50%;
+  background:#fff;
+  display:inline-block;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin:0 auto; 
+  border:none;
+  text-align:center; 
+  display:inline-block;
+}

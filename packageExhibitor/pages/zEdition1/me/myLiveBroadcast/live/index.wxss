@@ -1,0 +1,271 @@
+/* packageExhibitor/pages/zEdition1/me/myLiveBroadcast/live/index.wxss */
+.content{
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.change-camera{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.icon-camara{
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 34rpx;
+  margin-bottom: 49rpx;
+}
+.my-detail{
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  background-color: white;
+  font-size: 32rpx;
+  color:rgba(51,51,51,1);
+  height: 90rpx;
+}
+
+.room-data{
+  padding: 20rpx 20rpx;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.back-btn{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+.row-style{
+  display: flex;
+  flex-direction: row;
+  flex:1;
+  justify-content: center;
+}
+.left-wrap{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 29rpx;
+  align-items: center;
+  padding-right: 10rpx;
+}
+.actor-img{
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 7rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.nickname-text{
+  font-size:24rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+}
+.current-person-num, .duration-text{
+  font-size:24rpx;
+  font-family:PingFang;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.room-status{
+  position: fixed;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFang;
+  font-weight:500;
+  width: 100%;
+}
+.room-status.bottom{
+  top: false;
+  bottom:11rpx;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+
+/* 04-18 */
+.room-im{
+  width: 100%;
+  position: absolute;
+  bottom: 29rpx;
+  margin-bottom: 86px;
+  height: 480rpx;
+  z-index:999;
+}
+
+.room-im-input{
+  position: absolute;
+  height: 80rpx;
+  width: 100%;
+  bottom: 0;
+}
+
+.room-im-cover-input{
+  position: absolute;
+  bottom: 0;
+}
+
+.room-im-msg-box{
+  height: 480rpx;
+}
+
+.room-im-msg-box-im{
+  text-overflow: ellipsis;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 36rpx 10rpx 36rpx;
+  padding: 16rpx;
+  font-size: 14px;
+  display: flex;
+}
+
+.room-im-msg-box-im:last-child{
+  margin-bottom: 0px;
+}
+
+.room-im-msg-box-im-name{
+  display: inline-block;
+  color: #FF2E30;
+}
+
+.room-im-msg-box-im-system{
+  display: inline-block;
+  color: #3e9673;
+}
+
+.room-im-msg-box-im-news{
+  display: inline-block;
+  color: #fff;
+  flex: 1;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+.input-box{
+  height: 30px;
+  /* padding: 5px 36rpx; */
+  margin: 5px 36rpx;
+  background:rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.input-box-input{
+  height: 30px;
+  width: calc(100% - 80px);
+  padding: 0 10px;
+}
+.input-box-btn{
+  width: 60px;
+  height: 28px;
+  color: #333;
+  text-align: center;
+  line-height: 28px;
+  font-size: 16px;
+  border-left: 1px solid #666;
+}
+
+.live-stop{
+  width: 71rpx;
+  height: 70rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+.wrapperInputBox{
+  position: fixed;
+  z-index:88;
+  bottom:40rpx;
+  width: 608rpx;
+  display: flex;
+  margin-left: 20rpx;
+  justify-content: center;
+}
+.inputBox{
+  width: 700rpx;
+  background:rgba(0,0,0,.3);
+  display: flex;
+  border-radius: 10rpx;
+}
+
+.inputBox .button1{
+  width: 140rpx;
+  color: #fff;
+  text-align: center;
+}
+
+
+.inputBox .cover-input{
+  width: 80%;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 5px;
+  color: #fff;
+  position: relative;
+  left: 10%;
+  transform: translateX(-10%);
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+.inputBox  .text{
+  height: 32px;
+  line-height: 32px;
+  font-size: 26rpx;
+}
+.inputBox  .input{
+  height: 32px;
+  font-size: 26rpx;
+  line-height: 32px;
+  /* margin-top为text的高度，保持视觉上一致 */
+  margin-top: -32px;
+}
+
+.wrapper-icon-camara{
+  position: fixed;
+  right: 30rpx;
+  bottom: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  z-index:998;
+}
+.wrapper-icon-camara .icon-camara{
+  width: 80rpx;
+  height: 80rpx;
+}
+.wrapperSeeMyYuyue{
+  position: fixed;
+  left: 30rpx;
+  top: 120rpx;
+  z-index:998;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+}
+.wrapperSeeMyYuyue .faqi{
+  width: 36rpx;
+  height: 42rpx;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+.wrapperSeeMyYuyue .text{
+  margin-top: -10rpx;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,160 @@
+@import "../../common.wxss";
+.search-wrap{
+  padding: 30rpx;
+}
+.search-input{
+  width:560rpx;
+  height:68rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(235,238,245,1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 14rpx;
+}
+.search-input>input{
+  font-size:26rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  border: none;
+}
+.search-icon{
+  transform: scale(0.8, 0.8);
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.filter-text{
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-left: 14rpx;
+}
+.switch-down{
+  width: 26rpx;
+  height: 14rpx;
+  margin-left: 11rpx;
+}
+.filter-wrap{
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+}
+.child{
+  padding-left: 40rpx;
+}
+.item-wrap{
+  margin-bottom: 20rpx;
+}
+.father-wrap .checkbox-style{
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  font-size: 33rpx;
+  color:rgba(51,51,51,1);
+  margin-bottom: 10rpx;
+  /* transform: scale(0.8,0.8); */
+}
+.child .checkbox-style{
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  font-size: 31rpx;
+  color:rgba(102,102,102,1);
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+  /* transform: scale(0.8,0.8); */
+}
+
+/*checkbox选中后样式  */
+.checkboxq checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+ background:linear-gradient(0deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%)!important;
+}
+/*checkbox选中后图标样式  */
+.checkboxq checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.search-area {
+    padding: 30rpx;
+}
+.search-area .search-top {
+    display: flex;
+    align-items: center;
+}
+.search-top .input-area {
+    width: 560rpx;
+    height: 68rpx;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 0rpx 0 25rpx;
+    background:#f3f3f3;
+    border-radius:30rpx;
+}
+
+.input-area image {
+    width: 35rpx;
+    height: 35rpx;
+    flex-shrink: 0;
+}
+.input-area .input {
+    margin-left: 24rpx;
+    flex: 1;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 33rpx;
+}
+.search-top .search-label {
+    margin-left: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-label text {
+    font-size: 28rpx;
+    color:#333333;
+    line-height: 34rpx;
+}
+.search-label image {
+    width: 27rpx;
+    margin-left: 17rpx;
+}
+
+
+/*input container*/
+.search-top{
+    padding-bottom: 20rpx;
+}
+.search-top .input {
+    border: none;
+}
+
+.content {
+    background: #fff;
+}
+
+
+.footer1 {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 599rpx;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0rpx;
+  right: 0rpx;
+  box-shadow: 10rpx 10rpx 10 rpx inner;
+  padding: 10rpx 0 10rpx 0px;
+  border-radius: 0px 0px 10px 10px;
+  z-index:999;
+}

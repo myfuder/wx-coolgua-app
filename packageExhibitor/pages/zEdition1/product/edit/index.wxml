@@ -1,0 +1,290 @@
+<!-- <view class="content">
+  <text class="label">{{label.ZHName}}：</text>
+  <input value="{{info.name}}" bindinput="bindZHNameInput"></input>
+  <text class="label">{{label.ENName}}：</text>
+  <input value="{{info.nameEn}}" bindinput="bindEHNameInput"></input>
+  <text class="label">{{label.img}}：</text>
+  <view>
+    <radio-group>
+      <view class="add-img-wrap">
+		  <view class="item-wrap" wx:if="{{cover_image!=''}}">
+		    <image src="{{cover_image}}"></image>
+		    <radio color="#FF2D30" checked="true">{{label.coverImg}}</radio>
+		  </view>
+        <view class="item-wrap" wx:for="{{imagesrc}}" wx:key="*this">
+          <image src="{{item}}"></image>
+          <radio color="#FF2D30" bindtap="radioChange" data-index="{{index}}">{{label.coverImg}}</radio>
+        </view>
+      </view>
+    </radio-group>
+	<view class="btn">
+	  <view bindtap="removeimg">{{label.remove}}</view>
+	  <view bindtap="uploadimg">{{label.upload}}</view>
+	</view>
+  </view>
+  <text class="label">{{label.ZHIntroller}}：</text>
+  <view class="text-wrap">
+     <textarea value="{{info.introduction}}" maxlength="1000" auto-height="true" bindinput="bindintroInput"></textarea>
+  </view>
+  <text class="label">{{label.ENIntroller}}：</text>
+  <view class="text-wrap">
+     <textarea value="{{info.introductionEn}}" maxlength="1000" auto-height="true" bindinput="bindinforenInput"></textarea>
+  </view>
+  <text class="label">{{label.productType}}：</text>
+  <view class="filter-wrap" wx:if="{{language!='en'}}">
+  	<view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+  		<checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+  		  <view class="father-wrap">
+  			<checkbox color="#ca0c16" class="checkbox-style">{{item.parent.chinese}}</checkbox>
+  		  </view>
+  		 </checkbox-group>
+  		 <checkbox-group>
+  		  <view class="child">
+  			<checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}"  wx:key="item" bindtap="checkboxChange1" checked="{{item.checked}}"  data-value="{{item.id}}">{{item.chinese}}</checkbox>
+  		  </view>
+  		 </checkbox-group>
+  	</view>
+  </view>
+  <view class="filter-wrap" wx:else>
+    <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+  		<checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+  		  <view class="father-wrap">
+  			<checkbox color="#ca0c16" class="checkbox-style">{{item.parent.english}}</checkbox>
+  		  </view>
+  		 </checkbox-group>
+  		 <checkbox-group>
+  		  <view class="child">
+  			<checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}"  wx:key="item" bindtap="checkboxChange1" checked="{{item.checked}}"  data-value="{{item.id}}">{{item.english}}</checkbox>
+  		  </view>
+  		 </checkbox-group>
+    </view>
+  </view>
+  <view class="btn-wrap">
+    <text bindtap="cancelback">{{label.cancel}}</text>
+    <text bindtap="editsave">{{label.save}}</text>
+  </view> -->
+
+<!-- 弹出层 -->
+<!--  <view class="uni-mask" wx:if="{{ismask}}"></view>
+  <view class="uni-upload" wx:if="{{ismask}}">
+  	<view class="uni-paizhao" bindtap="photo">拍照上传</view>
+  	<view class="uni-xiangce" bindtap="album">手机相册选取</view>
+  </view>
+  <view class="uni-quxiao" wx:if="{{ismask}}" bindtap="cancel">取消</view>
+</view>
+ -->
+<!-- 引入wxs脚本 -->
+<wxs src="../../../../../wxs/subutil.wxs" module="tools"></wxs>
+<view class="content" style="background: #F6F7FB;min-height: 1000rpx;">
+    <view class="row-container">
+        <view class="wx-card" style="border-radius: 20rpx;margin-bottom: 20rpx;">
+            <view class="wx-form-item">
+                <view class="form-label">{{langTranslate['产品中文名称']}}</view>
+                <view><input type="text" bindchange="changeName" value="{{info.name}}"/></view>
+            </view>
+            <view class="wx-form-item">
+                <view class="form-label">{{langTranslate['产品英文名称']}}</view>
+                <view><input type="text" bindchange="changeNameEn"  value="{{info.nameEn}}"/></view>
+            </view>
+        </view>
+        <view class="wx-card" style="border-radius: 20rpx;margin-bottom: 20rpx;">
+            <view class="wx-card-title">{{langTranslate['产品图片']}}</view>
+            <view class="wx-card-body">
+                <!--图片处理-->
+                <view class="flex flex-c-c">
+                    <view wx:for="{{uploadImages}}"
+                          wx:for-item="image"
+                          wx:for-index="imageIndex"
+                          wx:key="*this">
+                        <view
+                            style="padding: 10rpx;margin-right:10rpx;width:200rpx;height:200rpx;border-radius:10rpx;position: relative">
+                            <image src="{{image||defaultImage}}"
+                                   style="z-index:27;border-radius:10rpx;max-height: 100%;max-width: 100%"></image>
+                            <image src="{{icon_delete}}"
+                                   data-imageindex="{{imageIndex}}"
+                                   bindtap="deleteImage"
+                                   style="z-index:228;width: 30rpx;height: 30rpx;position: absolute;right: -10rpx;top: -10rpx;"></image>
+                        </view>
+                        <view style="text-align: center;font-size: 24rpx;color: #666"
+                              bindtap="selectImage"
+                              data-imageindex="{{imageIndex}}"
+                        >
+                            <image
+                                style="width: 24rpx;height: 24rpx;"
+                                src="{{image==cover_image?filter_active:default_checkbox_no_chekced}}"></image>
+                          {{langTranslate['设为封面']}}
+                        </view>
+                    </view>
+                    <view
+                        wx:if="{{uploadImages&&uploadImages.length<2}}"
+                        style="width:200rpx;height:200rpx;border-radius:10rpx;position: relative">
+                        <uploadFileImage bind:finish="finishUpload"></uploadFileImage>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="wx-card" style="margin-bottom: 20rpx;">
+            <view class="wx-card-title">  {{langTranslate['展品介绍']}}</view>
+            <view class="wx-card-body">
+                <textarea bindinput="changeintroducton"  value="{{info.introduction}}"></textarea>
+            </view>
+        </view>
+        <view class="wx-card" style="margin-bottom: 20rpx;">
+            <view class="wx-card-title">{{langTranslate['展品英文介绍']}}</view>
+            <view class="wx-card-body">
+                <textarea bindinput="changeintroductonen" value="{{info.introductionEn}}"></textarea>
+            </view>
+        </view>
+        <view class="wx-card" style="margin-bottom: 20rpx;">
+            <view class="wx-card-title">{{langTranslate['产品类型']}}</view>
+            <view class="wx-card-body">
+                <treeProductType id="treeProductType"
+                bind:changevalues="changetreeProductType"
+                ></treeProductType>
+            </view>
+        </view>
+    </view>
+
+
+  <!--  <view wx:for="{{infoarray}}" wx:key="index">
+        <view wx:if="{{item.type==1 && item.nameKey!='supplier_id'}}">
+            <text class="label">{{item.name}}：</text>
+            <input value="{{item.value}}" data-item="{{item}}" data-index="{{index}}" bindinput="valueinput"></input>
+        </view>
+        <view wx:if="{{item.type==1 && item.nameKey=='supplier_id'}}">
+            <text class="label">{{item.name}}：</text>
+            <input value="{{item.value}}" data-item="{{item}}" data-index="{{index}}" disabled="true"></input>
+        </view>
+        <view wx:if="{{item.nameKey=='tags'}}">
+            <text class="label">{{item.name}}：</text>
+            <view class="filter-wrap" wx:if="{{language!='en'}}">
+                <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+                    <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+                        <view class="father-wrap">
+                            <checkbox color="#ca0c16" class="checkbox-style">{{item.parent.chinese}}</checkbox>
+                        </view>
+                    </checkbox-group>
+                    <checkbox-group>
+                        <view class="child">
+                            <checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}" wx:key="item"
+                                      bindtap="checkboxChange1" checked="{{item.checked}}" data-value="{{item.id}}">
+                                {{item.chinese}}
+                            </checkbox>
+                        </view>
+                    </checkbox-group>
+                </view>
+            </view>
+            <view class="filter-wrap" wx:else>
+                <view class="item-wrap" wx:for="{{ProductType}}" wx:key="item">
+                    <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+                        <view class="father-wrap">
+                            <checkbox color="#ca0c16" class="checkbox-style">{{item.parent.english}}</checkbox>
+                        </view>
+                    </checkbox-group>
+                    <checkbox-group>
+                        <view class="child">
+                            <checkbox color="#ca0c16" class="checkbox-style" wx:for="{{item.subclass}}" wx:key="item"
+                                      bindtap="checkboxChange1" checked="{{item.checked}}" data-value="{{item.id}}">
+                                {{item.english}}
+                            </checkbox>
+                        </view>
+                    </checkbox-group>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{item.nameKey=='cover_image'}}">
+            <text class="label">{{item.name}}：</text>
+            <view>
+                <radio-group>
+                    <view class="add-img-wrap">
+                        <view class="item-wrap" wx:if="{{cover_image!=''}}">
+                            <image src="{{cover_image}}"></image>
+                            <radio color="#FF2D30" checked="true" style="width: 280rpx;margin-left: -35rpx;">
+                                {{label.coverImg}}
+                            </radio>
+                        </view>
+                        <view class="item-wrap" wx:for="{{imagesrc}}" wx:key="*this" wx:if="{{item!=''}}">
+                            <image src="{{item}}"></image>
+                            <radio color="#FF2D30" bindtap="radioChange" data-index="{{index}}"
+                                   style="width: 280rpx;margin-left: -35rpx;">{{label.coverImg}}
+                            </radio>
+                        </view>
+                    </view>
+                </radio-group>
+                <view class="btn">
+                    <view bindtap="removeimg">{{label.remove}}</view>
+                    <view bindtap="uploadimg">{{label.upload}}</view>
+                </view>
+            </view>
+        </view>
+        &lt;!&ndash; <view wx:if="{{item.type==8}}">
+            <text class="label">{{item.name}}：</text>
+            <view>
+                <view class="add-video-wrap">
+                  <video src="{{videoSrc}}"></video>
+                </view>
+                  <view class="btn">
+                      <view bindtap="removevideo">{{label.remove}}</view>
+                      <view bindtap="uploadvideo">{{label.upload}}</view>
+                  </view>
+            </view>
+        </view> &ndash;&gt;
+        <view wx:if="{{item.type==2}}">
+            <text class="label">{{item.name}}：</text>
+            <view class="text-wrap">
+                <textarea value="{{item.value}}" maxlength="1000" auto-height data-item="{{item}}"
+                          data-index="{{index}}" bindinput="valueinput"></textarea>
+            </view>
+        </view>
+        <view wx:if="{{item.type==3 && item.defaults.length!=0}}">
+            <text class="label">{{item.name}}：</text>
+            <view class="filter-wrap">
+                <radio-group class="radio-group" bindchange="radioChange1" data-index="{{index}}">
+                    <radio class="radio" wx:for="{{item.defaults}}" wx:for-item="item1" wx:key="item1" value="{{item1}}"
+                           checked="{{item1==item.value}}">
+                        <text>{{item1}}</text>
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+        <view wx:if="{{item.type==4 && item.defaults.length!=0}}">
+            <text class="label">{{item.name}}：</text>
+            <view class="filter-wrap">
+                <checkbox-group bindchange="checkboxchoose" data-index="{{index}}">
+                    <label class="checkbox" wx:for="{{item.defaults}}" wx:for-item="item1" wx:key="item1">
+                        <checkbox value="{{item1}}" checked="{{tools.includestr(item.value,item1)}}"/>
+                        {{item1}}
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+        <view wx:if="{{item.type==6}}">
+            <text class="label">{{item.name}}：</text>
+            <view class="filter-wrap">
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" data-index="{{index}}">
+                    <view class="picker">
+                        {{label.photo}}：{{region[0]}}，{{region[1]}}，{{region[2]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+    </view>-->
+
+
+    <view class="btn-wrap">
+        <text bindtap="cancelback">{{label.cancel}}</text>
+        <text bindtap="editsave">{{label.save}}</text>
+    </view>
+
+    <!-- 弹出层 -->
+    <view class="uni-mask" wx:if="{{ismask}}"></view>
+    <view class="uni-upload" wx:if="{{ismask}}">
+        <view class="uni-paizhao" bindtap="photo">{{label.photo}}</view>
+        <view class="uni-xiangce" bindtap="album">{{label.album}}</view>
+    </view>
+    <view class="uni-quxiao" wx:if="{{ismask}}" bindtap="cancel">{{label.cancel}}</view>
+</view>
+ 

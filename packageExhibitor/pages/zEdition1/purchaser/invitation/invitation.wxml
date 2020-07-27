@@ -1,0 +1,38 @@
+<!--invitation.wxml-->
+<view class="container"> 
+    <form bindsubmit="formSubmit" bindreset="formReset" report-submit="true">
+        <view class="information">
+            <view class="form-sign">
+                <view class="form-item clearfix">
+                    <text>邀约企业:</text>
+                    <view class="company" wx:if="{{company!=null}}">{{company}}</view>
+                </view>
+                <view class="form-item clearfix">
+                    <text>选择时间:</text>
+                    <picker mode="date" value="{{date}}" start="{{start}}" end="{{end}}"  bindchange="bindDateChange">
+                        <view class="picker">
+                            <view class="weui-input" value="{{date}}">{{date}}</view>
+                            <image src="{{staticImageUrl}}/img/xgyz/dateInvitaion.png" mode='widthFix' class=""></image>
+                        </view>
+                    </picker>
+                </view>
+                <view class="form-item clearfix">
+                    <text>时间段:</text>
+                    <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class="picker">
+                            <view class="weui-input" value="{{array[index]}}">{{array[index]}}</view>
+                            <image src="{{staticImageUrl}}/img/xgyz/dateInvitaion.png" mode='widthFix' class=""></image>
+                        </view>
+                    </picker>
+                </view>
+                <view class="form-notice clearfix">
+                    <view>备注留言:</view>
+                    <textarea name="remark" bindblur="bindTextAreaBlur" placeholder-style="color:#c0c4cc;" placeholder="" />
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <button formType="submit" class="tab-ticket">提交邀约</button>
+        </view>
+    </form>
+</view>

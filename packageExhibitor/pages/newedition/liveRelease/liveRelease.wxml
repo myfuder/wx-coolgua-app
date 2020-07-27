@@ -1,0 +1,72 @@
+<!--packageExhibitor/pages/newedition/liveRelease/liveRelease.wxml-->
+<view id="live-release">
+  <view class="content">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['直播标题']}}</text>
+        <input class="weui-input content-input" bindinput="getInputValue" name='title' value='{{form.title}}' placeholder="{{langTranslate['请输入直播标题']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['开始时间']}}</text>
+        <!-- <picker mode="date" mode="time" value="{{form.startTime}}" data-type="startTime" bindchange="bindTimeChange">
+          <view class="picker content-input" style="min-width:200rpx;height:40rpx;">
+            <text wx:if="{{form.startTime}}">{{form.startTime}}</text>
+            <text wx:else style="color:#999">起始时间</text>
+          </view>
+        </picker> -->
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+          <view class="tui-picker-detail" style="min-width:200rpx;height:40rpx;">
+            <text style="font-size:28rpx;" wx:if="{{dateTimeArray1.length>0}}">{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}</text>
+            <text wx:else style="color:#999">{{langTranslate['起始时间']}}</text>
+          </view>
+        </picker>
+        <!-- <input class="weui-input content-input" name='company' value='{{form.company}}' placeholder="请输入直播标题（字符以内）" /> -->
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['结束时间']}}</text>
+        <!-- <picker mode="date" mode="time" value="{{form.endTime}}" start="{{form.startTime}}"  data-type="endTime" bindchange="bindTimeChange">
+          <view class="picker content-input" style="min-width:200rpx;">
+            <text wx:if="{{form.endTime}}">{{form.endTime}}</text>
+            <text wx:else style="color:#999">结束时间</text>
+          </view>
+        </picker> -->
+        <picker mode="multiSelector" value="{{dateTime2}}" bindchange="changeDateTime2" bindcolumnchange="changeDateTimeColumn2" range="{{dateTimeArray2}}">
+          <view class="tui-picker-detail" style="min-width:200rpx;height:40rpx;">
+            <text style="font-size:28rpx;" wx:if="{{dateTimeArray2.length>0}}">{{dateTimeArray2[0][dateTime2[0]]}}-{{dateTimeArray2[1][dateTime2[1]]}}-{{dateTimeArray2[2][dateTime2[2]]}} {{dateTimeArray2[3][dateTime2[3]]}}:{{dateTimeArray2[4][dateTime2[4]]}}</text>
+            <text wx:else style="color:#999">{{langTranslate['结束时间']}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['是否公开']}}</text>
+        <radio-group bindchange="bindTimeChange" bindValue="{{form.publicFlag}}" style="display:flex" data-type="publicFlag">
+          <label class="weui-cell weui-check__label" wx:for="{{publicArr}}" wx:key="item.value" style="padding:0">
+            <view class="weui-cell__hd">
+              <!-- <radio value="{{item.value}}" style="width:28rpx;height:28rpx;font-size:28rpx;"/> -->
+              <radio value="{{item.value}}" style="font-size:28rpx;"/>
+            </view>
+            <view class="weui-cell__bd" style="font-size:28rpx;">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view style="margin: 39rpx 27rpx 0 28rpx;">
+        <text class="content-lable">{{langTranslate['直播封面']}}</text>
+        <view class="img-box">
+          <image wx:if="{{form.imgUrl}}" src="{{form.imgUrl}}" />
+          <image wx:else src="" />
+        </view>
+        <view class="button button-chooseImg" style="margin: 0px;" bindtap="chooseImg">
+          {{langTranslate['选择文件']}}
+        </view>
+      </view>
+    </form>
+  </view>
+  <view class="bottom-btns">
+    <view class="button button-reset" style="margin: 0px;" bindtap="closeDialog">
+      {{langTranslate['返回']}}
+    </view>
+    <view class="button button-primary" bindtap="formSubmit" style="margin: 0px;">
+     {{langTranslate['确定']}} 
+    </view>
+  </view>
+</view>

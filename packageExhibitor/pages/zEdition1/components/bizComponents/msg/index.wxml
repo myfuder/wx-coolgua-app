@@ -1,0 +1,17 @@
+<view class="content">
+    <view class="item">
+        <image wx:if="{{ avatar }}" src="{{avatar}}"></image>
+        <image wx:else src="https://www.coolgua.net/match_img/img/avatar.png"></image>
+        <view class="con" style="padding-left: 10rpx;">
+            <view class="top">
+                <text>{{conversationName}}</text>
+                <text class="time">{{time}}</text>
+            </view>
+            <view class="text">
+                <text class="text-unreadCount" wx:if="{{ unreadCount > 0 }}">[{{unreadCount}}条]</text>
+                <text wx:if="{{ isGroup }}">{{lastSpeaker}}：</text>
+                <text>{{lastMsg}}</text>
+            </view>
+        </view>
+    </view>
+</view>

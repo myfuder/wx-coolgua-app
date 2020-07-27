@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "demandItemForList": "../../components/demandItemForList/demandItemForList",
+    "filter-search": "../../components/bizComponents/searchFilter/index"
+  }
+}

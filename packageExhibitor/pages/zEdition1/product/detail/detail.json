@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "displayItemProfile": "../../components/displayItemProfile/displayItemProfile",
+    "callButtons": "../../components/callButtons/callButtons"
+  }
+}

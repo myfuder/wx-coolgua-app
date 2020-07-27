@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "demand": "../components/demandItemForList/demandItemForList",
+    "filter-search": "../components/bizComponents/searchFilter/index",
+    "invitation-dialog": "../components/bizComponents/invitationDialog"
+  }
+}

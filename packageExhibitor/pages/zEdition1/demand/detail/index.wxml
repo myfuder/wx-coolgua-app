@@ -1,0 +1,55 @@
+<view class="content" style="height: {{height}}px;background: #F6F7FB;">
+    <demandItemForList item="{{demandDetail}}"></demandItemForList>
+    <!--  <demand bind:handleShow="handleShow" value="{{demandDetail}}" detail="yes"></demand>-->
+    <!-- <demand value="{{demandDetail}}" itemType="detail"></demand> -->
+    <view class="row-container" style="margin-top: 20rpx;">
+        <view style="background: #fff;border-radius: 10rpx;">
+            <view class="h2 strong" style="padding: 20rpx;border-bottom:1px solid #EEEEEE;">{{langTranslate['图片']}}</view>
+            <view class="image-container-row" style="padding-top: 20rpx;">
+                <view class="imageWrapper" wx:if="{{demandDetail.image1!=''}}"
+                      style="margin-right: 20rpx;"
+                >
+                    <image src="{{demandDetail.image1}}"
+                           bindtap="previewImage" data-index="0" mode="aspectFit"></image>
+                </view>
+                <view class="imageWrapper" wx:if="{{demandDetail.image2!=''}}">
+                    <image src="{{demandDetail.image2}}" bindtap="previewImage" data-index="1" mode="aspectFit"></image>
+                </view>
+                <view class="imageWrapper" wx:if="{{demandDetail.image3!=''}}"
+                      style="margin-right: 20rpx;"
+                >
+                    <image src="{{demandDetail.image3}}" bindtap="previewImage" data-index="2" mode="aspectFit"></image>
+                </view>
+                <view class="imageWrapper" wx:if="{{demandDetail.image4!=''}}">
+                    <image src="{{demandDetail.image4}}" bindtap="previewImage" data-index="3" mode="aspectFit"></image>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+
+<!--    <view class="detail-wrap">
+        <text class="label1">{{label.pic}}</text>
+        <view class="space-line"></view>
+        <view class="body">
+            <image src="{{demandDetail.image1}}" wx:if="{{demandDetail.image1!=''}}" bindtap="previewImage"
+                   data-index="0"></image>
+            <image src="{{demandDetail.image2}}"
+                   wx:if="{{demandDetail.image2!=''}}" bindtap="previewImage"
+                   data-index="1"></image>
+            <image
+                src="{{demandDetail.image3}}" wx:if="{{demandDetail.image3!=''}}" bindtap="previewImage"
+                   data-index="2"></image>
+            <image src="{{demandDetail.image4}}" wx:if="{{demandDetail.image4!=''}}" bindtap="previewImage"
+                   data-index="3"></image>
+
+            &lt;!&ndash; <image bindtap="wxParseImgTap" data-from="article" data-src="{{demandDetail.image1}}" src="{{demandDetail.image1}}"></image>
+             <image bindtap="wxParseImgTap" data-from="article" data-src="{{demandDetail.image2}}" src="{{demandDetail.image2}}"></image>
+             <image bindtap="wxParseImgTap" data-from="article" data-src="{{demandDetail.image3}}" src="{{demandDetail.image3}}"></image>
+             <image bindtap="wxParseImgTap" data-from="article" data-src="{{demandDetail.image4}}" src="{{demandDetail.image4}}"></image> &ndash;&gt;
+
+        </view>
+    </view>-->
+    <invitation-dialog param="{{dialogParam}}" wx:if="{{dialogShow}}" bind:handleHide="handleHide"></invitation-dialog>
+</view>

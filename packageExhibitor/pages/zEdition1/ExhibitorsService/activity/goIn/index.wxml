@@ -1,0 +1,51 @@
+<view>
+	<!-- 商贸配对活动 -->
+	<!-- <view class="top_title">{{activity.title}}</view> -->
+	<view class="rule">
+		<view style="	font-size:32rpx;font-weight:800;color:rgba(51,51,51,1);padding-bottom: 10rpx;">{{activity.rule}}</view>
+		<view>
+			<text style="white-space: pre-line;font-size:28rpx;color:rgba(51,51,51,1);">{{array.rule}}</text>
+		</view>
+	</view>
+	<!-- 组件 -->
+	<!-- <view>
+		<goIn></goIn>
+	</view> -->
+	<view style="padding:20rpx;background: rgba(248,248,248,1)">
+		<view class="choose_items" wx:for="{{dataList}}" wx:key="index" >
+			<view class="items_r">
+				<text class="items_title" wx:if="{{language != 'en'}}">{{index + 1}}.{{item.company}}</text>
+				<text class="items_title" wx:else>{{index + 1}}.{{item.companyEn}}</text>
+				<view class="items_record" wx:if="{{language != 'en'}}">
+					<!-- <view>{{activity.city}} ：{{item.country}}</view> -->
+					<view>{{activity.kind}} ：{{item.tagNames}}</view>
+					<view>{{activity.name}} ：{{item.purchasedGoodsName}}</view>
+					<view>{{activity.num}}：{{item.purchasedCount}}</view>
+					<view>{{activity.price}}：{{item.purchasedPrice}}</view>
+					<view>{{activity.texture}}：{{item.material}}</view>
+				</view>
+				<view class="items_record" wx:else>
+					<!-- <view>{{activity.city}} ：{{item.country}}</view> -->
+					<view>{{activity.kind}} ：{{item.tagEnglishNames}}</view>
+					<view>{{activity.name}} ：{{item.purchasedGoodsName}}</view>
+					<view>{{activity.num}}：{{item.purchasedCount}}</view>
+					<view>{{activity.price}}：{{item.purchasedPrice}}</view>
+					<view>{{activity.texture}}：{{item.material}}</view>
+				</view>
+			</view>
+			<view class="items_l" bindtap="change" data-index="{{index}}">
+				<view class="items_l_b" wx:if="{{item.checked == false}}">
+				</view>
+				<view class="items_l_w" wx:else>
+					<image src="https://www.coolgua.net/match_img/img/true.png" ></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view style="position: fixed;bottom:0;width: 100%;">
+		<view class="items_btns">
+			<view class="btnR" bindtap="comfirm">{{activity.confirm}}</view>
+			<view class="btnL" bindtap="back">{{activity.back}}</view>
+		</view>
+	</view>
+</view>

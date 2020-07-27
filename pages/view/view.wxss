@@ -1,0 +1,78 @@
+/**about.wxss**/
+.about{
+    width:100%;
+    min-height: 100vh;
+    position:relative;
+}
+/**导航及logo**/
+.homeNav{
+  text-align:center;
+  color:#666666;
+  position:relative;
+}
+.return{
+  position:absolute;
+  top:37rpx;
+  left:22rpx;
+  font-size:26rpx;
+}
+.about .homeTop {
+  background:#fff;
+  padding: 10rpx 30rpx  10rpx;
+  height:80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom:1px solid #ededed;
+}
+.homeTop .home-nav {
+  width:60rpx;
+  margin-right:30rpx;
+}
+.homeTop .home-logo {
+  width:300rpx;
+  max-height:40px;
+}
+/**页面样式内容**/
+.about .pageContent{
+  padding:20rpx 30rpx;
+  color:#333333;
+  font-size:30rpx;
+}
+.about .pageContent image{
+  width:100%;
+}
+/**侧导航**/
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  background:#fff;
+  min-height:100vh;
+  width:50%;
+  margin-right:10rpx;
+}
+.nav .navList{
+  border-bottom:1px solid #ededed;
+  padding: 30rpx 0 30rpx 30rpx;
+  position:relative;
+  color:#333333;
+  font-size:32rpx;
+}
+.nav .navList .icon{
+  display: inline-block;
+  width: 15rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 40%;
+  transition: transform .3s;
+  transform: rotate(0deg);
+}
+.nav .navList .iconDown{
+  display: inline-block;
+  width: 15rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 40%;
+  transition: transform .3s;
+  transform: rotate(90deg);
+}

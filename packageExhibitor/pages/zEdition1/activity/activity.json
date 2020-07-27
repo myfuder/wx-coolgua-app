@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "同期活动",
+  "usingComponents": {
+    "activityItem": "../components/activityItem/activityItem"
+  }
+}

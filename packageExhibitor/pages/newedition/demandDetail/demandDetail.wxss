@@ -1,0 +1,266 @@
+/* packageExhibitor/pages/newedition/demandDetail/demandDetail.wxss */
+#demand-detail {
+  background:#F7F6F9;
+  height: 100%;
+  width: 100%;
+}
+#demand-detail .procurement-news view{
+  /* display: block; */
+}
+#demand-detail .procurement-news{
+  padding: 36rpx 0 26rpx 25rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+#demand-detail .procurement-news .procurement-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#demand-detail .procurement-news .procurement-header .left .title{
+  width:428rpx;
+  height:30rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  line-height:36rpx;
+}
+#demand-detail .procurement-news .procurement-header .left .edit text{
+  width:48rpx;
+  height:23rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(47,201,157,1);
+  line-height:18rpx;
+}
+#demand-detail .procurement-news .procurement-header .right{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(47,201,157,1);
+  line-height:18rpx;
+  width:121rpx;
+  height:40rpx;
+  line-height:40rpx;
+  background:rgba(225,248,241,1);
+  border-radius:20px 0px 0px 20px;
+  display: inline-block;
+  text-align: center;
+}
+#demand-detail .procurement-news .hot{
+  margin: 15rpx 0 24rpx 0;
+}
+#demand-detail .procurement-news .hot .hot-img{
+  width:18rpx;
+  height:21rpx;
+  background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+}
+#demand-detail .procurement-news .hot text{
+  width:46rpx;
+  height:23rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,46,46,1);
+  line-height:36rpx;
+}
+#demand-detail .procurement-news .labelStyle{
+  height:25rpx;
+  font-size:26rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:18rpx;
+}
+#demand-detail .procurement-news .commodities .commodities-item{
+  width:120rpx;
+  height:42rpx;
+  background:rgba(244,248,251,1);
+  border-radius:4rpx;
+  line-height: 42rpx;
+  margin-left: 10rpx;
+  display: inline-block;
+  text-align: center;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(133,136,141,1);
+}
+#demand-detail .procurement-news .state{
+  width:99rpx;
+  height:42rpx;
+  background:rgba(236,255,249,1);
+  border:1px solid rgba(25,194,140,1);
+  border-radius:4rpx;
+  font-size:20rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(39,197,151,1);
+  line-height:42rpx;
+  text-align: center;
+  display: inline-block;
+  margin-left: 25rpx;
+}
+#demand-detail .procurement-news .item{
+  margin: 10rpx 0;
+}
+#demand-detail .procurement-news .btns{
+  padding: 30rpx 0 10rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+#demand-detail .procurement-news .btns .stop-btn{
+  width:210rpx;
+  height:70rpx;
+  line-height:70rpx;
+  text-align: center;
+  background:linear-gradient(0deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);
+  border-radius:35rpx;
+  font-size:30rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  margin-right: 26rpx;
+}
+#demand-detail .procurement-news{
+}
+#demand-detail .imgs{
+  margin: 30rpx 27rpx 36rpx 29rpx;
+  box-sizing: border-box;
+  width:694rpx;
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  min-height:648rpx;
+}
+#demand-detail .imgs .title{
+  height:31rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:800;
+  color:rgba(51,51,51,1);
+  line-height:38rpx;
+  padding: 29rpx 0 30rpx 30rpx;
+  border-bottom: 1px solid rgba(238,238,238,1);
+}
+#demand-detail .imgs .imgs-content {
+  padding: 23rpx;
+  box-sizing: border-box;
+
+}
+#demand-detail .imgs .imgs-content .box{
+  width:310rpx;
+  height:240rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(213,218,224,1);
+  border-radius:16rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+#demand-detail .imgs .imgs-content image{
+  width:230rpx;
+  height:223rpx;
+}
+#demand-detail .imgs .imgs-content .box:nth-child(2n+1){
+  margin-right: 20rpx;
+}
+#demand-list .item-total{
+  padding: 28rpx 21rpx 26rpx 21rpx;
+  box-sizing: border-box;
+}
+#demand-detail .item-name .need-img{
+  width:126rpx;
+  height:126rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(224,225,234,1);
+  border-radius:10rpx;
+  margin-right: 23rpx;
+}
+#demand-detail .item-name .need-img image{
+  width:126rpx;
+  height:87rpx;
+  border-radius:10rpx;
+  margin: auto;
+}
+#demand-detail .item-name{
+  display: flex;
+  align-items: center;
+}
+#demand-detail .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 40rpx;
+}
+#demand-detail .title{
+  height:30rpx;
+  font-size:30rpx;
+  font-family:Microsoft YaHei;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  line-height:36rpx;
+}
+#demand-detail .hot{
+  width:46rpx;
+  height:23rpx;
+  font-size:28rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,46,46,1);
+  line-height:36rpx;
+}
+#demand-detail .right{
+  flex-grow: 1;
+}
+#demand-detail .item-company {
+  padding: 15rpx 21rpx 32rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(238,238,238,1);
+}
+#demand-detail .item-company .name{
+  width:89rpx;
+  height:28rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  line-height:36rpx;
+}
+#demand-detail .item-company .posts{
+  width:58rpx;
+  height:30rpx;
+  border:1px solid rgba(255,0,0,1);
+  border-radius:6rpx;
+  display: inline-block;
+  color:rgba(255,0,0,1);
+  font-weight:500;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  line-height:30rpx;
+  text-align: center;
+  margin-left: 33rpx;
+}
+#demand-detail .item-company .company-name{
+  width:245rpx;
+  height:23rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  line-height:18rpx;
+  margin-top: 18rpx;
+
+}
+#demand-detail .item-category .category-item{
+  width:80rpx;
+  height:19rpx;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(133,136,141,1);
+  line-height:18rpx;
+  margin-right: 10rpx;
+}

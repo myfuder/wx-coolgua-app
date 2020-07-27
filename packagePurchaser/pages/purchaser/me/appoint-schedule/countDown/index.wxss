@@ -1,0 +1,11 @@
+/* packagePurchaser/pages/purchaser/me/appoint-schedule/countDown/index.wxss */
+.opt-tixing{
+  background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  width: 314rpx;
+  /* border: 1px solid rgba(255,46,48,1); */
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+<!--展商-->
+<import src="../../../../../pages/common/tabbar.wxml" />
+<template wx:if="{{tabbarShow}}" is="tabBar" data="{{tabBar}}" />
+<view class="tab-container">
+  <!-- <view class="search-area">
+    <view class="search-top">
+      <view class="input-area">
+        <image src="{{staticImageUrl}}/img/xgyz/search.png" mode='widthFix'></image>
+        <input class="input" type="text" placeholder="{{langTranslate['请输入展商名称/展位号']}}" placeholder-class="input-placeholder" bindinput="changeKeyTap" value="{{key}}"></input>
+      </view>
+      <view class="search-label" bindtap="showSearchTap">
+        <text>{{langTranslate['筛选']}}</text>
+        <image mode='widthFix' src="{{staticImageUrl}}{{isShowSearch ? '/img/xgyz/arrow_top.png' : '/img/xgyz/arrow_down.png'}}"></image>
+      </view>
+    </view>
+    
+    <filter bind:comfire="comfire" bind:close="close" isShowSearch="{{isShowSearch}}" id="demand-filter" style="width:100%;height:100%;"></filter> -->
+
+    <!-- <view wx:if="{{isShowSearch}}" class="search-con">
+      <view wx:for="{{productTypeList}}" wx:key="item" data-id="{{item.id}}"  class="con-item">
+        <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+          <image src="{{staticImageUrl}}{{item.isChecked ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>
+          <text class="con-title">{{item.chinese}}</text>
+        </view>
+        <view class="search-child">
+          <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem" data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap" data-index="{{childIndex}}">
+            <image src="{{staticImageUrl}}{{childItem.isChecked ? '/img/xgyz/choose_pre.png' : '/img/xgyz/choose.png'}}"></image>
+            <text class="con-title">{{isEn ? childItem.english : childItem.chinese}}</text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  <!-- </view> -->
+  <!-- 展品列表 -->
+  <view class="con-area">
+    <view class="exhibition-list">
+      <exh-item exhibitList="{{exhibitList}}" exh-item-type="exhibition" exhItemTypeStatus="list"></exh-item>
+    </view>
+  </view>
+  <!-- 展品列表-完 -->
+  <!-- 以下是对分页组件的引用 -->
+  <view class="bottom-page">
+    <pagination current-page="{{currentPage}}" total-page="{{totalPage}}" exh-item-type="exhibition" bind:changePage="changePageTap"></pagination>
+  </view>
+</view>

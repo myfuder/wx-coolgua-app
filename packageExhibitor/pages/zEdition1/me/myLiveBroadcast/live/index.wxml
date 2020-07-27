@@ -1,0 +1,92 @@
+<!-- 引入wxs脚本 -->
+<wxs src="../../../../../../wxs/subutil.wxs" module="tools"></wxs>
+<view class="content" wx:if="{{liveUrl}}">
+  <!-- <live-pusher wx:if="{{cameraDiraction == 'front'}}" device-position="front" url="{{liveUrl}}" mode="RTC" autopush bindstatechange="statechange" binderror="bindErrorChange" style="width: 100%; height: {{screenHeight}}px;" />
+  <live-pusher wx:if="{{cameraDiraction == 'back'}}" device-position="back" url="{{liveUrl}}" mode="RTC" autopush bindstatechange="statechange" binderror="bindErrorChange" style="width: 100%; height: {{screenHeight}}px;" /> -->
+  <live-pusher url="{{liveUrl}}" device-position="front"
+               mode="RTC" autopush bindstatechange="statechange" binderror="bindErrorChange"
+               style="width: 100%; height:{{screenHeight}}px;z-index: 88;" />
+  <!-- im 消息 -->
+  <cover-view
+    scroll-top="{{scrollTop}}rpx"
+    overflow-y="scroll"
+    class="room-im"
+    style="overflow-y: scroll;"
+  >
+    <cover-view id="coverScrollBox" >
+      <cover-view class="room-im-msg-box-im" wx:for="{{imMsgList}}"
+                  style="display: flex;align-items: center;"
+                  wx:key="*this" wx:if="{{item.news}}">
+        <cover-view class="{{ !item.system ? 'room-im-msg-box-im-name' : 'room-im-msg-box-im-system' }}">{{item.name}}:</cover-view>
+        <cover-view style="color: #fff">
+          {{item.news}}
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+
+
+  <!--  <cover-view class="change-camera"  style="bottom:40px;">
+      <cover-image class="icon-camara" bindtap="changeCamera" src="https://www.coolgua.net/match_img/img/zEdition1/icon_sharevideo.png"></cover-image>
+      <cover-view  class="my-detail" bindtap="gotoMyInter"
+              style="padding-left:20rpx;display: flex;align-items: center;">
+        <cover-image class="faqi" src="https://www.coolgua.net/match_img/img/faqi.png"></cover-image>
+&lt;!&ndash;      我的预约&ndash;&gt;
+      <cover-view> {{label.label1}}</cover-view>
+    </cover-view>
+  </cover-view>-->
+
+  <!--直播人数 top-->
+  <cover-view class="room-data">
+    <cover-view class="row-style" wx:if="{{userInfo}}">
+      <cover-image bindtap="backClick" class="back-btn" src="https://www.coolgua.net/match_img/img/video_back.png"></cover-image>
+      <cover-view class="left-wrap">
+        <cover-image class="actor-img" src="{{userInfo.portrait}}"></cover-image>
+        <cover-view class="nickname-text">{{userInfo.contact}}</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view  class="row-style current-person-num">
+      {{label.label2}}：{{num}}
+    </cover-view>
+    <cover-view  class="row-style current-person-num">
+      {{label.label3}}：{{duration}}
+    </cover-view>
+  </cover-view>
+  <!--  <cover-view class="room-status" style="top: 100rpx;">
+      {{pushStatus}}
+    </cover-view>-->
+  <cover-view class="room-status" style="top: 100rpx;">
+    <cover-image bindtap="closeClick" class="live-stop" src="../../../../../../common/image/stop_live.png"></cover-image>
+  </cover-view>
+
+  <!--  <cover-view class="room-status bottom" style="z-index: 88">
+      <input
+              style="background: #eee;text-align: left;position: relative;left: 10rpx;"
+              value="{{ messageContent }}" class="input-box-input"
+              bindconfirm="sendMessage" bindinput="msgInputChange"></input>
+      <cover-view class="input-box-btn" bindtap="sendMessage">{{label.send}}</cover-view>
+    </cover-view>-->
+
+  <!--输入款 -->
+  <cover-view class="wrapperInputBox">
+    <cover-view style="display: flex;align-items: center;height: 80rpx;" class="inputBox">
+      <cover-view class='cover-input' bindtap='tapInput'>
+        <cover-view class='text'>{{inputInfo||'输入点什么'}}</cover-view>
+        <input class='input' bindconfirm='sendMessage'
+               value='{{inputInfo}}'
+               focus='{{inputFocus}}' bindinput='bindinput' style="opacity: 0px;"></input>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+  <!--  切换摄像头-->
+  <cover-view class="wrapper-icon-camara">
+    <cover-image class="icon-camara" bindtap="changeCamera"
+                 src="https://www.coolgua.net/match_img/img/zEdition1/icon_sharevideo.png"></cover-image>
+  </cover-view>
+
+  <!--    我的预约按钮-->
+  <cover-view  class="wrapperSeeMyYuyue"  bindtap="gotoMyInter">
+    <cover-image class="faqi" src="https://www.coolgua.net/match_img/img/faqi.png"></cover-image>
+    <cover-view class="text">收到的预约</cover-view>
+  </cover-view>
+</view>

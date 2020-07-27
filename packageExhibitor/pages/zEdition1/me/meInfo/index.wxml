@@ -1,0 +1,113 @@
+<!--packageExhibitor/pages/zEdition1/me/meInfo/index.wxml-->
+<view class="content" style="height: {{height}}px;background: #F6F7FB;padding-bottom: 300rpx;">
+    <view style="position: relative;">
+        <view style="position: fixed;top:50rpx;right: 30rpx;z-index:998;display: flex" bindtap="gotoEdit">
+            <image
+                style="width: 40rpx;height: 40rpx;margin-top: -8rpx;"
+                src="{{edit_icon_image}}"></image>
+            <view class="small " style="color:#27C597;padding-left: 10rpx">{{langTranslate['编辑']}}</view>
+        </view>
+
+        <exhibitorItem item="{{info}}"></exhibitorItem>
+    </view>
+
+
+    <view class="row-container">
+        <view class="wx-card" style="margin-top: 20rpx;">
+            <view class="wx-card-title">
+              {{langTranslate['公司图片']}}
+            </view>
+            <view class="wx-card-body">
+                <view style="width:642rpx;height:390rpx;display: flex;justify-content: center;align-items: center">
+                    <image
+                        style="max-height: 100%;max-width: 100%"
+                        mode="aspectFit"
+                        bindtap="seeZoomImage"
+                        src="{{info.portrait||defaultUserImage}}"></image>
+
+                </view>
+            </view>
+        </view>
+
+        <view class="wx-card" style="margin-top: 20rpx;">
+            <view class="wx-card-title">
+                {{langTranslate['视频直播']}}
+            </view>
+            <view class="wx-card-body">
+                <view style="width:642rpx;height:390rpx;">
+                    <video src="{{info.video}}" style="width: 100%;max-height: 390rpx"></video>
+                </view>
+            </view>
+        </view>
+
+        <view class="wx-card" style="margin-top: 20rpx;">
+            <view class="wx-card-title">
+                 {{langTranslate['公司介绍']}}
+            </view>
+            <view class="wx-card-body">
+                <view class="intoduction"
+                      style="box-sizing: border-box"
+                      wx:if="{{language!='en'}}">{{info.introduction}}</view>
+                <view class="intoduction"
+                      style="box-sizing: border-box"
+                      wx:else>{{info.introductionEn}}</view>
+            </view>
+        </view>
+
+    </view>
+
+    <!--   <view class="switch-tab" style="margin-top: 20rpx;">
+           <text bindtap="switchTabClick" data-idx="{{idx}}" wx:for-index="idx"
+                 class="switch-tab-item {{currentTabIndex == idx?'focus_style':''}}" wx:for="{{switchTabStr}}"
+                 wx:key="*this">{{item}}
+           </text>
+       </view>
+       <block wx:if="{{currentTabIndex == 0}}">
+           <view class="me-info-wrap">
+               <view class="header-wrap tx1">
+                   <text wx:if="{{language!='en'}}">{{info.company}}</text>
+                   <text wx:else>{{info.companyEn}}</text>
+                   <view>
+                       <image class="icon"></image>
+                       <text class="edit-btn-text" bindtap="gotoEdit">{{str.editInfo}}</text>
+                   </view>
+               </view>
+               <view class="detail tx2">
+                   <text>{{label.roomNum}}：{{info.hall_number}}</text>
+                   <text>{{label.doorNum}}：{{info.boothNumber}}</text>
+                   <text>{{label.link}}：{{info.website}}</text>
+                   <text wx:if="{{language!='en'}}">{{label.productType}}：
+                       <text class="middle-label" wx:for="{{info.tagNames}}" wx:key="*this">{{item}}</text>
+                   </text>
+                   <text wx:else>{{label.productType}}：
+                       <text class="middle-label" wx:for="{{info.tagEnglishNames}}" wx:key="*this">{{item}}</text>
+                   </text>
+               </view>
+           </view>
+           <text class="label1">{{label.companyPic}}</text>
+           <view class="space-line"></view>
+           <view class="company-img-wrap">
+               <image wx:if="{{info.portrait}}" mode="widthFix" src="{{info.portrait}}"></image>
+               <image wx:else mode="widthFix" src="https://www.coolgua.net/match_img/img/default/exhibitor.png"></image>
+           </view>
+           <text class="label1">{{label.liveVideo}}</text>
+           <view class="space-line"></view>
+           <view class="videocon" wx:if="{{info.video!=''}}">
+               <video src="{{info.video}}"></video>
+           </view>
+           <text class="label1">{{label.companyIntroll}}</text>
+           <view class="space-line"></view>
+           <view class="intoduction" wx:if="{{language!='en'}}">{{info.introduction}}</view>
+           <view class="intoduction" wx:else>{{info.introductionEn}}</view>
+       </block>
+       <block wx:if="{{currentTabIndex == 1}}">
+           &lt;!&ndash; <view wx:for="{{list}}" wx:key="*this"> &ndash;&gt;
+           <product value="{{list}}"></product>
+           &lt;!&ndash; <product value="{{item}}"></product> &ndash;&gt;
+           &lt;!&ndash; <view style="height:20rpx; background-color: #F8F8F8;"></view> &ndash;&gt;
+           &lt;!&ndash; </view> &ndash;&gt;
+           <view class="add" bindtap="addproduct">
+               <image src="https://www.coolgua.net/match_img/img/zEdition1/ADD.png"></image>
+           </view>
+       </block>-->
+</view>

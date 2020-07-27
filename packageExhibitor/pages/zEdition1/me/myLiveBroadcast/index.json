@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "create-live-dialog":"../../components/bizComponents/createLiveDialog/index"
+  }
+}

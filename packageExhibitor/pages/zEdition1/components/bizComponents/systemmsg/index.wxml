@@ -1,0 +1,16 @@
+
+<view wx:for="{{systemmsglist}}" wx:key="index">
+	<view class="content">
+	 <view class="item">
+		<view class="time">{{item.createTime}}</view>
+		<view class="itemcon">
+			<view class="title">{{item.title}}</view>
+			<view class="center">
+				<text>{{item.messageList.deteFormat}}</text>
+				<image src="https://www.coolgua.net/match_img/img/left.png"></image>
+			</view>
+			<view class="bottom">{{item.messageList.content}}</view>
+		</view>
+	 </view>
+	</view>
+</view>

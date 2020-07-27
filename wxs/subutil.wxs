@@ -1,0 +1,13 @@
+var sub = function(val) {
+  return val.substring(0,6)+"***"
+}
+
+var includestr = function(str,str1) {
+	if(str.indexOf(str1)!=-1){
+		return true;
+	}else{
+		return false;
+	}
+}
+module.exports.sub = sub;
+module.exports.includestr = includestr;

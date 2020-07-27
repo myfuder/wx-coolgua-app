@@ -1,0 +1,22 @@
+<view class="uploadImageContainer"
+      style="border-radius:10rpx;border:1px dashed rgba(220,223,230,1);display: flex;justify-content: center;align-items: center;flex-direction: column">
+
+    <view
+        style="position:relative;width:100%; display: flex;justify-content: center;align-items: center">
+        <image
+            wx:if="{{videoFile}}"
+            src="{{icon_delete}}"
+            catchtap="deleteVideo"
+            style="z-index:998;width: 40rpx;height: 40rpx;position: absolute;top: -10rpx;right: -20rpx;"></image>
+        <image
+            bindtap="uploadVideo"
+            wx:if="{{!videoFile}}"
+            style="max-height: 100%;max-width: 100%;height: 120rpx;"
+            mode="aspectFit"
+            src="{{icon_image_upload}}"></image>
+
+        <video src="{{videoFile}}" wx:if="{{videoFile}}" style="height: 300rpx;"></video>
+
+    </view>
+    <view style="font-size:24rpx;text-align: center;margin-top: 20rpx;color: #999999;">{{langTranslate['添加图片/视频']}}</view>
+</view>

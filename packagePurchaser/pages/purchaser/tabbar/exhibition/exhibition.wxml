@@ -1,0 +1,93 @@
+<!-- 展商 -->
+<import src="../../../../../pages/common/tabbar.wxml"/>
+<import src="./exhibition.skeleton.wxml"/>
+<template is="tabBar" data="{{tabBar}}"/>
+<!-- <template is="skeleton" wx:if="{{loadingPage}}"></template> -->
+<view class="tab-container" wx:if="{{!loadingPage}}">
+  <view class="search-area">
+    <view class="search-top">
+      <view class="input-area">
+        <image src="{{staticImageUrl}}/img/xgyz/search.png" mode='widthFix'></image>
+        <input class="input" type="text" placeholder="{{langTranslate['请输入展商名称/展位号']}}"
+               placeholder-class="input-placeholder" bindchange="changeKeyTap" value="{{key}}"></input>
+        <span class="serch-icon" bindtap="refreshTableData">{{langTranslate['搜索']}}</span>
+      </view>
+    </view>
+    <!-- 筛选弹出框 -->
+    <view wx:if="{{isShowSearch}}" class="search-con"
+          catchtouchmove='true' style="top:10rpx;">
+      <scroll-view animation="{{animationadd}}"
+                   class="innnerContent"
+                   scroll-y
+                   style="transform: translateX(300rpx);height: 950rpx;border-bottom: 1px solid #ddd;padding-top: 40rpx;"
+      >
+        <view wx:for="{{productTypeList}}" wx:key="item" data-id="{{item.id}}" class="con-item">
+          <view class="search-par" bindtap="chooseTap" data-index="{{index}}">
+            <image
+              src="{{item.isChecked ? default_checkbox_checked:default_checkbox_no_chekced}}"></image>
+            <text class="con-title">{{item.chinese}}</text>
+          </view>
+          <view class="search-child">
+            <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+                  data-pindex="{{index}}" class="child-item" bindtap="chooseChildTap" data-index="{{childIndex}}">
+              <image
+                src="{{childItem.isChecked ? default_checkbox_checked:default_checkbox_no_chekced}}"></image>
+              <text class="con-title">{{isEn ? childItem.english : childItem.chinese}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <!-- 弹出框底部按钮 -->
+      <!-- <view class="bottom-btns" style="top:920rpx;border-radius:0px 0px 10rpx 10rpx;transform: translateX(300rpx);"
+            animation="{{animationadd}}">
+        <view class="button button-cancel" style="margin: 0px;" bindtap="closeFilterDialog">
+          取消
+        </view>
+        <view class="button button-primary" bindtap="closeFilterDialog" style="margin: 0px;margin-left: 40rpx;">
+          确定
+        </view>
+      </view> -->
+      <view class="mark" bindtap="closeFilterDialog" style="height:{{winheight+10}}px;top:-20rpx;"></view>
+    </view>
+  </view>
+  <view style="height:calc(100% - 128rpx - 20rpx);padding-top:20rpx">
+    <!-- 展品列表 -->
+    <view class="con-area">
+      <ul class="exhibition-menu">
+        <li wx:for="{{demo_data}}" class="  exhibition-menu-text {{demo_index==index?'exhibition-menu-text-active':''}}" >
+          <i class="menu-icon"></i>
+          <text bindtap="toggle" data-index="{{index}}" data-item="{{item}}"  class="text-overflow-two" style="padding:0 10rpx">{{item&&(isEn?item.english:item.chinese)||langTranslate['全部分类']}}</text>
+        </li>
+        <!-- <li class="exhibition-menu-text">
+          切割机
+        </li> -->
+      </ul>
+      <view class="exhibition-list">
+        <view class="exhibition-list-tabs" style="background: #fff;">
+          <view class="exhibition-list-tab-item">
+            <span class="{{role=='0'?'exhibition-list-tab-active':''}}" data-role="0" bindtap="toggleactive">{{langTranslate['热度']}}</span>
+          </view>
+          <view class="exhibition-list-tab-item ">
+            <span class="{{role=='1'?'exhibition-list-tab-active':''}}" data-role="1" bindtap="toggleactive">{{langTranslate['正在直播']}}</span>
+          </view>
+          <view class="exhibition-list-tab-item">
+            <span class="{{role=='2'?'exhibition-list-tab-active':''}}" data-role="2" bindtap="toggleactive">{{langTranslate['推荐']}}</span>
+          </view>
+        </view>
+        <view  wx:if="{{exhibitList.length>0}}">
+          <exh-item exhibitList="{{exhibitList}}" bind:changePage="changePageCollect" exh-item-type="exhibition"
+                    exhItemTypeStatus="list"></exh-item>
+          <view class="bottom-page">
+            <pagination current-page="{{currentPage}}" total-page="{{totalPage}}" exh-item-type="exhibition" bind:changePage="changePageTap"></pagination>
+          </view>
+        </view>
+        <view wx:else style="padding-top: 40rpx;font-size: 24rpx;text-align: center;">
+          {{langTranslate['暂时没有数据']}}
+        </view>
+      </view>
+    </view>
+    <!-- 展品列表-完 -->
+    <!-- 以下是对分页组件的引用 -->
+    
+  </view>
+</view>

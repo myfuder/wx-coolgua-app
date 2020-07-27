@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container"> 
+    <view class="valid-phone">
+        <image src="{{staticImageUrl}}/img/xgyz/startBanner.jpg" class="login-bg"></image>
+        <image src="{{defaultUserImage}}"
+               style="width: 552rpx;height: 552rpx;left: 50%;transform: translateX(-50%)"
+               class="logo" mode='widthFix'></image>
+        <view class="loginType">
+            <view class="button audience" bindtap="visitorAutoLogin">我是观众</view>
+            <view class="button exhibitor" bindtap="exhibitorAutoLogin">我是展商</view>
+        </view>
+   </view>
+</view>

@@ -1,0 +1,16 @@
+/* packagePurchaser/pages/purchaser/index/hot-video/classification-video/index.wxss */
+
+.class-video-tabs .class-video-tab-item{
+  width:120rpx;
+  height:70rpx;
+  border-radius:8rpx;
+  font-size:24rpx;
+  font-weight:400;
+  background:#EEF1F5;
+  color:#333333;
+  padding: 5rpx;
+}
+.class-video-tab-avtive{
+  background:rgba(255,0,0,1) !important;
+  color:#fff !important
+}

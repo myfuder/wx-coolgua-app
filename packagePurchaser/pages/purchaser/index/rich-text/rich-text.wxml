@@ -1,0 +1,18 @@
+<!--富文本-->
+<view>
+  <swiper class="swiper"
+      :autoplay="true"
+      :duration="500">
+      <swiper-item wx:for="{{bannerList}}" wx:key="item" class="swiper-item">
+          <view class="swiper-item-img">
+              <image src="{{item.picPath}}" class="back-img"></image>
+          </view>
+      </swiper-item>
+  </swiper>
+  <view class="title-area">
+    <text>{{ title }}</text>
+  </view>
+  <view class="rich-area">
+    <rich-text nodes="{{richText}}"></rich-text>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+<!--packageExhibitor/pages/newedition/demandRelease/demandRelease.wxml-->
+<view id="demand-release">
+  <view class="box">
+    <view class="company-name common-item">
+      <text class="lableStyle">采购商/采购企业名称</text>
+      <text class="name">宁波市长谷机电有限公司</text>
+    </view>
+    <view class="country-name common-item">
+      <text class="lableStyle">国家</text>
+      <text class="name">乌克兰</text>
+    </view>
+    <view class="commodities-category">
+      <text class="lableStyle category-lable">采购商品品类</text>
+      <view class="category-item">
+        <view class="category-lable">日用五金</view>
+        <view class="category-list">
+          <text class="active">不锈钢制品</text>
+          <text>五金器皿</text>
+          <text>厨房用品</text>
+          <text>厨房用品</text>
+        </view>
+      </view>
+    </view>
+    <view class="buyers-name">
+      <text class="lableStyle">采购商名称</text>
+      <input class="buyers-input" bindinput="buyerName" placeholder="请输入采购商名称"/>
+    </view>
+    <view class="buy-count common-item">
+      <text class="lableStyle">采购商数量</text>
+      <text class="name">
+        <input class="count-input" bindinput="count"/>
+        <text>台</text>
+      </text>
+    </view>
+    <view class="price-around common-item">
+      <text class="lableStyle">价格幅度</text>
+      <text class="name">
+        <input class="count-input" bindinput="price"/>
+        <text>RMB</text>
+      </text>
+    </view>
+    <view class="material common-item">
+      <text class="lableStyle">材质/规格</text>
+      <text class="name">不锈钢、铝合金、塑料</text>
+    </view>
+    <view>
+      <view class="img-item" wx:for="{{imgList}}" wx:key="index">
+        <text class="lableStyle">{{item.name}}</text>
+        <view class="img-box" wx:if="{{item.url}}">
+          <image src="{{item.url}}"/>
+        </view>
+        <view class="img-click" wx:else data-index="{{index}}" bindtap="chooseImg">选择文件</view>
+      </view>
+    </view>
+  </view>
+  <view class="btns">
+    <button class="back-btn">返回</button>
+    <button class="confirm-btn">发布需求</button>
+  </view>
+</view>

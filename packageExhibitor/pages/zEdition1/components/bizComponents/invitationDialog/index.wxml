@@ -1,0 +1,39 @@
+<view class="outer-wrap">
+  <view class="content">
+    <label>{{label.label1}}：</label>
+    <input bindinput='inputChange' placeholder="{{label.label2}}"></input>
+    <label>{{label.label3}}：</label>
+    <picker mode="date" bindchange="bindDateChange">
+      <view class="picker">
+        {{date?date:label.label4}}
+        </view>
+    </picker>
+    <view class="time-wrap">
+      <view>
+        <label>{{label.label5}}：</label>
+        <picker mode="time" bindchange="bindTimeStartChange">
+          <view class="picker">
+            <image class="picker-icon" src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+            <text>{{timeStart?timeStart:label.label6}}</text>
+          </view>
+        </picker>
+      </view>
+      <view>
+        <label>{{label.label7}}：</label>
+        <picker mode="time" bindchange="bindTimeEndChange">
+          <view class="picker">
+            <image class="picker-icon" src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+            <text>{{timeEnd?timeEnd:label.label6}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    
+    <label>{{label.label8}}：</label>
+    <textarea fixed="true" placeholder="{{label.label9}}" bindinput='inputRemarkChange'></textarea>
+    <view class="footer">
+      <button bindtap="cancleClick">{{label.label10}}</button>
+      <button bindtap="sureClick">{{label.label11}}</button>
+    </view>
+  </view>
+</view>

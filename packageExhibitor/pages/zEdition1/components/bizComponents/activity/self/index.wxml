@@ -1,0 +1,40 @@
+<view>
+		<view class="choose_items">
+			<view class="items_l">
+				<checkbox color="#ca0c16" style="transform:scale(0.6)"></checkbox>
+			</view>
+			<view class="items_r">
+				<text class="items_title">1.采购商贸洽谈会</text>
+				<view class="items_record">
+					<view>国籍 ：乌克兰</view>
+					<view>采购商品品类 ：手动/汽保工具</view>
+					<view>采购商品名称 ：动力喷雾器、螺丝供给机、胶带切割机</view>
+					<view>数量：500 台</view>
+					<view>价格幅度：价格幅度</view>
+					<view>材质/规格：不锈钢、铝合金、塑料</view>
+				</view>
+				
+			</view>
+		</view>
+		<view class="choose_items">
+			<view class="items_l">
+				<checkbox color="#ca0c16" style="transform:scale(0.6)"></checkbox>
+			</view>
+			<view class="items_r">
+				<text class="items_title">2.采购商贸洽谈会</text>
+				<view class="items_record">
+					<view>国籍 ：乌克兰</view>
+					<view>采购商品品类 ：手动/汽保工具</view>
+					<view>采购商品名称 ：动力喷雾器、螺丝供给机、胶带切割机</view>
+					<view>数量：500台</view>
+					<view>价格幅度：价格幅度</view>
+					<view>材质/规格：不锈钢、铝合金、塑料</view>
+				</view>
+				
+			</view>
+		</view>
+	<view class="items_btns">
+		<view class="btnL">{{activity.back}}</view>
+		<view class="btnR">{{activity.confirm}}</view>
+	</view>
+</view>

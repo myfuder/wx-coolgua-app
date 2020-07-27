@@ -1,0 +1,84 @@
+		<!-- 我收到的邀约-->
+		<view class="yaoyue">
+			<view class="yaoyue_one {{language!='en' ? '':'yaoyue_two_item_en'}}">
+<!--				<image class="yaoyue_one_img"  src="https://www.coolgua.net/match_img/img/faqi.png"></image>-->
+				<view class="yaoyue_one_word" style="margin-left: 10rpx;">{{Invitation_shou}}</view>
+			</view>
+			<view class="yaoyue_two  {{language!='en' ? '':'yaoyue_two_item_en'}}">
+				<view bindtap="switchTabClick_three"  data-idx="{{item.unreadNum}}" wx:for-index="item.unreadNum"  class="yaoyue_two_item {{current_menus1 == item.unreadNum?'focus_style_two':''}}" wx:for="{{menus}}" wx:key="*this">
+					<view>{{item.title}}</view>
+				</view>
+			</view>
+			<view class="yaoyue_three"  wx:for="{{shoudao_list}}"  wx:key="*this"  data-idx="{{idx}}" wx:for-index="idx">
+				<view class="yaoyue_three1">{{item.top}}</view>
+				<view class="yaoyue_three2">{{language!='en' ? item.company : item.companyEn }}</view>
+				<view class="yaoyue_three3">{{Invitation_time}}：{{item.activityTimeBegin}} - {{item.activityTimeEnd}}</view>
+				<view class="yaoyue_three3">{{time_fa}}：{{item.createTime}}</view>
+				<view class="yaoyue_three3">{{time_beizhu}}：{{item.remark}}</view>
+				<!-- 收到预约里的已确认 -->
+					<!-- 正在进行 -->
+				<view class="yaoyue_three6" wx:if="{{current_menus1 == '0' && item.iska=='3'}}">
+					<!--<view class="yaoyue_three6_left"   bindtap="enterRoom"  data-item="{{item}}">{{meeting_enter}}</view>-->
+					<view class="yaoyue_three6_right" bindtap="quxiao"  data-item="{{item.id}}">{{Quxiao}}</view>
+				</view>
+					<!-- 已过期 -->
+				<view class="yaoyue_three5" wx:if="{{current_menus1 == '0' &&item.iska=='2'}}">
+					{{Expired}}
+				</view>
+					<!-- 倒计时 -->
+				<view class="yaoyue_three5 {{language!='en' ? '':'yaoyue_three5_en'}}" wx:if="{{item.iska=='1'}}">
+					{{meeting_start}}{{item.difftime}}
+				</view>
+				
+				<!-- 收到预约里的待确认 -->
+				<view class="yaoyue_three6" wx:if="{{current_menus1 == '1'}}">
+					<view class="yaoyue_three6_left" bindtap="queren" data-item="{{item.id}}">{{Queren}}</view>
+					<view class="yaoyue_three6_right" bindtap="jujue" data-item="{{item.id}}">{{Jujue}}</view>
+				</view>
+				<!-- 收到预约里的被拒绝 -->
+				<view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue1" data-item="{{item}}"  wx:if="{{current_menus1 == '2'}}">{{faqi_agian}}</view>
+				<!-- 收到预约里的已取消 -->
+				<view class="yaoyue_three7 {{language!='en' ? '':'islengthclass'}}" bindtap="yuyue2" data-item="{{item}}"  wx:if="{{current_menus1 == '3'}}">{{faqi_agian}}</view>
+			</view>
+		</view>
+		
+		
+		<view class="outer-wrap" wx:if="{{is_time_show}}">
+		  <view class="content">
+		    <label>{{label1}}：</label>
+		    <input bindinput='inputChange' placeholder="{{label2}}"></input>
+		    <label>{{label3}}：</label>
+		    <picker mode="date" bindchange="bindDateChange">
+		      <view class="picker">
+		        {{date_time?date_time:label4}}
+		        </view>
+		    </picker>
+		    <view class="time-wrap">
+		      <view>
+		        <label>{{label5}}：</label>
+		        <picker mode="time" bindchange="bindTimeStartChange">
+		          <view class="picker">
+		            <image class="picker-icon" src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+		            <text>{{timeStart?timeStart:label6}}</text>
+		          </view>
+		        </picker>
+		      </view>
+		      <view>
+		        <label>{{label7}}：</label>
+		        <picker mode="time" bindchange="bindTimeEndChange">
+		          <view class="picker">
+		            <image class="picker-icon" src="https://www.coolgua.net/match_img/img/picker-time.png"></image>
+		            <text>{{timeEnd?timeEnd:label6}}</text>
+		          </view>
+		        </picker>
+		      </view>
+		    </view>
+		    
+		    <label>{{label8}}：</label>
+		    <textarea placeholder="{{label9}}" bindinput='inputRemarkChange'></textarea>
+		    <view class="footer">
+		      <button bindtap="cancleClick">{{label10}}</button>
+		      <button bindtap="sureClick">{{label11}}</button>
+		    </view>
+		  </view>
+		</view>

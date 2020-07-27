@@ -1,0 +1,173 @@
+<!--index.wxml-->
+<import src="../../../../../pages/common/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar}}"/>
+<view class="tab-container">
+  <view>
+    <view class="top-area" style="background:url({{personalCenter}}) no-repeat 100% 100%;">
+      <view class="personal-info">
+        <image src="{{userInfo.portrait||defaultUserImage}}" class="user-img"></image>
+        <view class="base-info">
+          <view wx:if="{{isLogin}}">
+            <text class="user-name">{{isEn ? userInfo.contactEn : userInfo.contact}}</text>
+            <text class="station">{{isEn ? userInfo.companyEn : userInfo.company}}</text>
+            <view class="job">{{isEn ?userInfo.jobEn : userInfo.job}}</view>
+            <view class="productType">
+            <text wx:for="{{userInfo.tagNames}}" wx:key="{{i}}">{{item}}</text>
+            </view>
+          </view>
+          <view wx:else style="font-size: 24rpx;color:#666;" bindtap="go2auth">
+            <view style="color:#fff">{{langTranslate['您是游客']}}</view>
+            <view style="display: flex;color:#fff">{{langTranslate['请先授权']}}
+              <view style="color: #1CBF90;padding-left: 5rpx;">{{langTranslate['登陆']}}</view>
+            </view>
+          </view>
+          <view bindtap="goPage" data-page="edit-info" wx:if="{{isLogin}}"><text class="compile">{{langTranslate['编辑']}}</text></view>
+        </view>
+      </view>
+    </view>
+    <view class="user-menu">
+      <view class="menuB">
+        <view class="user-box clearfix" bindtap="goPage" data-page="my-demand">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab2.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['我的需求']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.demand}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <view class="user-box clearfix"
+              bindtap="goPage"
+              data-page="appoint-schedule" data-param="1">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab3.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['我的预约']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.invite}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <view class="user-box clearfix" bindtap="goPage" data-page="appoint-schedule" data-param="2">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab4.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['我的日程']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.schedule}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <view class="user-box clearfix" bindtap="goPage" data-page="message">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab5.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['我的消息']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.msg}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <view class="user-box clearfix" bindtap="activityTap" data-role="0">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab6.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['商贸配对活动']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.event}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <view class="user-box clearfix" bindtap="toCollectionPraise" data-page="collectionPrise">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab7.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['收藏/点赞']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text">{{statOverview&&statOverview.collectLikeCount}}</text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view>
+        <!-- <view class="user-box clearfix" bindtap="contactTap" data-page="my-demand">
+          <view class="item">
+            <image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/home/tab8.png"
+                   style="width: 32rpx;height:32rpx;"></image>
+            <text class="menu-label">{{langTranslate['联系客服']}}</text>
+          </view>
+          <view class="user-value">
+            <text class="value-text"></text>
+            <image src="{{staticImageUrl}}/img/xgyz/home/left.png" mode='widthFix'
+                   style="width: 14rpx;height: 14rpx;"></image>
+          </view>
+        </view> -->
+      </view>
+    </view>
+    <!--<view class="user-menu">
+      <view class="user-box" bindtap="goPage" data-page="my-demand">
+        <image src="{{staticImageUrl}}/img/purchaser/me_1.png"></image>
+        <view class="user-value" style="margin-left: 31rpx">
+          <text class="menu-label">{{langTranslate['我的需求']}}</text>
+          <text class="value-text">{{statOverview.demand}}</text>
+        </view>
+      </view>
+      <view class="user-box" bindtap="goPage" data-page="appoint-schedule" data-param="1">
+        <image src="{{staticImageUrl}}/img/purchaser/me_2.png" class="second-img"></image>
+        <view class="user-value">
+          <text class="menu-label">{{langTranslate['我的预约']}}</text>
+          <text class="value-text">{{statOverview.invite}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="user-menu">
+      <view class="user-box" bindtap="goPage" data-page="appoint-schedule" data-param="2">
+        <image src="{{staticImageUrl}}/img/purchaser/me_3.png" class="three-img"></image>
+        <view class="user-value">
+          <text class="menu-label">{{langTranslate['我的日程']}}</text>
+          <text class="value-text">{{statOverview.schedule}}</text>
+        </view>
+      </view>
+      <view class="user-box" bindtap="goPage" data-page="message">
+        <image src="{{staticImageUrl}}/img/purchaser/me_4.png" class="four-img"></image>
+        <view class="user-value">
+          <text class="menu-label">{{langTranslate['我的消息']}}</text>
+          <text class="value-text">{{statOverview.msg}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="user-menu">
+      <view class="user-box" bindtap="contactTap">
+        <image src="{{staticImageUrl}}/img/purchaser/me_5.png" class="five-img"></image>
+        <view class="user-value" style="margin-left: 28rpx">
+          <text class="menu-label">{{langTranslate['联系客服']}}</text>
+        </view>
+      </view>
+      <view class="user-box" bindtap="activityTap" data-role="0">
+        <image src="{{staticImageUrl}}/img/purchaser/me_5.png" class="five-img"></image>
+        <view class="user-value" style="margin-left: 28rpx">
+          <text class="menu-label">已报名的活动</text>
+        </view>
+      </view>
+    </view>-->
+  </view>
+
+  <view class="footer">
+    <view class="tab-ticket" bindtap="switchRole">{{langTranslate['切换为展商']}}</view>
+  </view>
+  <!-- <view class="language">
+    <text bindtap="switchLanguage">中/EN
+    </text>
+  </view> -->
+</view>

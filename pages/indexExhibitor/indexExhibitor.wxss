@@ -1,0 +1,153 @@
+.language-change{
+  text-align: right
+}
+.language-change text{
+  width:28rpx;
+  height:28rpx;
+  font-size:28rpx;
+  font-weight:bold;
+  color:#FFFFFF;
+  background: #f00;
+  border:1px solid #f00;
+}
+.language-change view {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  float: right;
+  color: #f00;
+  background: #fff;
+  margin-left: 10rpx;
+  border: 1px solid #f00;
+  
+  }
+  .lauguage-active {
+    color: #FFFFFF !important;
+    background: #f00 !important;
+    
+    }
+    
+  
+.buttons-area {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 40rpx 0;
+}
+.buttons-area .button-box {
+  width: 25%;
+  text-align: center;
+}
+.buttons-area .en-button-box {
+  width: 25%;
+  text-align: center;
+}
+.buttons-area .button-box .butImg{
+  display: flex;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.buttons-area .button-box .butImg image{
+  display: block;
+  max-width: 90rpx;
+  max-height: 90rpx;
+  margin: 0 auto;
+}
+.button-box text {
+  font-size:24rpx;
+  color:#333333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.button-box .count {
+  position: absolute;
+  right: -5rpx;
+  top: -5rpx;
+  min-width: 24rpx;
+  height: 24rpx;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  background-color: #FF0000;
+  text-align: center;
+  border-radius: 50%;
+  font-size:17rpx;
+  color:rgba(255,255,255,1);
+  line-height: 24rpx;
+}
+.con-main-video-live .live-tab{
+  font-size:36rpx;
+  font-weight:bold;
+  color:#333333;
+  display: block;
+  line-height: 30rpx;
+}
+
+.s-class-header{
+  background: #FF0000;
+  color:#fff
+}
+.audience-list .audience-item .totalStyle{
+  /* height:23rpx; */
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:18rpx;
+  margin: 14rpx 0 0rpx;
+}
+.audience-list .audience-item .like-item{
+  width:120rpx;
+  height:18rpx;
+  background:rgba(244,248,251,1);
+  border-radius:4px;
+  font-size:20rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(133,136,141,1);
+  line-height:18rpx;
+  margin-right: 10rpx;
+}
+.audience-list .icons {
+  display: flex;
+}
+.audience-list .icons view{
+  width:70rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background:rgba(255,0,0,1);
+  opacity:0.05;
+  border-radius:50%;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+.audience-list .icons image{
+  width:38rpx;
+  height:38rpx;
+  vertical-align: middle;
+}
+.audience-list .item-btns{
+  padding: 51rpx 0 35rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.audience-list .booking-btn{
+  width:210rpx;
+  height:70rpx;
+  background:rgba(255,0,0,1);
+  border-radius:35px;
+  font-size:30rpx;
+  font-family:Microsoft YaHei;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:70rpx;
+  text-align: center;
+}

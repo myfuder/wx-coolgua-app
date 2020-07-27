@@ -1,0 +1,98 @@
+<!--packageExhibitor/pages/newedition/myInformation/myInformation.wxml-->
+<view id="my-information">
+  <view class="header">
+    <view class="header-img" bindtap="uploadPic">
+      <image src="{{form.acode}}" />
+    </view>
+    <text class="changeClick" bindtap="uploadPic">{{langTranslate['修改头像']}}</text>
+  </view>
+  <view class="label" style="">{{langTranslate['请完善您的资料']}}</view>
+  <view class="content">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['公司中文']}}</text>
+        <input class="weui-input content-input" name='company' data-name="company" bindinput="setForm" value='{{form.company}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['国家']}}</text> 
+        <view class="choose-area" style="display:flex;align-items:center">
+            <picker bindchange="bindCountryCodeChange" value="{{form.country}}" range="{{countryCodes}}" style="font-size:28rpx">
+              <text class="picker-select-text">{{countryCodes[countryCodeIndex]}}</text>
+            </picker>
+            <image src="{{myself_right_arrow}}" style="width:13rpx;height:24rpx;margin-left:17rpx;"></image>
+        </view>  
+      </view>
+      <view class="content-item" wx:if="{{showProvice}}">
+        <text class="content-lable">{{langTranslate['省份']}}</text>
+        <view class="choose-area" style="display:flex;align-items:center">
+          <picker bindchange="bindProvinceCodeChange" value="{{form.province}}" range="{{provinceCodes}}" style="font-size:28rpx">
+            <text class="picker-select-text">{{provinceCodes[provinceCodeIndex]}}</text>
+          </picker>
+          <image src="{{myself_right_arrow}}" style="width:13rpx;height:24rpx;margin-left:17rpx;"></image>
+        </view>
+      </view>
+      <view class="content-item" wx:if="{{showProvice}}">
+        <text class="content-lable">{{langTranslate['城市']}}</text>
+        <view class="choose-area" style="display:flex;align-items:center">
+          <picker bindchange="bindCityCodeChange" value="{{form.city}}" range="{{cityCodes}}" style="font-size:28rpx">
+            <text class="picker-select-text">{{cityCodes[cityCodeIndex]}}</text>
+          </picker>
+          <image src="{{myself_right_arrow}}" style="width:13rpx;height:24rpx;margin-left:17rpx;"></image>
+        </view>
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['职位（英文）']}}</text>
+        <input class="weui-input content-input" name='jobEn' data-name="jobEn" data-type="En" bindinput="setForm" value='{{form.jobEn}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['公司（英文）']}}</text>
+        <input class="weui-input content-input" name='companyEn' data-name="companyEn" data-type="En" bindinput="setForm" value='{{form.companyEn}}' placeholder="{{langTranslate['请输入']}}"/>
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['单位性质']}}</text>
+        <input class="weui-input content-input" name='nature' data-name="nature" bindinput="setForm" value='{{form.nature}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['联系人（中文）']}}</text>
+        <input class="weui-input content-input" name='contact' data-name="contact" bindinput="setForm" value='{{form.contact}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['联系人（英文）']}}</text>
+        <input class="weui-input content-input" name='contactEn' data-name="contactEn" data-type="En" bindinput="setForm" value='{{form.contactEn}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['手机']}}</text>
+        <input class="weui-input content-input" name='mobilePhone' data-name="mobilePhone" data-type="num" bindinput="setForm" bindblur="validateNum" type="number" value='{{form.mobilePhone}}' placeholder="{{langTranslate['请输入']}}" maxlength="11"/>
+      </view>
+      <view class="content-item">
+        <text class="content-lable">{{langTranslate['邮箱']}}</text>
+        <input class="weui-input content-input" name='email' data-type="email" data-name="email" bindinput="setForm" value='{{form.email}}' placeholder="{{langTranslate['请输入']}}" />
+      </view>
+    </form>
+    <view class="content-lable" style="margin:39rpx 28rpx 42rpx 27rpx">{{langTranslate['感兴趣的产品类型']}}</view>
+    <view style="padding: 0 28rpx 50rpx 27rpx">
+       <view class="filter-item" wx:for="{{productTypeList}}" wx:key="index" data-id="{{item.id}}">
+          <view bindtap="chooseTap" data-index="{{index}}" style="margin-top:53rpx;display:flex;align-items:center;">
+            <image wx:if="{{item.isChecked}}" src="{{filter_active}}" style="width:29rpx;height:29rpx;margin-right:9rpx;" />
+            <text wx:else class="check-box-none"></text>
+            <text class="name">{{item.name}}</text>
+          </view>
+          <view style="overflow:hidden">
+            <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+              data-pindex="{{index}}" class="child-item{{item.isChecked&&childItem.isChecked?'active':''}}" bindtap="chooseChildTap" data-index="{{childIndex}}" data-pindex="{{index}}" >
+              <text class="child-name">{{childItem.name}}</text>      
+            </view>
+          </view>
+        </view>
+    </view>
+    <view class="bottom-btns">
+        <view class="button button-reset" style="margin: 0px;" bindtap="formReset">
+          {{langTranslate['返回']}}
+        </view>
+        <view class="button button-primary" bindtap="formSubmit" style="margin: 0px;">
+          {{langTranslate['提交']}}
+        </view>
+      </view>
+  </view>
+
+</view>

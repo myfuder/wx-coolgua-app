@@ -1,0 +1,36 @@
+<view style="padding:30rpx;">
+    <view style="border-radius: 20rpx;background: #fff;position: relative;"
+          class="flex">
+        <view style="width:140rpx;height:140rpx;">
+            <image
+                style="max-width: 100%;max-height: 109%;border-radius: 10rpx;"
+                mode="aspectFit"
+                src="{{item.cover_image||item.portrait||default_product_image}}"></image>
+        </view>
+        <view style="padding-left: 20rpx;">
+            <view class="h3">{{item.name}}</view>
+            <view style="margin-top: 20rpx;">
+                <view class="small flex">
+                    <view style="color: #666666;">展商名称：{{item.company}}</view>
+                </view>
+                <view class="small flex flex-c-c" style="color: #FF2E2E;">
+                    <image src="{{fireImage}}"
+                           style="width:24rpx;height:24rpx;"
+                    ></image>
+                    <view style="margin-left:10rpx;">{{item.popular}}</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <view class="small flex flex-c-c" style="color:#666666;margin-top: 30rpx;">
+        <view  style="width: 120rpx;">展品类别</view>
+        <view class="flex " style="margin-left: 20rpx;flex-wrap: wrap">
+            <view class="wx-button small grey" style="margin-right: 10rpx;margin-bottom: 10rpx;"
+            wx:for="{{item.tagNames}}"
+                  wx:key="*this"
+                  wx:for-item="tag"
+            >{{tag}}</view>
+        </view>
+    </view>
+</view>

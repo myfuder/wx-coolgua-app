@@ -1,0 +1,132 @@
+<!-- 观众index.wxml -->
+<import src="../common/tabbar.wxml" />
+<import src="./index.skeleton.wxml"></import>
+<template is="skeleton" wx:if="{{loadingPage}}"></template>
+<template is="tabBar" data="{{tabBar}}" />
+<view class="tab-container">
+  <!-- banner图 -->
+  <view class="top-area">
+    <image class="areaImg" src="{{staticImageUrl}}/img/xgyz/index/topBack.png" mode='widthFix'></image>
+    <!-- swiper -->
+    <view style="padding: 20rpx;">
+      <banner bannerlist="{{bannerList}}"></banner>
+    </view>
+  </view>
+  <!-- 八个按钮 -->
+  <view class="buttons-area">
+    <!-- <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="goMePage" data-page="my-demand">
+      <view class="butImg">
+        <image src="{{staticImageUrl}}/img/xgyz/index/but1.png" mode='widthFix'></image>
+      </view>
+      <text>我的参观证</text>
+    </view> -->
+    <!-- 线上展厅 -->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2ExhibitorList" data-id="{{item.id}}" data-title="{{item.title}}">
+      <view class="butImg">
+        <image class="img-b" src="{{menu_001}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['参展企业']}}</text>
+    </view>
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2ProductList" data-id="{{item.id}}" data-title="{{item.title}}">
+      <view class="butImg">
+        <image class="img-b" src="{{menu_002}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['展品一览']}}</text>
+    </view>
+    <!-- 交通指南 -->
+    <!-- <view wx:if="{{item.link=='jtzn'}}" class="{{isEn ? 'button-box en-button-box' : 'button-box'}}"
+          bindtap="go2miniWeb" data-id="{{item.id}}" data-title="{{item.title}}">
+      <view class="butImg">
+        <image class="img-b" src="{{staticImageUrl}}/img/xgyz/index/but2.png" mode='widthFix'></image>
+      </view>
+      <text>{{item.title}}</text>
+    </view> -->
+    <!-- 场馆导航 -->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" wx:if="{{stadiumNavigation.id}}" bindtap="go2StadiumNavigation" data-title="{{stadiumNavigation.title}}" data-id="{{stadiumNavigation.id}}" data-appid="{{stadiumNavigation.detailList[0].link}}" data-linkmini="{{stadiumNavigation.detailList[0].linkMini}}">
+      <view class="butImg">
+        <image class="img-b" src="{{menu_003}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['云上地展']}}</text>
+    </view>
+    <!-- 展会介绍 -->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2exhibitionIntroduce" data-id="{{exhibitionIntroduce.id}}" wx:if="{{exhibitionIntroduce&&exhibitionIntroduce.id}}" data-title="{{exhibitionIntroduce.title}}">
+      <view class="butImg">
+        <image class="img-b" src="{{menu_004}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['展会介绍']}}</text>
+    </view>
+    <!-- 直播互动 -->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" catchtap="go2LiveList11" data-id="{{liveColumsItem.id}}" data-appid="{{liveColumsItem.detailList[0].link}}" data-linkmini="{{liveColumsItem.detailList[0].linkMini}}" wx:if="{{liveColumsItem.id}}">
+      <view class="butImg">
+        <image class="img-b" src="{{menu_005}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['直播活动']}}</text>
+    </view>
+    <!-- 微信支付 -->
+<!--   <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="payWX">-->
+<!--      <view class="butImg">-->
+<!--        <image class="img-b" src="{{staticImageUrl}}/img/xgyz/index/but6.png" mode='widthFix'></image>-->
+<!--      </view>-->
+<!--      <text>微信支付</text>-->
+<!--    </view> -->
+    <!-- open-type="getUserInfo" -->
+    <!-- bindgetuserinfo="userLogin"    bindtap="go2userRegister" -->
+    <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2postDemond" data-page="my-demand">
+      <view class="butImg">
+        <image src="{{menu_008}}" mode='widthFix'></image>
+      </view>
+      <text>{{langTranslate['供需发布']}}</text>
+    </view>
+    <!-- <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2service" data-page="my-demand">
+          <view class="butImg">
+            <image src="{{staticImageUrl}}/img/xgyz/index/but7.png" mode='widthFix'></image>
+          </view>
+          <text>联系客服</text>
+        </view> -->
+    <!-- <view class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="go2myself" data-page="my-demand">
+          <view class="butImg">
+            <image src="{{staticImageUrl}}/img/xgyz/index/but8.png" mode='widthFix'></image>
+          </view>
+          <text>我的资料</text>
+        </view> -->
+    <!-- 地展消息 -->
+    <!-- <view wx:if="{{miniLinkShow}}" class="{{isEn ? 'button-box en-button-box' : 'button-box'}}" bindtap="goMini"
+              data-id="{{miniLink.id}}">
+          <view class="butImg">
+            <image class="img-b" src="{{staticImageUrl}}/img/xgyz/index/but3.png" mode='widthFix'></image>
+          </view>
+          <text>{{miniLink.title}}</text>
+        </view> -->
+  </view>
+  <!-- 同期活动 -->
+  <activityList wx:if="{{concurrentEvents&&concurrentEvents.length}}" activityList="{{concurrentEvents}}" source="home"></activityList>
+  <view class="con-area">
+    <view class="tab-area clearfix">
+      <view class="remmord">
+        <view class="{{currentType === 1 ? 'tab-box active' : 'tab-box'}}" bindtap="changeTypeTap" data-type="1">
+          <text>{{langTranslate['推荐展商']}}</text>
+        </view>
+        <view class="{{currentType === 2 ? 'tab-box active' : 'tab-box'}}" bindtap="changeTypeTap" data-type="2">
+          <text>{{langTranslate['推荐展品']}}</text>
+        </view>
+      </view>
+      <view class="more-area" bindtap="goMorePage">{{ langTranslate['查看更多_2'] }}</view>
+    </view>
+    <view class="exhibition-list">
+      <exh-item exhibitList="{{exhibitList}}" bind:changePage="changePageCollect" itemType="list" exh-item-type="{{currentType == 1 ? 'exhibition' : 'exhibits'}}"></exh-item>
+    </view>
+  </view>
+  <view class="wx-popup" hidden="{{mobileAuthDialogShow}}">
+    <view class='popup-container'>
+      <view class="wx-popup-title">
+        <text>为了校验您的观众身份\n请授权手机号</text>
+      </view>
+      <view class="wx-popup-con">
+        <button class="cancal button" bindtap="cancelMobileAuthDialogShow">取消</button>
+        <button class="button" style="background: #1CBF90;color:#fff;border-color: #1CBF90" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          授权
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

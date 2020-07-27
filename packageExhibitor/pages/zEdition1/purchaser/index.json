@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "person-connect": "../components/bizComponents/personConnect",
+    "audienceItem": "../components/audienceItem/audienceItem",
+    "filter-search": "../components/bizComponents/searchFilter/index",
+    "invitation-dialog": "../components/bizComponents/invitationDialog"
+  }
+}
