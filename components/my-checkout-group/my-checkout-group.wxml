@@ -1,0 +1,11 @@
+<view style="display: inline-flex;flex-wrap: wrap;">
+  <my-checkout wx:for="{{list_}}"
+               wx:for-item="checkItem"
+               bindchangecheckout="changeOne"
+               data-item="{{checkItem}}"
+               wx:key="*this" checked="{{checkItem.checked}}"
+               style="margin-right:10rpx;margin-bottom:10rpx;"
+  title="{{checkItem.value}}"
+  >
+  </my-checkout>
+</view>

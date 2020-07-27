@@ -1,0 +1,28 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<scroll-view wx:if="{{scrollType === 1}}" scroll-y scroll-top="{{demandScrollTop}}" class="exhibition-area">
+		<view wx:for="{{demandList}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item">
+				<view class="img-name">
+						<image src="{{item.image1}}"></image>
+						<text>{{item.purchasedGoodsName}}</text>
+				</view>
+				<text class="num-text">{{langIsEn ? item.companyEn : item.company}}</text>
+		</view>
+</scroll-view>
+<scroll-view wx:if="{{scrollType === 2}}" scroll-y class="exhibition-area">
+	<view class="exh-list">
+		<view wx:for="{{supplierList}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item" bindtap="goDetailPage">
+				<view class="img-name">
+						<image src="{{item.portrait === '' ? defaultExhibitorImg : item.portrait}}"></image>
+						<text>{{langIsEn ? item.companyEn : item.company}}</text>
+				</view>
+				<text class="num-text">{{item.boothNumber}}</text>
+		</view>
+		<view wx:for="{{supplierList}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item" bindtap="goDetailPage">
+				<view class="img-name">
+						<image src="{{item.portrait}}"></image>
+						<text>{{langIsEn ? item.companyEn : item.company}}</text>
+				</view>
+				<text class="num-text">{{item.boothNumber}}</text>
+		</view>
+	</view>
+</scroll-view>

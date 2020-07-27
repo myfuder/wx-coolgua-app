@@ -1,0 +1,55 @@
+/* packageExhibitor/pages/zEdition1/components/bizComponents/demand/index.wxss */
+.content{
+	width: 100%;
+}
+.item{
+	width: 100%;
+	height: 266rpx;
+}
+.time{
+	height:50rpx;
+	background:rgba(240,244,247,1);	
+	font-size:24rpx;
+	font-family:Microsoft YaHei;
+	color:rgba(153,153,153,1);
+	line-height:50rpx;
+	padding-left: 36rpx;
+}
+.itemcon{
+	/* width: 100%; */
+	height: 216rpx;
+	padding-left: 36rpx;
+	background: #fff;
+	padding-right: 32rpx;
+}
+.title{
+	height:36rpx;
+	font-size:36rpx;
+	font-family:Microsoft YaHei;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	line-height:48rpx;
+	margin-top: 38rpx;
+}
+.center{
+	display: flex;
+	justify-content: space-between;
+	height:28rpx;
+	font-size:28rpx;
+	font-family:Microsoft YaHei;
+	color:rgba(51,51,51,1);
+	line-height:48rpx;
+	margin-top: 18rpx;
+}
+.center image{
+	width: 16rpx;
+	height: 26rpx;
+}
+.bottom{
+	height:28rpx;
+	font-size:28rpx;
+	font-family:Microsoft YaHei;
+	color:rgba(153,153,153,1);
+	line-height:48rpx;
+	margin-top: 28rpx;
+}

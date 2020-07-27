@@ -1,0 +1,42 @@
+@import "../common.wxss";
+.imageContainers image{
+    width:38rpx;
+    height:38rpx;
+    padding: 0 10rpx;
+}
+.tag{
+    text-align: center;justify-content: center;align-items: center;
+    font-size:24rpx;position: absolute;min-width: 30rpx;min-height: 30rpx;color: #fff;background: red;border-radius: 20rpx;display: inline-flex;top:0rpx;right: 8rpx;
+    border-color: red;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.align-items {
+  display: flex;
+  align-items: center;
+}
+/* begin 弹窗内容 */
+.wx-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10000;
+    overflow-y: hidden;
+}
+
+.popup-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10rpx;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: #fff;
+}

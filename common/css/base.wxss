@@ -1,0 +1,98 @@
+/**layout**/
+.su-container{
+  padding:20rpx 30rpx;
+}
+.su-wrapper{
+  font-size: 34rpx;
+  color:#000;
+}
+
+/**color**/
+.mainColor{
+  background: #32a0ff;
+}
+.mainBgColor{
+  color: #32a0ff;
+}
+
+/**button**/
+.button{
+  background: #1690ff;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+.button:active{
+  background-color: rgba(0, 0, 0, 0.1); 
+  opacity: 0.7;
+}
+
+.userinfobtn{
+  list-style-type:none;
+  padding:0px;
+  font-size:30rpx;
+  display:flex;
+  background:none;
+  margin:0px;
+  justify-content:center;
+  align-items:center;
+}
+.userinfobtn_one{
+  list-style-type:none;
+  padding:0px;
+  font-size:34rpx;
+  display:flex;
+  background:none;
+  margin:0px;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  height:100%;
+}
+.userinfobtn_one::after{
+  border: none;
+  background: none;
+}
+.userinfobtn::after{
+  border: none;
+  background: none;
+}
+
+
+
+.form-item{
+  margin-bottom:20rpx;
+}
+.item input.input{
+  border:1rpx solid #bebebe;
+  padding-left: 10rpx;
+}
+.item .card{
+  border:1rpx solid #bebebe;
+  border-radius:8rpx;
+}
+.item .card checkbox-group{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.card checkbox-group label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10rpx 0;
+  border-bottom:1rpx solid #f2f2f2;
+  padding-bottom:14rpx;
+}
+.item .card radio-group{
+	display: flex;
+  	flex-direction: column;
+  	padding: 20rpx;
+  }
+.card radio-group label{
+	  display: flex;
+	  flex-direction: row;
+	  align-items: center;
+	  margin: 10rpx 0;
+	  border-bottom:1rpx solid #f2f2f2;
+	  padding-bottom:14rpx;
+}

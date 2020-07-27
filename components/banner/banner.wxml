@@ -1,0 +1,11 @@
+<swiper class="swiper" autoplay="true" duration="500" style="height: 351rpx;width: 100%;"
+        indicator-dots="{{true}}"
+        indicator-active-color="#f00"
+        indicator-color="#DEDEDE"
+        circular
+>
+  <swiper-item wx:for="{{bannerlist}}" wx:key="*this" class="swiper-item">
+    <view
+      style="width: 100%;height:calc(100% - 50rpx);background: url({{item.picPath}}) no-repeat center/ 100% 100%;border-radius: 10rpx;"></view>
+  </swiper-item>
+</swiper>

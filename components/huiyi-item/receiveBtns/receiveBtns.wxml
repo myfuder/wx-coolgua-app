@@ -1,0 +1,81 @@
+<view class=""
+      data-activityTimeBegin="{{item.activityTimeBegin}}"
+      style="margin-top: 20rpx;display:flex;justify-content: center;align-items: center;">
+  <view wx:if="{{status==0}}">
+    <!-- <view
+      class="btn btn-default" style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 80rpx;"
+      bindtap="cancelSchechal"
+    >取消
+    </view> -->
+    <!-- <view class="btn btn-primary"
+          bindtap="go2video"
+          style="height: 80rpx;padding: 0 40rpx;" wx:if="{{isBegin&&!isEnd}}">
+      发起视频
+    </view> -->
+    <view
+      wx:if="{{isEnd}}"
+      class="btn btn-grey" style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 60rpx;">
+      <view style="font-size: 28rpx;text-align: center;">已过期</view>
+    </view>
+  </view>
+
+  <view wx:if="{{status==2}}">
+    <view class="btn btn-primary"
+          wx:if="{{isBegin&&!isEnd}}"
+          bindtap="submitInvite"
+          style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 128rpx;">
+      接受
+    </view>
+     <view
+      bindtap="rejectSchechal"
+      class="btn btn-default" style="height: 80rpx;padding: 0 128rpx;"
+    >拒绝
+    </view>
+    <view
+      wx:if="{{isEnd}}"
+      class="btn btn-grey" style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 60rpx;">
+      <view style="font-size: 28rpx;text-align: center;">已过期</view>
+    </view>
+
+  </view>
+
+  <!--   5被拒绝 -->
+  <view wx:if="{{status==5}}">
+    <view
+      wx:if="{{!item.countDown}}"
+      class="btn btn-primary"
+      bindtap="repostInvite"
+      style="height: 80rpx;padding: 0 40rpx;">
+      再次发起邀约
+    </view>
+    <view
+      wx:if="{{item.countDown}}"
+      class="btn btn-grey" style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 40rpx;">
+      <view class="small" wx:if="{{item.countDown}}"><coutTimeButton time="{{item.countDown}}"></coutTimeButton>可操作性
+      </view>
+    </view>
+  </view>
+
+  <!--  6已取消-->
+  <view wx:if="{{status==6}}">
+    <view
+      wx:if="{{!item.countDown}}"
+      class="btn btn-primary"
+      bindtap="repostInvite"
+      style="height: 80rpx;padding: 0 40rpx;">
+      再次发起邀约
+    </view>
+    <view
+      wx:if="{{item.countDown}}"
+      class="btn btn-grey" style="position: relative;margin-right: 20rpx;height: 80rpx;padding: 0 40rpx;">
+      <view class="small" wx:if="{{item.countDown}}"><coutTimeButton time="{{item.countDown}}"></coutTimeButton>可操作性
+      </view>
+    </view>
+  </view>
+
+</view>
+
+  <!--再次发起弹出框-->
+<view hidden="{{dialogHide}}">
+  <inviteDialog item="{{item}}" bindcloseDialog="closeDialog"></inviteDialog>
+</view>

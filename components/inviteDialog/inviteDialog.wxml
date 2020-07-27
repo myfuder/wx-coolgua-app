@@ -1,0 +1,71 @@
+<!--邀请 弹出框-->
+<view class="wx-popup">
+  <view class='popup-container'>
+    <view class="form-area">
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['预约主题']}}：</view>
+        <view class="form-input-area">
+          <input class="input" type="text" placeholder="{{langTranslate['请输入预约主题']}}"
+                 placeholder-class="input-placeholder" bindinput="changeTopTheme" value="{{topTheme}}"></input>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['日期']}}：</view>
+        <view class="form-input-area">
+          <view class="date-area">
+            <image src="{{staticImageUrl}}/img/purchaser/popup_date.png"></image>
+            <picker mode="date" value="{{date}}" bindchange="bindDateChange"
+                    style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+              <view class="picker">
+                {{date}}
+              </view>
+            </picker>
+            <!-- <input class="input" type="text" placeholder="请选择日期" placeholder-class="input-placeholder" disabled style="width: auto;flex: 1"></input> -->
+<!--            <text>{{dayText}}</text>-->
+          </view>
+        </view>
+      </view>
+      <view class="form-item time-area">
+        <view class="time-box">
+          <view class="form-title">{{langTranslate['开始时间']}}：</view>
+          <view class="form-input-area">
+            <view class="date-area" style="margin-left: 0">
+              <image src="{{staticImageUrl}}/img/purchaser/popup_time.png"></image>
+              <picker mode="time" value="{{startTime}}" start="00:00" end="24:00" bindchange="bindTimeChange"
+                      style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+                <view class="picker">
+                  {{startTime}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="time-box">
+          <view class="form-title">{{langTranslate['结束时间']}}：</view>
+          <view class="form-input-area">
+            <view class="date-area" style="margin-left: 0">
+              <image src="{{staticImageUrl}}/img/purchaser/popup_time.png"></image>
+              <picker mode="time" value="{{endTime}}" start="00:00" end="24:00" bindchange="bindEndChange"
+                      style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+                <view class="picker">
+                  {{endTime}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['留言']}}：</view>
+        <view class="form-input-area">
+          <textarea bindinput="changeRemark" value="{{remark}}" class="textarea" type="text"
+                    placeholder="{{langTranslate['请输入留言内容']}}" placeholder-class="input-placeholder"></textarea>
+        </view>
+      </view>
+    </view>
+    <view class="button-area">
+      <view class="button" bindtap="cancelPopupTap">{{langTranslate['取消']}}</view>
+      <view class="button submit-button" bindtap="sureClick">{{langTranslate['确定']}}</view>
+    </view>
+  </view>
+</view>

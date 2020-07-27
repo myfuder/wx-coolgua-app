@@ -1,0 +1,48 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class="activity-b">
+  <view class="activity">
+    <view class="title clearfix" wx:if="{{source=='home'}}">
+      <text class="name">{{langTranslate['同期活动']}}</text>
+      <text class="more" bindtap="moreActivity">{{langTranslate['查看更多']}}</text>
+    </view>
+    <view class="content">
+      <view class="swiper-item clearfix" bindtap="goOverview"
+            wx:for="{{activityList}}" wx:key="item"
+            indicator-active-color="#31CB9E"
+            indicator-color="#E1F8F1"
+            style="margin-bottom: 20rpx;"
+            data-id="{{item.id}}"
+            data-tid="{{item.tid}}">
+        <view class="detailLeft1">
+          <view
+            style="border-radius: 10rpx;height: 300rpx;width: 100%;background: url({{item.images}}) no-repeat center / cover;border-radius: 10rpx;"></view>
+          <!-- <image
+             style="height: 300rpx;"
+             wx:if="{{item.banner!=undefined&&item.banner!=null}}" src="{{item.banner}}" mode='heightFix'></image>
+           <image
+             wx:else src="{{staticImageUrl}}/img/activityList.jpg"
+             style="height: 300rpx;"
+             mode='heightFix'></image>-->
+        </view>
+        <view class="detailRight" style="padding-top: 10rpx;">
+          <view style="display: flex;justify-content: space-around">
+            <view class="activityName">{{item.name}}</view>
+            <view class="regitem" style="min-width: 90rpx;">{{item.regNum}}人报名</view>
+          </view>
+          <view class="detail">
+            <image
+              style="width: 40rpx;height: 40rpx"
+              src="{{staticImageUrl}}/img/xgyz/time.png" mode='widthFix' class="icon"></image>
+            {{item.registerStartTime}}至{{item.registerEndTime}}
+          </view>
+          <view class="detail">
+            <image
+              style="width: 30rpx;height: 30rpx"
+              src="{{staticImageUrl}}/img/xgyz/place.png" mode='widthFix' class="icon"></image>
+            {{item.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

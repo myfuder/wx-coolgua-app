@@ -1,0 +1,13 @@
+<!--components/video-live-page/index.wxml-->
+<view class="video-live-item" style="width:{{width}};height:{{height}}">
+  <view wx:if="{{is_live}}" class="video-living">
+    <span class="video-living-icon"></span>
+    {{langTranslate['直播中']}} | {{live_number}}{{langTranslate['观看']}}
+  </view>
+  <image class="page-img" src="{{page_img}}"></image>
+  <view wx:if="{{play_custom}}" class="video-live-item-on flex-c flex-c-c">
+        {{play_custom}}<span class="sanjiao"></span> 
+  </view>
+  <image wx:else src="{{play_img}}" class="video-live-item-off"></image>
+  <view wx:if="{{live_name}}" class="video-live-item-name" >{{live_name}}</view>
+</view>

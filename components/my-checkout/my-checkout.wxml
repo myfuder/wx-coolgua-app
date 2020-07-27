@@ -1,0 +1,9 @@
+<view style="display: inline-flex;align-items: center;"
+      bindtap="bindchangecheckout"
+>
+  <image
+    data-checked="{{checked}}"
+    style="width: 30rpx;height: 30rpx;"
+    src="{{checked? filter_active:default_checkbox_no_chekced}}"></image>
+  <text class="con-title" style="padding-left:10rpx;font-size: 24rpx;">{{title}}</text>
+</view>

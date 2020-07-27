@@ -1,0 +1,85 @@
+/** 同期活动 */
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;/*清除浮动*/
+  visibility:hidden;
+}
+.clearfix{zoom:1;/*为IE6，7的兼容性设置*/}
+.activity-b{
+  background:#f6f7fb;
+}
+.activity-b .title{
+  padding: 20rpx 30rpx 20rpx;
+  height:60rpx;
+  line-height:60rpx;
+  position:relative;
+}
+.activity-b .title .name{
+  font-size:34rpx;
+  color:#333333;
+  float:left;
+  font-weight:bold;
+}
+.activity-b .title .more{
+  font-size: 24rpx;
+  color: #333333;
+  float:right;
+  border:1rpx solid #e3e3e3;
+  border-radius:40rpx;
+  padding:0 25rpx;
+}
+.activity .content{
+  padding: 0rpx 30rpx 30rpx;
+}
+.activity .content .swiper-item{
+  /*height:180rpx;*/
+  background:#fff;
+  border-radius:20rpx;
+  padding:25rpx 20rpx 10rpx;
+}
+.activity .content .swiper-item .detailLeft1{
+  width:100%;
+  position: relative;
+  margin-bottom:15rpx;
+}
+.activity .content .swiper-item .detailLeft1 image{
+  display:block;
+  width: 100%;
+}
+.activity .content .swiper-item .detailRight{
+  width:100%;
+}
+.activity .content .swiper-item .detailRight .regitem{
+  font-size:20rpx;
+  color:#85888d;
+  display:inline-block;
+  margin-bottom:15rpx;
+  background:#f4f8fb;
+  padding:10rpx 20rpx;
+}
+.activity .content .swiper-item .detailRight .activityName{
+  font-size:34rpx;
+  color:#333333;
+  font-weight:bold;
+  margin-bottom:15rpx;
+  height: 50rpx;
+  line-height:50rpx;
+  width:100%;
+  overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.activity .content .swiper-item .detailRight .detail{
+  font-size:26rpx;
+  color:#999999;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  display:flex;
+  margin-bottom:15rpx;
+}
+.activity .content .swiper-item .detailRight .detail .icon{
+  width:30rpx;
+  margin-right:15rpx;
+}

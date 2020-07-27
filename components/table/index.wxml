@@ -1,0 +1,20 @@
+<!--components/table/index.wxml-->
+ <scroll-view scroll-x="true" enable-flex='true' style="width:{{width}}{{pixelunit}};"  class="table table-noborder">
+    <view class="tr thead s-class-header" style='width:{{width}}{{pixelunit}};'>
+      <view wx:for="{{headers}}" class="td td-{{hasBorder}}border" style='width:calc({{item.width}}{{pixelunit}} - 32rpx);text-align:{{item.text_align||"center"}}' >{{item.display}}</view>
+    
+    </view>   
+    
+    <scroll-view scroll-y="true" style="width:{{width}}{{pixelunit}};height:{{height}}{{pixelunit}};">
+    <block wx:for-item='i' wx:for="{{list}}">
+      <view class="tr s-class-row" style='width:{{width}}{{pixelunit}};'>
+        <view wx:for-item='j' wx:for="{{headers}}" class="td td-{{hasBorder}}border" style='width:calc({{headers[index]["width"]}}{{pixelunit}} - 32rpx);text-align:{{headers[index]["text_align"]||"center"}}'>
+        {{i[j['text']]}}
+        </view>        
+      </view>
+    </block>
+</scroll-view>
+
+  <!-- </view> -->
+
+   </scroll-view>

@@ -1,0 +1,38 @@
+<!--packageExhibitor/pages/newedition/filter/filter.wxml-->
+ <!-- 筛选弹出框 -->
+  <view class="dialog-box" wx:if="{{isShowSearch}}" bindtap="close">
+  <!-- <view class="dialog-box" wx:if="{{isShowSearch}}" bindtap="close"> -->
+    <view class="demand-filter-box" catchtouchmove='true' style="top:10rpx;" catchtap='inbtn'>
+      <scroll-view scroll-y
+                   style="height: calc(100% - 110rpx);border-bottom: 1px solid #ddd;width: 600rpx;text-align:left;padding:0 32rpx;box-sizing:border-box"
+                   class="innnerContent" animation="{{animationadd}}">
+        <view class="filter-item" wx:for="{{productTypeList}}" wx:key="index" data-id="{{item.id}}">
+          <view bindtap="chooseTap" data-index="{{index}}" style="margin-top:53rpx;display:flex;align-items:center;">
+            <image wx:if="{{item.isChecked}}" src="{{filter_active}}" style="width:29rpx;height:29rpx;margin-right:9rpx;" />
+            <text wx:else class="check-box-none" style="margin-right:9rpx;"></text>
+            <text class="name">{{item.name}}</text>
+          </view>
+          <view style="overflow:hidden">
+            <view wx:for="{{item.childList}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childItem"
+              data-pindex="{{index}}" class="child-item{{item.isChecked&&childItem.isChecked?'active':''}}" bindtap="chooseChildTap" data-index="{{childIndex}}" data-pindex="{{index}}" >
+              <text class="child-name" style="">{{childItem.name}}</text>      
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <!-- 弹出框底部按钮 -->
+      <view class="bottom-btns"
+            animation="{{animationadd}}"
+            style=""
+      >
+        <view class="button button-reset" style="margin: 0px;" bindtap="resetFilterDialog">
+          重置
+        </view>
+        <view class="button button-primary" bindtap="closeFilterDialog" style="margin: 0px;">
+          确定
+        </view>
+      </view>
+      <!-- <view class="mark" bindtap="closeFilterDialog" style="height:{{winheight+10}}px;top:-20rpx;"></view> -->
+    </view>
+  <!-- </view> -->
+  </view>

@@ -1,0 +1,64 @@
+/* components/authorize/authorize.wxss */
+
+.popup-account{
+  padding:40rpx 50rpx;
+
+}
+.popup-account .popup-account-input{
+  width:539rpx;
+  height:69rpx;
+  background: #F9F9F9;
+  box-sizing: border-box;
+  border:1px #EDEDED solid;
+  padding:0 20rpx;
+  margin-top:30rpx;
+  font-size:28rpx;
+}
+.popup-account-tabs{
+  border-bottom:1px #DBDFE5 solid;
+
+}
+.popup-account-tabs .popup-account-tab-item{
+  display: inline-block;
+  text-align: center;
+  padding:20rpx 0;
+  font-size:32rpx;
+  width:50%;
+  box-sizing: border-box;
+}
+.popup-account-tab-active{
+  color:#FF2D30 !important;
+  border-bottom-left-radius:2rpx;
+  border-bottom-right-radius:2rpx;
+  border-bottom: 4rpx solid;
+  border-image: -webkit-linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-image: -moz-linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-image: linear-gradient(,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+}
+
+.popup-account .popup-accoun-button-group{
+  margin-top:60rpx;
+}
+.popup-account .popup-accoun-button{
+  display: inline-block;
+  border:1rpx #FF2D30 solid;
+  background: #fff;
+  border-radius: 4rpx;
+  width:249rpx;
+  height:69rpx;
+}
+
+ /*清除button默认样式*/
+.popup-accoun-button-group button::after {
+  border: none;
+}
+
+.popup-accoun-button-group button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height:1.;
+  border-radius:0;
+  font-size: 28rpx;
+
+}

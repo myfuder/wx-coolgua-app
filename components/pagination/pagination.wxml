@@ -1,0 +1,15 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class="pageination">
+  <view class="last-page" bindtap="lastPageTap">
+    <text class="opt-text">{{langTranslate['上一页']}}</text>
+  </view>
+  <view class="page-num">
+    <text class="current-num">{{currentPage}}</text>
+    <text class="split-line">/</text>
+    <text class="num-text">{{totalPage}}</text>
+  </view>
+  <view class="next-page" bindtap="nextPageTap">
+    <text class="opt-text">{{langTranslate['下一页']}}</text>
+  </view>
+</view>
+<slot></slot>

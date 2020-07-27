@@ -1,0 +1,152 @@
+/** 配套活动 */
+.matching-area {
+  background-color: #FFFFFF;
+  padding: 30rpx 34rpx 20rpx;
+}
+.matching-area .matching-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.matching-title .left-area {
+  display: flex;
+  align-items: center;
+}
+.left-area image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.left-area text {
+  font-size:32rpx;
+  color:rgba(51,51,51,1);
+  line-height: 40rpx;
+  margin-left: 15rpx;
+}
+.checked-more {
+  font-size:28rpx;
+  color:rgba(102,102,102,1);
+  line-height:38rpx;
+}
+.matching-video {
+  margin-top: 29rpx;
+  position: relative;
+}
+.matching-video image {
+  width: 682rpx;
+  height: 292rpx;
+  border-radius: 10rpx;
+}
+.live-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 288rpx;
+  height: 136rpx;
+  margin-top: -78rpx;
+  margin-left: -144rpx;
+  border:2px solid rgba(255,255,255,0.6);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.live-area .live-title {
+  width:270rpx;
+  height:118rpx;
+  background-color:rgba(244,245,248,0.6);
+  border-radius:4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(43,26,26,1);
+  line-height:38rpx;
+  text-align: center;
+  padding: 0 33rpx;
+  box-sizing: border-box;
+}
+.matching-module {
+  margin-top: 23rpx;
+  display: flex;
+  align-items: center;
+}
+.matching-module .matching-item {
+  width: 330rpx;
+  height: 165rpx;
+  margin-right: 23rpx;
+  position: relative;
+}
+.matching-item image {
+  width: 330rpx;
+  height: 165rpx;
+  border-radius: 6rpx;
+}
+.matching-module .matching-item:last-child {
+  margin-right: 0;
+}
+.matching-item .live-area {
+  width: 290rpx;
+  height: 114rpx;
+  margin-top: -57rpx;
+  margin-left: -145rpx;
+}
+.matching-item .live-area .live-title {
+  width: 246rpx;
+  height: 113rpx;
+  font-size: 24rpx;
+  font-weight:bold;
+  color:rgba(43,26,26,1);
+  line-height: 30rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  text-align: center;
+}
+/** 配套活动-完 */
+/** 视频直播 */
+.live-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 5rpx;
+}
+.live-list .live-item {
+  width: 32.3%;
+  height: 218rpx;
+  position: relative;
+  margin-right: 1.5%;
+  margin-top: 25rpx;
+}
+.live-list .live-item:nth-child(3n) {
+  margin-right: 0;
+}
+.live-item image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.live-item .living-area {
+  position: absolute;
+  right: 19rpx;
+  top: 18rpx;
+  width: 122rpx;
+  height: 44rpx;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.living-area .circle {
+  width: 11rpx;
+  height: 11rpx;
+  background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
+  border-radius:50%;
+}
+.living-area text {
+  font-size:24rpx;
+  color:rgba(255,255,255,1);
+  line-height: 28rpx;
+  margin-left: 11rpx;
+}
+/** 视频直播-完 */

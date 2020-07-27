@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "btns": "./btns/btns",
+    "receiveBtns": "./receiveBtns/receiveBtns"
+  }
+}

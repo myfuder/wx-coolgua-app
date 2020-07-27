@@ -1,0 +1,23 @@
+<view style="background: #fff;padding: 20rpx;border-radius: 20rpx;">
+
+  <view class="flex">
+    <!-- <view style="border: 1px solid #ddd;border-radius: 10rpx;" class="flex flex-c-c flex-c">
+      <image src="{{item.portrait||defaultUserImage}}" mode="aspectFit" style="width: 120rpx;height: 120rpx;"></image>
+    </view> -->
+    <view>
+      <view style="font-size: 30rpx;">{{item.top}}</view>
+      <view class="small grey">{{isEn ?item.companyEn:item.company}}</view>
+      <view class="small grey">{{langTranslate['联系人']}}：{{isEn ?contactEn:item.contact}}</view>
+    </view>
+  </view>
+  <view style="margin-top: 20rpx;">
+    <view class="black small">{{langTranslate['邀约时间']}}：{{item.activityTimeBegin}}~{{item.activityTimeEnd}}</view>
+    <view class="black small">{{langTranslate['发起时间']}}：{{item.createTime}}</view>
+    <view class="grey small" style="margin-top: 10rpx;">
+      {{langTranslate['备注留言']}}：{{item.remark}}
+    </view>
+    <!--按钮组-->
+    <btns wx:if="{{type==1}}" item="{{item}}"  status="{{status}}"></btns>
+    <receiveBtns wx:if="{{type==0}}" item="{{item}}"  status="{{status}}"></receiveBtns>
+  </view>
+</view>

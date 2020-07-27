@@ -1,0 +1,36 @@
+<!--components/authorize/authorize.wxml-->
+<!-- <text>components/authorize/authorize.wxml</text> -->
+<view class="wxpopup" hidden="{{loadLoginPop}}">
+  <view class='popupcontainer'>
+    <view class="popup-account">
+      <view class="popup-account-tabs">
+        <view class="popup-account-tab-item {{role=='purchaser'?'popup-account-tab-active':''}}" data-role="purchaser" style="color:#33333" bindtap="toggleactive">
+          观众登录
+        </view>
+        <view class="popup-account-tab-item {{role=='exhibitor'?'popup-account-tab-active':''}}" data-role="exhibitor" style="color:#666666" bindtap="toggleactive">
+          参展商登录
+        </view>
+      </view>
+      <form catchsubmit="formSubmit" catchreset="formReset">
+        <view wx:if="{{role=='exhibitor'}}">
+          <input class="popup-account-input" name="username" placeholder="请输入您的账号" />
+          <input class="popup-account-input" name="password"placeholder="请输入密码号" />
+        </view>
+        <view wx:else="{{role=='purchaser'}}">
+          <view style="margin-top:30rpx;display: flex;">
+            <input class="popup-account-input"style="width:330rpx;height:69rpx;margin-top:0" bindinput="bindKeyInput" name="username" placeholder="请输入您的手机号" />
+            <button class="popup-accoun-button" style="font-size:28rpx;width:183rpx;background:linear-gradient(0deg,rgba(255,45,45,1) 0%,rgba(253,71,107,1) 100%);border-radius:4px;color:#fff" bindtap="sendSMS">
+            {{countDown}}
+						{{getVerCodeTitle}}
+            </button>
+          </view>
+          <input class="popup-account-input" name="password"placeholder="请输入验证码" />
+        </view>
+        <view class="popup-accoun-button-group">
+          <button class="popup-accoun-button" style="color:#FF2D30;" type="primary" formType="reset">取消</button>
+          <button class="popup-accoun-button" style="color:#fff;background:#f00;float:right" formType="submit">登录</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

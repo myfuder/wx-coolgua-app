@@ -1,0 +1,42 @@
+<view style="display: flex;" class="space-between flex-c-c">
+    <view class="flex flex-c-c imageContainers">
+        <image
+            style="margin-right: 20rpx;margin-top: -10rpx;"
+            bindtap="mesgClick"
+            src="{{online==1?messageActiveButton:messageActiveButton_disbaled}}"></image>
+        <view style="position: relative;" wx:if="{{showLike}}">
+            <view class="red tag" style="" wx:if="{{item.likes&&item.likes!=0}}">{{item.likes}}</view>
+            <image
+                bindtap="likeClick"
+                style="margin-right: 20rpx;"
+                src="{{isLikedItem.objectId?likeButton_active:likeButton}}"></image>
+        </view>
+
+        <view style="position: relative;" wx:if="{{showCollect}}">
+            <view class="red tag" style="" wx:if="{{item.collect&&item.collect!=0}}">{{item.collect}}</view>
+            <image
+                bindtap="collectClick"
+                style="margin-right: 20rpx;"
+                src="{{isCollectedItem.objectId?collect_button_active:collect_button}}"></image>
+        </view>
+
+    </view>
+
+    <inviteButton userid="{{userid}}" />
+  <view class="wx-popup" hidden="{{popWindow}}">
+    <view class='popup-container'>
+      <view class="popup-account" style="padding:30rpx;width:500rpx;max-height:476rpx">
+        <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">×</i>
+        <view style="text-align:center;font-size:32rpx;font-weight:bold;">{{langTranslate['选择联系人']}}</view>
+        <view wx:for="{{contactList}}" class="space-between align-items" style="padding: 0 20rpx;margin-top:20rpx;height:72rpx;background:rgba(247,248,250,1);border-radius:8px;">
+          <text>{{item.name}}</text>
+          <image
+            style="width:38rpx;height:38rpx;"
+            bindtap="tomessage"
+            data-id="{{item.id}}"
+            src="{{item.status==1?messageActiveButton:messageActiveButton_disbaled}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

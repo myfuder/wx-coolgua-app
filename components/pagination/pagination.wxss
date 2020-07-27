@@ -1,0 +1,49 @@
+/* components/my-component.wxss */
+.pageination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageination .last-page,
+.pageination .next-page {
+  /* width: 140rpx; */
+  padding: 0 28rpx;
+  height: 60rpx;
+  border-radius: 2px;
+  border:1px solid #ff0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.last-page .opt-text,
+.next-page .opt-text {
+  font-size:26rpx;
+  color:#ff0000;
+  line-height:30rpx;
+}
+.pageination .next-page {
+  border-color: #ff0000;
+}
+.next-page .opt-text {
+  color:#ff0000;
+}
+.pageination .page-num {
+  margin-left: 80rpx;
+  margin-right: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.num-text,
+.current-num,
+.split-line {
+  font-size:26rpx;
+  color:#ff0000;
+  line-height:28rpx;
+}
+.page-num .current-num {
+  color: #ff0000;
+}
+.page-num .split-line {
+  margin: 0 9rpx;
+}

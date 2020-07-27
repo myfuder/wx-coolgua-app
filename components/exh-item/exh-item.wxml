@@ -1,0 +1,282 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view
+  data-exhItemType="{{exhItemType}}"
+  wx:for="{{exhibitList}}" wx:key="item" class="exhibition-item clearfix">
+  <view class="exhibition-info clearfix">
+    <view class="logo-area" style="width:{{exhItemType === 'exhibits'&&exhItemTypeStatus === 'detail'?'188rpx':''}};height:{{exhItemType === 'exhibits'&&exhItemTypeStatus === 'detail'?'188rpx':''}}">
+      <image bindtap="wxParseImgTap" data-id="{{item.id}}" data-from="article"
+             data-src="{{item.coverImage === '' ? defaultUserImage : item.coverImage}}"
+             wx:if="exhItemType === 'exhibits'"
+             src="{{item.coverImage === '' ? defaultUserImage : item.coverImage}}" class="logo-img"></image>
+      <image bindtap="wxParseImgTap" data-id="{{item.id}}" data-from="article"
+             data-src="{{item.coverImage === '' ? defaultUserImage : item.coverImage}}" wx:else
+             src="{{item.coverImage === '' ? defaultUserImage : item.coverImage}}" class="logo-img"></image>
+    </view>
+    <view class="detail-info">
+      <view data-id="{{item.id}}">
+        <view class="company-name" bindtap="goDetailPage" data-id="{{item.id}}">
+          <text wx:if="{{exhItemType === 'exhibition'}}" class="name">{{langIsEn ? item.companyEn : item.company}}
+          </text>
+          <text wx:if="{{exhItemType === 'exhibits'}}" class="name">{{langIsEn ? item.nameEn : item.name}}</text>
+          <view class="hot-area">
+            <image src="{{staticImageUrl}}/img/purchaser/icon_redu.png" class="hot-img"></image>
+            <text class="hot-text">{{item.hot||item.popular}}</text>
+          </view>
+        </view>
+        <view wx:if="{{exhItemType === 'exhibits'&&exhItemTypeStatus === 'detail'}}" class="pavilion-number">
+          <text class="label-text">展品类别：</text>
+          <block wx:if="{{!langIsEn&&exhItemType=='exhibition'}}">
+            <view class='industry-list {{uhide==item.id||item.tagNames.length<6?"tagsShow":"tagsHidden"}}'>
+              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+                    class="industry-item">{{tagItem}}
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{langIsEn&&exhItemType=='exhibition'}}">
+            <view class='industry-list {{uhide==item.id||item.tagEnglishNames.length<4?"tagsShow":"tagsHidden"}}'>
+              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+                    class="industry-item">{{tagItem}}
+              </view>
+            </view>
+          </block>
+        </view>
+        <view wx:if="{{exhItemType === 'exhibits'}}" class="pavilion-number">
+          <text class="label-text">{{langTranslate['展商名称']}}：</text>
+          <text class="value-text text-overflow-one" style="width: 240rpx;">{{langIsEn ? item.companyEn :
+            item.company}}
+          </text>
+        </view>
+        <view class="pavilion-number">
+          <text class="label-text">{{langTranslate['展馆号']}}：</text>
+          <text class="value-text">{{item.hallNumber}}</text>
+        </view>
+        <view class="pavilion-number">
+          <text class="label-text">{{langTranslate['展位号']}}：</text>
+          <text class="value-text">{{item.boothNumber}}</text>
+        </view>
+        <view wx:if="{{exhItemType === 'exhibition'&& exhItemTypeStatus === 'list'}}" class="pavilion-number">
+          <view bindtap="toLivePlayerList" style="width:130rpx;height:40rpx;background:rgba(255,0,0,1);border-radius:20rpx;font-size:24rpx;color:#fff;text-align:center">{{langTranslate['正在直播']}}</view>
+          <view bindtap="toLivePlayerList" style="width:130rpx;height:40rpx;background:#fff;border-radius:20rpx;font-size:24rpx;color:#808080;border:1px solid rgba(144,144,144,1);text-align:center">{{langTranslate['历史直播']}}</view>
+        </view>
+        <view wx:elif="{{exhItemType === 'exhibition'&& exhItemTypeStatus === 'detail'}}"class="pavilion-number">
+          <text class="label-text">{{langTranslate['主营品牌']}}:</text>
+          <text class="value-text">奔驰</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view wx:if="{{exhItemType === 'exhibition'&& exhItemTypeStatus === 'detail'}}" class="exhibitorSee">
+      <text bindtap="lookExhibitor" data-id="{{item.supplierId}}" class="look">{{langTranslate['查看展商']}}</text>
+    </view> -->
+  </view>
+  <view class="industryB clearfix">
+    <view class="industry-area" wx:if="{{exhItemType=='exhibition'&& exhItemTypeStatus === 'list'}}">
+      <text class="label-text" >{{langTranslate['主营产品']}}：</text>
+      <!-- <text class="label-text" wx:else>{{langTranslate['所属类别']}}：</text> -->
+      <block wx:if="{{!langIsEn&&exhItemType=='exhibition'}}">
+        <view class='industry-list {{uhide==item.id||item.tagNames.length<6?"tagsShow":"tagsHidden"}}'>
+          <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+                class="industry-item">{{tagItem}}
+          </view>
+        </view>
+      </block>
+      <block wx:elif="{{langIsEn&&exhItemType=='exhibition'}}">
+        <view class='industry-list {{uhide==item.id||item.tagEnglishNames.length<4?"tagsShow":"tagsHidden"}}'>
+          <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+                class="industry-item">{{tagItem}}
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- <block wx:if="!langIsEn">
+      <view class="more" wx:if="{{item.tagNames.length>=8}}" bindtap="openMore" data-id="{{item.id}}">
+        <image wx:if="{{uhide==item.id}}" class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_top.png"></image>
+        <image wx:else class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="more" wx:if="{{item.tagEnglishNames.length>=5}}" bindtap="openMore" data-id="{{item.id}}">
+        <image wx:if="{{uhide==item.id}}" class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_top.png"></image>
+        <image wx:else class="icon ml5" src="{{staticImageUrl}}/img/purchaser/arrow_down.png"></image>
+      </view>
+    </block> -->
+    <view class="appointmentNum" wx:if="{{exhItemType === 'exhibition'&&exhItemTypeStatus === 'detail'}}">
+      <!--      预约数：{{item.num}} -->
+    </view>
+  </view>
+  <view class="opt-area">
+    <!--    type  0:展商 1:观众 2:展品 3:需求
+    src 1 自己是观众 0:参展商
+    -->
+    <callButtons
+      style="width: 100%"
+      src="1"
+      showLike="{{showLike}}"
+      showCollect="{{showCollect}}"
+      type="{{exhItemType=='exhibition'?0:2}}"
+      online="{{item.online}}"
+      item="{{item}}"
+      userid="{{exhItemType=='exhibition'?item.id:item.supplierId||item.supplier_id}}"
+    ></callButtons>
+    <!--   <view class="opt-box">
+       <image mode='widthFix'
+                src="{{staticImageUrl}}{{item.online === 1 ? '/img/xgyz/activityNews.png' : '/img/xgyz/news.png'}}"
+                class="message-img" catchtap="chat" data-id="{{item.id}}" data-id="{{item.supplierId || item.id}}"
+                data-company="{{item.company}}" data-online="{{item.online}}"></image>
+         <image mode='widthFix'
+                src="{{staticImageUrl}}{{hadLike ? '/img/xgyz/activityZan.png' : '/img/xgyz/zan.png'}}"
+                class="phone-img" catchtap="collect" data-online="{{item.hadLike}}" data-role="0"
+                data-id="{{item.supplierId || item.id}}"></image>
+         <image mode='widthFix'
+                src="{{staticImageUrl}}{{hadCollect ? '/img/xgyz/activityCollect.png' : '/img/xgyz/collection.png'}}"
+                class="phone-img" catchtap="collect" data-role="1" data-online="{{item.hadCollect}}"
+                data-id="{{item.supplierId || item.id}}"></image>
+       </view>-->
+    <!--    <view class="opt-button" catchtap="showPopupTap" data-supplierid="{{item.supplierId}}" data-id="{{item.id}}">-->
+    <!--      <text class="opt-text">{{langTranslate['立即邀约']}}</text>-->
+    <!--    </view>-->
+  </view>
+</view>
+<slot></slot>
+<view class="wx-popup" hidden="{{dialogHide}}">
+  <view class='popup-container'>
+    <view class="form-area">
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['预约主题']}}：</view>
+        <view class="form-input-area">
+          <input class="input" type="text" placeholder="{{langTranslate['请输入预约主题']}}"
+                 placeholder-class="input-placeholder" bindinput="changeTopTheme" value="{{topTheme}}"
+                 adjust-position="false"></input>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['日期']}}：</view>
+        <view class="form-input-area">
+          <view class="date-area">
+            <image src="{{staticImageUrl}}/img/purchaser/popup_date.png"></image>
+            <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange"
+                    style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+              <view class="picker">
+                {{date}}
+              </view>
+            </picker>
+            <!-- <input class="input" type="text" placeholder="请选择日期" placeholder-class="input-placeholder" disabled style="width: auto;flex: 1"></input> -->
+            <text>{{dayText}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="form-item time-area">
+        <view class="time-box">
+          <view class="form-title">{{langTranslate['开始时间']}}：</view>
+          <view class="form-input-area">
+            <view class="date-area" style="margin-left: 0">
+              <image src="{{staticImageUrl}}/img/purchaser/popup_time.png"></image>
+              <picker mode="time" value="{{startTime}}" start="{{limitStartTime}}" bindchange="bindTimeChange"
+                      style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+                <view class="picker">
+                  {{startTime}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="time-box">
+          <view class="form-title">{{langTranslate['结束时间']}}：</view>
+          <view class="form-input-area">
+            <view class="date-area" style="margin-left: 0">
+              <image src="{{staticImageUrl}}/img/purchaser/popup_time.png"></image>
+              <picker mode="time" value="{{endTime}}" start="00:00" end="24:00" bindchange="bindEndChange"
+                      style="width: auto;height: 80rpx;flex: 1;margin-left: 18rpx">
+                <view class="picker">
+                  {{endTime}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-title">{{langTranslate['留言']}}：</view>
+        <view class="form-input-area">
+          <textarea bindinput="changeRemark" value="{{remark}}" class="textarea" type="text"
+                    placeholder="{{langTranslate['请输入留言内容']}}" adjust-position="false" fixed="true"
+                    placeholder-class="input-placeholder"></textarea>
+        </view>
+      </view>
+    </view>
+    <view class="button-area">
+      <view class="button" bindtap="cancelPopupTap">{{langTranslate['取消']}}</view>
+      <view class="button submit-button" bindtap="submitTap">{{langTranslate['确定']}}</view>
+    </view>
+  </view>
+</view>
+<slot></slot>
+<!--<view class="wx-popupDialog" hidden="{{dialogShow}}">
+	<view class='popup-containerDialog'>
+		<view class="wx-popup-topDialog">
+			<view class="{{currentRole === 1 ? 'popup-top-item active' : 'popup-top-item'}}" bindtap="changeRoleTap" data-type="1">{{langTranslate['参展商登录']}}</view>
+			<view class="{{currentRole === 2 ? 'popup-top-item active' : 'popup-top-item'}}" bindtap="changeRoleTap" data-type="2">{{langTranslate['采购商登录']}}</view>
+		</view>
+		<view class="wx-popup-conDialog">
+			<block wx:if="{{currentRole === 1}}">
+				<view class="input-areaDialog">
+					<image src="{{staticImageUrl}}/img/index/account.png"></image>
+					<input class="input" type="text" placeholder="{{langTranslate['请输入账号']}}" placeholder-class="input-placeholder" bindinput="setUserName" maxlength="11" value="{{userName}}" adjust-position="false"></input>
+				</view>
+				<view class="input-areaDialog">
+					<image src="{{staticImageUrl}}/img/index/icon_mima.png" class="pwd-img"></image>
+					<input class="input" type="password" placeholder="{{langTranslate['请输入密码']}}" placeholder-class="input-placeholder" bindinput="setPassword" maxlength="20" value="{{password}}" adjust-position="false"></input>
+				</view>
+				<view class="code-img-areaDialog">
+					<view class="input-areaDialog code-area">
+						<image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+						<input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setImageCode" maxlength="6" value="{{imageCode}}" adjust-position="false"></input>
+					</view>
+					<image src="data:image/gif;base64,{{imageFile}}" class="code-img" bindtap="getGifCode"></image>
+				</view>
+				<view class="opt-areaDialog">
+					<view class="opt-boxDialog" catchtap="remeberPwdTap">
+						<image src="{{staticImageUrl}}{{isRememberPwd ? '/img/purchaser/choose_pre.png' : '/img/purchaser/choose.png'}}"></image>
+						<text>{{langTranslate['记住密码']}}</text>
+					</view>
+					<view class="opt-boxDialog" catchtap="autoLoginTap">
+						<image src="{{staticImageUrl}}{{isAutoLogin ? '/img/purchaser/choose_pre.png' : '/img/purchaser/choose.png'}}"></image>
+						<text>{{langTranslate['自动登录']}}</text>
+					</view>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="input-areaDialog">
+					<image src="{{staticImageUrl}}/img/index/icon_phone.png" class="phone-imgDialog"></image>
+					<input class="input" type="text" placeholder="{{langTranslate['请输入账号']}}" placeholder-class="input-placeholder" bindinput="setCellNumber" maxlength="11" value="{{cellNumber}}" adjust-position="false"></input>
+				</view>
+				<view class="code-img-areaDialog">
+					<view class="input-areaDialog code-area">
+						<image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+						<input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setVcode" maxlength="6" value="{{vcode}}" adjust-position="false"></input>
+					</view>
+					<image src="data:image/gif;base64,{{imageFile}}" class="code-img" bindtap="getGifCode"></image>
+				</view>
+				<view class="code-img-areaDialog">
+					<view class="input-areaDialog code-area">
+						<image src="{{staticImageUrl}}/img/index/icon_yanzheng.png"></image>
+						<input class="input input-code" type="text" placeholder="{{langTranslate['请输入验证码']}}" placeholder-class="input-placeholder" bindinput="setMobileCode" maxlength="6" value="{{mobileCode}}" adjust-position="false"></input>
+					</view>
+					<view class="send-code-button" catchtap="getVerCode">
+						<text>{{countDown}}</text>
+						<text>{{getVerCodeTitle}}</text>
+					</view>
+				</view>
+			</block>
+			<view class="button-areaDialog">
+				<view class="button" bindtap="cancelPopupTap">{{langTranslate['取消']}}</view>
+				<view class="button submit-button" bindtap="loginTap">{{langTranslate['确定']}}</view>
+			</view>
+			<view class="registerButtonDialog" wx:if="{{currentRole === 2&&!langIsEn}}">
+				{{langTranslate['如您未注册请您先']}}<view class="register" bindtap="registerTap" data-url="https://buyer.yiwufair.com/reg/#/login?lang=zh&origin=33&fquestionId=3&isEasy=true&isXCX=true">{{langTranslate['注册']}}</view>
+			</view>
+			<view class="registerButtonDialog" wx:if="{{currentRole === 2&&langIsEn}}">
+				{{langTranslate['如您未注册请您先']}}<view class="register" bindtap="registerTap" data-url="https://buyer.yiwufair.com/reg/#/login?lang=en&origin=34&fquestionId=4&isEasy=true&isXCX=true">{{langTranslate['注册']}}</view>
+			</view>
+		</view>
+	</view>
+</view>-->
