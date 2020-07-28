@@ -40,6 +40,12 @@ export const tab_image_business_active = base_url +"/bbb190.png?x-oss-process=im
 export const tab_image_myself_default = base_url +"/bbb11.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const tab_image_myself_active = base_url +"/bbb10.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 
+export const tab_image_buyers_default = base_url +"/bbb204.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const tab_image_buyers_active = base_url +"/bbb203.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+
+export const tab_image_demand_default = base_url +"/bbb186.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const tab_image_demand_active = base_url +"/bbb185.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+
 // packagePurchaser/pages/purchaser/tabbar/me/me
 export const myself_zp=base_url+"/home/tab1.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_yy=base_url+"/home/tab2.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
