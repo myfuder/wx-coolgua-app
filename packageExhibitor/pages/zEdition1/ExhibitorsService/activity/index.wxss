@@ -53,7 +53,7 @@
 	width:330rpx;
 	height:80rpx;
 	border:1rpx solid rgba(255,45,48,1);
-	border-radius:4rpx;
+	border-radius:40rpx;
 	font-size:28rpx;
 	font-family:Microsoft YaHei;
 	font-weight:400;

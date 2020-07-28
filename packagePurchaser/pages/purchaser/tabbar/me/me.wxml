@@ -6,11 +6,11 @@
     <view class="top-area" style="background:url({{personalCenter}}) no-repeat 100% 100%;">
       <view class="personal-info">
         <image src="{{userInfo.portrait||defaultUserImage}}" class="user-img"></image>
-        <view class="base-info">
+        <view class="base-info" style="max-width: 460rpx;">
           <view wx:if="{{isLogin}}">
             <text class="user-name">{{isEn ? userInfo.contactEn : userInfo.contact}}</text>
-            <text class="station">{{isEn ? userInfo.companyEn : userInfo.company}}</text>
-            <view class="job">{{isEn ?userInfo.jobEn : userInfo.job}}</view>
+            <text class="station">{{isEn ?userInfo.jobEn : userInfo.job}}</text>
+             <view class="job">{{isEn ? userInfo.companyEn : userInfo.company}}</view>
             <view class="productType">
             <text wx:for="{{userInfo.tagNames}}" wx:key="{{i}}">{{item}}</text>
             </view>

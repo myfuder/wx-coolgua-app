@@ -37,7 +37,7 @@ export default {
   'app.live.label.num': 'Cumulative number of viewers',
   'app.live.label.conversionOfInvitaion': 'Conversion of invitation ',
   'app.live.label.sure': 'Confirmed',
-  'app.live.label.waitSure': 'To be confirmed',
+  'app.live.label.waitSure': 'TBC',
   'app.live.label.reject': 'Rejected',
   'app.live.label.cancel': 'cancelled',
   'app.info.zhname': 'Company name(chinese)',

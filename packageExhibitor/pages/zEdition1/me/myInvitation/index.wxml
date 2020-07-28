@@ -3,7 +3,7 @@
 
   <!-- 切换的tabber -->
    <view class="switch-tab flex-c">
-    <view style="width: 200px;border: 1px solid rgba(255,46,48,1);border-radius: 6rpx;">
+    <view style="border: 1px solid rgba(255,46,48,1);border-radius: 6rpx;">
       <view class="{{language!='en' ? 'switch-tab_zh':'switch-tab_en'}}" wx:for="{{switchTabStr}}" wx:key="*this"
             data-idx="{{idx}}" wx:for-index="idx" bindtap="switchTabClick">
         <text class="switch-tab-item {{currentTabIndex == idx?'focus_style':''}}">{{item}}</text>
@@ -16,7 +16,7 @@
     <!-- 我发起的邀约-->
     <view class="yaoyue">
       <view class="yaoyue_one">
-        <view class="yaoyue_one_word"><image style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;" src="https://www.coolgua.net/match_img/img/purchaser/icon_start.png"></image><text>{{Invitation_fa}}</text></view>
+        <view class="yaoyue_one_word"><image src="{{yaoyue_go}}" style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;"></image><text>{{Invitation_fa}}</text></view>
       </view>
       <view class="yaoyue_two  {{language!='en' ? '':'yaoyue_two_item_en'}}">
         <view bindtap="switchTabClick_two" data-idx="{{idx}}" wx:for-index="idx"
@@ -86,7 +86,10 @@
     <!-- 我收到的邀约 -->
     <view class="yaoyue">
       <view class="yaoyue_one {{language!='en' ? '':'yaoyue_two_item_en'}}">
-        <view class="yaoyue_one_word "><image style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;" src="https://www.coolgua.net/match_img/img/purchaser/icon_start.png"></image><text>{{Invitation_shou}}</text></view>
+        <view class="yaoyue_one_word ">
+          <image src="{{yaoyue_from}}" style=" width: 36rpx;height: 42rpx;vertical-align: -18%;margin-right:16rpx;" ></image>
+          <text>{{Invitation_shou}}</text>
+        </view>
       </view>
       <view class="yaoyue_two  {{language!='en' ? '':'yaoyue_two_item_en'}}">
         <view bindtap="switchTabClick_three" data-idx="{{item.unreadNum}}" wx:for-index="item.unreadNum"
