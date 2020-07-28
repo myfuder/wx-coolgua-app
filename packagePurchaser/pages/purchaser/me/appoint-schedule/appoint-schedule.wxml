@@ -214,6 +214,8 @@
           <view class="date-title">
             <image src="{{staticImageUrl}}/img/purchaser/icon_left.png" bindtap="lastDateTap"></image>
             <text>{{date}}</text>
+            <!-- <text>{{month_en_list[month-1]}}\t\t\t{{year}}</text> -->
+             <!-- <view class="calendar_title_riqi" wx:else>{{month_en_list[month-1]}}\t\t\t{{year}}</view> -->
             <image src="{{staticImageUrl}}/img/purchaser/icon_right.png" bindtap="nextDateTap"></image>
           </view>
           <view class="day-area">
@@ -244,7 +246,7 @@
           <view style="display:flex">
             <image src="{{calendar}}" style="height:40rpx;width:40rpx;margin-right:20rpx"></image>
           </view>
-          <text>{{todayDate}}</text>
+          <text>{{todayDates}}</text><text style="margin-left:20rpx;">{{dayText}}</text>
         </view>
         <view wx:if="{{myDateScheduleList.length > 0}}" class="meeting-list" style="padding: 20rpx;">
           <view wx:for="{{myDateScheduleList}}" wx:key="*this" style="margin-bottom: 20rpx;">
