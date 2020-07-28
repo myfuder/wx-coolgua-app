@@ -89,7 +89,7 @@
       <p class="live-tab">
         <span class="title-line-long"></span>
         <span class="title-line-short"></span>
-        <span style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
+        <span style="font-size:24rpx;color:#333333;float:right" bindtap="toDemand">{{langTranslate['更多']}}>></span>
       </p>
       <view style="margin-top:41rpx;width:688rpx;min-height:346rpx;border-radius:10rpx;">
         <s-table s-class-header='s-class-header' hasBorder='no'  width='686' pixelunit="rpx" tdWidth='180'   headers='{{headers}}' list='{{demandList}}'></s-table>

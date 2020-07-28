@@ -44,7 +44,7 @@ const languageMap = {
   "我的预约": "My reservation",
   "我的消息": "My message",
   "已报名的活动":"已报名的活动",
-  "商贸配对活动":"商贸配对活动",
+  "商贸配对活动":"Business matching activities",
   "收藏/点赞":"收藏/点赞",
   "我的参展证":"我的参展证",
   "我的资料": "My information",
@@ -152,9 +152,9 @@ const languageMap = {
   "预计时间": "Estimated duration",
   "我的收藏":"Collects",
   "我的点赞":"Likes",
-  "关注我的展商":"exhibitor/Follow",
-  "收藏的展商":"exhibitor/Collects",
-  "点赞的展商":"exhibitor/Likes",
+  "关注我的展商":"Exhibitor/Follow",
+  "收藏的展商":"Exhibitor/Collects",
+  "点赞的展商":"Exhibitor/Likes",
   "切换为展商":"Switch to Exhibitor",
   //  展商的个人中心
   "我的展品":"My Exhibits",
@@ -322,7 +322,14 @@ const languageMap = {
   "推荐": "Recommend",
   "暂无更多直播内容":"No more live content",
   "展品详情":"Exhibit details",
-  "展商列表":"Exhibitor list"
+  "展商列表":"Exhibitor list",
+  "正在重连":"Reconnecting..",
+  "视频加载中":"Video loading..",
+  "发送中": "Sending..",
+  "提示":"prompt",
+  "确定要切换语言吗":"Are you sure you want to switch language",
+  "登陆状态将会注销":"Logged in will be logged out",
+  "确定切换身份吗":"Are you sure to switch status"
 }
 module.exports = {
   languageMap: languageMap

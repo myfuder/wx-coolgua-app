@@ -802,6 +802,7 @@ function pushOneInCollectList(type, _options) {
   if (type == 3) {
     list = wx.getStorageSync("xq_collect_list")
   }
+  list = list || []
   var index = list && list.findIndex(item => item.objectId == _options.objectId)
   if (index < 0) {
     list.push({objectId: _options.objectId, id: _options.id})
@@ -835,8 +836,9 @@ function pushOneInLikeList(type, _options) {
   if (type == 3) {
     list = wx.getStorageSync("xq_like_list")
   }
+  list = list||[]
   var index = list && list.findIndex(item => item.objectId == _options.objectId)
-  if (index < 0) {
+  if (index < 0 ) {
     list.push({objectId: _options.objectId, id: _options.id})
   }
   if (type == 0) {
