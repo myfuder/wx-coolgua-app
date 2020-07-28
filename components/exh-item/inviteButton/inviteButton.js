@@ -254,7 +254,7 @@ Component({
       }
       if (util.isNullStr(userName) || util.isNullStr(password) || util.isNullStr(imageCode)) {
         wx.showToast({
-          title: '请完善信息再提交',
+          title: _self.data.langTranslate['请完善信息再提交'],
           icon: 'none'
         })
         return false
@@ -306,7 +306,7 @@ Component({
       }
       if (util.isNullStr(phone) || util.isNullStr(mobileCode) || util.isNullStr(vcode)) {
         wx.showToast({
-          title: '请完善信息再提交',
+          title: _self.data.langTranslate['请完善信息再提交'],
           icon: 'none'
         })
         return false
@@ -432,7 +432,7 @@ Component({
       const _self = this
       if (util.isNullStr(_self.data.date) || util.isNullStr(_self.data.startTime) || util.isNullStr(_self.data.endTime) || util.isNullStr(_self.data.remark) || util.isNullStr(_self.data.topTheme)) {
         wx.showToast({
-          title: '请完善信息再提交',
+          title: _self.data.langTranslate['请完善信息再提交'],
           icon: 'none'
         })
         return

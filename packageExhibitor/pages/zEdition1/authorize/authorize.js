@@ -14,6 +14,7 @@ Page({
     codeNum:'',
     userInfo: {},
     hasUserInfo: false,
+    langTranslate: i18n.langTranslate(),
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     openId:'',
     session_key:'',
@@ -79,7 +80,7 @@ Page({
   },
   getData: function (){
     var that = this
-    wx.showLoading({title:"授权中...",duration:5000})
+    wx.showLoading({title:that.data. langTranslate["授权中"],duration:5000})
     wx.login({
       success: res => {
         console.log(res)
@@ -91,7 +92,7 @@ Page({
             'Content-Type': 'application/json'
           },
           success: function (res) {
-            wx.hideLoading({title:"授权中..."})
+            wx.hideLoading({title:that.data. langTranslate["授权中"]})
             console.log(res)
             wx.setStorageSync('user', {
               openId: res.data.result.openid,
@@ -221,6 +222,7 @@ Page({
   onLoad: function (options) {
     this.data.activityId = wx.getStorageSync('activityDetail').id
     this.setData({
+      langTranslate: i18n.langTranslate(),
       redirect:decodeURIComponent(options.redirect||'')||''
     })
     this.authorization();

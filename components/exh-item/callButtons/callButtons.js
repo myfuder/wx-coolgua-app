@@ -126,7 +126,7 @@ Component({
       }
       if (this.properties.item.online == 0) {
         wx.showToast({
-          title: '不在线',
+          title: that.data.langTranslate['不在线'],
           icon: 'none'
         })
         return false

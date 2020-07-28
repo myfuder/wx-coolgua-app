@@ -279,7 +279,7 @@ Component({
         const dataset = e.currentTarget.dataset
         if (dataset.online == 0) {
           wx.showToast({
-            title: that.langTranslate['不在线'],
+            title: that.data.langTranslate['不在线'],
             icon: 'none'
           })
         } else {

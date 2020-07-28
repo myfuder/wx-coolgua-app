@@ -155,7 +155,7 @@ Page({
     }
     if (util.isNullStr(this.data.purchasedCount) || util.isNullStr(this.data.material) || util.isNullStr(this.data.purchasedGoodsName) || util.isNullStr(this.data.purchasedPrice)) {
       wx.showToast({
-        title: '请完善信息再提交',
+        title: this.data.langTranslate['请完善信息再提交'],
         icon: 'none'
       });
       return;
