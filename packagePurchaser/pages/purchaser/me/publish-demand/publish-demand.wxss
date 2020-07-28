@@ -125,13 +125,13 @@ page {
 .form-list .upload-button {
   width: 85%;
   height: 80rpx;
-  border: 1px solid #23c295;
+  border: 1px solid #ff0000;
   border-radius: 10rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size:32rpx;
-  color:#23c295;
+  color:#ff0000;
   line-height: 34rpx;
   margin: 20rpx auto 0;
 }
@@ -153,7 +153,7 @@ page {
   display:inline-block;
 }
 .buttons-area .submit-button {
-  background:#23c395;
+  background:#ff0000;
 }
 .submit-button text {
   color: #fff;

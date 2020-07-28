@@ -25,8 +25,8 @@
         <video style="width: 100%; height: calc(690rpx * 9 / 16);" src="{{detailInfo.video}}"></video>
       </view>
     </view>
-    
-		<view class="module-item company-item" wx:if="{{detailInfo.introduction}}">
+    <!-- wx:if="{{detailInfo.introduction}}" -->
+		<view class="module-item company-item" >
       <view class="con-main-video-live" style="margin-top:60rpx">
         <p class="live-tab">{{langTranslate['展品介绍']}}</p>
         <p class="live-tab">

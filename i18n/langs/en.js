@@ -330,7 +330,29 @@ const languageMap = {
   "确定要切换语言吗":"Are you sure you want to switch language",
   "登陆状态将会注销":"Logged in will be logged out",
   "确定切换身份吗":"Are you sure to switch status",
-  "其他人也在看": "Others are watching"
+  "其他人也在看": "Others are watching",
+  "请完善信息再提交": "Please complete the information before submitting",
+  "个人信息仅用于身份验证识别与授权，确保数据安全": "Personal information is only used for identity verification and authorization to ensure data security",
+  "绑定信息后用户即可进行展会活动信息查询,匹配商机邀约发起、确认": "After binding the information, the user can query the exhibition event information, and match the business opportunity invitation to initiate and confirm",
+  "授权成为观众": "Authorize to be an audience",
+  "切换为展商": "Switch to exhibitor",
+  "客服电话": "Consumer hotline",
+  "为了校验您的观众身份\n请授权手机号": "In order to verify your audience identity \n please authorize your mobile phone number",
+  "授权": "Authorization",
+  "切换为观众": "Switch to audience",
+  "授权成为展商": "Authorized to become an exhibitor",
+  "姓名": "Name",
+  "职位": "Job",
+  "展商标识码": "Exhibitor ID",
+  "名称": "Company Name",
+  "如有问题请联系客服": "If you have any questions, please contact customer service",
+  "保存": "Save",
+  "请输姓名": "Please enter your name",
+  "请输入职务": "Please enter a job title",
+  "请输入展商确认码/展商手册用户名": "Please enter Exhibitor Confirmation Code/Exhibitor Manual Username",
+  "请输入展商名称": "Please enter the exhibitor name",
+  "确定要切换吗": "Are you sure you want to switch",
+  "展商联系人注册": "Exhibitor Contact Registration"
 }
 module.exports = {
   languageMap: languageMap

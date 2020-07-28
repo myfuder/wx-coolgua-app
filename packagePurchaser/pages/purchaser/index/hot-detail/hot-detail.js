@@ -122,7 +122,7 @@ Page({
         },
         success: function (res) {
           _self.setData({
-            detailInfo: res.data.result,
+            liveDetail: res.data.result,
           })
         }
       }); 

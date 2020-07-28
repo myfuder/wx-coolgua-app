@@ -16,7 +16,7 @@
         <view wx:if="{{live_type=='exhibitor'}}" class="align-items" style="margin-bottom:20rpx;">
           <view class="message-exhi-info align-items" style="margin-bottom:0">
             <image class="message-exhi-info-img" src="{{detailInfo.coverImage}}"></image>
-            <span style="margin:0 10rpx;min-width:100rpx;font-size:28rpx;color:#fff">{{detailInfo.name}}</span>
+            <span style="margin:0 10rpx;min-width:100rpx;font-size:28rpx;color:#fff">{{isEn?detailInfo.companyEn:detailInfo.company}}</span>
           </view>
           <i class="iconfont {{open_detail_up?'icon-up-arrow':'icon-down-arrow'}} jiantou" style="font-size:28rpx;color:#fff" bindtap="onTaggleODUP"></i>
         </view>
@@ -156,7 +156,7 @@
 		</view> -->
 	</block>
 	<block wx:else>
-		<video id="myVideo" src="{{detailInfo.video}}" controls></video>
+		<video id="myVideo" src="{{liveDetail.video}}" controls></video>
 	</block>
   <view class="wx-popup" wx:if="{{loadLoginPop&&live_type=='exhibitor'&&type != -1}}">
     <view class='popup-container'>
