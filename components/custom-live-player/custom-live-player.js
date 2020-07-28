@@ -63,6 +63,9 @@ Component({
     attached: function () {
       this.initTim()
     },
+    detached() {
+      wx.$app.logout()
+    },
   },
   /**
    * 组件的方法列表
@@ -86,6 +89,7 @@ Component({
         wx.showLoading({
           title: '视频加载中',
         })
+        this.triggerEvent('onStartEvent', null)
       } else if(e.detail.code == '2006' || e.detail.code == '-2301'){
         wx.hideLoading()
         this.triggerEvent('onFinishEvent', null)
@@ -102,7 +106,7 @@ Component({
       const user = storage.getUserInfo()
       if(!user||user&&!user.id){
         wx.navigateTo({
-          url: `/packagePurchaser/pages/purchaser/authorize/authorize?redirect=${encodeURIComponent(getCurrentPageAndParams())}`,
+          url: `/packagePurchaser/pages/purchaser/authorize/authorize?redirect=${encodeURIComponent(util.getCurrentPageAndParams())}`,
         })
         return false
       }
@@ -444,20 +448,45 @@ Component({
     },
     /*end:弹出框*/
   },
+  
   observers: {
     'liveId': function (liveId) {
       if (liveId !== 0) {
         const user = storage.getUserInfo()
-        api.getLive({
+        // api.getLive({
+        //   query: {
+        //     id: this.data.liveId
+        //   },
+        //   success: result => {
+        //     console.log(result.data.result)
+        //     if (result.data.code=="1"){
+        //       wx.showModal({
+        //         title: this.data.langTranslate['错误']||'warning',
+        //         content: result.data.message, showCancel:false,
+        //         success(res) {
+        //           if (res.confirm) {
+        //             wx.navigateBack()
+        //           }
+        //         }
+        //       })
+        //     }else{
+        //       this.setData({
+        //         live: result.data.result
+        //       })
+        //     }
+        //   }
+        // })
+        api.getLivePullUrl({
           query: {
-            id: this.data.liveId
+            id: this.data.liveId,
+            type: this.data.type,
+            userId: user.id
           },
-          success: result => {
-            console.log(result.data.result)
-            if (result.data.code=="1"){
+          success: (result) => {
+            if (result.data.code!='0'){
               wx.showModal({
-                title: this.data.langTranslate['错误']||'warning',
-                content: result.data.message, showCancel:false,
+                title: this.data.langTranslate['错误'] || 'warning',
+                content: result.data.message, showCancel: false,
                 success(res) {
                   if (res.confirm) {
                     wx.navigateBack()
@@ -466,22 +495,9 @@ Component({
               })
             }else{
               this.setData({
-                live: result.data.result
+                src: result.data.result
               })
-            }
-          }
-        })
-        api.getLivePullUrl({
-          query: {
-            id: this.data.liveId,
-            type: this.data.type,
-            userId: user.id
-          },
-          success: (result) => {
-            console.log(result.data.result)
-            this.setData({
-              src: result.data.result
-            })
+            }            
           }
         })
         api.getTrtcOrImSign({
@@ -491,7 +507,7 @@ Component({
           },
           success: (result) => {
             this.tim.login({
-              userID: user.id,
+              userID: user.id || guid(),
               userSig: result.data.result
             }).then(imResponse => {
               console.log('登录成功')
@@ -505,7 +521,13 @@ Component({
             })
           }
         })
-
+        //用于生成uuid
+        function S4() {
+          return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        }
+        function guid() {
+          return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+        }
       }
     }
   }

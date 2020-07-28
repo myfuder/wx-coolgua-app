@@ -13,7 +13,7 @@
 
 	<block wx:if="{{type != -1}}">
     <view wx:if="{{showMask}}" class="barrage-container" >
-        <view wx:if="{{live_type=='exhibition'}}" class="align-items" style="margin-bottom:20rpx;">
+        <view wx:if="{{live_type=='exhibitor'}}" class="align-items" style="margin-bottom:20rpx;">
           <view class="message-exhi-info align-items" style="margin-bottom:0">
             <image class="message-exhi-info-img" src="{{detailInfo.coverImage}}"></image>
             <span style="margin:0 10rpx;min-width:100rpx;font-size:28rpx;color:#fff">{{detailInfo.name}}</span>
@@ -40,7 +40,7 @@
           </view>
         </view>
 
-        <view wx:if="{{!open_detail_up&&live_type=='exhibition'}}" class="exh-detail">
+        <view wx:if="{{!open_detail_up&&live_type=='exhibitor'}}" class="exh-detail">
           <view class="align-items space-between" style="padding:6rpx 24rpx 0 24rpx">
             <view>
               <text class="label-text">{{langTranslate['展馆号']}}：</text>
@@ -86,9 +86,9 @@
     <view style="width:70rpx;height:70rpx;position:absolute;bottom:21rpx;border-radius:50%;z-index: 9;right:23rpx;background:#f00" class="align-items flex-c " bindtap="onToggleControl">
       <image style="width:60%;height:60%" mode="aspectFit" src="{{showMask?live_clean:live_clean_cancle}}" alt='daddad' ></image>
     </view>
-		<custom-live-player wx:if="{{!loadLoginPop}}" showMask="{{showMask}}" style="width:100%;height:100%" bindonFinishEvent="onFinishEvent" cust-class="video-screen" liveId="{{id}}"></custom-live-player>
+		<custom-live-player wx:if="{{!loadLoginPop}}" showMask="{{showMask}}" style="width:100%;height:100%" bindonStartEvent="onStartEvent" bindonFinishEvent="onFinishEvent" cust-class="video-screen" liveId="{{id}}"></custom-live-player>
     <view wx:else class="align-items flex-c" style="width:100%;height:100%;background: #000;"><text style="padding:10rpx;border-radius:10rpx;color:#fff">主播正在赶来的路上~</text></view>
-		<!-- <exh-item exhibitList="{{exhibitLit}}" liveId="{{id}}" exhItemType="exhibition"></exh-item>
+		<!-- <exh-item exhibitList="{{exhibitLit}}" liveId="{{id}}" exhItemType="exhibitor"></exh-item>
 		<view class="module-area">
 			<view class="module-item">
 				<view class="module-top">
@@ -122,8 +122,8 @@
 					</view>
 				</view>
 				<view class="exh-list">
-					<view wx:for="{{exhibits}}" wx:key="item" data-id="{{item.id}}" class="exhibition-item">
-						<view class="exhibition-info">
+					<view wx:for="{{exhibits}}" wx:key="item" data-id="{{item.id}}" class="exhibitor-item">
+						<view class="exhibitor-info">
 							<view class="logo-area">
 								<image src="{{item.coverImage}}" class="logo-img"></image>
 							</view>
@@ -158,7 +158,7 @@
 	<block wx:else>
 		<video id="myVideo" src="{{detailInfo.video}}" controls></video>
 	</block>
-  <view class="wx-popup" wx:if="{{loadLoginPop&&live_type=='exhibition'&&type != -1}}">
+  <view class="wx-popup" wx:if="{{loadLoginPop&&live_type=='exhibitor'&&type != -1}}">
     <view class='popup-container'>
       <view class="popup-account" style="padding:30rpx;width:520rpx;height: 630rpx;overflow:auto">
         <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">x</i>

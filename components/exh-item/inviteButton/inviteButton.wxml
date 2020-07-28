@@ -75,9 +75,9 @@
                     </view>
                 </view>
                 <view class="form-item">
-                    <view class="form-title">{{langTranslate['选择预约人']}}：</view>
+                    <view class="form-title">{{langTranslate['选择联系人']}}：</view>
                     <view class="space-between align-items" style="padding:0 22rpx;height:80rpx;background:rgba(255,255,255,1);font-size:28rpx;color:#666666;border:1px solid rgba(220,223,230,1);" bindtap="showContacts">
-                      {{activeContact||"全部联系人"}} 
+                      {{activeContact.name||"全部联系人"}} 
                       <i class="iconfont icon-down-arrow" style="font-size:40rpx;color:#666;width: 60rpx;height: 60rpx"></i>
                     </view>
                 </view>
