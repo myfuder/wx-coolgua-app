@@ -37,6 +37,9 @@ Page({
        });
        return false
      }*/
+     wx.setNavigationBarTitle({
+       title: this.data.langTranslate['个人中心']
+     })
   },
   go2auth() {
     var redirect = encodeURIComponent(getCurrentPageAndParams());
@@ -96,8 +99,8 @@ Page({
     var self = this
     console.log(event.currentTarget.dataset.name)
     wx.showModal({
-      title: "提示",
-      content: "确定要切换语言吗？",
+      title: self.data.langTranslate["提示"],
+      content: self.data.langTranslate["确定要切换语言吗？"],
       success(res) {
         if (res.confirm) {
           var lang = self.data.lang
@@ -153,8 +156,8 @@ Page({
     var self = this
     //退出观众 进入展商
     wx.showModal({
-      title: '登陆状态将会注销',
-      content: '确定切换身份吗?',
+      title: self.data.langTranslate['登陆状态将会注销'],
+      content: self.data.langTranslate['确定切换身份吗?'],
       success: function (sm) {
         if (sm.confirm) {
           self.triggerUnline()

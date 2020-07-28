@@ -73,8 +73,8 @@ export const icon_image_upload="http://qiniu.liumingtai.com/blog/20200524/t69VBS
 
 export const icon_look=base_url+"/BCmBhggH5NQK.png"
 
-export const icon_share=base_url+"/ImgaCF7aLAhb.png"
-export const icon_share_En = base_url + "/ImgaCF7aLAhb.png"
+export const icon_share=base_url+"/bbb216.png"
+export const icon_share_En = base_url + "/bbb217.png"
 export const icon_delete=base_url+"/X1rriug6zUOx.png"
 
 

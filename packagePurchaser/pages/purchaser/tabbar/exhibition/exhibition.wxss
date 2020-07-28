@@ -152,7 +152,7 @@ page {
   width: calc(100% - 150rpx);
   height: 100%;
   overflow: auto;
-  background: #fff
+  /* background: #fff */
 }
 .exhibition-list-tabs .exhibition-list-tab-item{
   display: inline-block;

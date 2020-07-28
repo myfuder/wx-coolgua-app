@@ -23,18 +23,18 @@
             <text class="hot-text">{{item.hot||item.popular}}</text>
           </view>
         </view>
-        <view wx:if="{{exhItemType === 'exhibits'&&exhItemTypeStatus === 'detail'}}" class="pavilion-number">
-          <text class="label-text">展品类别：</text>
-          <block wx:if="{{!langIsEn&&exhItemType=='exhibition'}}">
+        <view wx:if="{{exhItemType === 'exhibits'}}" class="pavilion-number">
+          <text class="label-text">{{langTranslate['展品类别']}}：</text>
+          <block wx:if="{{!langIsEn&&exhItemType=='exhibits'}}">
             <view class='industry-list {{uhide==item.id||item.tagNames.length<6?"tagsShow":"tagsHidden"}}'>
-              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:if="{{index==0}}" wx:key="tagItem"
                     class="industry-item">{{tagItem}}
               </view>
             </view>
           </block>
-          <block wx:elif="{{langIsEn&&exhItemType=='exhibition'}}">
+          <block wx:elif="{{langIsEn&&exhItemType=='exhibits'}}">
             <view class='industry-list {{uhide==item.id||item.tagEnglishNames.length<4?"tagsShow":"tagsHidden"}}'>
-              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:key="tagItem"
+              <view wx:for="{{langIsEn ? item.tagEnglishNames : item.tagNames}}" wx:for-item="tagItem" wx:if="{{index==0}}" wx:key="tagItem"
                     class="industry-item">{{tagItem}}
               </view>
             </view>
@@ -50,7 +50,7 @@
           <text class="label-text">{{langTranslate['展馆号']}}：</text>
           <text class="value-text">{{item.hallNumber}}</text>
         </view>
-        <view class="pavilion-number">
+        <view wx:if="{{exhItemType === 'exhibition'}}" class="pavilion-number">
           <text class="label-text">{{langTranslate['展位号']}}：</text>
           <text class="value-text">{{item.boothNumber}}</text>
         </view>

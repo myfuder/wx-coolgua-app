@@ -41,7 +41,7 @@
 	</view>
 	<view class="share">
 		<button open-type="share" plain="true" class="tab-ticket">
-		<image mode='widthFix' src="{{staticImageUrl}}/img/xgyz/share.png"></image>
+		<image mode='widthFix' src="{{isEn?icon_share_En:icon_share}}"></image>
 		</button>
 	</view>
 </view>

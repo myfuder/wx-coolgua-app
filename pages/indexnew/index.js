@@ -51,6 +51,11 @@ Page({
       loadLoginPop: !this.data.loadLoginPop
     })
   },
+  toDemand() {
+    wx.navigateTo({
+      url: '/packageExhibitor/pages/newedition/demand/demand',
+    })
+  },
   getListData: function () {
     let _self = this;
     (0, api.getPurchaserSuppliers)({
@@ -124,7 +129,7 @@ Page({
             {
               name: i18n.langTranslate()["参观指引"],
               image: home_bar_looknav,
-              toPage: '',
+              toPage: '/packageExhibitor/pages/newedition/lookNav/lookNav',
             },
             {
               name: i18n.langTranslate()["深圳展"],

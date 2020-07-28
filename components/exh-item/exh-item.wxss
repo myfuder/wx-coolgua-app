@@ -91,6 +91,7 @@
 .industry-list {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden
 }
 .industry-list .industry-item {
   background:#f4f8fb;

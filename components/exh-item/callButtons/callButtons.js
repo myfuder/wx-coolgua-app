@@ -107,6 +107,7 @@ Component({
       })
     },
     closepop(){
+      console.log("dasdadadadAd")
       this.setData({
         popWindow: true
       })
