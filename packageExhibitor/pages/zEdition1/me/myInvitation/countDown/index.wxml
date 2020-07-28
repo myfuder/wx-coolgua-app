@@ -1,0 +1,5 @@
+<!--packagePurchaser/pages/purchaser/me/appoint-schedule/countDown/index.wxml-->
+
+<view class="opt-tixing" style="background:{{currTime?'#666666':''}}" bindtap="tixing">
+  <text >{{currTime||langTranslate['提醒对方']}}</text>
+</view>
