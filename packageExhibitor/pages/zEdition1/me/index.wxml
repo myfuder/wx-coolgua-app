@@ -1,7 +1,7 @@
 <!--packageExhibitor/pages/zEdition1/me/index.wxml-->
 <import src="../../../../pages/common/tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />
-<view class="container" style="height: {{height}}px;background: #F6F7FB;">
+<view style="height: {{height}}px;background: #F6F7FB;">
   <view class="topContainer" style="position: relative;display: flex;align-items: center;margin-bottom: 20rpx;padding:30rpx;padding-top: 40rpx;background:url({{personalCenter}}) no-repeat 100% 100%;">
     <image src="{{info.portrait}}" mode="aspectFill" wx:if="{{info.portrait}}"bindtap="zoomImage" data-imageurl="{{info.portrait}}" class="user-img"></image>
     <image wx:else src="{{defaultUserImage}}" class="user-img"></image>
@@ -34,8 +34,8 @@
        </view>
    </view>-->
 
-  <view class="row-container">
-    <view style="background: #fff;border-radius: 20rpx;">
+  <view style="display: flex;align-items: center;padding:0 20rpx">
+    <view style="background: #fff;border-radius: 20rpx;width:100%">
       <view class="flex flex-c-c space-between" style="padding: 30rpx;"
             bindtap="go2exhibits"
       >
@@ -48,9 +48,9 @@
           <view style="margin-right: 10rpx;">
             {{getStatOverview.exhibit||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <view class="flex flex-c-c space-between" style="padding: 30rpx;"
@@ -67,9 +67,9 @@
           <view style="margin-right: 10rpx;">
             {{getStatOverview.invite||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <view class="flex flex-c-c space-between" style="padding: 30rpx;"
@@ -87,9 +87,9 @@
           <view style="margin-right: 10rpx;">
             {{getStatOverview.schedule||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <view class="flex flex-c-c space-between" style="padding: 30rpx;" bindtap="go2mymessage">
@@ -105,9 +105,9 @@
           <view style="margin-right: 10rpx;">
             {{messageUnRead||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <view class="flex flex-c-c space-between" style="padding: 30rpx;"
@@ -124,9 +124,9 @@
           <view style="margin-right: 10rpx;">
             {{getStatOverview.event||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <view class="flex flex-c-c space-between" style="padding: 30rpx;"
@@ -142,9 +142,9 @@
           <view style="margin-right: 10rpx;">
             {{getStatOverview.collectLikeCount||0}}
           </view>
-          <image
+          <!-- <image
             style="width: 10rpx;height: 21rpx;"
-            src="{{myself_right}}"></image>
+            src="{{myself_right}}"></image> -->
         </view>
       </view>
       <!-- <view class="flex flex-c-c space-between" style="padding: 30rpx;" bindtap="callTelephone"> -->
@@ -159,9 +159,9 @@
             <view style="margin-right: 10rpx;">
               {{getStatOverview.event||0}}
             </view>
-            <image
-              style="width: 10rpx;height: 21rpx;"
-              src="{{myself_right}}"></image>
+            <!-- <image
+              style="width: 10rpx;height: 21rpx;color:#000;background:#000"
+              src="{{myself_right}}"></image> -->
           </view>
 
         <!-- <view class="small" style="color:#C1C1C1 ">

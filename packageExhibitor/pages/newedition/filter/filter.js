@@ -31,6 +31,9 @@ Component({
   lifetimes:{
     ready(){
       this.getFilterData();
+      this.setData({
+        isEn: i18n.isEn()
+      })
     }
   },
   methods:{

@@ -171,7 +171,6 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log(res)
           if (res.data.code == '0') {
             that.setData({
               info: res.data.result

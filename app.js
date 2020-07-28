@@ -18,7 +18,9 @@ const {defaultUserImage,
   tab_image_business_default,
   tab_image_business_active,
   tab_image_myself_default,
-  tab_image_myself_active} = require('./common/staticImageContants');
+  tab_image_myself_active,
+  tab_image_buyers_default,tab_image_buyers_active,
+  tab_image_demand_default,tab_image_demand_active} = require('./common/staticImageContants');
 let options = {
   SDKAppID: constant.SDKAppID // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
@@ -365,8 +367,8 @@ App({
           "pagePath": "/pages/indexExhibitor/indexExhibitor",
           "textCn": "首页",
           "textEn": "Home page",
-          "iconPath": "/common/image/tab1/home.png?x-oss-process=image/resize,m_lfit,h_24,w_24",
-          "selectedIconPath": "/common/image/tab1/home_pre.png?x-oss-process=image/resize,m_lfit,h_23,w_22",
+          "iconPath": tab_image_home_default,
+          "selectedIconPath": tab_image_home_active,
           "clas": "menu-item",
           "selectedColor": "#FF0000",
           "active": true
@@ -375,8 +377,8 @@ App({
           "pagePath": "/packageExhibitor/pages/newedition/buyersList/buyersList",
           "textCn": "采购商",
           "textEn": "caigoushang",
-          "iconPath": "/common/image/tab1/exhibits.png?x-oss-process=image/resize,m_lfit,h_24,w_24",
-          "selectedIconPath": "/common/image/tab1/exhibits_pre.png?x-oss-process=image/resize,m_lfit,h_24,w_24",
+          "iconPath": tab_image_buyers_default,
+          "selectedIconPath": tab_image_buyers_active,
           "selectedColor": "#FF0000",
           "clas": "menu-item",
           "active": false
@@ -385,8 +387,8 @@ App({
           "pagePath": "/packageExhibitor/pages/newedition/demand/demand",
           "textCn": "采购需求",
           "textEn": "caigouxuqiu",
-          "iconPath": "/common/image/tab1/exhibition.png?x-oss-process=image/resize,m_lfit,h_24,w_24",
-          "selectedIconPath": "/common/image/tab1/exhibition_pre.png?x-oss-process=image/resize,m_lfit,h_23,w_19",
+          "iconPath": tab_image_demand_default,
+          "selectedIconPath": tab_image_demand_active,
           "selectedColor": "#FF0000",
           "clas": "menu-item",
           active: false
@@ -395,8 +397,8 @@ App({
           "pagePath": "/packageExhibitor/pages/zEdition1/me/index",
           "textCn": "个人中心",
           "textEn": "Mine",
-          "iconPath": "/common/image/tab1/me.png?x-oss-process=image/resize,m_lfit,h_24,w_24",
-          "selectedIconPath": "/common/image/tab1/me_pre.png?x-oss-process=image/resize,m_lfit,h_23,w_19",
+          "iconPath": tab_image_myself_default,
+          "selectedIconPath": tab_image_myself_active,
           "selectedColor": "#FF0000",
           "clas": "menu-item",
           active: false

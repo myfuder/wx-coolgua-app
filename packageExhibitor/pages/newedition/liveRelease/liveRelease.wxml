@@ -49,7 +49,7 @@
           </label>
         </radio-group>
       </view>
-      <view style="margin: 39rpx 27rpx 0 28rpx;">
+      <view style="margin: 0 27rpx 0 28rpx;">
         <text class="content-lable">{{langTranslate['直播封面']}}</text>
         <view class="img-box">
           <image wx:if="{{form.imgUrl}}" src="{{form.imgUrl}}" />

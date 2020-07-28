@@ -21,12 +21,14 @@ page{
   border-bottom: 1px solid rgba(245,245,245,1);
 }
 #live-release .content-lable{
+  min-width: 120rpx;
   height:26rpx;
   font-size:28rpx;
   font-family:PingFang SC;
   font-weight:500;
   color:rgba(102,102,102,1);
   line-height:26rpx;
+  display: inline-block;
 }
 #live-release .content-input{
   height:28rpx;

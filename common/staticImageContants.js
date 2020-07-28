@@ -40,6 +40,12 @@ export const tab_image_business_active = base_url +"/bbb190.png?x-oss-process=im
 export const tab_image_myself_default = base_url +"/bbb11.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const tab_image_myself_active = base_url +"/bbb10.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 
+export const tab_image_buyers_default = base_url +"/bbb204.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const tab_image_buyers_active = base_url +"/bbb203.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+
+export const tab_image_demand_default = base_url +"/bbb186.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const tab_image_demand_active = base_url +"/bbb185.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+
 // packagePurchaser/pages/purchaser/tabbar/me/me
 export const myself_zp=base_url+"/home/tab1.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_yy=base_url+"/home/tab2.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
@@ -48,7 +54,7 @@ export const myself_xx=base_url+"/home/tab4.png?x-oss-process=image/resize,m_lfi
 export const myself_hd=base_url+"/home/tab5.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_sc_dz=base_url+"/home/tab6.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_kfdh=base_url+"/home/tab7.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
-export const myself_right=base_url+"/home/left.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const myself_right=base_url+"bbb65.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 
 export const default_product_image=base_url+"/VFw7RdjM2PpD.png"
 

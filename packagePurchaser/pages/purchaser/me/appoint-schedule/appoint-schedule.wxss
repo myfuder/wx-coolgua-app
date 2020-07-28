@@ -33,7 +33,7 @@ page{
   border-radius:6rpx 0rpx 0rpx 6rpx;
 }
 .tab-area .tab-item:last-child {
-  border-radius:0rpx 2rpx 6rpx 0rpx;
+  border-radius:0rpx 6rpx 6rpx 0rpx;
 }
 .tab-area .tab-item.active {
   background:linear-gradient(90deg,rgba(255,45,46,1) 0%,rgba(253,71,108,1) 100%);
