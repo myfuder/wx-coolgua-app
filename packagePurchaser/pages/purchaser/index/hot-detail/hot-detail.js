@@ -242,6 +242,11 @@ Page({
       })
     }
   },
+  onStartEvent:function(){
+    _self.setData({
+      loadLoginPop: false,
+    })
+  },
   onFinishEvent:function(){
     (0, api.recommendLive)({
       query: {
@@ -286,7 +291,7 @@ Page({
     const type = e.type
     _self = this
     this.setData({
-      live_type: e.live_type ||"exhibition",
+      live_type: e.live_type ||"exhibitor",
       staticImageUrl: constant.STATIC_IMAGE_URL,
       type: parseInt(type),
       id: id,

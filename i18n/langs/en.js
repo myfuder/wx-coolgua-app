@@ -318,6 +318,11 @@ const languageMap = {
   "采购商列表": "Buyer List",
   "观众列表": "Buyer List",
   "我的直播":"My Live video",
+  "热度": "Heat",
+  "推荐": "Recommend",
+  "暂无更多直播内容":"No more live content",
+  "展品详情":"Exhibit details",
+  "展商列表":"Exhibitor list"
 }
 module.exports = {
   languageMap: languageMap

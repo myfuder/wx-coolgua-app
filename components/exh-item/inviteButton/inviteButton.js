@@ -88,16 +88,23 @@ Component({
         },
         success(res) {
           console.log(res)
-          that.setData({
-            contactList: res.data.result.list,
-            popWindow: false
-          })
+          if (res.data.code=='0'){
+            that.setData({
+              contactList: res.data.result.list,
+              popWindow: false
+            })
+          }
+          else{
+            wx.showToast({
+              title: res.daat.message,
+            })
+          }
         }
       })
     },
     mesgClick(e){
       this.setData({
-        activeContact: e.currentTarget.dataset.item.name,
+        activeContact: e.currentTarget.dataset.item,
         popWindow: true
       })
     },
@@ -449,7 +456,8 @@ Component({
         supplierId,
         remark: _self.data.remark,
         purchaserId,
-        top: _self.data.topTheme
+        top: _self.data.topTheme,
+        contactId: _self.data.activeContact.id
       }
       this.properties.liveid > 0 ? params['liveId'] = this.properties.liveid : '';
       (0, api.addPurchaserSchedule)({

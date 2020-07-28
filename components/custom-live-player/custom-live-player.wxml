@@ -1,5 +1,5 @@
 <!-- components/custom-live-player/custom-live-player.wxml -->
-<view class="cust-class" wx:if="{{src}}" id="custom-live-player">
+<view class="cust-class" id="custom-live-player">
   
 		<live-player class="player" style="width:100%;height:100%" mode="live" src="{{src}}" autoplay="true" bindstatechange="onPlay"></live-player>
     <!-- <image src="{{myself_phone}}" style="width:100%;height:100%"></image> -->
@@ -12,7 +12,7 @@
       </scroll-view>
       <view class="chat">
           <view class="chat-wrapper">
-              <input class="chat-input" bindinput="onChatInput" value="{{content}}" placeholder="说点什么..."></input>
+              <input class="chat-input" type="text" cursor-spacing="10" bindinput="onChatInput" adjust-position="{{false}}" value="{{content}}" placeholder="说点什么..."></input>
               <view class="chat-button" catchtap="onMessageSend">发送</view>
           </view>
       </view>
