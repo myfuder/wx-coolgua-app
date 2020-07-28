@@ -102,7 +102,6 @@ Page({
     //     _self.initData();
     //   }
     // })
-    this.initinfo();
 
   },
   setForm:function(e){
@@ -212,13 +211,33 @@ Page({
               form[i] = info[i]
             }
           }
-          form.acode = info.portrait
-          that.getFilterData();
+          form.acode = info.portrait;
+          let countryCodeIndex = that.data.countryCodes.findIndex((item) => {
+            return item==form.country
+          })
+          let provinceCodeIndex = that.data.provinceCodes.findIndex((item) => {
+            return item==form.province
+          })
+          that.setData({
+            form,
+            showProvice:countryCodeIndex>1?false:true,
+            countryCodeIndex: countryCodeIndex>-1?countryCodeIndex:0,
+            provinceCodeIndex: provinceCodeIndex>-1?provinceCodeIndex:0,
+            cityCodeIndex:cityCodeIndex>-1?cityCodeIndex:0
+          })
+          that.getCityData();
+          let cityCodeIndex = that.data.cityCodes.findIndex((item) => {
+            return item==form.city
+          })
+          that.setData({
+            cityCodeIndex:cityCodeIndex>-1?cityCodeIndex:0
+          })
           // info.introduction = info.introduction && info.introduction.substr(0, 250);
           // info.introductionEn = info.introductionEn && info.introductionEn.substr(0, 250)
-          that.setData({
-            form
-          })
+          // that.setData({
+          //   form
+          // })
+          that.getFilterData();
 
         } else {
 
@@ -694,6 +713,7 @@ Page({
       langTranslate: i18n.langTranslate(),
       isEn: i18n.isEn()
     })
+    this.initinfo();
   },
 
   /**
