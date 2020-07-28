@@ -14,15 +14,18 @@ Page({
   data: {
     totalData:[
       {id:1,title:langTranslate['我的收藏'],imgUrl:myself_right_arrow,
-        children: [{ type:"collect",id: 1, title: langTranslate['展品'],count: "0" ,imgUrl:myself_commodities,link:'collectSupplier'}, { type:"collectExhibit",link:'collectExhibit',id: 2, title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
+        children: [{ passive:"0",operation:"1",type:"collect",id: 1, title: langTranslate['展品'],count: "0" ,imgUrl:myself_commodities,link:'collectExhibit',typerole:2}, 
+        { passive:"0",operation:"1",typerole:0,type:"collectExhibit",link:'collectSupplier',id: 2, title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
       },
       {
         id: 1, title: langTranslate['我的点赞'],imgUrl:myself_right_arrow,
-        children: [{ type:"zan",id: 1, title: langTranslate['展品'], count: "0" ,imgUrl:myself_commodities,link:'likesSupplier'}, { type:"zanExhibit",id: 2, link:'likesExhibit',title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
+        children: [{ passive:"0",operation:"0",type:"zan",id: 1, title: langTranslate['展品'], count: "0" ,imgUrl:myself_commodities,link:'likesExhibit',typerole:2}, 
+        { passive:"0",operation:"0",typerole:0,type:"zanExhibit",id: 2, link:'likesSupplier',title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
       },
       {
         id: 1, title: langTranslate['关注我的展商'],imgUrl:myself_right_arrow,
-        children: [{ type:"zaned",id: 1, title: langTranslate['收藏的展商'], count: "0" ,imgUrl:myself_exhibits,link:'beCollect'}, { type:"zanedExhibit",id: 2,link:'beLikes', title: langTranslate['点赞的展商'], count: "0" ,imgUrl:myself_prise},]
+        children: [{ passive:"1",operation:"1",type:"zaned",id: 1, title: langTranslate['收藏的展商'], count: "0" ,imgUrl:myself_exhibits,link:'beCollect',typerole:0}, 
+        { passive:"1",operation:"0",typerole:0,type:"zanedExhibit",id: 2,link:'beLikes', title: langTranslate['点赞的展商'], count: "0" ,imgUrl:myself_prise},]
       }, 
     ],
     getGuanZhong_total: {
@@ -58,7 +61,7 @@ Page({
   },
   goPage: function (e) {
     wx.navigateTo({
-      url: `/packagePurchaser/pages/purchaser/me/collectList/collectList?totaltype=${e.currentTarget.dataset.totaltype}&role=${e.currentTarget.dataset.page}&type=${e.currentTarget.dataset.type}&operation=${e.currentTarget.dataset.operation}&passive=${e.currentTarget.dataset.passive}`,
+      url: `/packagePurchaser/pages/purchaser/me/collectList/collectList?totaltype=${e.currentTarget.dataset.totaltype}&role=${e.currentTarget.dataset.page}&type=${e.currentTarget.dataset.type}&operation=${e.currentTarget.dataset.operation}&passive=${e.currentTarget.dataset.passive}&typerole=${e.currentTarget.dataset.typerole}`,
     })
   },
   async getCount() {
@@ -66,7 +69,6 @@ Page({
     // ywmatch.coolgua.com:9998/api3/supplier/detail/001c8ab968324aa1bd699455a5607348
     var result = await ajax.get(`${API_URL}/purchaser/detail/${userInfo.id}`)
     if(result.code == 0){
-      console.log(result,"ttttttttttttttt");
       var result1 = result.result
       let arr = this.data.totalData
       arr.map(item => {

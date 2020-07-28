@@ -19,7 +19,11 @@ Page({
     isEn: false,
     currentRole: 1,
     totaltype:"",
-    tags:""
+    tags:"",
+    type:"",
+    typerole:"",
+    passive:"",
+    operation:"",
   },
   // 初始化数据
   initData: function(role,type,passive,operation){
@@ -59,62 +63,14 @@ Page({
   async getGuanZhong_total(totaltype) {
     var zan = {
       "projectId": storage.getActivityDetail().id,
-      "type": 1, //1观众
-      "passive": 0,
-      "operation": 0,
+      "type": this.data.typerole, //1观众
+      "passive": this.data.passive,
+      "operation": this.data.operation,
       "userId": storage.getUserInfo().id,
       "pageNum": 1,
       "pageSize": 20
     }
-    var collect = {
-      "projectId": storage.getActivityDetail().id,
-      "type": 1, //1观众
-      "passive": 0,
-      "operation": 1,
-      "userId": storage.getUserInfo().id,
-      "pageNum": 1,
-      "pageSize": 20
-    }
-    var zaned = {
-      "projectId": storage.getActivityDetail().id,
-      "type": 1, //1观众
-      "passive": 1,
-      "operation": 0,
-      "userId": storage.getUserInfo().id,
-      "pageNum": 1,
-      "pageSize": 20
-    }
-    var zanExhibit = {
-      "projectId": storage.getActivityDetail().id,
-      "type": 3, //1观众
-      "passive": 0,
-      "operation": 0,
-      "userId": storage.getUserInfo().id,
-      "pageNum": 1,
-      "pageSize": 20
-    }
-    var collectExhibit = {
-      "projectId": storage.getActivityDetail().id,
-      "type": 3, //1观众
-      "passive": 0,
-      "operation": 1,
-      "userId": storage.getUserInfo().id,
-      "pageNum": 1,
-      "pageSize": 20
-    }
-    var zanedExhibit = {
-      "projectId": storage.getActivityDetail().id,
-      "type": 3, //1观众
-      "passive": 1,
-      "operation": 0,
-      "userId": storage.getUserInfo().id,
-      "pageNum": 1,
-      "pageSize": 20
-    }
-    let params = {
-      zan,collect,zaned,zanExhibit,collectExhibit,zanedExhibit
-    }
-    var result1 = await ajax.get(`${API_URL}/livecollect/list`, params[totaltype]);
+    var result1 = await ajax.get(`${API_URL}/livecollect/list`, zan);
     _self.setData({
       exhibitList: result1.result.data,
       totalPage: result1.result.pages
@@ -232,7 +188,11 @@ Page({
       staticImageUrl: constant.STATIC_IMAGE_URL,
       langTranslate: i18n.langTranslate(),
       isEn: i18n.isEn(),
-      totaltype: options.totaltype
+      totaltype: options.totaltype,
+      type:options.type,
+      typerole:options.typerole,
+      passive:options.passive,
+      operation:options.operation,
     })
     _self.initData(options.totaltype,options.role,options.type,options.passive,options.operation);
   },

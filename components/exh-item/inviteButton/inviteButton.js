@@ -23,6 +23,9 @@ Component({
     userid: {
       type: [Number, String]
     },
+    type: {
+      type: [Number, String]
+    },
     defaultText:{
       type: String,
       value:"预约"
