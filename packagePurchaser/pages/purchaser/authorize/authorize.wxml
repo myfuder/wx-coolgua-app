@@ -8,24 +8,24 @@
     ></image>
     <view class="authorize">
       <view class="notice">
-        <text>1.个人信息仅用于身份验证识别与授权，确保数据安全</text>
-        <text>2.绑定信息后用户即可进行展会活动信息查询,匹配商机邀约发起、确认</text>
+        <text>1.{{langTranslate["个人信息仅用于身份验证识别与授权，确保数据安全"]}}</text>
+        <text>2.{{langTranslate["绑定信息后用户即可进行展会活动信息查询,匹配商机邀约发起、确认"]}}</text>
       </view>
       <view class="register">
-        <button open-type="getUserInfo" class="button immediately" bindgetuserinfo="userLogin">授权成为观众</button>
-        <button class="button exhibitor" bindtap="switchRole">切换为展商</button>
-        <text class="telephone" bindtap="callTelephone">客服电话</text>
+        <button open-type="getUserInfo" class="button immediately" bindgetuserinfo="userLogin">{{langTranslate["授权成为观众"]}}</button>
+        <button class="button exhibitor" bindtap="switchRole">{{langTranslate["切换为展商"]}}</button>
+        <text class="telephone" bindtap="callTelephone">{{langTranslate["客服电话"]}}</text>
       </view>
     </view>
     <!--手机号码授权-->
     <view class="wx-popup" hidden="{{dialogShow}}">
       <view class='popup-container'>
         <view class="wx-popup-title">
-          <text>为了校验您的观众身份\n请授权手机号</text>
+          <text>{{langTranslate["为了校验您的观众身份\n请授权手机号"]}}</text>
         </view>
         <view class="wx-popup-con">
-          <button class="cancal" bindtap="cancel">取消</button>
-          <button class="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+          <button class="cancal" bindtap="cancel">{{langTranslate["取消"]}}</button>
+          <button class="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{langTranslate["授权"]}}</button>
         </view>
       </view>
     </view>

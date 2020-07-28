@@ -17,6 +17,7 @@ Page({
     canClick: true,
     codeNum: '',
     userInfo: {},
+    langTranslate: i18n.langTranslate(),
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     openId: '',
@@ -45,7 +46,7 @@ Page({
       //wx.setStorageSync('userInfo', e.detail.userInfo);
       wx.setStorageSync('authorization', true)
     } else if (that.data.canIUse) {
-      wx.showLoading({title: "授权中"})
+      wx.showLoading({ title: that.data. langTranslate["授权中"]})
       app.userInfoReadyCallback = res => {
         that.setData({
           userInfo: res.userInfo,
@@ -83,7 +84,7 @@ Page({
   },
   getData: function () {
     var that = this
-    wx.showLoading({title: "授权中"})
+    wx.showLoading({ title: that.data. langTranslate["授权中"]})
     wx.login({
       success: res => {
         var url = app.globalData.host + '/api3/wx/code2Session/' + app.globalData.companyId + '/' + res.code;
@@ -95,7 +96,7 @@ Page({
             'Content-Type': 'application/json'
           },
           success: function (res) {
-            wx.hideLoading({title: "授权中"})
+            wx.hideLoading({ title: that.data. langTranslate["授权中"]})
             console.log(res)
             wx.setStorageSync('user', {
               openId: res.data.result.openid,
@@ -108,7 +109,7 @@ Page({
             })
           },
           fail(res) {
-            wx.hideLoading({title: "授权中"})
+            wx.hideLoading({ title: that.data. langTranslate["授权中"]})
           }
         })
       }
@@ -207,8 +208,10 @@ Page({
     var self = this
     //退出观众 进入展商
     wx.showModal({
-      title: '提示',
-      content: '确定要切换吗？',
+      title: self.data.langTranslate['提示'],
+      content: self.data.langTranslate['确定要切换吗']+'?',
+      confirmText: self.data.langTranslate["确定"],
+      cancelText: self.data.langTranslate["取消"],
       success: function (sm) {
         if (sm.confirm) {
           self.triggerUnline()
@@ -221,7 +224,7 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.setData({ redirect: options.redirect&&decodeURIComponent(options.redirect)||null })
+    this.setData({ langTranslate: i18n.langTranslate(), redirect: options.redirect&&decodeURIComponent(options.redirect)||null })
     this.data.activityId = wx.getStorageSync('activityDetail').id
     this.authorization();
   },

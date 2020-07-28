@@ -122,7 +122,7 @@ Page({
         },
         success: function (res) {
           _self.setData({
-            detailInfo: res.data.result,
+            liveDetail: res.data.result,
           })
         }
       }); 
@@ -285,6 +285,13 @@ Page({
     wx.navigateTo({
       url: `/packagePurchaser/pages/purchaser/exhibits/detail/detail?id=${e.currentTarget.dataset.id}`,
     })
+  },
+  refreshLive(e){
+    let { dataset } = e.currentTarget;
+    this.setData({
+      loadLoginPop: false
+    })
+    this.onLoad(dataset)
   },
   onLoad: function (e) {
     const id = e.id    

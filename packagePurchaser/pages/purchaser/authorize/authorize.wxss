@@ -71,19 +71,19 @@ page{
   border-radius:50rpx;
   color:#fff;
   border:none;
-  background:linear-gradient(90deg,rgba(50,203,159,1) 0%,rgba(28,191,144,1) 100%);
+  background:linear-gradient(90deg,rgb(241, 89, 89) 0%,rgb(243, 37, 37) 100%);
 }
 .authorize .register .exhibitor{
   border-radius:50rpx;
-  color:#26c597;
-  border:2rpx solid #26c597;
+  color:#ff0000;
+  border:2rpx solid #ff0000;
   margin-top:40rpx;
 }
 .authorize .register .telephone{
   font-size: 28rpx;
   display:inline-block;
   margin-top:20rpx;
-  color: #27c597;
+  color: #ff0000;
 }
 button::after{
   border:none;

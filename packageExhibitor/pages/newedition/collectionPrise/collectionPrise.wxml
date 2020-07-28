@@ -5,8 +5,8 @@
     <view class="content">
       <view class="content-item" wx:for="{{item.children}}" wx:for-item="childItem" 
         url="/packagePurchaser/pages/purchaser/me/collect/seeDetailList/seeDetailList?operation=1&type=2&passive=0"
-        bindtap="goPage" data-page="exhibits" data-type="0" data-operation="0"
-        data-passive="0" data-totaltype="{{childItem.type}}"
+        bindtap="goPage" data-page="exhibits" data-type="1" data-operation="{{childItem.operation}}"
+        data-passive="{{childItem.passive}}" data-totaltype="{{childItem.type}}" data-typerole="{{childItem.typerole}}"
         wx:for-index="childIndex" wx:key="{{item}}" data-index="{{childIndex}}">
         <view>
           <image src="{{childItem.imgUrl}}" class="title-img" />

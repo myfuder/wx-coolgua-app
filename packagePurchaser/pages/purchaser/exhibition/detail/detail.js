@@ -9,6 +9,7 @@ let api = require("../../../../../utils/api"),
   util = require("../../../../../utils/util"),
   phone = require('../../../../../utils/phone');
 const {defaultUserImage} =require('../../../../../common/staticImageContants')
+import { icon_share, icon_share_En } from "../../../../../common/staticImageContants";
 Page({
   data: {
     exhibitList: [],
@@ -23,7 +24,8 @@ Page({
     isEn: i18n.isEn(),
     uhide: 0,
     company:'',
-    liveList:[]
+    liveList:[],
+    icon_share, icon_share_En
   },
   //点击切换隐藏和显示
   openMore: function (event) { 

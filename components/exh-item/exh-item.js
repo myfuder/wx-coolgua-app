@@ -269,6 +269,7 @@ Component({
       }
     },
     chat: function (e) {
+      var that = this
       var userId = storage.getUserInfo().id
       if (userId == null || userId == undefined || userId == '') {
         wx.navigateTo({
@@ -278,11 +279,11 @@ Component({
         const dataset = e.currentTarget.dataset
         if (dataset.online == 0) {
           wx.showToast({
-            title: '不在线',
+            title: that.data.langTranslate['不在线'],
             icon: 'none'
           })
         } else {
-          var that = this
+          
           let data = {
             conversationID: 'C2C' + dataset.id,
             type: 'C2C',

@@ -22,7 +22,7 @@
 
     </view>
 
-    <inviteButton userid="{{userid}}" />
+    <inviteButton userid="{{userid}}" type="{{type}}"/>
   <view class="wx-popup" hidden="{{popWindow}}">
     <view class='popup-container'>
       <view class="popup-account" style="padding:30rpx;width:500rpx;max-height:476rpx">

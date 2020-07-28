@@ -72,7 +72,7 @@ page{
   margin:0 auto; 
   border:none;
   text-align:center; 
-  background: #27C597;
+  background: #ff0000;
 }
 /**展商版注册按钮**/
 .container .register{

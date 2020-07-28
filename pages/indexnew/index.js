@@ -51,6 +51,11 @@ Page({
       loadLoginPop: !this.data.loadLoginPop
     })
   },
+  toDemand() {
+    wx.navigateTo({
+      url: '/packageExhibitor/pages/newedition/demand/demand',
+    })
+  },
   getListData: function () {
     let _self = this;
     (0, api.getPurchaserSuppliers)({
@@ -124,7 +129,7 @@ Page({
             {
               name: i18n.langTranslate()["参观指引"],
               image: home_bar_looknav,
-              toPage: '',
+              toPage: '/packageExhibitor/pages/newedition/lookNav/lookNav',
             },
             {
               name: i18n.langTranslate()["深圳展"],
@@ -245,8 +250,10 @@ Page({
     var self = this
     if (this.data.lang != event.currentTarget.dataset.lang) {
       wx.showModal({
-        title: "提示",
-        content: "确定要切换语言吗？",
+        title: self.data.langTranslate["提示"],
+        content: self.data.langTranslate["确定要切换语言吗"],
+        confirmText: self.data.langTranslate["确定"],
+        cancelText: self.data.langTranslate["取消"],
         success(res) {
           if (res.confirm) {
             var lang = self.data.lang

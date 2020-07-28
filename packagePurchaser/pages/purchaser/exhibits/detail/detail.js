@@ -3,6 +3,8 @@
 const app = getApp()
 let _self = null;
 let api = require("../../../../../utils/api"), constant = require("../../../../../utils/constant"), i18n = require('../../../../../i18n/i18n.js'), storage = require("../../../../../utils/storage.js"), util = require("../../../../../utils/util");
+import { icon_share,icon_share_En } from "../../../../../common/staticImageContants";
+
 Page({
   data: { 
     exhibitList: [],
@@ -13,7 +15,8 @@ Page({
     productImage: [],
     langTranslate: i18n.langTranslate(),
     isEn: i18n.isEn(),
-    name:''
+    name:'',
+    icon_share, icon_share_En
   },
   // 初始化数据
   initData: function(){

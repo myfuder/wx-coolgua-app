@@ -11,6 +11,8 @@ Page({
   data: { 
     userInfo: {},
     hasUserInfo: false,
+    langTranslate: i18n.langTranslate(),
+    isEn: i18n.isEn(),
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     openId:'',
     name:'',
@@ -156,8 +158,15 @@ Page({
     this.setData({
       openId: wx.getStorageSync('user').openId,
       phoneNumber:wx.getStorageSync('phoneNumber'),
-      activityId:wx.getStorageSync('activityDetail').id
+      activityId:wx.getStorageSync('activityDetail').id,
+      langTranslate: i18n.langTranslate(),
+      isEn: i18n.isEn(),
+    },()=>{
+      wx.setNavigationBarTitle({
+        title: this.data.langTranslate["展商联系人注册"],
+      });
     })
+    
   },
   switchRole:function(){
     wx.$app.logout()

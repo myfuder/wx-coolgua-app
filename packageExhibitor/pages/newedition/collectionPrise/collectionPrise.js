@@ -14,15 +14,18 @@ Page({
   data: {
     totalData:[
       {id:1,title:langTranslate['我的收藏'],imgUrl:myself_right_arrow,
-        children: [{ type:"collect",id: 1, title: langTranslate['展品'],count: "0" ,imgUrl:myself_commodities,link:'collect'}, { type:"collectExhibit",link:'collect_demand',id: 2, title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
+        children: [{ passive:"0",operation:"1",typerole:1,type:"collect",id: 1, title: langTranslate['观众'],count: "0" ,imgUrl:myself_commodities,link:'collectPurchaser'}, 
+        { passive:"0",operation:"1",typerole:3,type:"collectExhibit",link:'collectDemand',id: 2, title: langTranslate['商机'], count: "0" ,imgUrl:myself_exhibits},]
       },
       {
         id: 1, title: langTranslate['我的点赞'],imgUrl:myself_right_arrow,
-        children: [{ type:"zan",id: 1, title: langTranslate['展品'], count: "0" ,imgUrl:myself_commodities,link:'likes'}, { type:"zanExhibit",id: 2, link:'likes_demand',title: langTranslate['展商'], count: "0" ,imgUrl:myself_exhibits},]
+        children: [{ passive:"0",operation:"0",typerole:1,type:"zan",id: 1, title: langTranslate['观众'], count: "0" ,imgUrl:myself_commodities,link:'likesPurchaser'}, 
+        { passive:"0",operation:"0",typerole:3,type:"zanExhibit",id: 2, link:'likesDemand',title: langTranslate['商机'], count: "0" ,imgUrl:myself_exhibits},]
       },
       {
         id: 1, title: langTranslate['关注我的展商'],imgUrl:myself_right_arrow,
-        children: [{ type:"zaned",id: 1, title: langTranslate['收藏的展商'], count: "0" ,imgUrl:myself_exhibits,link:'beCollect'}, { type:"zanedExhibit",id: 2,link:'be_likes', title: langTranslate['点赞的展商'], count: "0" ,imgUrl:myself_prise},]
+        children: [{ passive:"1",operation:"0",typerole:0,type:"zanedExhibit",id: 2,link:'be_likes', title: langTranslate['点赞的展商'], count: "0" ,imgUrl:myself_prise},
+          { passive:"1",operation:"1",typerole:0,type:"zaned",id: 1, title: langTranslate['收藏的展商'], count: "0" ,imgUrl:myself_exhibits,link:'beCollect'},]
       }, 
     ],
     getGuanZhong_total: {
@@ -58,7 +61,7 @@ Page({
   },
   goPage: function (e) {
     wx.navigateTo({
-      url: `/packagePurchaser/pages/purchaser/me/collectList/collectList?totaltype=${e.currentTarget.dataset.totaltype}&role=${e.currentTarget.dataset.page}&type=${e.currentTarget.dataset.type}&operation=${e.currentTarget.dataset.operation}&passive=${e.currentTarget.dataset.passive}`,
+      url: `/packagePurchaser/pages/purchaser/me/collectList/collectList?typerole=${e.currentTarget.dataset.typerole}&totaltype=${e.currentTarget.dataset.totaltype}&role=${e.currentTarget.dataset.page}&type=${e.currentTarget.dataset.type}&operation=${e.currentTarget.dataset.operation}&passive=${e.currentTarget.dataset.passive}`,
     })
   },
   async getCount() {

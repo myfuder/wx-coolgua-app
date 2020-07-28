@@ -87,7 +87,7 @@ Component({
       console.log(e)
       if (e.detail.code == '2007'){
         wx.showLoading({
-          title: '视频加载中',
+          title: this.data.langTranslate['视频加载中'],
         })
         this.triggerEvent('onStartEvent', null)
       } else if(e.detail.code == '2006' || e.detail.code == '-2301'){
@@ -95,7 +95,7 @@ Component({
         this.triggerEvent('onFinishEvent', null)
       } else if (e.detail.code == '2103'){
         wx.showLoading({
-          title: '正在重连',
+          title: this.data.langTranslate['正在重连'],
         })
       } else if (e.detail.code == '2003'){
         wx.hideLoading()
