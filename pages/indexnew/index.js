@@ -250,8 +250,10 @@ Page({
     var self = this
     if (this.data.lang != event.currentTarget.dataset.lang) {
       wx.showModal({
-        title: "提示",
-        content: "确定要切换语言吗？",
+        title: self.data.langTranslate["提示"],
+        content: self.data.langTranslate["确定要切换语言吗"],
+        confirmText: self.data.langTranslate["确定"],
+        cancelText: self.data.langTranslate["取消"],
         success(res) {
           if (res.confirm) {
             var lang = self.data.lang

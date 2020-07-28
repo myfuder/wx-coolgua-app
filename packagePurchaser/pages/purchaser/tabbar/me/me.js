@@ -157,7 +157,9 @@ Page({
     //退出观众 进入展商
     wx.showModal({
       title: self.data.langTranslate['登陆状态将会注销'],
-      content: self.data.langTranslate['确定切换身份吗?'],
+      content: self.data.langTranslate['确定切换身份吗'],
+      confirmText: self.data.langTranslate["确定"],
+      cancelText: self.data.langTranslate["取消"],
       success: function (sm) {
         if (sm.confirm) {
           self.triggerUnline()

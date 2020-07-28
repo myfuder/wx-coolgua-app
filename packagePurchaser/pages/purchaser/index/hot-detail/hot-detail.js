@@ -286,6 +286,13 @@ Page({
       url: `/packagePurchaser/pages/purchaser/exhibits/detail/detail?id=${e.currentTarget.dataset.id}`,
     })
   },
+  refreshLive(e){
+    let { dataset } = e.currentTarget;
+    this.setData({
+      loadLoginPop: false
+    })
+    this.onLoad(dataset)
+  },
   onLoad: function (e) {
     const id = e.id    
     const type = e.type

@@ -329,7 +329,8 @@ const languageMap = {
   "提示":"prompt",
   "确定要切换语言吗":"Are you sure you want to switch language",
   "登陆状态将会注销":"Logged in will be logged out",
-  "确定切换身份吗":"Are you sure to switch status"
+  "确定切换身份吗":"Are you sure to switch status",
+  "其他人也在看": "Others are watching"
 }
 module.exports = {
   languageMap: languageMap

@@ -161,13 +161,13 @@
   <view class="wx-popup" wx:if="{{loadLoginPop&&live_type=='exhibitor'&&type != -1}}">
     <view class='popup-container'>
       <view class="popup-account" style="padding:30rpx;width:520rpx;height: 630rpx;overflow:auto">
-        <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">x</i>
+        <i bindtap="closepop" style="colior:#A3ADB9;position:absolute;right:20rpx;top:0rpx">×</i>
         <view style="text-align:center;font-size:32rpx;font-weight:bold;padding-bottom:32rpx">{{langTranslate['其他人也在看']}}</view>
          <!-- <video-live-page style="float:{{index%2!=0?'right':''}}" wx:for="{{daka.data}}" wx:key="{{index}}" data-live_type="zhuban" data-id="{{item.id}}" data-type="{{item.type}}"  page_img="{{item.coverImage}}" live_name="{{item.title}}"bindtap="goDetailPage" live_number="{{item.number}}"></video-live-page> -->
         <view wx:for="{{exhibitshot||[]}}" style="width:250rpx;display:inline-block;float:{{index%2==0?'':'right'}};">
-          <video-live-page is_live="{{item.status==0}}" width="250rpx;" height="250rpx" page_img="{{item.coverImage}}" play_custom="{{item.type==1?'直播回放':''}}" live_name="{{item.theme}}"live_number="{{item.number}}"></video-live-page>
+          <video-live-page is_live="{{item.status==0}}" width="250rpx;" height="250rpx" page_img="{{item.coverImage}}" play_custom="{{item.status==1?'已暂停':item.status==2?'已结束':''}}" live_name="{{item.theme}}"live_number="{{item.number}}" data-id="{{item.id}}" data-type="{{item.type}}" data-live_type="zhuban" bindtap="refreshLive"></video-live-page>
           <view style="text-align:center;font-size:28rpx;color:#666666">{{item.company}}</view>
-        </view>
+        </view> 
       </view>
     </view>
   </view>
