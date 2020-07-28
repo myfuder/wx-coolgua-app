@@ -93,7 +93,6 @@ Component({
           supplierId: that.properties.userid
         },
         success(res){
-          console.log(res)
           if(res.data.code==0){
             that.setData({
               contactList:res.data.result.list,
@@ -131,16 +130,20 @@ Component({
         })
         return false
       }
-      that.gtesSuppliercontact()
+      if(that.properties.type == 3){
+        that.tomessage()
+      }else{
+        that.gtesSuppliercontact()
+      }
       // that.setData({
       //   popWindow:false
       // })
     },
     tomessage(event){
       let data = {
-        conversationID: 'C2C' + event.currentTarget.dataset.id,
+        conversationID: 'C2C' + (event?event.currentTarget.dataset.id:this.properties.userId),
         type: 'C2C',
-        toId: event.currentTarget.dataset.id,
+        toId: event?event.currentTarget.dataset.id:this.properties.userId,
         toName: this.properties.item.company,
         nick: this.properties.item.company
       }

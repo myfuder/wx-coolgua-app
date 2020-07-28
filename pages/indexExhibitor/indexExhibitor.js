@@ -202,6 +202,7 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.log(res,"yyyyyyyyyyyyyyyyyyyyy");
         if(res.data.code==0){
           _self.setData({
             buyersList: res.data.result.data

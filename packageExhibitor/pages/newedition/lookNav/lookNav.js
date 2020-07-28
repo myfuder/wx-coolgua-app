@@ -36,6 +36,9 @@ Page({
         });
       },
     });
+    wx.setNavigationBarTitle({
+        title: getString('exhibitors_index', 'app.nav.looknav'),
+    })
 
   },
 
