@@ -77,6 +77,10 @@ Page({
   },
   onShow:function(){
     this.initData();
+    this.setData({
+      langTranslate: i18n.langTranslate(),
+      isEn: i18n.isEn(),
+    })
 
   },
   // methods: {

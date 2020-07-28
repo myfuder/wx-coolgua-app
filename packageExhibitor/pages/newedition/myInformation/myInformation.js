@@ -707,6 +707,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    langTranslate = i18n.langTranslate();
+    this.setData({
+      langTranslate: i18n.langTranslate(),
+      isEn: i18n.isEn(),
+    })
 
   },
 

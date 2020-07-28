@@ -38,28 +38,7 @@ Page({
     ppqy:[],
     tbmx:[],
     buyersList:[],
-    menus:[
-      {
-        name:langTranslate["现场直播"],
-        image:home_bar_live,
-        toPage: '/packagePurchaser/pages/purchaser/index/hot-video/hot-video',
-      },
-      {
-        name: langTranslate["采购对接"],
-        image: home_bar_caigou,
-        toPage: '/packagePurchaser/pages/purchaser/me/publish-demand/publish-demand',
-      },
-      {
-        name: langTranslate["参观指引"],
-        image: home_bar_looknav,
-        toPage: '/packageExhibitor/pages/newedition/lookNav/lookNav',
-      },
-      {
-        name: langTranslate["深圳展"],
-        image: home_bar_shenzhen,
-        toPage: '',
-      }
-    ],
+    menus:[],
   },
   toPage(e){
     wx.navigateTo({
@@ -113,7 +92,29 @@ Page({
       lang: wx.getStorageSync("lang"),
       langTranslate: i18n.langTranslate(),
       isEn: i18n.isEn(),
-      scene: options.scene
+      scene: options.scene,
+      menus: [
+        {
+          name: i18n.langTranslate()["现场直播"],
+          image: home_bar_live,
+          toPage: '/packagePurchaser/pages/purchaser/index/hot-video/classification-video/index',
+        },
+        {
+          name: i18n.langTranslate()["采购对接"],
+          image: home_bar_caigou,
+          toPage: '/packagePurchaser/pages/purchaser/me/publish-demand/publish-demand',
+        },
+        {
+          name: i18n.langTranslate()["参观指引"],
+          image: home_bar_looknav,
+          toPage: '/packageExhibitor/pages/newedition/lookNav/lookNav',
+        },
+        {
+          name: i18n.langTranslate()["深圳展"],
+          image: home_bar_shenzhen,
+          toPage: '',
+        }
+      ]
     })
     // wx.setNavigationBarTitle({
     //   title: storage.getActivityDetail().name,
@@ -259,6 +260,7 @@ Page({
             wx.reLaunch({
               url: `/${getCurrentPage1().route}`
             })
+            langTranslate = i18n.langTranslate();
           }
         }
       })
@@ -307,6 +309,11 @@ Page({
     wx.setNavigationBarTitle({
       title: storage.getActivityDetail().name,
     });
+    langTranslate = i18n.langTranslate();
+    this.setData({
+      langTranslate: i18n.langTranslate(),
+      isEn: i18n.isEn(),
+    })
   },
 
   /**

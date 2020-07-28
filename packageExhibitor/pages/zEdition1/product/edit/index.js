@@ -1000,9 +1000,11 @@ Page({
     object.supplier_id = this.data.info.supplier_id
     object.name_en = this.data.nameEn
     object.name = this.data.name
+    object.status=0;
     // object.company=this.data.info.company
     // object.companyEn=this.data.info.companyEn
     object.id = this.data.info.id
+    object.hasOwnProperty('RHQL_') ? delete object.RHQL_ :'';
     wx.request({
       url: url,
       method: 'POST',
@@ -1021,7 +1023,7 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log(res)
+        console.log(res,"tttttttttttttttttttt")
         if (res.data.code == '0') {
           if (that.id != '') {
             var tip = ''

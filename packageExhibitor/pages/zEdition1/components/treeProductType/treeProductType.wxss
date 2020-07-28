@@ -53,7 +53,7 @@
     box-sizing: border-box;
     color: #fff;
     padding: 10rpx 20rpx;
-    background:rgba(234,250,245,1);
+    background:rgba(255,241,241,1);
     border:1px solid #FF0000;
     border-radius:30px;
     color: #FF0000;
