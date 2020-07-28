@@ -4,7 +4,7 @@
         catchtap="showPopupTap"
         style="color: #fff;width:210rpx;height:70rpx;background:#FF0000;border-radius:35rpx;">
       <!-- {{langTranslate['离线留言']}} -->
-      {{langTranslate['预约']}}
+      {{defaultText}}
     </view>
 
     <view class="wx-popup" hidden="{{dialogHide}}">

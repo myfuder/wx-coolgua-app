@@ -21,6 +21,9 @@
     overflow: auto;
     background: #fff;
 }
+.popup-account{
+    color:rgba(51,51,51,1);
+}
 .form-area .form-item {
     margin-top: 28rpx;
 }

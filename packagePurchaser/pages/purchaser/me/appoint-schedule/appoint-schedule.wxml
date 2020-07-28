@@ -23,7 +23,8 @@
                   class="{{currentStatus === item.value ? 'status-item active' : 'status-item'}}"
                   bindtap="changeStatusTap" data-type="{{item.value}}">
               <text>{{item.label}}</text>
-              <text class="strong">({{item.count}})</text>
+              <text>({{item.count<100||item.count==0?item.count:'99+'}})</text>
+              <!-- <text class="strong">({{item.count}})</text> -->
             </view>
           </view>
           <view class="meeting-list">
@@ -94,15 +95,18 @@
               </view>
               <!-- 被拒绝 -->
               <view wx:if="{{currentIndex === 5}}" class="opt-area">
-                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                <!-- <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
                   <text>{{langTranslate['再次发起预约']}}</text>
-                </view>
+                 </view> -->
+                <inviteButton bindonFinishEvent="onFinishEvent" userid="{{item.supplierId}}" defaultText="{{langTranslate['再次发起预约']}}"></inviteButton>  
               </view>
               <!-- 已取消 -->
               <view wx:if="{{currentIndex === 6}}" class="opt-area">
-                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                <!-- <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                
                   <text>{{langTranslate['再次发起预约']}}</text>
-                </view>
+                </view> -->
+                <inviteButton bindonFinishEvent="onFinishEvent" userid="{{item.supplierId}}" defaultText="{{langTranslate['再次发起预约']}}"></inviteButton>  
               </view>
             </view>
             <view wx:if="{{!loadingData&&exhibits&&exhibits.length==0}}"
@@ -121,7 +125,8 @@
                   class="{{currentReceiveStatus === item.value ? 'status-item active' : 'status-item'}}"
                   bindtap="changeReceiveStatusTap" data-type="{{item.value}}">
               <text>{{item.label}}</text>
-              <text class="strong">({{item.count}})</text>
+              <!-- <text class="strong">({{item.count}})</text> -->
+              <text >({{item.count<100||item.count==0?item.count:'99+'}})</text>
             </view>
           </view>
 
@@ -186,15 +191,15 @@
               </view>
               <!-- 被拒绝 -->
               <view wx:if="{{currentReceiveStatus === 5}}" class="opt-area">
-                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
-                  <text>{{langTranslate['再次发起预约']}}</text>
-                </view>
+                <inviteButton bindonFinishEvent="onFinishEvent" userid="{{item.supplierId}}" defaultText="{{langTranslate['再次发起预约']}}"></inviteButton>
               </view>
               <!-- 已取消 -->
               <view wx:if="{{currentReceiveStatus === 6}}" class="opt-area">
-                <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                <!-- <view class="opt-button" bindtap="yuyue1" data-item="{{item}}">
+                <inviteButton dialogHide="{{dialogHide}}"></inviteButton>  
                   <text>{{langTranslate['再次发起预约']}}</text>
-                </view>
+                </view> -->
+                <inviteButton bindonFinishEvent="onFinishEvent" userid="{{item.supplierId}}" defaultText="{{langTranslate['再次发起预约']}}"></inviteButton>
               </view>
             </view>
             <view wx:if="{{!loadingData1&&scheduleList&&scheduleList.length==0}}"
@@ -290,6 +295,5 @@
         </view>
       </block>
     </view>
-
   </view>
 </view>

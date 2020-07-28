@@ -474,6 +474,7 @@ getScheduleStat: function () {
         wx.showToast({
           title: '取消成功',
         })
+        _self.getScheduleStat()
         setTimeout(() => {
           _self.getSendTap()
         }, 1000)
@@ -503,21 +504,22 @@ getScheduleStat: function () {
   // },
   
   //再次发起邀约
-  yuyue1: function (e) {
-    this.setData({
-      dialogHide: true,
-      Rreadd: e.currentTarget.dataset.item,
-      topTheme: e.currentTarget.dataset.item.top,
-      remark: e.currentTarget.dataset.item.remark,
-      date: '',
-      dayText: '',
-      startTime: '',
-      endTime: '',
-      inviteSupplierId: e.currentTarget.dataset.item.supplierId,
-      // remark: '',
-      // topTheme: e.currentTarget.dataset.item.top,
-    })
-  },
+  // yuyue1: function (e) {
+  //   console.log(e)
+  //   this.setData({
+  //     dialogHide: true,
+  //     Rreadd: e.currentTarget.dataset.item,
+  //     topTheme: e.currentTarget.dataset.item.top,
+  //     remark: e.currentTarget.dataset.item.remark,
+  //     date: '',
+  //     dayText: '',
+  //     startTime: '',
+  //     endTime: '',
+  //     inviteSupplierId: e.currentTarget.dataset.item.supplierId,
+  //     // remark: '',
+  //     // topTheme: e.currentTarget.dataset.item.top,
+  //   })
+  // },
   validateInput() {
     if (!this.data.topTheme) {
       this.toast("请填写主题")
@@ -539,6 +541,10 @@ getScheduleStat: function () {
       title: str,
       icon: 'none'
     })
+  },
+  onFinishEvent(){
+    console.log(123132313131312)
+    this.getScheduleStat();
   },
   sureClick: function () {
     if (!this.validateInput()) {
@@ -617,6 +623,7 @@ getScheduleStat: function () {
         wx.showToast({
           title: '操作成功',
         })
+        _self.getScheduleStat()
         setTimeout(() => {
           _self.getReceiveTap()
         }, 1000)
@@ -634,6 +641,7 @@ getScheduleStat: function () {
         wx.showToast({
           title: '操作成功',
         })
+        _self.getScheduleStat()
         setTimeout(() => {
           _self.getReceiveTap()
         }, 1000)

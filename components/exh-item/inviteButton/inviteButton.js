@@ -22,6 +22,10 @@ Component({
     },
     userid: {
       type: [Number, String]
+    },
+    defaultText:{
+      type: String,
+      value:"预约"
     }
   },
   data: {
@@ -87,7 +91,6 @@ Component({
           supplierId: that.properties.userid
         },
         success(res) {
-          console.log(res)
           that.setData({
             contactList: res.data.result.list,
             popWindow: false
@@ -468,6 +471,7 @@ Component({
             remark: '',
             topTheme: ''
           })
+          _self.triggerEvent('onFinishEvent', null)
         }
       })
     },

@@ -20,7 +20,8 @@
         <view bindtap="switchTabClick_two" data-idx="{{idx}}" wx:for-index="idx"
               class="yaoyue_two_item {{current_menus == item.unreadNum?'focus_style_two':''}}"
               wx:for="{{menus}}" wx:key="*this">
-          <view class="fontsize">{{item.title}}</view>
+          <text class="fontsize">{{item.title}}</text>
+          <text class="fontsize">({{item.count<100||item.count==0?item.count:'99+'}})</text>
         </view>
       </view>
 
@@ -57,7 +58,8 @@
         <!-- 发起预约里的待确认 -->
         <view class="yaoyue_three6" wx:if="{{current_menus == '1'}}">
           <view class="yaoyue_three6_left" bindtap="quxiao" data-item="{{item.id}}">{{Quxiao}}</view>
-          <view class="yaoyue_three6_right" bindtap="tixing" data-item="{{item.id}}">{{Tixing}}</view>
+          <!-- <view class="yaoyue_three6_right" bindtap="tixing" data-item="{{item.id}}">{{Tixing}}</view> -->
+          <countDown style="float:right"  idx="{{item.id}}" countDown="{{item.countDown}}"></countDown>
         </view>
 
 
@@ -88,7 +90,8 @@
         <view bindtap="switchTabClick_three" data-idx="{{item.unreadNum}}" wx:for-index="item.unreadNum"
               class="yaoyue_two_item {{current_menus1 == item.unreadNum?'focus_style_two':''}}"
               wx:for="{{menus1}}" wx:key="*this">
-          <view class="fontsize">{{item.title}}</view>
+          <text class="fontsize">{{item.title}}</text>
+          <text class="fontsize ">({{item.count<100||item.count==0?item.count:'99+'}})</text>
         </view>
       </view>
 

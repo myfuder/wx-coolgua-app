@@ -2,6 +2,8 @@
 import {getString} from "../../../../../locals/lang.js";
 import {ajax, dateStr4ios} from "../../../../../utils/util";
 import {API_URL} from "../../../../../utils/constant";
+let storage = require("../../../../../utils/storage.js");
+let constant = require("../../../../../utils/constant");
 
 const app = getApp()
 Page({
@@ -77,6 +79,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getScheduleStat();
     if (options.richeng) {
       this.setData({
         currentTabIndex: 1
@@ -97,38 +100,6 @@ Page({
       switchTabStr: [
         getString('exhibitors_index', 'app.mine.menu1'),
         getString('exhibitors_index', 'app.mine.menu2')
-      ],
-      // 我发起的邀约
-      menus: [
-        {
-          title: getString('exhibitors_index', 'app.home.zedition1'),
-          unreadNum: 0
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition2'),
-          unreadNum: 1
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition3'),
-          unreadNum: 2
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition4'),
-          unreadNum: 3
-        },
-      ],
-      // 我收到的预约
-      menus1: [
-        {
-          title: getString('exhibitors_index', 'app.home.zedition1'),
-          unreadNum: 0
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition2'),
-          unreadNum: 1
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition19'),
-          unreadNum: 2
-        }, {
-          title: getString('exhibitors_index', 'app.home.zedition4'),
-          unreadNum: 3
-        },
       ],
       Invitation_fa: getString('exhibitors_index', 'app.home.zedition5'),//我发起的预约
       Invitation_shou: getString('exhibitors_index', 'app.home.zedition6'),//我收到的预约
@@ -171,6 +142,119 @@ Page({
     console.log(language)
     this.setData({
       language: language
+    })
+  },
+
+  // 邀约统计
+  getScheduleStat: function () {
+    var that = this;
+    var user = storage.getUserInfo();
+    var userType = storage.getRoleType();
+    if (userType == constant.ROLE_TYPE.EXHIBITOR) {
+      var url = app.globalData.host + '/api3/schedule/getScheduleStat/' + user.id;
+    } else {
+      var url = app.globalData.host + '/api3/schedule/getPurchaserScheduleStat/' + user.id;
+    }
+    wx.request({
+      url: url,
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        // console.log(res.data)
+        if (res.data.code == '0') {
+          // console.log(res.data.result)
+          let menus;
+          let menus1;
+          if (userType == constant.ROLE_TYPE.EXHIBITOR) {
+            menus = [
+              {
+                title: getString('exhibitors_index', 'app.home.zedition1'),
+                unreadNum: 0,
+                count:res.data.result.invite[0].confirmed ? res.data.result.invite[0].confirmed : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition2'),
+                unreadNum: 1,
+                count:res.data.result.invite[0].tobeconfirmed ? res.data.result.invite[0].tobeconfirmed : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition3'),
+                unreadNum: 2,
+                count:res.data.result.invite[0].refuse ? res.data.result.invite[0].refuse : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition4'),
+                unreadNum: 3,
+                count:res.data.result.invite[0].cancel ? res.data.result.invite[0].cancel : '0',
+              },
+            ],
+              menus1 = [
+                {
+                  title: getString('exhibitors_index', 'app.home.zedition1'),
+                  unreadNum: 0,
+                  count:res.data.result.invite[1].confirmed ? res.data.result.invite[1].confirmed : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition2'),
+                  unreadNum: 1,
+                  count:res.data.result.invite[1].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition19'),
+                  unreadNum: 2,
+                  count:res.data.result.invite[1].refuse ? res.data.result.invite[1].refuse : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition4'),
+                  unreadNum: 3,
+                  count:res.data.result.invite[1].cancel ? res.data.result.invite[1].cancel : '0',
+                }]
+          } else {
+            menus = [
+              {
+                title: getString('exhibitors_index', 'app.home.zedition1'),
+                unreadNum: 0,
+                count:res.data.result.invite[1].confirmed ? res.data.result.invite[1].confirmed : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition2'),
+                unreadNum: 1,
+                count:res.data.result.invite[1].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition3'),
+                unreadNum: 2,
+                count:res.data.result.invite[1].refuse ? res.data.result.invite[1].refuse : '0',
+              }, {
+                title: getString('exhibitors_index', 'app.home.zedition4'),
+                unreadNum: 3,
+                count:res.data.result.invite[1].cancel ? res.data.result.invite[1].cancel : '0',
+              },
+            ],
+              menus1 = [
+                {
+                  title: getString('exhibitors_index', 'app.home.zedition1'),
+                  unreadNum: 0,
+                  count:res.data.result.invite[0].confirmed ? res.data.result.invite[1].confirmed : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition2'),
+                  unreadNum: 1,
+                  count:res.data.result.invite[0].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition19'),
+                  unreadNum: 2,
+                  count:res.data.result.invite[0].refuse ? res.data.result.invite[1].refuse : '0',
+                }, {
+                  title: getString('exhibitors_index', 'app.home.zedition4'),
+                  unreadNum: 3,
+                  count:res.data.result.invite[0].cancel ? res.data.result.invite[1].cancel : '0',
+                }]
+          }
+          that.setData({
+            menus: menus,
+            menus1: menus1
+          })
+        } else {
+          console.log(res.data.message)
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+      }
     })
   },
   /**
@@ -769,7 +853,8 @@ Page({
           this.setData({
             shoudao_list: [],
           })
-          this.loading(2)
+          this.loading(2);
+          this.getScheduleStat();
         }
       }
     })

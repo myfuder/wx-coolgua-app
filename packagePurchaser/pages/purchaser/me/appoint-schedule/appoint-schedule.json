@@ -2,6 +2,7 @@
   "usingComponents": {
     "coutTimeButton": "../../../../../components/coutTimeButton/coutTimeButton",
     "huiyi-item": "/components/huiyi-item/huiyi-item",
-    "countDown":"./countDown/index"
+    "countDown":"./countDown/index",
+    "inviteButton":"/components/exh-item/inviteButton/inviteButton"
   }
 }
