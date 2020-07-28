@@ -253,9 +253,11 @@ Page({
       return val.replace(/\D/g, '')
     }else if(type == 'En'){
       return val.replace(/[^a-zA-Z]/g, '')
-    }else if(type=='email'){
-      return val.replace(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/g, '')
-    }else{
+    }
+    // else if(type=='email'){
+    //   return val.replace(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+([a-zA-Z0-9_-])+/g, '')
+    // }
+    else{
       return val
     }
   },
