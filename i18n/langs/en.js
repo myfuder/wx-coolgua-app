@@ -352,7 +352,11 @@ const languageMap = {
   "请输入展商确认码/展商手册用户名": "Please enter Exhibitor Confirmation Code/Exhibitor Manual Username",
   "请输入展商名称": "Please enter the exhibitor name",
   "确定要切换吗": "Are you sure you want to switch",
-  "展商联系人注册": "Exhibitor Contact Registration"
+  "展商联系人注册": "Exhibitor Contact Registration",
+  "采购对接": "Procurement docking",
+  "闻信上海展现场直播平台": "Wenxin Shanghai Exhibition Live Broadcast Platform",
+  "观众": "Audience",
+  "商机": "Business"
 }
 module.exports = {
   languageMap: languageMap
