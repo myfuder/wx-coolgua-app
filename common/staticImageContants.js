@@ -54,7 +54,7 @@ export const myself_xx=base_url+"/home/tab4.png?x-oss-process=image/resize,m_lfi
 export const myself_hd=base_url+"/home/tab5.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_sc_dz=base_url+"/home/tab6.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 export const myself_kfdh=base_url+"/home/tab7.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
-export const myself_right=base_url+"/home/left.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
+export const myself_right=base_url+"bbb65.png?x-oss-process=image/resize,m_lfit,h_24,w_24"
 
 export const default_product_image=base_url+"/VFw7RdjM2PpD.png"
 

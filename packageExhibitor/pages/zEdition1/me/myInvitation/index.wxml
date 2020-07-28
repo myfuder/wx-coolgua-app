@@ -2,11 +2,13 @@
 <view class="content_one">
 
   <!-- 切换的tabber -->
-   <view class="switch-tab">
+   <view class="switch-tab flex-c">
+    <view style="width: 200px;border: 1px solid rgba(255,46,48,1);border-radius: 6rpx;">
       <view class="{{language!='en' ? 'switch-tab_zh':'switch-tab_en'}}" wx:for="{{switchTabStr}}" wx:key="*this"
             data-idx="{{idx}}" wx:for-index="idx" bindtap="switchTabClick">
         <text class="switch-tab-item {{currentTabIndex == idx?'focus_style':''}}">{{item}}</text>
       </view>
+    </view>
     </view>
 
   <!-- 我的预约 -->
