@@ -55,7 +55,7 @@
         <span data-type="zhanshang" bindtap="intentMore" style="font-size:24rpx;color:#333333;float:right">{{langTranslate['更多']}}>></span>
       </p>
       <view class="video-live-group">
-        <video-live-page wx:for="{{live_list['zhanshang'].data}}" is_live="{{item.status==0}}" data-live_type="exhibition" data-id="{{item.id}}" data-type="zhanshang"  page_img="{{item.coverImage}}" live_name="{{item.name}}"live_number="{{item.number}}"bindtap="goDetailPage"style="float:{{index%2!=0?'right':''}}"></video-live-page>
+        <video-live-page wx:for="{{live_list['zhanshang'].data}}" is_live="{{item.status==0}}" data-live_type="exhibitor" data-id="{{item.id}}" data-type="zhanshang"  page_img="{{item.coverImage}}" live_name="{{item.name}}"live_number="{{item.number}}"bindtap="goDetailPage"style="float:{{index%2!=0?'right':''}}"></video-live-page>
       </view>
     </view>
 
