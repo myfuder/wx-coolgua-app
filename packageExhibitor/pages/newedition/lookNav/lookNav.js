@@ -2,6 +2,7 @@
 let i18n = require("../../../../i18n/i18n");
 let storage = require("../../../../utils/storage.js");
 let api = require("../../../../utils/api");
+import {getString} from "../../../../locals/lang.js";
 Page({
 
   /**
@@ -28,7 +29,7 @@ Page({
         res && res.data &&
         res.data.result &&
         res.data.result.data.map((item, index) => {
-          if (item.link === "cgzn") {
+          if (item.link === "cgzy") {
             _self.setData({
               stadiumNavigation: item,
             });
