@@ -45,7 +45,7 @@ Component({
   data: {
     pusher: null,
     debugPanel: true, // 是否打开组件调试面板
-    debug: false, // 是否打开player pusher 的调试信息
+    debug: true, // 是否打开player pusher 的调试信息
     streamList: [], // 用于渲染player列表,存储stram
     visibleStreamList: [], // 有音频或者视频的StreamList
     userList: [], // 扁平化的数据用来返回给用户

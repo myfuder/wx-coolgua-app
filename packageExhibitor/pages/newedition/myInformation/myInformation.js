@@ -65,7 +65,7 @@ Page({
   onLoad: function (options) {
     this.initData();
     wx.setNavigationBarTitle({
-        title: getString('exhibitors_index', 'app.nav.myinformation'),
+        title: getString('exhibitors_index', 'app.home.menus1'),
     })
     let _self = this;
     // (0, api.getPurchaserDetail)({

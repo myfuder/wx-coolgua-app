@@ -25,6 +25,7 @@
   /* flex: 1; */
   padding: 16rpx;  
   border-left: none;
+  min-height: 16rpx;
 
   
 white-space:nowrap; 
@@ -38,9 +39,9 @@ white-space:nowrap;
   border-top: none;
   padding: 16rpx;
   font-weight: bold;
-
-display: inline-block;   
+  display: inline-block;   
   white-space:nowrap; 
+  min-height: 16rpx;
 }
 .thead{
 /* background-color: #f8f8f9; */

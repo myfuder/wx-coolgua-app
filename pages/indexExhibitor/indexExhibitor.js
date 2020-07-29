@@ -20,7 +20,7 @@ Page({
     demand_fire,home_globalshow,
     langTranslate: i18n.langTranslate(),
     isEn: i18n.isEn(),
-    headers: [{ text: 'one', display: i18n.langTranslate()['采购需求'], width: 500, text_align: "left" }, { text: 'two', display: i18n.langTranslate()['采购商'], width: 186}],
+    headers: [],
     demandList:[
     ],
     live_list:{
@@ -93,6 +93,7 @@ Page({
       langTranslate: i18n.langTranslate(),
       isEn: i18n.isEn(),
       scene: options.scene,
+      headers:[{ text: 'one', display: i18n.langTranslate()['采购需求'], width: 500, text_align: "left" }, { text: 'two', display: i18n.langTranslate()['采购商'], width: 186}],
       menus: [
         {
           name: i18n.langTranslate()["现场直播"],
