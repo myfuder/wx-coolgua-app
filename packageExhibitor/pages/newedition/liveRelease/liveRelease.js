@@ -2,6 +2,7 @@
 var dateTimePicker = require('../../../../utils/datetimepicker.js');
 const app = getApp()
 let i18n = require("../../../../i18n/i18n");
+import {getString} from "../../../../locals/lang.js";
 let langTranslate = i18n.langTranslate();
 Page({
 
@@ -50,6 +51,9 @@ Page({
       dateTimeArray2: obj2.dateTimeArray,
       dateTime2: obj2.dateTime
     });
+    wx.setNavigationBarTitle({
+        title: getString('exhibitors_index', 'app.nav.liveRelease'),
+    })
   },
   changeDateTime1(e){
     this.setData({ dateTime1: e.detail.value });

@@ -24,7 +24,7 @@
       </view>
     </view>
 
-    <view class="con-main-video-live" style="width:330rpx;display: inline-block;" >
+    <view class="con-main-video-live" style="display: inline-block;" >
       <p class="live-tab">{{langTranslate['大会直播']}}</p>
       <p class="live-tab">
         <span class="title-line-long"></span>

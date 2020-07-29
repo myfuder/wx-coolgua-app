@@ -96,4 +96,5 @@ export default {
   'app.nav.home':'闻信上海展现场直播平台',
   'app.nav.myinformation':'义乌五金展在线平台',
   'app.nav.looknav':'参观指引',
+  'app.nav.liveRelease':'发起直播',
 };

@@ -376,7 +376,7 @@ App({
         {
           "pagePath": "/packageExhibitor/pages/newedition/buyersList/buyersList",
           "textCn": "采购商",
-          "textEn": "caigoushang",
+          "textEn": "BUYERS",
           "iconPath": tab_image_buyers_default,
           "selectedIconPath": tab_image_buyers_active,
           "selectedColor": "#FF0000",
@@ -386,7 +386,7 @@ App({
         {
           "pagePath": "/packageExhibitor/pages/newedition/demand/demand",
           "textCn": "采购需求",
-          "textEn": "caigouxuqiu",
+          "textEn": "DEMAND",
           "iconPath": tab_image_demand_default,
           "selectedIconPath": tab_image_demand_active,
           "selectedColor": "#FF0000",
@@ -396,7 +396,7 @@ App({
         {
           "pagePath": "/packageExhibitor/pages/zEdition1/me/index",
           "textCn": "个人中心",
-          "textEn": "Mine",
+          "textEn": "My Accounts",
           "iconPath": tab_image_myself_default,
           "selectedIconPath": tab_image_myself_active,
           "selectedColor": "#FF0000",

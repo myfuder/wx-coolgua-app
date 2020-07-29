@@ -91,7 +91,8 @@ export default {
   'app.nav.mine':'My Accounts',
   'app.nav.home':'闻信上海展现场直播平台',
   'app.nav.myinformation':'小瓜云展',
-  'app.nav.looknav':'参观指引',
+  'app.nav.looknav':'Visitor Guide',
+  'app.nav.liveRelease':'New stream',
 
   "展馆号":"hallNumber",
   "展位号":"boothNumber",
