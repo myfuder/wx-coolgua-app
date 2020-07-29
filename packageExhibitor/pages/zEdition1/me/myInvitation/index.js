@@ -2,6 +2,7 @@
 import {getString} from "../../../../../locals/lang.js";
 import {ajax, dateStr4ios} from "../../../../../utils/util";
 import {API_URL} from "../../../../../utils/constant";
+import {yaoyue_go,yaoyue_from} from "../../../../../common/staticImageContants";
 let storage = require("../../../../../utils/storage.js");
 let constant = require("../../../../../utils/constant");
 
@@ -16,6 +17,8 @@ Page({
     currentTabIndex: 0,
     current_menus: 0,
     current_menus1: 0,
+    yaoyue_go:yaoyue_go,
+    yaoyue_from:yaoyue_from,
 
 
     year: 0,

@@ -22,10 +22,10 @@
 			</view>
 			<!-- 英文 -->
 			<view class="items_btns"  wx:if="{{language == 'en'}}">
-				<!-- 我的预约 -->
-				<view class="btnL_en" bindtap="appoint" data-id="{{item.id}}">{{activity.btnL}}</view>
 				<!-- 立即预约 -->
 				<view class="btnR_en" bindtap="goin" data-id="{{item}}">{{activity.btnR}}</view>
+					<!-- 我的预约 -->
+				<view class="btnL_en" bindtap="appoint" data-id="{{item.id}}">{{activity.btnL}}</view>
 			</view>
 			<view class="fg_line"></view>
 		</view>

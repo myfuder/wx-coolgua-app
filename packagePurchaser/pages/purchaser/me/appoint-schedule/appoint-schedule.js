@@ -23,6 +23,9 @@ Page({
     statusList: [],
     currentStatus: 0,
     weekNameArr: ['日', '一', '二', '三', '四', '五', '六'],
+    month_en_list: [
+      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ],
     lists: [],
     dayCount: 31,
     startDate: null,
@@ -31,6 +34,7 @@ Page({
     receiveStatusList: [],
     currentReceiveStatus: 0,
     todayDate: '',
+    todayDates: '',
     // 日程
     myDateScheduleList: [],
     // 参数部分
@@ -123,7 +127,7 @@ getScheduleStat: function () {
             count:res.data.result.invite[0].confirmed ? res.data.result.invite[0].confirmed : '0',
 
           }, {
-            label: isEn ? 'Items to be confirmed' : '待确认',
+            label: isEn ? 'TBC' : '待确认',
             value: 2,
             count:res.data.result.invite[0].tobeconfirmed ? res.data.result.invite[0].tobeconfirmed : '0',
           }, {
@@ -140,7 +144,7 @@ getScheduleStat: function () {
               value: 0,
               count:res.data.result.invite[1].confirmed ? res.data.result.invite[1].confirmed : '0',
             }, {
-              label: isEn ? 'Items to be confirmed' : '待确认',
+              label: isEn ? 'TBC' : '待确认',
               value: 2,
               count:res.data.result.invite[1].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
             }, {
@@ -159,7 +163,7 @@ getScheduleStat: function () {
             count:res.data.result.invite[1].confirmed ? res.data.result.invite[1].confirmed : '0',
 
           }, {
-            label: isEn ? 'Items to be confirmed' : '待确认',
+            label: isEn ? 'TBC' : '待确认',
             value: 2,
             count:res.data.result.invite[1].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
           }, {
@@ -176,7 +180,7 @@ getScheduleStat: function () {
               value: 0,
               count:res.data.result.invite[0].confirmed ? res.data.result.invite[1].confirmed : '0',
             }, {
-              label: isEn ? 'Items to be confirmed' : '待确认',
+              label: isEn ? 'TBC' : '待确认',
               value: 2,
               count:res.data.result.invite[0].tobeconfirmed ? res.data.result.invite[1].tobeconfirmed : '0',
             }, {
@@ -261,20 +265,24 @@ getScheduleStat: function () {
   // 下个月
   nextDateTap: function () {
     const nextDate = this.getNextMonth(this.data.yearMonthParam.split('-')[0], this.data.yearMonthParam.split('-')[1]);
+    let isEn = _self.data.isEn;
+    let date = isEn?this.data.month_en_list[nextDate.month-1]+'\t\t\t'+nextDate.year:nextDate.year + '年' + nextDate.month + '月';
     this.setData({
       yearMonthParam: nextDate.year + '-' + util.formatDateStr(nextDate.month),
       dateParam: nextDate.year + '-' + util.formatDateStr(nextDate.month) + '-01',
-      date: nextDate.year + '年' + nextDate.month + '月',
+      date: date,
       lists: _self.getDays(nextDate.year, nextDate.month),
       firstDay: this.getFirstDayWeek(nextDate.year, nextDate.month)
     }, () => this.getMonthSchecdule());
   },
   lastDateTap: function () {
     const nextDate = this.getLastMonth(this.data.yearMonthParam.split('-')[0], this.data.yearMonthParam.split('-')[1]);
+    let isEn = _self.data.isEn;
+    let date = isEn?this.data.month_en_list[nextDate.month-1]+'\t\t\t'+nextDate.year:nextDate.year + '年' + nextDate.month + '月';
     this.setData({
       yearMonthParam: nextDate.year + '-' + util.formatDateStr(nextDate.month),
       dateParam: nextDate.year + '-' + util.formatDateStr(nextDate.month) + '-01',
-      date: nextDate.year + '年' + nextDate.month + '月',
+      date: date,
       lists: _self.getDays(nextDate.year, nextDate.month),
       firstDay: this.getFirstDayWeek(nextDate.year, nextDate.month)
     }, () => this.getMonthSchecdule());
@@ -332,6 +340,8 @@ getScheduleStat: function () {
     this.setData({
       dateParam: this.data.yearMonthParam + '-' + date,
       todayDate: this.data.yearMonthParam + '-' + date,
+      todayDates: this.data.yearMonthParam + '-' + date,
+      dayText:util.setDayText(new Date(date).getDay()),
       currentSelectDay: date
     })
     this.getPurchaserSchedule()
@@ -686,6 +696,7 @@ getScheduleStat: function () {
   },
   onLoad: function (options) {
     if (options.type !== undefined) {
+      this.onShow();
       this.setData({
         currentType: parseInt(options.type)
       })
@@ -695,7 +706,7 @@ getScheduleStat: function () {
       langTranslate: i18n.langTranslate(),
       isEn: i18n.isEn(),
       currentSelectDay: new Date().getDate()
-    },()=>  this.refreshDateTap())
+    },()=> {  console.log(this.data,'9999999999999');this.refreshDateTap()})
 
 
   },
@@ -713,31 +724,36 @@ getScheduleStat: function () {
     month < 10 ? month = '0' + month : '';
     date < 10 ? date = '0' + date : '';
     // 周几，第几天
+    let isEn = _self.data.isEn;
     let dayNum = this.getFirstDayWeek(year, parseInt(month)),
       dayText = ''
     if (dayNum === 0) {
-      dayText = '周日'
+      dayText = isEn?'Sunday':'周日'
     } else if (dayNum === 1) {
-      dayText = '周一'
+      dayText = isEn?'Monday':'周一'
     } else if (dayNum === 2) {
-      dayText = '周二'
+      dayText = isEn?'Tuesday':'周二'
     } else if (dayNum === 3) {
-      dayText = '周三'
+      dayText = isEn?'Wednesday':'周三'
     } else if (dayNum === 4) {
-      dayText = '周四'
+      dayText = isEn?'Thursday':'周四'
     } else if (dayNum === 5) {
-      dayText = '周五'
+      dayText = isEn?'Friday':'周五'
     } else if (dayNum === 6) {
-      dayText = '周六'
+      dayText = isEn?'Saturday':'周六'
     }
     _self.setData({
       startDate: currentDate,
       date: year + '年' + parseInt(month) + '月',
+      todayDates: isEn?this.data.month_en_list[parseInt(month)-1]+date :parseInt(month) + '月'+date+'日',
       yearMonthParam: year + '-' + month,
+      year:year,
+      month:month,
+      time:date,
       dateParam: year + '-' + month + '-' + date,
       firstDay: dayNum,
       dayText: dayText,
-      todayDate: `今天·${parseInt(month)}月${parseInt(date)}日·${dayText}`
+      // todayDate: `今天·${parseInt(month)}月${parseInt(date)}日·${dayText}`
     }, () => this.getMonthSchecdule())
     _self.initData()
   },

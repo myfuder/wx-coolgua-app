@@ -125,4 +125,6 @@ export const home_bar_caigou = base_url + "/bbb210.png?x-oss-process=image/resiz
 export const home_bar_looknav = base_url + "/bbb209.png?x-oss-process=image/resize,m_lfit,h_40,w_40"
 export const home_bar_shenzhen = base_url + "/bbb212.png?x-oss-process=image/resize,m_lfit,h_40,w_40"
 export const home_globalshow = base_url + "/bbb213.png?x-oss-process=image/resize,m_lfit,h_40,w_40"
+export const yaoyue_go = base_url + "/bbb218.png?x-oss-process=image/resize,m_lfit,h_40,w_40"
+export const yaoyue_from = base_url + "/bbb219.png?x-oss-process=image/resize,m_lfit,h_40,w_40"
 
